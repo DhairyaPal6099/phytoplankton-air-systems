@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.app-mergeDebugResources-43:/layout/activity_main.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.app-main-46:/layout/activity_main.xml"
+    },
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.app-mergeDebugResources-43:/layout/nav_header_main.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.app-main-46:/layout/nav_header_main.xml"
+    },
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.app-mergeDebugResources-43:/layout/app_bar_main.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.app-main-46:/layout/app_bar_main.xml"
+    },
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.app-mergeDebugResources-43:/layout/fragment_gallery.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.app-main-46:/layout/fragment_gallery.xml"
+    },
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.app-mergeDebugResources-43:/layout/fragment_home.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.app-main-46:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.app-mergeDebugResources-43:/layout/fragment_slideshow.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.app-main-46:/layout/fragment_slideshow.xml"
+    },
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.app-mergeDebugResources-43:/layout/content_main.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.app-main-46:/layout/content_main.xml"
+    }
+]
