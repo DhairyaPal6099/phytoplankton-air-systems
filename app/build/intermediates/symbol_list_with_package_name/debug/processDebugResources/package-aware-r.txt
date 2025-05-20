@@ -3400,6 +3400,7 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id imageView2
 id immediateStop
 id included
 id indeterminate
@@ -3423,6 +3424,7 @@ id list_item
 id locale
 id ltr
 id m3_side_sheet
+id main
 id marquee
 id masked
 id match_constraint
@@ -3683,6 +3685,7 @@ id vertical
 id vertical_only
 id view_offset_helper
 id view_transition
+id view_tree_disjoint_parent
 id view_tree_lifecycle_owner
 id view_tree_on_back_pressed_dispatcher_owner
 id view_tree_saved_state_registry_owner
@@ -3837,6 +3840,7 @@ layout fragment_home
 layout fragment_slideshow
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout layout_splash_screen
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3936,6 +3940,7 @@ string abc_toolbar_collapse_description
 string action_settings
 string androidx_startup
 string app_name
+string app_tagline
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
 string bottomsheet_action_collapse

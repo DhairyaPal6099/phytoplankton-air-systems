@@ -28,6 +28,15 @@
         android:testOnly="true"
         android:theme="@style/Theme.PhytoplanktonAirSystems" >
         <activity
+            android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.SplashScreen"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.MainActivity"
             android:exported="true"
             android:label="@string/app_name"

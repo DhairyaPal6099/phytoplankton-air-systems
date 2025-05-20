@@ -24,6 +24,8 @@ id app_bar_main
 id drawer_layout
 id fab
 id imageView
+id imageView2
+id main
 id mobile_navigation
 id nav_gallery
 id nav_home
@@ -41,6 +43,7 @@ layout content_main
 layout fragment_gallery
 layout fragment_home
 layout fragment_slideshow
+layout layout_splash_screen
 layout nav_header_main
 menu activity_main_drawer
 menu main
@@ -50,6 +53,7 @@ mipmap ic_launcher_round
 navigation mobile_navigation
 string action_settings
 string app_name
+string app_tagline
 string menu_gallery
 string menu_home
 string menu_slideshow
