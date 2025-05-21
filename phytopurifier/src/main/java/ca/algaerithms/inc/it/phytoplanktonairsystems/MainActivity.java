@@ -59,8 +59,12 @@ public class MainActivity extends AppCompatActivity {
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                } else {
                     showExit();
                 }
+            }
         });
     }
 
@@ -95,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
                         // User cancels and nothing happens
                     }
                 })
+                .setCancelable(false)
                 .show();
     }
 }
