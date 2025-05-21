@@ -3069,6 +3069,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable exit
 drawable ic_arrow_back_black_24
 drawable ic_call_answer
 drawable ic_call_answer_low
@@ -3960,6 +3961,7 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string clear_text_end_icon_content_description
 string dest_title
+string do_you_want_to_exit_the_app
 string error_a11y_label
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
@@ -4078,6 +4080,7 @@ string nav_header_subtitle
 string nav_header_title
 string navigation_drawer_close
 string navigation_drawer_open
+string no
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -4090,6 +4093,7 @@ string searchview_navigation_content_description
 string side_sheet_accessibility_pane_title
 string side_sheet_behavior
 string status_bar_notification_info_overflow
+string yes
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

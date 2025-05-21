@@ -3068,6 +3068,7 @@ int drawable design_ic_visibility 0x7f070083
 int drawable design_ic_visibility_off 0x7f070084
 int drawable design_password_eye 0x7f070085
 int drawable design_snackbar_background 0x7f070086
+int drawable exit 0x7f0700eb
 int drawable ic_arrow_back_black_24 0x7f070087
 int drawable ic_call_answer 0x7f070088
 int drawable ic_call_answer_low 0x7f070089
@@ -3959,6 +3960,7 @@ int string character_counter_overflowed_content_description 0x7f11002e
 int string character_counter_pattern 0x7f11002f
 int string clear_text_end_icon_content_description 0x7f110030
 int string dest_title 0x7f110031
+int string do_you_want_to_exit_the_app 0x7f1100b4
 int string error_a11y_label 0x7f110032
 int string error_icon_content_description 0x7f110033
 int string exposed_dropdown_menu_content_description 0x7f110034
@@ -4077,6 +4079,7 @@ int string nav_header_subtitle 0x7f1100a4
 int string nav_header_title 0x7f1100a5
 int string navigation_drawer_close 0x7f1100a6
 int string navigation_drawer_open 0x7f1100a7
+int string no 0x7f1100b5
 int string password_toggle_content_description 0x7f1100a8
 int string path_password_eye 0x7f1100a9
 int string path_password_eye_mask_strike_through 0x7f1100aa
@@ -4089,6 +4092,7 @@ int string searchview_navigation_content_description 0x7f1100b0
 int string side_sheet_accessibility_pane_title 0x7f1100b1
 int string side_sheet_behavior 0x7f1100b2
 int string status_bar_notification_info_overflow 0x7f1100b3
+int string yes 0x7f1100b6
 int style AlertDialog_AppCompat 0x7f120000
 int style AlertDialog_AppCompat_Light 0x7f120001
 int style Animation_AppCompat_Dialog 0x7f120002
