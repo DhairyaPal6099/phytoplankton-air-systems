@@ -14,4 +14,6 @@
     <string name="do_you_want_to_exit_the_app">Do you want to exit the app?</string>
     <string name="yes">YES</string>
     <string name="no">NO</string>
+    <string name="replace_with_your_own_action">Replace with your own action</string>
+    <string name="action">Action</string>
 </resources>
