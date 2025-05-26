@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/layout_splash_screen.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/layout_splash_screen.xml"
+    },
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/fragment_home.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/fragment_slideshow.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/fragment_slideshow.xml"
+    },
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/app_bar_main.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/app_bar_main.xml"
+    },
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/fragment_gallery.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/fragment_gallery.xml"
+    },
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/nav_header_main.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/nav_header_main.xml"
+    },
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/content_main.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/content_main.xml"
+    },
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/activity_main.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/activity_main.xml"
+    }
+]
