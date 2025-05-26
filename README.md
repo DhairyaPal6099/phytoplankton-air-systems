@@ -2,6 +2,8 @@
 
 Julian Imperial (N01638310), Dhairya Pal (N01576099), Sanskriti Mansotra (N01523183), Dharmik Shah (N01581796)
 
+![project_image.jpg](project_image.jpg)
+
 ## Overview
 
 A smart and eco-friendly air purification system that uses phytoplankton to naturally convert CO₂ into oxygen. The system connects with an Android app for real-time monitoring, automated alerts, and sustainability-focused feedback.
