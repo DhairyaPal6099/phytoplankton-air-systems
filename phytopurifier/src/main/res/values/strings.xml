@@ -1,3 +1,7 @@
+<!--  Julian Imperial – N01638310
+      Dhairya Pal – N01576099
+      Sanskriti Mansotra – N01523183
+      Dharmik Shah – N01581796 -->
 <resources>
     <string name="app_name">Phytoplankton Air Systems</string>
     <string name="app_tagline">Fresh Air. Sustainable Future.</string>
@@ -14,4 +18,6 @@
     <string name="do_you_want_to_exit_the_app">Do you want to exit the app?</string>
     <string name="yes">YES</string>
     <string name="no">NO</string>
+    <string name="replace_with_your_own_action">Replace with your own action</string>
+    <string name="action">Action</string>
 </resources>

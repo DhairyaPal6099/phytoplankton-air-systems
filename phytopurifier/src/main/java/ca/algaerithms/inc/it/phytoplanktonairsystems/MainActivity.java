@@ -1,4 +1,9 @@
-package ca.algaerithms.inc.it.phytoplanktonairsystems;
+/* Julian Imperial – N01638310
+   Dhairya Pal – N01576099
+   Sanskriti Mansotra – N01523183
+   Dharmik Shah – N01581796 */
+
+        package ca.algaerithms.inc.it.phytoplanktonairsystems;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -38,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null)
+                Snackbar.make(view, R.string.replace_with_your_own_action, Snackbar.LENGTH_LONG)
+                        .setAction(R.string.action, null)
                         .setAnchorView(R.id.fab).show();
             }
         });
