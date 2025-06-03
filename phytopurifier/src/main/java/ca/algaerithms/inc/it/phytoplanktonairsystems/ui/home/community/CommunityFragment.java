@@ -1,4 +1,4 @@
-package ca.algaerithms.inc.it.phytoplanktonairsystems;
+package ca.algaerithms.inc.it.phytoplanktonairsystems.ui.home.community;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 
 /**
  * A simple {@link Fragment} subclass.
