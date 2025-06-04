@@ -14,7 +14,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -29,9 +36,15 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        // Use binding instead of findViewById
+        BottomNavigationView bottomNav = binding.bottomNavHome;
+
+        NavHostFragment navHostFragment =
+                (NavHostFragment) getChildFragmentManager().findFragmentById(R.id.home_nav_host_fragment);
+
+        NavController navController = navHostFragment.getNavController();
+
+        NavigationUI.setupWithNavController(bottomNav, navController);  return root;
     }
 
     @Override

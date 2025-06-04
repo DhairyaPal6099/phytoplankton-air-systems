@@ -3064,6 +3064,8 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable community
+drawable dashboard
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
@@ -3094,6 +3096,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
 drawable indeterminate_static
+drawable leaderboard
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle
@@ -3270,6 +3273,8 @@ id below
 id bestChoice
 id blocking
 id bottom
+id bottom_nav_home
+id bottom_navigation
 id bounce
 id bounceBoth
 id bounceEnd
@@ -3391,6 +3396,7 @@ id hide_ime_id
 id hideable
 id home
 id homeAsUp
+id home_nav_host_fragment
 id honorRequest
 id horizontal
 id horizontal_only
@@ -3486,11 +3492,14 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id nav_community
 id nav_controller_view_tag
+id nav_dashboard
 id nav_gallery
 id nav_home
 id nav_host_fragment_container
 id nav_host_fragment_content_main
+id nav_leaderboard
 id nav_slideshow
 id nav_view
 id navigation_bar_item_active_indicator_view
@@ -3646,7 +3655,6 @@ id textStart
 id textTop
 id textView
 id text_gallery
-id text_home
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3836,8 +3844,11 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_community
+layout fragment_dashboard
 layout fragment_gallery
 layout fragment_home
+layout fragment_leaderboard
 layout fragment_slideshow
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
@@ -3905,10 +3916,12 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 menu activity_main_drawer
+menu bottom_nav_menu
 menu main
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
+navigation bottom_navigation
 navigation mobile_navigation
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description
@@ -3938,6 +3951,7 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string action
 string action_settings
 string androidx_startup
 string app_name
@@ -3967,6 +3981,7 @@ string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
@@ -4086,6 +4101,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string replace_with_your_own_action
 string search_menu_title
 string searchbar_scrolling_view_behavior
 string searchview_clear_text_content_description

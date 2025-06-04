@@ -20,4 +20,6 @@
     <string name="no">NO</string>
     <string name="replace_with_your_own_action">Replace with your own action</string>
     <string name="action">Action</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

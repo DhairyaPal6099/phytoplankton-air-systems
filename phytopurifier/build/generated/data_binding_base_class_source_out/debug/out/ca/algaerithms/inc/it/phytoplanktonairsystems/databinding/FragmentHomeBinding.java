@@ -4,13 +4,14 @@ package ca.algaerithms.inc.it.phytoplanktonairsystems.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.FragmentContainerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -20,11 +21,17 @@ public final class FragmentHomeBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final TextView textHome;
+  public final BottomNavigationView bottomNavHome;
 
-  private FragmentHomeBinding(@NonNull ConstraintLayout rootView, @NonNull TextView textHome) {
+  @NonNull
+  public final FragmentContainerView homeNavHostFragment;
+
+  private FragmentHomeBinding(@NonNull ConstraintLayout rootView,
+      @NonNull BottomNavigationView bottomNavHome,
+      @NonNull FragmentContainerView homeNavHostFragment) {
     this.rootView = rootView;
-    this.textHome = textHome;
+    this.bottomNavHome = bottomNavHome;
+    this.homeNavHostFragment = homeNavHostFragment;
   }
 
   @Override
@@ -54,13 +61,20 @@ public final class FragmentHomeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.text_home;
-      TextView textHome = ViewBindings.findChildViewById(rootView, id);
-      if (textHome == null) {
+      id = R.id.bottom_nav_home;
+      BottomNavigationView bottomNavHome = ViewBindings.findChildViewById(rootView, id);
+      if (bottomNavHome == null) {
         break missingId;
       }
 
-      return new FragmentHomeBinding((ConstraintLayout) rootView, textHome);
+      id = R.id.home_nav_host_fragment;
+      FragmentContainerView homeNavHostFragment = ViewBindings.findChildViewById(rootView, id);
+      if (homeNavHostFragment == null) {
+        break missingId;
+      }
+
+      return new FragmentHomeBinding((ConstraintLayout) rootView, bottomNavHome,
+          homeNavHostFragment);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
