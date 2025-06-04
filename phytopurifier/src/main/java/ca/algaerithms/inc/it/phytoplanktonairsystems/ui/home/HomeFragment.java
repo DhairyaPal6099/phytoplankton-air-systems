@@ -28,24 +28,23 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         // Use binding instead of findViewById
-        BottomNavigationView bottomNav = binding.bottomNavHome;
+        BottomNavigationView bottomNav = view.findViewById(R.id.bottom_nav_home);
 
         NavHostFragment navHostFragment =
                 (NavHostFragment) getChildFragmentManager().findFragmentById(R.id.home_nav_host_fragment);
 
         NavController navController = navHostFragment.getNavController();
+        NavigationUI.setupWithNavController(bottomNav, navController);
 
-        NavigationUI.setupWithNavController(bottomNav, navController);  return root;
+        return view;
     }
+
 
     @Override
     public void onDestroyView() {
