@@ -10,7 +10,6 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">En-tête de navigation</string>
-    <string name="action_settings">Paramètres</string>
 
     <string name="menu_home">Accueil</string>
     <string name="menu_gallery">>Galerie</string>
@@ -20,4 +19,7 @@
     <string name="no">NON</string>
     <string name="replace_with_your_own_action">Remplacez par votre propre action</string>
     <string name="action">Action</string>
+    <string name="about">About</string>
+    <string name="settings">Settings</string>
+    <string name="logout">Logout</string>
 </resources>
