@@ -51,6 +51,7 @@ id textView
 id text_gallery
 id text_slideshow
 id toolbar
+layout activity_login_screen
 layout activity_main
 layout app_bar_main
 layout content_main
