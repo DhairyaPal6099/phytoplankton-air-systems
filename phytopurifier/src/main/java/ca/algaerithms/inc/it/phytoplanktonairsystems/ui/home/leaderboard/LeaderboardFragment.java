@@ -9,9 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentLeaderboardBinding;
 
 
 public class LeaderboardFragment extends Fragment {
+
+    private FragmentLeaderboardBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
