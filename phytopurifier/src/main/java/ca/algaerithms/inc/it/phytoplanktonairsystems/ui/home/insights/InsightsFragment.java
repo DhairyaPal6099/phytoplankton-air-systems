@@ -9,13 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
-import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentCommunityBinding;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentInsightsBinding;
 
 
 public class InsightsFragment extends Fragment {
 
 
-    private FragmentCommunityBinding binding;
+    private FragmentInsightsBinding binding;
 
 
     @Override
