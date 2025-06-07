@@ -22,4 +22,18 @@
     <string name="about">About</string>
     <string name="settings">Settings</string>
     <string name="logout">Logout</string>
+
+    <string-array name="settings_options">
+        <item>Verrouiller l écran en mode portrait</item>
+        <item>Informations du compte</item>
+        <item>Supprimer le compte</item>
+        <item>Données et confidentialité</item>
+    </string-array>
+
+
+    <string name="account_info_username">Nom utilisateur</string>
+    <string name="account_info_email">Courriel</string>
+    <string name="account_info_phone">Numéro de téléphone</string>
+    <string name="account_info_birthday">Date de naissance</string>
+    <string name="account_info_title">Informations du compte</string>
 </resources>
