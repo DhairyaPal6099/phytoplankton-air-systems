@@ -17,10 +17,10 @@
 
         <ImageView
             android:id="@+id/login_profile"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginTop="-100dp"
-            android:src="@drawable/profile" />
+            android:src="@mipmap/ic_launcher" />
 
         <EditText
             android:id="@+id/login_username"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corners"
             android:ems="15"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:layout_marginTop="50dp"
             android:padding="15dp"
@@ -42,11 +42,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/login_username"
             android:background="@drawable/rounded_corners"
+            android:drawableEnd="@drawable/visibility_on"
+            android:drawableTint="@color/light_blue"
             android:ems="15"
             android:layout_marginTop="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/fade"
-            android:hint="Password"
+            android:hint="@string/password"
             android:padding="15dp"
             android:textSize="20sp"
             android:inputType="textPassword" />
@@ -57,17 +59,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
-            android:ems="7"
+            android:ems="9"
             android:background="@drawable/rounded_corners"
-            android:text="Login"
-            />
+            android:text="@string/login" />
 
         <Button
             android:id="@+id/login_forgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Forgot Password?"
+            android:text="@string/forgot_password"
             android:background="@color/transparent" />
 
     </LinearLayout>
@@ -82,6 +83,6 @@
         android:layout_marginBottom="40dp"
         android:background="@drawable/signup_button_background"
         android:ems="15"
-        android:text="Create an Account" />
+        android:text="@string/create_an_account" />
 
 </RelativeLayout>
