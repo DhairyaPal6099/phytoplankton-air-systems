@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="settings_options">
+        <item>Lock screen to portrait</item>
+        <item>Account Info</item>
+        <item>Delete Account</item>
+        <item>Data &amp; Privacy</item>
+    </string-array>
     <color name="black">#FF000000</color>
     <color name="ic_launcher_background">#FFFFFF</color>
     <color name="purple_200">#FFBB86FC</color>

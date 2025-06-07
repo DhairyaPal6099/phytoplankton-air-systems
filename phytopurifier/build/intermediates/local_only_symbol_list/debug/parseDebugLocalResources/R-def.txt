@@ -1,5 +1,6 @@
 R_DEF: Internal format may change without notice
 local
+array settings_options
 color black
 color ic_launcher_background
 color purple_200
@@ -47,9 +48,11 @@ id nav_leaderboard
 id nav_logout
 id nav_settings
 id nav_view
+id setting_switch
+id setting_title
+id settings_list
 id textView
 id text_gallery
-id text_slideshow
 id toolbar
 layout activity_main
 layout app_bar_main
@@ -61,6 +64,7 @@ layout fragment_home
 layout fragment_leaderboard
 layout fragment_settings
 layout layout_splash_screen
+layout list_item_setting
 layout nav_header_main
 menu activity_main_drawer
 menu bottom_nav_menu

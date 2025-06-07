@@ -85,6 +85,7 @@ animator nav_default_enter_anim
 animator nav_default_exit_anim
 animator nav_default_pop_enter_anim
 animator nav_default_pop_exit_anim
+array settings_options
 attr SharedValue
 attr SharedValueId
 attr action
@@ -3597,6 +3598,9 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selection_type
+id setting_switch
+id setting_title
+id settings_list
 id sharedValueSet
 id sharedValueUnset
 id shortcut
@@ -3663,7 +3667,6 @@ id text_gallery
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
-id text_slideshow
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -3858,6 +3861,7 @@ layout fragment_settings
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout layout_splash_screen
+layout list_item_setting
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
