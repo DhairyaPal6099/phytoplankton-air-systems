@@ -15,8 +15,13 @@
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <string name="about">About</string>
     <string name="action">Action</string>
+    <string name="action_achievements">Achievements</string>
+    <string name="action_notifications">Notifications</string>
+    <string name="action_share">Share</string>
+    <string name="action_support">Support</string>
     <string name="app_name">Phytoplankton Air Systems</string>
     <string name="app_tagline">Fresh Air. Sustainable Future.</string>
+    <string name="contact_support_phonenumber" translatable="false">tel: 1234567890</string>
     <string name="do_you_want_to_exit_the_app">Do you want to exit the app?</string>
     <string name="logout">Logout</string>
     <string name="menu_gallery">Gallery</string>

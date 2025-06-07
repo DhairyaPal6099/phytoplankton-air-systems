@@ -14,6 +14,7 @@ dimen fab_margin
 dimen nav_header_height
 dimen nav_header_vertical_spacing
 drawable about
+drawable action_contactsupport
 drawable community
 drawable dashboard
 drawable exit
@@ -27,13 +28,17 @@ drawable leaderboard
 drawable logout
 drawable settings
 drawable side_nav_bar
-id action_settings
+id action_achievements
+id action_contactsupport
+id action_notifications
+id action_share
 id app_bar_main
 id bottom_nav_home
 id bottom_navigation
 id drawer_layout
 id fab
 id home_nav_host_fragment
+id icon
 id imageView
 id imageView2
 id main
@@ -47,6 +52,7 @@ id nav_leaderboard
 id nav_logout
 id nav_settings
 id nav_view
+id text
 id textView
 id text_gallery
 id text_slideshow
@@ -61,6 +67,7 @@ layout fragment_home
 layout fragment_leaderboard
 layout fragment_settings
 layout layout_splash_screen
+layout menu_action_support
 layout nav_header_main
 menu activity_main_drawer
 menu bottom_nav_menu
@@ -72,8 +79,13 @@ navigation bottom_navigation
 navigation mobile_navigation
 string about
 string action
+string action_achievements
+string action_notifications
+string action_share
+string action_support
 string app_name
 string app_tagline
+string contact_support_phonenumber
 string do_you_want_to_exit_the_app
 string logout
 string menu_gallery

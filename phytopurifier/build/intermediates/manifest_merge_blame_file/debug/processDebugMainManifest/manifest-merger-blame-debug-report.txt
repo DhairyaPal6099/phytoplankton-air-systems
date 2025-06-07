@@ -9,154 +9,154 @@
 9        android:targetSdkVersion="35" />
 10
 11    <permission
-11-->[androidx.core:core:1.13.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\02217c54cf0d7c5be84120ec04732540\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+11-->[androidx.core:core:1.13.0] C:\Users\dhair\.gradle\caches\8.9\transforms\02217c54cf0d7c5be84120ec04732540\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
 12        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-12-->[androidx.core:core:1.13.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\02217c54cf0d7c5be84120ec04732540\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+12-->[androidx.core:core:1.13.0] C:\Users\dhair\.gradle\caches\8.9\transforms\02217c54cf0d7c5be84120ec04732540\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
 13        android:protectionLevel="signature" />
-13-->[androidx.core:core:1.13.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\02217c54cf0d7c5be84120ec04732540\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+13-->[androidx.core:core:1.13.0] C:\Users\dhair\.gradle\caches\8.9\transforms\02217c54cf0d7c5be84120ec04732540\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
 14
 15    <uses-permission android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-15-->[androidx.core:core:1.13.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\02217c54cf0d7c5be84120ec04732540\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
-15-->[androidx.core:core:1.13.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\02217c54cf0d7c5be84120ec04732540\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+15-->[androidx.core:core:1.13.0] C:\Users\dhair\.gradle\caches\8.9\transforms\02217c54cf0d7c5be84120ec04732540\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+15-->[androidx.core:core:1.13.0] C:\Users\dhair\.gradle\caches\8.9\transforms\02217c54cf0d7c5be84120ec04732540\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
 16
 17    <application
-17-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:5:5-35:19
+17-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:5:5-35:19
 18        android:allowBackup="true"
-18-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:6:9-35
+18-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:6:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-19-->[androidx.core:core:1.13.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\02217c54cf0d7c5be84120ec04732540\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
+19-->[androidx.core:core:1.13.0] C:\Users\dhair\.gradle\caches\8.9\transforms\02217c54cf0d7c5be84120ec04732540\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
 20        android:dataExtractionRules="@xml/data_extraction_rules"
-20-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:7:9-65
+20-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:7:9-65
 21        android:debuggable="true"
 22        android:extractNativeLibs="false"
 23        android:fullBackupContent="@xml/backup_rules"
-23-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:8:9-54
+23-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:8:9-54
 24        android:icon="@mipmap/ic_launcher"
-24-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:9:9-43
+24-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:9:9-43
 25        android:label="@string/app_name"
-25-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:10:9-41
+25-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:10:9-41
 26        android:roundIcon="@mipmap/ic_launcher_round"
-26-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:11:9-54
+26-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:11:9-54
 27        android:supportsRtl="true"
-27-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:12:9-35
+27-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:12:9-35
 28        android:testOnly="true"
 29        android:theme="@style/Theme.PhytoplanktonAirSystems" >
-29-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:13:9-61
+29-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:13:9-61
 30        <activity
-30-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:15:9-23:20
+30-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:15:9-23:20
 31            android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.SplashScreen"
-31-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:16:13-41
+31-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:16:13-41
 32            android:exported="true" >
-32-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:17:13-36
+32-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:17:13-36
 33            <intent-filter>
-33-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:18:13-22:29
+33-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:18:13-22:29
 34                <action android:name="android.intent.action.MAIN" />
-34-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:19:17-69
-34-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:19:25-66
+34-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:19:17-69
+34-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:19:25-66
 35
 36                <category android:name="android.intent.category.LAUNCHER" />
-36-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:21:17-77
-36-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:21:27-74
+36-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:21:17-77
+36-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:21:27-74
 37            </intent-filter>
 38        </activity>
 39        <activity
-39-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:24:9-34:20
+39-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:24:9-34:20
 40            android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.MainActivity"
-40-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:25:13-41
+40-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:25:13-41
 41            android:exported="true"
-41-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:26:13-36
+41-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:26:13-36
 42            android:label="@string/app_name"
-42-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:27:13-45
+42-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:27:13-45
 43            android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar" >
-43-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:28:13-77
+43-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:28:13-77
 44            <intent-filter>
-44-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:18:13-22:29
+44-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:18:13-22:29
 45                <action android:name="android.intent.action.MAIN" />
-45-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:19:17-69
-45-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:19:25-66
+45-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:19:17-69
+45-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:19:25-66
 46
 47                <category android:name="android.intent.category.LAUNCHER" />
-47-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:21:17-77
-47-->E:\Humber\Semester 5\Software Project\Project\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:21:27-74
+47-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:21:17-77
+47-->C:\Users\dhair\AndroidStudioProjects\PhytoplanktonAirSystems\phytopurifier\src\main\AndroidManifest.xml:21:27-74
 48            </intent-filter>
 49        </activity>
 50
 51        <provider
-51-->[androidx.emoji2:emoji2:1.3.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\721c82de2aa15b30a371243823f0ff7f\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+51-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dhair\.gradle\caches\8.9\transforms\721c82de2aa15b30a371243823f0ff7f\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
 52            android:name="androidx.startup.InitializationProvider"
-52-->[androidx.emoji2:emoji2:1.3.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\721c82de2aa15b30a371243823f0ff7f\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+52-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dhair\.gradle\caches\8.9\transforms\721c82de2aa15b30a371243823f0ff7f\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
 53            android:authorities="ca.algaerithms.inc.it.phytoplanktonairsystems.androidx-startup"
-53-->[androidx.emoji2:emoji2:1.3.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\721c82de2aa15b30a371243823f0ff7f\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+53-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dhair\.gradle\caches\8.9\transforms\721c82de2aa15b30a371243823f0ff7f\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
 54            android:exported="false" >
-54-->[androidx.emoji2:emoji2:1.3.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\721c82de2aa15b30a371243823f0ff7f\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+54-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dhair\.gradle\caches\8.9\transforms\721c82de2aa15b30a371243823f0ff7f\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
 55            <meta-data
-55-->[androidx.emoji2:emoji2:1.3.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\721c82de2aa15b30a371243823f0ff7f\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+55-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dhair\.gradle\caches\8.9\transforms\721c82de2aa15b30a371243823f0ff7f\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
 56                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-56-->[androidx.emoji2:emoji2:1.3.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\721c82de2aa15b30a371243823f0ff7f\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+56-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dhair\.gradle\caches\8.9\transforms\721c82de2aa15b30a371243823f0ff7f\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
 57                android:value="androidx.startup" />
-57-->[androidx.emoji2:emoji2:1.3.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\721c82de2aa15b30a371243823f0ff7f\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+57-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dhair\.gradle\caches\8.9\transforms\721c82de2aa15b30a371243823f0ff7f\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
 58            <meta-data
-58-->[androidx.lifecycle:lifecycle-process:2.8.7] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\2226b37a1f0f2fdb562fcfb8b66f025c\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
+58-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\dhair\.gradle\caches\8.9\transforms\2226b37a1f0f2fdb562fcfb8b66f025c\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
 59                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-59-->[androidx.lifecycle:lifecycle-process:2.8.7] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\2226b37a1f0f2fdb562fcfb8b66f025c\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
+59-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\dhair\.gradle\caches\8.9\transforms\2226b37a1f0f2fdb562fcfb8b66f025c\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
 60                android:value="androidx.startup" />
-60-->[androidx.lifecycle:lifecycle-process:2.8.7] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\2226b37a1f0f2fdb562fcfb8b66f025c\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
+60-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\dhair\.gradle\caches\8.9\transforms\2226b37a1f0f2fdb562fcfb8b66f025c\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
 61            <meta-data
-61-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+61-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
 62                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-62-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+62-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
 63                android:value="androidx.startup" />
-63-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+63-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
 64        </provider>
 65
 66        <uses-library
-66-->[androidx.window:window:1.0.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\fc8b507717dcc0a6a4b31e1b090a22e8\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+66-->[androidx.window:window:1.0.0] C:\Users\dhair\.gradle\caches\8.9\transforms\fc8b507717dcc0a6a4b31e1b090a22e8\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
 67            android:name="androidx.window.extensions"
-67-->[androidx.window:window:1.0.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\fc8b507717dcc0a6a4b31e1b090a22e8\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+67-->[androidx.window:window:1.0.0] C:\Users\dhair\.gradle\caches\8.9\transforms\fc8b507717dcc0a6a4b31e1b090a22e8\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
 68            android:required="false" />
-68-->[androidx.window:window:1.0.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\fc8b507717dcc0a6a4b31e1b090a22e8\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+68-->[androidx.window:window:1.0.0] C:\Users\dhair\.gradle\caches\8.9\transforms\fc8b507717dcc0a6a4b31e1b090a22e8\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
 69        <uses-library
-69-->[androidx.window:window:1.0.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\fc8b507717dcc0a6a4b31e1b090a22e8\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+69-->[androidx.window:window:1.0.0] C:\Users\dhair\.gradle\caches\8.9\transforms\fc8b507717dcc0a6a4b31e1b090a22e8\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
 70            android:name="androidx.window.sidecar"
-70-->[androidx.window:window:1.0.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\fc8b507717dcc0a6a4b31e1b090a22e8\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+70-->[androidx.window:window:1.0.0] C:\Users\dhair\.gradle\caches\8.9\transforms\fc8b507717dcc0a6a4b31e1b090a22e8\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
 71            android:required="false" />
-71-->[androidx.window:window:1.0.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\fc8b507717dcc0a6a4b31e1b090a22e8\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+71-->[androidx.window:window:1.0.0] C:\Users\dhair\.gradle\caches\8.9\transforms\fc8b507717dcc0a6a4b31e1b090a22e8\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
 72
 73        <receiver
-73-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+73-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
 74            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-74-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+74-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
 75            android:directBootAware="false"
-75-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+75-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
 76            android:enabled="true"
-76-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+76-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
 77            android:exported="true"
-77-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+77-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
 78            android:permission="android.permission.DUMP" >
-78-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+78-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
 79            <intent-filter>
-79-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+79-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
 80                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-80-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
-80-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+80-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+80-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
 81            </intent-filter>
 82            <intent-filter>
-82-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+82-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
 83                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-83-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
-83-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+83-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+83-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
 84            </intent-filter>
 85            <intent-filter>
-85-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+85-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
 86                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-86-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
-86-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+86-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+86-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
 87            </intent-filter>
 88            <intent-filter>
-88-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+88-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
 89                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-89-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
-89-->[androidx.profileinstaller:profileinstaller:1.4.0] E:\Humber\Semester 5\Software Project\Project\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+89-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+89-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\dhair\.gradle\caches\8.9\transforms\a998c5aad01898a64c7582c9798fbd8e\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
 90            </intent-filter>
 91        </receiver>
 92    </application>

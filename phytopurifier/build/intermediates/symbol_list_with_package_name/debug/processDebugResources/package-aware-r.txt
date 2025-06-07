@@ -3055,6 +3055,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable about
+drawable action_contactsupport
 drawable avd_hide_password
 drawable avd_show_password
 drawable btn_checkbox_checked_mtrl
@@ -3229,6 +3230,7 @@ id accessibility_custom_action_9
 id actionDown
 id actionDownUp
 id actionUp
+id action_achievements
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -3236,6 +3238,7 @@ id action_bar_root
 id action_bar_spinner
 id action_bar_subtitle
 id action_bar_title
+id action_contactsupport
 id action_container
 id action_context_bar
 id action_divider
@@ -3245,7 +3248,8 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_settings
+id action_notifications
+id action_share
 id action_text
 id actions
 id activity_chooser_view_content
@@ -3877,6 +3881,7 @@ layout material_time_input
 layout material_timepicker
 layout material_timepicker_dialog
 layout material_timepicker_textinput_display
+layout menu_action_support
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
@@ -3958,6 +3963,10 @@ string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string about
 string action
+string action_achievements
+string action_notifications
+string action_share
+string action_support
 string androidx_startup
 string app_name
 string app_tagline
@@ -3979,6 +3988,7 @@ string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
 string clear_text_end_icon_content_description
+string contact_support_phonenumber
 string dest_title
 string do_you_want_to_exit_the_app
 string error_a11y_label

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-2:/values-es-rUS/values-es-rUS.xml",
+            "outputFile": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-43:/values-es-rUS/values-es-rUS.xml",
             "map": [
                 {
-                    "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\caches\\8.9\\transforms\\ba5aa18324223b52bfba3629adc2327d\\transformed\\material-1.12.0\\res\\values-es-rUS\\values-es-rUS.xml",
+                    "source": "C:\\Users\\dhair\\.gradle\\caches\\8.9\\transforms\\ba5aa18324223b52bfba3629adc2327d\\transformed\\material-1.12.0\\res\\values-es-rUS\\values-es-rUS.xml",
                     "from": {
                         "startLines": "2,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,24 +23,7 @@
                     }
                 },
                 {
-                    "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\caches\\8.9\\transforms\\02217c54cf0d7c5be84120ec04732540\\transformed\\core-1.13.0\\res\\values-es-rUS\\values-es-rUS.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,154,256,356,454,561,667,787",
-                        "endColumns": "98,101,99,97,106,105,119,100",
-                        "endOffsets": "149,251,351,449,556,662,782,883"
-                    },
-                    "to": {
-                        "startLines": "38,39,40,41,42,43,44,118",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "3493,3592,3694,3794,3892,3999,4105,10286",
-                        "endColumns": "98,101,99,97,106,105,119,100",
-                        "endOffsets": "3587,3689,3789,3887,3994,4100,4220,10382"
-                    }
-                },
-                {
-                    "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\caches\\8.9\\transforms\\ab353447ed68fc2953e838b031e3142c\\transformed\\appcompat-1.7.0\\res\\values-es-rUS\\values-es-rUS.xml",
+                    "source": "C:\\Users\\dhair\\.gradle\\caches\\8.9\\transforms\\ab353447ed68fc2953e838b031e3142c\\transformed\\appcompat-1.7.0\\res\\values-es-rUS\\values-es-rUS.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -57,7 +40,24 @@
                     }
                 },
                 {
-                    "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\caches\\8.9\\transforms\\f5288e597acea7de581121f5c7304bc8\\transformed\\navigation-ui-2.8.9\\res\\values-es-rUS\\values-es-rUS.xml",
+                    "source": "C:\\Users\\dhair\\.gradle\\caches\\8.9\\transforms\\02217c54cf0d7c5be84120ec04732540\\transformed\\core-1.13.0\\res\\values-es-rUS\\values-es-rUS.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,154,256,356,454,561,667,787",
+                        "endColumns": "98,101,99,97,106,105,119,100",
+                        "endOffsets": "149,251,351,449,556,662,782,883"
+                    },
+                    "to": {
+                        "startLines": "38,39,40,41,42,43,44,118",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "3493,3592,3694,3794,3892,3999,4105,10286",
+                        "endColumns": "98,101,99,97,106,105,119,100",
+                        "endOffsets": "3587,3689,3789,3887,3994,4100,4220,10382"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\dhair\\.gradle\\caches\\8.9\\transforms\\f5288e597acea7de581121f5c7304bc8\\transformed\\navigation-ui-2.8.9\\res\\values-es-rUS\\values-es-rUS.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

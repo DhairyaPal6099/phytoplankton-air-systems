@@ -3,12 +3,13 @@
    Sanskriti Mansotra – N01523183
    Dharmik Shah – N01581796 */
 
-        package ca.algaerithms.inc.it.phytoplanktonairsystems;
+package ca.algaerithms.inc.it.phytoplanktonairsystems;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
@@ -77,6 +78,19 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        MenuItem item = menu.findItem(R.id.action_contactsupport);
+        View actionView = item.getActionView();
+
+        if (actionView != null) {
+            actionView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse(getString(R.string.contact_support_phonenumber)));
+                    startActivity(intent);
+                }
+            });
+        }
         return true;
     }
 
