@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-2:/values-en-rXC/values-en-rXC.xml",
+            "outputFile": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-43:/values-en-rXC/values-en-rXC.xml",
             "map": [
                 {
-                    "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\caches\\8.9\\transforms\\ab353447ed68fc2953e838b031e3142c\\transformed\\appcompat-1.7.0\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "source": "C:\\Users\\dhair\\.gradle\\caches\\8.9\\transforms\\ab353447ed68fc2953e838b031e3142c\\transformed\\appcompat-1.7.0\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\caches\\8.9\\transforms\\02217c54cf0d7c5be84120ec04732540\\transformed\\core-1.13.0\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "source": "C:\\Users\\dhair\\.gradle\\caches\\8.9\\transforms\\02217c54cf0d7c5be84120ec04732540\\transformed\\core-1.13.0\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

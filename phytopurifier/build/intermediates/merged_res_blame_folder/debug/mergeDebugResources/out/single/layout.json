@@ -1,54 +1,50 @@
 [
     {
-        "merged": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-3:\\layout\\fragment_about.xml",
-        "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-6:\\layout\\fragment_about.xml"
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/layout_splash_screen.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/layout_splash_screen.xml"
     },
     {
-        "merged": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-3:\\layout\\fragment_slideshow.xml",
-        "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-6:\\layout\\fragment_slideshow.xml"
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/fragment_home.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/fragment_home.xml"
     },
     {
-        "merged": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-3:\\layout\\fragment_leaderboard.xml",
-        "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-6:\\layout\\fragment_leaderboard.xml"
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/fragment_leaderboard.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/fragment_leaderboard.xml"
     },
     {
-        "merged": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-3:\\layout\\fragment_community.xml",
-        "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-6:\\layout\\fragment_community.xml"
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/fragment_dashboard.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/fragment_dashboard.xml"
     },
     {
-        "merged": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-3:\\layout\\fragment_dashboard.xml",
-        "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-6:\\layout\\fragment_dashboard.xml"
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/app_bar_main.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/app_bar_main.xml"
     },
     {
-        "merged": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-3:\\layout\\content_main.xml",
-        "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-6:\\layout\\content_main.xml"
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/menu_action_support.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/menu_action_support.xml"
     },
     {
-        "merged": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-3:\\layout\\nav_header_main.xml",
-        "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-6:\\layout\\nav_header_main.xml"
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/fragment_about.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/fragment_about.xml"
     },
     {
-        "merged": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-3:\\layout\\fragment_gallery.xml",
-        "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-6:\\layout\\fragment_gallery.xml"
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/content_main.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/content_main.xml"
     },
     {
-        "merged": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-3:\\layout\\activity_main.xml",
-        "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-6:\\layout\\activity_main.xml"
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/activity_main.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/activity_main.xml"
     },
     {
-        "merged": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-3:\\layout\\app_bar_main.xml",
-        "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-6:\\layout\\app_bar_main.xml"
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/fragment_community.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/fragment_community.xml"
     },
     {
-        "merged": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-3:\\layout\\fragment_home.xml",
-        "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-6:\\layout\\fragment_home.xml"
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/fragment_settings.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/fragment_settings.xml"
     },
     {
-        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-3:/layout/fragment_settings.xml",
-        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-6:/layout/fragment_settings.xml"
-    },
-    {
-        "merged": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-3:\\layout\\layout_splash_screen.xml",
-        "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-6:\\layout\\layout_splash_screen.xml"
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/nav_header_main.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/nav_header_main.xml"
     }
 ]
