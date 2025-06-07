@@ -13,9 +13,11 @@ import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
-import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentSettingsBinding;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentSettingsBinding;
 
 public class SettingsFragment extends Fragment {
 
@@ -37,6 +39,15 @@ public class SettingsFragment extends Fragment {
         );
 
         binding.settingsList.setAdapter(adapter);
+
+        // Handle navigation on item click
+        binding.settingsList.setOnItemClickListener((parent, view1, position, id) -> {
+            if (position == 1) { // Account Info
+                NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+                navController.navigate(R.id.action_nav_settings_to_accountInfoFragment);
+            }
+        });
+
         return view;
     }
 
