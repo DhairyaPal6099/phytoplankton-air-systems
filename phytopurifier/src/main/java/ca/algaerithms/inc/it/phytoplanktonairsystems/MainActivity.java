@@ -3,7 +3,7 @@
    Sanskriti Mansotra – N01523183
    Dharmik Shah – N01581796 */
 
-        package ca.algaerithms.inc.it.phytoplanktonairsystems;
+package ca.algaerithms.inc.it.phytoplanktonairsystems;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id)
                     {
-                        System.exit(0);
+                        finishAffinity(); // Closes all activities and exits the app
                     }
                 })
                 .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {

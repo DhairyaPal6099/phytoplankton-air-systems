@@ -1,12 +1,21 @@
 R_DEF: Internal format may change without notice
 local
 color black
+color fade
+color faded_black
+color faded_white
+color grey
 color ic_launcher_background
+color light_blue
 color purple_200
 color purple_500
 color purple_700
+color red
+color signupBackground
 color teal_200
 color teal_700
+color transparent
+color transparent_black
 color white
 dimen activity_horizontal_margin
 dimen activity_vertical_margin
@@ -17,6 +26,7 @@ drawable about
 drawable community
 drawable dashboard
 drawable exit
+drawable gradient_background
 drawable home
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -25,8 +35,11 @@ drawable ic_menu_gallery
 drawable ic_menu_slideshow
 drawable leaderboard
 drawable logout
+drawable profile
+drawable rounded_corners
 drawable settings
 drawable side_nav_bar
+drawable signup_button_background
 id action_settings
 id app_bar_main
 id bottom_nav_home
@@ -36,6 +49,12 @@ id fab
 id home_nav_host_fragment
 id imageView
 id imageView2
+id login_Password
+id login_button
+id login_createAccountButton
+id login_forgotPassword
+id login_profile
+id login_username
 id main
 id mobile_navigation
 id nav_about
@@ -51,7 +70,7 @@ id textView
 id text_gallery
 id text_slideshow
 id toolbar
-layout activity_login_screen
+layout activity_login
 layout activity_main
 layout app_bar_main
 layout content_main
