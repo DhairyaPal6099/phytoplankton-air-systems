@@ -53,11 +53,19 @@
             android:textSize="20sp"
             android:inputType="textPassword" />
 
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="Remember me"
+            android:textColor="@color/light_blue"/>
+
         <Button
             android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:textSize="20sp"
             android:ems="9"
             android:background="@drawable/rounded_corners"
