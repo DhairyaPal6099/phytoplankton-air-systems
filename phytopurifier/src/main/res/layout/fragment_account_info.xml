@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
@@ -9,45 +10,72 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal">
+
+        <!-- Profile Picture -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profile_card"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="60dp"
+            app:cardElevation="4dp">
+
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_foreground"
+                android:contentDescription="@string/profile_image_desc" />
+        </androidx.cardview.widget.CardView>
+
         <EditText
             android:id="@+id/username_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="12dp"
             android:hint="@string/account_info_username"
             android:inputType="textPersonName"
-            android:padding="8dp" />
+            android:autofillHints="name" />
 
         <EditText
             android:id="@+id/email_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="12dp"
             android:hint="@string/account_info_email"
             android:inputType="textEmailAddress"
-            android:padding="8dp" />
+            android:autofillHints="emailAddress" />
 
         <EditText
             android:id="@+id/phone_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="12dp"
             android:hint="@string/account_info_phone"
             android:inputType="phone"
-            android:padding="8dp" />
+            android:autofillHints="phone" />
 
         <EditText
             android:id="@+id/birthday_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="12dp"
             android:hint="@string/account_info_birthday"
             android:focusable="false"
             android:clickable="true"
-            android:padding="16dp"
             android:inputType="none" />
 
         <Button
             android:id="@+id/save_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
+            android:minHeight="48dp"
+            android:text="@string/save"
             android:layout_marginTop="16dp" />
 
     </LinearLayout>

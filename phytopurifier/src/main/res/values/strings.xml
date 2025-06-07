@@ -36,4 +36,8 @@
     <string name="account_info_phone">Phone Number</string>
     <string name="account_info_birthday">Birthday</string>
     <string name="account_info_title">Account Info</string>
+
+    <string name="save">Save</string>
+    <string name="profile_image_desc">Profile Picture</string>
+
 </resources>

@@ -36,4 +36,9 @@
     <string name="account_info_phone">Numéro de téléphone</string>
     <string name="account_info_birthday">Date de naissance</string>
     <string name="account_info_title">Informations du compte</string>
+
+    <string name="save">Enregistrer</string>
+    <string name="profile_image_desc">Photo de profil</string>
+
+
 </resources>
