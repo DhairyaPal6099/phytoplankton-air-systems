@@ -46,4 +46,9 @@
         <item>How Phytoplankton Helps Clean Air</item>
         <item>Phytoplankton and the Climate</item>
     </string-array>
+    <string name="contact_support_phonenumber" translatable="false">tel: 1234567890</string>
+    <string name="action_support">Support</string>
+    <string name="action_share">Share</string>
+    <string name="action_achievements">Achievements</string>
+    <string name="action_notifications">Notifications</string>
 </resources>

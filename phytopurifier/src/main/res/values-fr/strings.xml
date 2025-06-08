@@ -45,4 +45,8 @@
         <item>How Phytoplankton Helps Clean Air</item>
         <item>Phytoplankton and the Climate</item>
     </string-array>
+    <string name="action_support">Support</string>
+    <string name="action_share">Share</string>
+    <string name="action_achievements">Achievements</string>
+    <string name="action_notifications">Notifications</string>
 </resources>
