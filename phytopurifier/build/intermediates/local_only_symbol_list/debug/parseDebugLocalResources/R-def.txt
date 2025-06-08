@@ -21,6 +21,7 @@ dimen fab_margin
 dimen nav_header_height
 dimen nav_header_vertical_spacing
 drawable about
+drawable circle_border
 drawable community
 drawable dashboard
 drawable exit
@@ -32,8 +33,10 @@ drawable ic_menu_gallery
 drawable ic_menu_slideshow
 drawable leaderboard
 drawable logout
+drawable sensor_example_sample
 drawable settings
 drawable side_nav_bar
+drawable square_leaf
 font quicksand_bold
 font quicksand_regular
 id action_settings
@@ -41,6 +44,7 @@ id app_bar_main
 id aqi_card
 id bottom_nav_home
 id bottom_navigation
+id card_symbol
 id dashboard_view
 id drawer_layout
 id fab
@@ -71,6 +75,7 @@ id textView5
 id textView6
 id textView7
 id textView8
+id textView9
 id text_gallery
 id text_slideshow
 id toggle_view_button
