@@ -23,7 +23,7 @@
                 android:id="@+id/insights_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Insights"
+                android:text="@string/insights"
                 android:fontFamily="@font/quicksand_bold"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -61,7 +61,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Did you know?"
+                    android:text="@string/did_you_know"
                     android:fontFamily="@font/quicksand_bold"
                     android:textStyle="bold"
                     android:textSize="18sp"
@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/quicksand_bold"
                     android:textSize="12sp"
-                    android:text="Our air purifier reduces CO2 emissions by up to 20% in urban environments."
+                    android:text="@string/test_info"
                     android:layout_marginTop="4dp" />
 
             </LinearLayout>
@@ -105,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:fontFamily="@font/quicksand_bold"
-                    android:text="About Us"
+                    android:text="@string/about_us"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -114,7 +114,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/quicksand_bold"
-                    android:text="Information About us."
+                    android:text="@string/information_about_us"
                     android:textSize="12sp" />
 
             </LinearLayout>

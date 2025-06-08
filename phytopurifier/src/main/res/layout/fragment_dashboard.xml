@@ -15,8 +15,8 @@
         android:layout_marginStart="264dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/quicksand_bold"
-        android:textOff="Graph View"
-        android:textOn="Dashboard View"
+        android:textOff="@string/graph_view"
+        android:textOn="@string/dashboard_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/quicksand_bold"
-                android:text="Dashboard"
+                android:text="@string/dashboard"
                 android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -80,7 +80,7 @@
                     android:layout_marginStart="72dp"
                     android:layout_marginTop="116dp"
                     android:fontFamily="@font/quicksand_regular"
-                    android:text="Oxygen"
+                    android:text="@string/oxygen"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -92,7 +92,7 @@
                     android:layout_marginStart="66dp"
                     android:layout_marginTop="133dp"
                     android:fontFamily="@font/quicksand_regular"
-                    android:text="Produced"
+                    android:text="@string/produced"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -104,7 +104,7 @@
                     android:layout_marginStart="36dp"
                     android:layout_marginTop="72dp"
                     android:fontFamily="@font/quicksand_bold"
-                    android:text="AQI Number"
+                    android:text="@string/aqi_number"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -160,7 +160,7 @@
                     android:layout_marginStart="84dp"
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/quicksand_bold"
-                    android:text="Notifcation Sample"
+                    android:text="@string/notifcation_sample"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -211,7 +211,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand_bold"
             android:layout_gravity="center"
-            android:text="Graph View"
+            android:text="@string/graph_view_2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
