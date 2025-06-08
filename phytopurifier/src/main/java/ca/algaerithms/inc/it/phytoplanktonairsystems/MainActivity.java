@@ -3,18 +3,20 @@
    Sanskriti Mansotra – N01523183
    Dharmik Shah – N01581796 */
 
-        package ca.algaerithms.inc.it.phytoplanktonairsystems;
+package ca.algaerithms.inc.it.phytoplanktonairsystems;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.GravityCompat;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        EdgeToEdge.enable(this);
         super.onCreate(savedInstanceState);
 
         SharedPreferences prefs = getSharedPreferences("settings", MODE_PRIVATE);
@@ -87,6 +90,19 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        MenuItem item = menu.findItem(R.id.action_contactsupport);
+        View actionView = item.getActionView();
+
+        if (actionView != null) {
+            actionView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse(getString(R.string.contact_support_phonenumber)));
+                    startActivity(intent);
+                }
+            });
+        }
         return true;
     }
 
@@ -105,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id)
                     {
-                        System.exit(0);
+                        finishAffinity(); // Closes all activities and exits the app
                     }
                 })
                 .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {

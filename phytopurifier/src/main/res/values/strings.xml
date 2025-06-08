@@ -23,30 +23,4 @@
     <string name="settings">Settings</string>
     <string name="logout">Logout</string>
 
-
-    <string-array name="settings_options">
-        <item>Lock screen to portrait</item>
-        <item>Account Info</item>
-        <item>Delete Account</item>
-        <item>Data &amp; Privacy</item>
-    </string-array>
-
-
-    <string name="account_info_username">Username</string>
-    <string name="account_info_email">Email</string>
-    <string name="account_info_phone">Phone Number</string>
-    <string name="account_info_birthday">Birthday</string>
-    <string name="account_info_title">Account Info</string>
-
-
-    <string name="save">Save</string>
-    <string name="profile_image_desc">Profile Picture</string>
-    <string name="setting_title">Setting Title</string>
-    <string name="enter_10_digit_phone_number">Enter 10-digit phone number</string>
-    <string name="yyyy_mm_dd">YYYY-MM-DD</string>
-       <string name="clear">Clear</string>
-    <string name="example_domain_com">example@domain.com</string>
-    <string name="enter_your_full_name">Enter your full name</string>
-
-
 </resources>
