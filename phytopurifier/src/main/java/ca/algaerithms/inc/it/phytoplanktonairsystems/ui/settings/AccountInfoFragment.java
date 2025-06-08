@@ -143,11 +143,6 @@ public class AccountInfoFragment extends Fragment {
 
             Toast.makeText(getContext(), "Details saved successfully", Toast.LENGTH_SHORT).show();
 
-            // Optionally clear or reset
-            // binding.usernameInput.setText("");
-            // binding.emailInput.setText("");
-            // binding.phoneInput.setText("");
-            // binding.birthdayInput.setText("");
         });
 
         binding.clearButton.setOnClickListener(v -> {
@@ -160,6 +155,8 @@ public class AccountInfoFragment extends Fragment {
             binding.emailInput.setError(null);
             binding.phoneInput.setError(null);
             binding.birthdayInput.setError(null);
+
+            prefs.edit().clear().apply();//clear data from shared pref
 
             Toast.makeText(getContext(), "Fields cleared", Toast.LENGTH_SHORT).show();
         });

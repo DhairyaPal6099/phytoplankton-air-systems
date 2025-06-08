@@ -41,6 +41,12 @@
     <string name="save">Enregistrer</string>
     <string name="profile_image_desc">Photo de profil</string>
     <string name="setting_title">Setting Title</string>
+    <string name="enter_10_digit_phone_number">Entrez un numéro à 10 chiffres</string>
+    <string name="yyyy_mm_dd">AAAA-MM-JJ</string>
+    <string name="clear">Effacer</string>
+    <string name="example_domain_com">exemple@domaine.com</string>
+    <string name="enter_your_full_name">Entrez votre nom complet</string>
+
 
 
 </resources>

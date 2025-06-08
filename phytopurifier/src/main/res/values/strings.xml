@@ -42,5 +42,11 @@
     <string name="save">Save</string>
     <string name="profile_image_desc">Profile Picture</string>
     <string name="setting_title">Setting Title</string>
+    <string name="enter_10_digit_phone_number">Enter 10-digit phone number</string>
+    <string name="yyyy_mm_dd">YYYY-MM-DD</string>
+       <string name="clear">Clear</string>
+    <string name="example_domain_com">example@domain.com</string>
+    <string name="enter_your_full_name">Enter your full name</string>
+
 
 </resources>
