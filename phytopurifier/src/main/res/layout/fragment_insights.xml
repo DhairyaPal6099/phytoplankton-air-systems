@@ -28,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/ocean_teal"
             app:cardCornerRadius="12dp"
             app:cardElevation="4dp">
 
@@ -38,10 +39,10 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center_horizontal"
-                    />
+                    android:layout_width="105dp"
+                    android:layout_height="98dp"
+                    android:layout_gravity="left"
+                    android:src="@drawable/algaerithms" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -55,7 +56,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/quicksand_regular"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:textSize="12sp"
                     android:text="Our air purifier reduces CO2 emissions by up to 20% in urban environments."
                     android:layout_marginTop="4dp" />
 
