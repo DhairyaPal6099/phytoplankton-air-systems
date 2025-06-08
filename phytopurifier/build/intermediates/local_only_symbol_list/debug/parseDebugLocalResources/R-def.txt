@@ -2,6 +2,7 @@ R_DEF: Internal format may change without notice
 local
 color beige
 color black
+color dark_green
 color dark_grey
 color green
 color ic_launcher_background
@@ -37,6 +38,7 @@ font quicksand_bold
 font quicksand_regular
 id action_settings
 id app_bar_main
+id aqi_card
 id bottom_nav_home
 id bottom_navigation
 id dashboard_view
@@ -60,11 +62,15 @@ id nav_leaderboard
 id nav_logout
 id nav_settings
 id nav_view
+id progressBar
 id textView
 id textView2
 id textView3
 id textView4
 id textView5
+id textView6
+id textView7
+id textView8
 id text_gallery
 id text_slideshow
 id toggle_view_button

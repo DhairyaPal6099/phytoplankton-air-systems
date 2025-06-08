@@ -2,6 +2,7 @@
 <resources>
     <color name="beige">#FAEDCD</color>
     <color name="black">#FF000000</color>
+    <color name="dark_green">#006400</color>
     <color name="dark_grey">#738290</color>
     <color name="green">#C2D8B9</color>
     <color name="ic_launcher_background">#FFFFFF</color>

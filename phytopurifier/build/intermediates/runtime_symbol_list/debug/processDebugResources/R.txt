@@ -1433,6 +1433,7 @@ int color cardview_dark_background 0x7f05002d
 int color cardview_light_background 0x7f05002e
 int color cardview_shadow_end_color 0x7f05002f
 int color cardview_shadow_start_color 0x7f050030
+int color dark_green 0x7f050313
 int color dark_grey 0x7f050031
 int color design_bottom_navigation_shadow_color 0x7f050032
 int color design_box_stroke_color 0x7f050033
@@ -3268,6 +3269,7 @@ int id animateToStart 0x7f090050
 int id antiClockwise 0x7f090051
 int id anticipate 0x7f090052
 int id app_bar_main 0x7f090053
+int id aqi_card 0x7f090224
 int id arc 0x7f090054
 int id asConfigured 0x7f090055
 int id async 0x7f090056
@@ -3572,6 +3574,7 @@ int id pin 0x7f090180
 int id position 0x7f090181
 int id postLayout 0x7f090182
 int id pressed 0x7f090183
+int id progressBar 0x7f090225
 int id progress_circular 0x7f090184
 int id progress_horizontal 0x7f090185
 int id radio 0x7f090186
@@ -3675,6 +3678,9 @@ int id textView2 0x7f0901e7
 int id textView3 0x7f0901e8
 int id textView4 0x7f0901e9
 int id textView5 0x7f0901ea
+int id textView6 0x7f090226
+int id textView7 0x7f090227
+int id textView8 0x7f090228
 int id text_gallery 0x7f0901eb
 int id text_input_end_icon 0x7f0901ec
 int id text_input_error_icon 0x7f0901ed
