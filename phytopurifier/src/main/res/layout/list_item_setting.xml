@@ -9,7 +9,7 @@
     android:id="@+id/setting_title"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Setting Title"
+    android:text="@string/setting_title"
     android:textSize="16sp"
         android:textColor="#212121"
         android:textStyle="bold"

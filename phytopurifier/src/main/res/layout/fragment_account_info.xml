@@ -37,8 +37,9 @@
             android:padding="12dp"
             android:textStyle="bold"
             android:textColor="#212121"
-            android:hint="@string/account_info_username"
+            android:hint="Enter your full name"
             android:inputType="textPersonName"
+            android:importantForAutofill="yes"
             android:autofillHints="name" />
 
         <EditText
@@ -49,8 +50,9 @@
             android:padding="12dp"
             android:textStyle="bold"
             android:textColor="#212121"
-            android:hint="@string/account_info_email"
+            android:hint="example@domain.com"
             android:inputType="textEmailAddress"
+            android:importantForAutofill="yes"
             android:autofillHints="emailAddress" />
 
         <EditText
@@ -61,8 +63,11 @@
             android:padding="12dp"
             android:textStyle="bold"
             android:textColor="#212121"
-            android:hint="@string/account_info_phone"
+            android:hint="Enter 10-digit phone number"
             android:inputType="phone"
+            android:maxLength="10"
+            android:minEms="10"
+            android:importantForAutofill="yes"
             android:autofillHints="phone" />
 
         <EditText
@@ -73,7 +78,7 @@
             android:padding="12dp"
             android:textStyle="bold"
             android:textColor="#212121"
-            android:hint="@string/account_info_birthday"
+            android:hint="YYYY-MM-DD"
             android:focusable="false"
             android:clickable="true"
             android:inputType="none" />
@@ -85,6 +90,15 @@
             android:minHeight="48dp"
             android:text="@string/save"
             android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/clear_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="Clear"
+            android:layout_marginTop="8dp" />
+
 
     </LinearLayout>
 </ScrollView>

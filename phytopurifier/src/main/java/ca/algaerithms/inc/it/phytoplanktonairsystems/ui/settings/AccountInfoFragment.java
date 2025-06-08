@@ -88,15 +88,83 @@ public class AccountInfoFragment extends Fragment {
 
         // Save Button
         binding.saveButton.setOnClickListener(v -> {
+            String username = binding.usernameInput.getText().toString().trim();
+            String email = binding.emailInput.getText().toString().trim();
+            String phone = binding.phoneInput.getText().toString().trim();
+            String birthday = binding.birthdayInput.getText().toString().trim();
+
+            boolean hasError = false;
+
+            // Clear old errors
+            binding.usernameInput.setError(null);
+            binding.emailInput.setError(null);
+            binding.phoneInput.setError(null);
+            binding.birthdayInput.setError(null);
+
+            // 1. Required field check
+            if (username.isEmpty()) {
+                binding.usernameInput.setError("Name is required");
+                hasError = true;
+            }
+
+            // 2. Valid email check
+            if (email.isEmpty()) {
+                binding.emailInput.setError("Email is required");
+                hasError = true;
+            } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                binding.emailInput.setError("Invalid email format");
+                hasError = true;
+            }
+
+            // 3. Phone number must be at least 9 digits
+            if (phone.isEmpty()) {
+                binding.phoneInput.setError("Phone number is required");
+                hasError = true;
+            } else if (phone.length() < 9) {
+                binding.phoneInput.setError("Phone must be at least 9 digits");
+                hasError = true;
+            }
+
+            // 4. Birthday required
+            if (birthday.isEmpty()) {
+                binding.birthdayInput.setError("Birthday is required");
+                hasError = true;
+            }
+
+            if (hasError) return;
+
+            // Save to SharedPreferences
             prefs.edit()
-                    .putString("username", binding.usernameInput.getText().toString())
-                    .putString("email", binding.emailInput.getText().toString())
-                    .putString("phone", binding.phoneInput.getText().toString())
-                    .putString("birthday", binding.birthdayInput.getText().toString())
+                    .putString("username", username)
+                    .putString("email", email)
+                    .putString("phone", phone)
+                    .putString("birthday", birthday)
                     .apply();
 
-            Toast.makeText(getContext(), "Details saved locally", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Details saved successfully", Toast.LENGTH_SHORT).show();
+
+            // Optionally clear or reset
+            // binding.usernameInput.setText("");
+            // binding.emailInput.setText("");
+            // binding.phoneInput.setText("");
+            // binding.birthdayInput.setText("");
         });
+
+        binding.clearButton.setOnClickListener(v -> {
+            binding.usernameInput.setText("");
+            binding.emailInput.setText("");
+            binding.phoneInput.setText("");
+            binding.birthdayInput.setText("");
+
+            binding.usernameInput.setError(null);
+            binding.emailInput.setError(null);
+            binding.phoneInput.setError(null);
+            binding.birthdayInput.setError(null);
+
+            Toast.makeText(getContext(), "Fields cleared", Toast.LENGTH_SHORT).show();
+        });
+
+
 
         // Profile Image Click → Request Permission
         binding.profileImage.setOnClickListener(v -> {
