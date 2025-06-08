@@ -3183,6 +3183,8 @@ drawable side_nav_bar
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+font quicksand_bold
+font quicksand_regular
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -3328,6 +3330,7 @@ id currentState
 id custom
 id customPanel
 id cut
+id dashboard_view
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
@@ -3391,12 +3394,16 @@ id flip
 id floating
 id forever
 id fragment_container_view_tag
+id frameLayout
+id frameLayout2
+id frameLayout4
 id frost
 id fullscreen_header
 id ghost_view
 id ghost_view_holder
 id gone
 id graph
+id graph_view
 id graph_wrap
 id group_divider
 id grouping
@@ -3665,6 +3672,10 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
+id textView2
+id textView3
+id textView4
+id textView5
 id text_gallery
 id text_input_end_icon
 id text_input_error_icon
@@ -3681,6 +3692,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id toggle_view_button
 id toolbar
 id top
 id topPanel
