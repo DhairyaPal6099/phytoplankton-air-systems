@@ -1,7 +1,13 @@
 R_DEF: Internal format may change without notice
 local
+color beige
 color black
+color dark_grey
+color green
 color ic_launcher_background
+color light_green
+color ocean_blue
+color ocean_teal
 color purple_200
 color purple_500
 color purple_700
@@ -39,10 +45,10 @@ id imageView2
 id main
 id mobile_navigation
 id nav_about
-id nav_community
 id nav_dashboard
 id nav_home
 id nav_host_fragment_content_main
+id nav_insights
 id nav_leaderboard
 id nav_logout
 id nav_settings
@@ -55,9 +61,9 @@ layout activity_main
 layout app_bar_main
 layout content_main
 layout fragment_about
-layout fragment_community
 layout fragment_dashboard
 layout fragment_home
+layout fragment_insights
 layout fragment_leaderboard
 layout fragment_settings
 layout layout_splash_screen

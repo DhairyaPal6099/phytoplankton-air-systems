@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="beige">#FAEDCD</color>
     <color name="black">#FF000000</color>
+    <color name="dark_grey">#738290</color>
+    <color name="green">#C2D8B9</color>
     <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="light_green">#E4F0D0</color>
+    <color name="ocean_blue">#A1B5D8</color>
+    <color name="ocean_teal">#738290</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

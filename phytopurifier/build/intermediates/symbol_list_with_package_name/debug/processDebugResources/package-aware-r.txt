@@ -1418,6 +1418,7 @@ color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
+color beige
 color black
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
@@ -1433,6 +1434,7 @@ color cardview_dark_background
 color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
+color dark_grey
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -1479,9 +1481,11 @@ color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
+color green
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color ic_launcher_background
+color light_green
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -2138,6 +2142,8 @@ color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color ocean_blue
+color ocean_teal
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -3497,12 +3503,12 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id nav_about
-id nav_community
 id nav_controller_view_tag
 id nav_dashboard
 id nav_home
 id nav_host_fragment_container
 id nav_host_fragment_content_main
+id nav_insights
 id nav_leaderboard
 id nav_logout
 id nav_settings
@@ -3850,9 +3856,9 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_about
-layout fragment_community
 layout fragment_dashboard
 layout fragment_home
+layout fragment_insights
 layout fragment_leaderboard
 layout fragment_settings
 layout ime_base_split_test_activity

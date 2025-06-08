@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-2:/values-xlarge-v4/values-xlarge-v4.xml",
+            "outputFile": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-43:/values-xlarge-v4/values-xlarge-v4.xml",
             "map": [
                 {
-                    "source": "E:\\Humber\\Semester 5\\Software Project\\Project\\caches\\8.9\\transforms\\ab353447ed68fc2953e838b031e3142c\\transformed\\appcompat-1.7.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "source": "C:\\Users\\Julian Imperial\\.gradle\\caches\\8.9\\transforms\\ab353447ed68fc2953e838b031e3142c\\transformed\\appcompat-1.7.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
