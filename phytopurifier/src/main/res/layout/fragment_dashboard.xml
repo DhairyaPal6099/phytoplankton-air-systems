@@ -135,7 +135,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/card_symbol"
+                    android:id="@+id/sensor_symbol"
                     android:layout_width="48dp"
                     android:layout_height="45dp"
                     android:layout_marginStart="16dp"

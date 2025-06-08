@@ -55,6 +55,7 @@ id graph_view
 id home_nav_host_fragment
 id imageView
 id imageView2
+id insights_title
 id main
 id mobile_navigation
 id nav_about
@@ -67,8 +68,8 @@ id nav_logout
 id nav_settings
 id nav_view
 id progressBar
+id sensor_symbol
 id textView
-id textView2
 id textView3
 id textView4
 id textView5

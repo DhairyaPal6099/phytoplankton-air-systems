@@ -3435,6 +3435,7 @@ id immediateStop
 id included
 id indeterminate
 id info
+id insights_title
 id invisible
 id inward
 id italic
@@ -3617,6 +3618,7 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selection_type
+id sensor_symbol
 id sharedValueSet
 id sharedValueUnset
 id shortcut
@@ -3679,7 +3681,6 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
-id textView2
 id textView3
 id textView4
 id textView5
