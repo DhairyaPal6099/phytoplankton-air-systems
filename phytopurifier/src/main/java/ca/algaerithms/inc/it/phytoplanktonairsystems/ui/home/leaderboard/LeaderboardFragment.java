@@ -1,3 +1,7 @@
+/* Julian Imperial – N01638310
+   Dhairya Pal – N01576099
+   Sanskriti Mansotra – N01523183
+   Dharmik Shah – N01581796 */
 package ca.algaerithms.inc.it.phytoplanktonairsystems.ui.home.leaderboard;
 
 import android.os.Bundle;
@@ -36,9 +40,9 @@ public class LeaderboardFragment extends Fragment {
 
         //Sample Data
         userStatList = new ArrayList<>();
-        userStatList.add(new UserStat("Scotia Bank", 2000));
-        userStatList.add(new UserStat("RBC", 1800));
-        userStatList.add(new UserStat("TD", 1500));
+        userStatList.add(new UserStat(getString(R.string.scotia_bank), 2000));
+        userStatList.add(new UserStat(getString(R.string.rbc), 1800));
+        userStatList.add(new UserStat(getString(R.string.td), 1500));
 
         adapter = new LeaderboardAdapter(getContext(), userStatList);
         leaderboardRecyclyerView.setAdapter(adapter);

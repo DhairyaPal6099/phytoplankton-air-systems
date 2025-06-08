@@ -37,6 +37,9 @@
     <string name="test_info">Our air purifier reduces CO2 emissions by up to 20% in urban environments.</string>
     <string name="about_us">About Us</string>
     <string name="information_about_us">Information About us.</string>
+    <string name="scotia_bank">Scotia Bank</string>
+    <string name="rbc">RBC</string>
+    <string name="td">TD</string>
 
     <string-array name="video_titles">
         <item>What are Phytoplankton?</item>
