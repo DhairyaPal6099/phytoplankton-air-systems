@@ -23,6 +23,29 @@
     <string name="about">About</string>
     <string name="settings">Settings</string>
     <string name="logout">Logout</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="graph_view">Graph View</string>
+    <string name="dashboard_view">Dashboard View</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="oxygen">Oxygen</string>
+    <string name="produced">Produced</string>
+    <string name="aqi_number">AQI Number</string>
+    <string name="notifcation_sample">Notifcation Sample</string>
+    <string name="graph_view_2">Graph View</string>
+    <string name="insights">Insights</string>
+    <string name="did_you_know">Did you know?</string>
+    <string name="test_info">Our air purifier reduces CO2 emissions by up to 20% in urban environments.</string>
+    <string name="about_us">About Us</string>
+    <string name="information_about_us">Information About us.</string>
+    <string name="scotia_bank">Scotia Bank</string>
+    <string name="rbc">RBC</string>
+    <string name="td">TD</string>
+
+    <string-array name="video_titles">
+        <item>What are Phytoplankton?</item>
+        <item>How Phytoplankton Helps Clean Air</item>
+        <item>Phytoplankton and the Climate</item>
+    </string-array>
     <string name="contact_support_phonenumber" translatable="false">tel: 1234567890</string>
     <string name="action_support">Support</string>
     <string name="action_share">Share</string>
