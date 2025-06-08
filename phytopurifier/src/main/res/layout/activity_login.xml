@@ -5,7 +5,7 @@
     android:id="@+id/login_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/loginbg"
     tools:context=".LoginActivity">
 
     <LinearLayout
@@ -17,20 +17,21 @@
 
         <ImageView
             android:id="@+id/login_profile"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="-100dp"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_width="match_parent"
+            android:layout_height="246dp"
+            android:layout_marginTop="-150dp"
+            android:src="@drawable/welcome" />
 
         <EditText
             android:id="@+id/login_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/faded_white"
             android:ems="15"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:padding="15dp"
             android:textColor="@color/white"
             android:textColorHint="@color/fade"
@@ -42,8 +43,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/login_username"
             android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/faded_white"
             android:drawableEnd="@drawable/visibility_on"
-            android:drawableTint="@color/light_blue"
+            android:drawableTint="@color/forest_green"
             android:ems="15"
             android:layout_marginTop="10dp"
             android:textColor="@color/white"
@@ -59,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:text="@string/remember_me"
-            android:textColor="@color/light_blue"/>
+            android:textColor="@color/faded_black"/>
 
         <Button
             android:id="@+id/login_button"
@@ -67,8 +69,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textSize="20sp"
-            android:ems="9"
             android:background="@drawable/rounded_corners"
+            android:ems="9"
             android:text="@string/login" />
 
         <Button
@@ -76,9 +78,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:textColor="@color/faded_black"
             android:text="@string/forgot_password"
             android:background="@color/transparent" />
-
     </LinearLayout>
 
     <!-- "Create an Account" Button at the Bottom -->
@@ -90,6 +92,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
         android:background="@drawable/signup_button_background"
+        android:backgroundTint="#0B6634"
         android:ems="15"
         android:text="@string/create_an_account" />
 

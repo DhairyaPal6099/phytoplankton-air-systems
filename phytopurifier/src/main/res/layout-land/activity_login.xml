@@ -4,14 +4,14 @@
     android:layout_height="match_parent"
     android:id="@+id/login_activity"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/loginbg"
     tools:context=".LoginActivity">
 
     <LinearLayout
         android:id="@+id/profile_land"
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
-        android:layout_marginLeft="95dp"
+        android:layout_marginLeft="105dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -19,7 +19,7 @@
             android:id="@+id/login_profile"
             android:layout_width="match_parent"
             android:layout_height="246dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/welcome" />
     </LinearLayout>
 
 
@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/faded_white"
             android:ems="15"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
@@ -52,8 +53,9 @@
             android:layout_below="@+id/login_username"
             android:layout_marginTop="10dp"
             android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/faded_white"
             android:drawableEnd="@drawable/visibility_on"
-            android:drawableTint="@color/light_blue"
+            android:drawableTint="@color/forest_green"
             android:ems="15"
             android:hint="@string/password"
             android:inputType="textPassword"
@@ -75,13 +77,13 @@
                 android:layout_marginLeft="5dp"
                 android:textSize="17sp"
                 android:text="@string/remember_me"
-                android:textColor="@color/light_blue" />
+                android:textColor="@color/faded_black" />
 
             <Button
                 android:id="@+id/login_forgotPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/light_blue"
+                android:textColor="@color/faded_black"
                 android:layout_marginLeft="25dp"
                 android:background="@color/transparent"
                 android:text="@string/forgot_password" />
