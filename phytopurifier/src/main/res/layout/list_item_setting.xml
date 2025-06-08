@@ -11,6 +11,8 @@
     android:layout_height="wrap_content"
     android:text="Setting Title"
     android:textSize="16sp"
+        android:textColor="#212121"
+        android:textStyle="bold"
     android:layout_alignParentStart="true"
     android:layout_centerVertical="true"/>
 

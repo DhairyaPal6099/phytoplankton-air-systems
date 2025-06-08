@@ -23,6 +23,7 @@
     <string name="settings">Settings</string>
     <string name="logout">Logout</string>
 
+
     <string-array name="settings_options">
         <item>Lock screen to portrait</item>
         <item>Account Info</item>

@@ -35,6 +35,8 @@
             android:layout_height="wrap_content"
             android:minHeight="48dp"
             android:padding="12dp"
+            android:textStyle="bold"
+            android:textColor="#212121"
             android:hint="@string/account_info_username"
             android:inputType="textPersonName"
             android:autofillHints="name" />
@@ -45,6 +47,8 @@
             android:layout_height="wrap_content"
             android:minHeight="48dp"
             android:padding="12dp"
+            android:textStyle="bold"
+            android:textColor="#212121"
             android:hint="@string/account_info_email"
             android:inputType="textEmailAddress"
             android:autofillHints="emailAddress" />
@@ -55,6 +59,8 @@
             android:layout_height="wrap_content"
             android:minHeight="48dp"
             android:padding="12dp"
+            android:textStyle="bold"
+            android:textColor="#212121"
             android:hint="@string/account_info_phone"
             android:inputType="phone"
             android:autofillHints="phone" />
@@ -65,6 +71,8 @@
             android:layout_height="wrap_content"
             android:minHeight="48dp"
             android:padding="12dp"
+            android:textStyle="bold"
+            android:textColor="#212121"
             android:hint="@string/account_info_birthday"
             android:focusable="false"
             android:clickable="true"
