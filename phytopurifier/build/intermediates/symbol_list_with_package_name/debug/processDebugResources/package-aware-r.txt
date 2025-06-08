@@ -85,6 +85,7 @@ animator nav_default_enter_anim
 animator nav_default_exit_anim
 animator nav_default_pop_enter_anim
 animator nav_default_pop_exit_anim
+array video_titles
 attr SharedValue
 attr SharedValueId
 attr action
@@ -3738,6 +3739,8 @@ id useLogo
 id user_name
 id vertical
 id vertical_only
+id video_spinner
+id video_webview
 id view_offset_helper
 id view_transition
 id view_tree_disjoint_parent

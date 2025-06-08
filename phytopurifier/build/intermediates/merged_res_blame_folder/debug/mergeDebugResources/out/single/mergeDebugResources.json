@@ -20,6 +20,10 @@
         "source": "C:\\Users\\Julian Imperial\\.gradle\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:\\drawable\\exit.xml"
     },
     {
+        "merged": "C:\\Users\\Julian Imperial\\.gradle\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-debug-45:\\drawable_podium.png.flat",
+        "source": "C:\\Users\\Julian Imperial\\.gradle\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:\\drawable\\podium.png"
+    },
+    {
         "merged": "C:\\Users\\Julian Imperial\\.gradle\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-debug-45:\\drawable_ic_menu_slideshow.xml.flat",
         "source": "C:\\Users\\Julian Imperial\\.gradle\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:\\drawable\\ic_menu_slideshow.xml"
     },
@@ -78,6 +82,10 @@
     {
         "merged": "C:\\Users\\Julian Imperial\\.gradle\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-debug-45:\\drawable_square_leaf.png.flat",
         "source": "C:\\Users\\Julian Imperial\\.gradle\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:\\drawable\\square_leaf.png"
+    },
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-debug-45:/layout_fragment_dashboard.xml.flat",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/fragment_dashboard.xml"
     },
     {
         "merged": "C:\\Users\\Julian Imperial\\.gradle\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-debug-45:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
@@ -162,10 +170,6 @@
     {
         "merged": "C:\\Users\\Julian Imperial\\.gradle\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-debug-45:\\drawable_medal3rd.png.flat",
         "source": "C:\\Users\\Julian Imperial\\.gradle\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:\\drawable\\medal3rd.png"
-    },
-    {
-        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-debug-45:/drawable_podium.png.flat",
-        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/drawable/podium.png"
     },
     {
         "merged": "C:\\Users\\Julian Imperial\\.gradle\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-debug-45:\\drawable_logout.xml.flat",

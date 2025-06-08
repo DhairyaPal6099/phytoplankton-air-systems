@@ -1,5 +1,6 @@
 R_DEF: Internal format may change without notice
 local
+array video_titles
 color beige
 color black
 color bronze
@@ -92,6 +93,8 @@ id text_slideshow
 id toggle_view_button
 id toolbar
 id user_name
+id video_spinner
+id video_webview
 layout activity_main
 layout app_bar_main
 layout content_main

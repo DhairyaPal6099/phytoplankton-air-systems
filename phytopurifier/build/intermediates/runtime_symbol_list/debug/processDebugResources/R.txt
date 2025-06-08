@@ -84,6 +84,7 @@ int animator nav_default_enter_anim 0x7f020022
 int animator nav_default_exit_anim 0x7f020023
 int animator nav_default_pop_enter_anim 0x7f020024
 int animator nav_default_pop_exit_anim 0x7f020025
+int array video_titles 0x7f160000
 int attr SharedValue 0x7f030000
 int attr SharedValueId 0x7f030001
 int attr action 0x7f030002
@@ -3737,6 +3738,8 @@ int id useLogo 0x7f090217
 int id user_name 0x7f09022f
 int id vertical 0x7f090218
 int id vertical_only 0x7f090219
+int id video_spinner 0x7f090231
+int id video_webview 0x7f090232
 int id view_offset_helper 0x7f09021a
 int id view_transition 0x7f09021b
 int id view_tree_disjoint_parent 0x7f09021c
