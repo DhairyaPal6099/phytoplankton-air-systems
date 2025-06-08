@@ -1426,6 +1426,7 @@ color bright_foreground_inverse_material_dark
 color bright_foreground_inverse_material_light
 color bright_foreground_material_dark
 color bright_foreground_material_light
+color bronze
 color button_material_dark
 color button_material_light
 color call_notification_answer_color
@@ -1482,6 +1483,7 @@ color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
+color gold
 color green
 color highlighted_text_material_dark
 color highlighted_text_material_light
@@ -2162,6 +2164,7 @@ color secondary_text_default_material_dark
 color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
 color secondary_text_disabled_material_light
+color silver
 color switch_thumb_disabled_material_dark
 color switch_thumb_disabled_material_light
 color switch_thumb_material_dark
@@ -3062,6 +3065,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable about
+drawable algaerithms
 drawable avd_hide_password
 drawable avd_show_password
 drawable btn_checkbox_checked_mtrl
@@ -3129,6 +3133,9 @@ drawable material_ic_keyboard_arrow_previous_black_24dp
 drawable material_ic_keyboard_arrow_right_black_24dp
 drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
+drawable medal1st
+drawable medal2nd
+drawable medal3rd
 drawable mtrl_bottomsheet_drag_handle
 drawable mtrl_checkbox_button
 drawable mtrl_checkbox_button_checked_unchecked
@@ -3180,6 +3187,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable podium
 drawable sensor_example_sample
 drawable settings
 drawable side_nav_bar
@@ -3402,7 +3410,6 @@ id forever
 id fragment_container_view_tag
 id frameLayout
 id frameLayout2
-id frameLayout4
 id frost
 id fullscreen_header
 id ghost_view
@@ -3431,6 +3438,7 @@ id ignoreRequest
 id image
 id imageView
 id imageView2
+id imageView3
 id immediateStop
 id included
 id indeterminate
@@ -3444,6 +3452,7 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
+id leaderboardRecyclerView
 id left
 id leftToRight
 id legacy
@@ -3481,6 +3490,7 @@ id material_timepicker_ok_button
 id material_timepicker_view
 id material_value_index
 id matrix
+id medal_icon
 id message
 id middle
 id mini
@@ -3565,6 +3575,7 @@ id open_search_view_toolbar_container
 id outline
 id outward
 id overshoot
+id oxygen_amount
 id packed
 id parallax
 id parent
@@ -3683,7 +3694,6 @@ id textTop
 id textView
 id textView3
 id textView4
-id textView5
 id textView6
 id textView7
 id textView8
@@ -3725,6 +3735,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id user_name
 id vertical
 id vertical_only
 id view_offset_helper
@@ -3888,6 +3899,7 @@ layout fragment_settings
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout layout_splash_screen
+layout leaderboard_item
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title

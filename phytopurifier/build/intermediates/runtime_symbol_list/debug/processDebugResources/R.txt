@@ -1425,6 +1425,7 @@ int color bright_foreground_inverse_material_dark 0x7f050025
 int color bright_foreground_inverse_material_light 0x7f050026
 int color bright_foreground_material_dark 0x7f050027
 int color bright_foreground_material_light 0x7f050028
+int color bronze 0x7f050314
 int color button_material_dark 0x7f050029
 int color button_material_light 0x7f05002a
 int color call_notification_answer_color 0x7f05002b
@@ -1481,6 +1482,7 @@ int color error_color_material_dark 0x7f05005d
 int color error_color_material_light 0x7f05005e
 int color foreground_material_dark 0x7f05005f
 int color foreground_material_light 0x7f050060
+int color gold 0x7f050315
 int color green 0x7f050061
 int color highlighted_text_material_dark 0x7f050062
 int color highlighted_text_material_light 0x7f050063
@@ -2161,6 +2163,7 @@ int color secondary_text_default_material_dark 0x7f050305
 int color secondary_text_default_material_light 0x7f050306
 int color secondary_text_disabled_material_dark 0x7f050307
 int color secondary_text_disabled_material_light 0x7f050308
+int color silver 0x7f050316
 int color switch_thumb_disabled_material_dark 0x7f050309
 int color switch_thumb_disabled_material_light 0x7f05030a
 int color switch_thumb_material_dark 0x7f05030b
@@ -3061,6 +3064,7 @@ int drawable abc_textfield_search_default_mtrl_alpha 0x7f070075
 int drawable abc_textfield_search_material 0x7f070076
 int drawable abc_vector_test 0x7f070077
 int drawable about 0x7f070078
+int drawable algaerithms 0x7f0700f6
 int drawable avd_hide_password 0x7f070079
 int drawable avd_show_password 0x7f07007a
 int drawable btn_checkbox_checked_mtrl 0x7f07007b
@@ -3128,6 +3132,9 @@ int drawable material_ic_keyboard_arrow_previous_black_24dp 0x7f0700b8
 int drawable material_ic_keyboard_arrow_right_black_24dp 0x7f0700b9
 int drawable material_ic_menu_arrow_down_black_24dp 0x7f0700ba
 int drawable material_ic_menu_arrow_up_black_24dp 0x7f0700bb
+int drawable medal1st 0x7f0700f7
+int drawable medal2nd 0x7f0700f8
+int drawable medal3rd 0x7f0700f9
 int drawable mtrl_bottomsheet_drag_handle 0x7f0700bc
 int drawable mtrl_checkbox_button 0x7f0700bd
 int drawable mtrl_checkbox_button_checked_unchecked 0x7f0700be
@@ -3179,6 +3186,7 @@ int drawable notification_template_icon_bg 0x7f0700eb
 int drawable notification_template_icon_low_bg 0x7f0700ec
 int drawable notification_tile_bg 0x7f0700ed
 int drawable notify_panel_notification_icon_bg 0x7f0700ee
+int drawable podium 0x7f0700fa
 int drawable sensor_example_sample 0x7f0700ef
 int drawable settings 0x7f0700f0
 int drawable side_nav_bar 0x7f0700f1
@@ -3401,7 +3409,6 @@ int id forever 0x7f0900d1
 int id fragment_container_view_tag 0x7f0900d2
 int id frameLayout 0x7f0900d3
 int id frameLayout2 0x7f0900d4
-int id frameLayout4 0x7f0900d5
 int id frost 0x7f0900d6
 int id fullscreen_header 0x7f0900d7
 int id ghost_view 0x7f0900d8
@@ -3430,6 +3437,7 @@ int id ignoreRequest 0x7f0900ee
 int id image 0x7f0900ef
 int id imageView 0x7f0900f0
 int id imageView2 0x7f0900f1
+int id imageView3 0x7f090230
 int id immediateStop 0x7f0900f2
 int id included 0x7f0900f3
 int id indeterminate 0x7f0900f4
@@ -3443,6 +3451,7 @@ int id jumpToEnd 0x7f0900fb
 int id jumpToStart 0x7f0900fc
 int id labeled 0x7f0900fd
 int id layout 0x7f0900fe
+int id leaderboardRecyclerView 0x7f09022c
 int id left 0x7f0900ff
 int id leftToRight 0x7f090100
 int id legacy 0x7f090101
@@ -3480,6 +3489,7 @@ int id material_timepicker_ok_button 0x7f090120
 int id material_timepicker_view 0x7f090121
 int id material_value_index 0x7f090122
 int id matrix 0x7f090123
+int id medal_icon 0x7f09022d
 int id message 0x7f090124
 int id middle 0x7f090125
 int id mini 0x7f090126
@@ -3564,6 +3574,7 @@ int id open_search_view_toolbar_container 0x7f090174
 int id outline 0x7f090175
 int id outward 0x7f090176
 int id overshoot 0x7f090177
+int id oxygen_amount 0x7f09022e
 int id packed 0x7f090178
 int id parallax 0x7f090179
 int id parent 0x7f09017a
@@ -3682,7 +3693,6 @@ int id textTop 0x7f0901ea
 int id textView 0x7f0901eb
 int id textView3 0x7f0901ec
 int id textView4 0x7f0901ed
-int id textView5 0x7f0901ee
 int id textView6 0x7f0901ef
 int id textView7 0x7f0901f0
 int id textView8 0x7f0901f1
@@ -3724,6 +3734,7 @@ int id uniform 0x7f090214
 int id unlabeled 0x7f090215
 int id up 0x7f090216
 int id useLogo 0x7f090217
+int id user_name 0x7f09022f
 int id vertical 0x7f090218
 int id vertical_only 0x7f090219
 int id view_offset_helper 0x7f09021a
@@ -3887,6 +3898,7 @@ int layout fragment_settings 0x7f0c0034
 int layout ime_base_split_test_activity 0x7f0c0035
 int layout ime_secondary_split_test_activity 0x7f0c0036
 int layout layout_splash_screen 0x7f0c0037
+int layout leaderboard_item 0x7f0c0076
 int layout m3_alert_dialog 0x7f0c0038
 int layout m3_alert_dialog_actions 0x7f0c0039
 int layout m3_alert_dialog_title 0x7f0c003a

@@ -2,8 +2,10 @@ R_DEF: Internal format may change without notice
 local
 color beige
 color black
+color bronze
 color dark_green
 color dark_grey
+color gold
 color green
 color ic_launcher_background
 color light_green
@@ -12,6 +14,7 @@ color ocean_teal
 color purple_200
 color purple_500
 color purple_700
+color silver
 color teal_200
 color teal_700
 color white
@@ -21,6 +24,7 @@ dimen fab_margin
 dimen nav_header_height
 dimen nav_header_vertical_spacing
 drawable about
+drawable algaerithms
 drawable circle_border
 drawable community
 drawable dashboard
@@ -33,6 +37,10 @@ drawable ic_menu_gallery
 drawable ic_menu_slideshow
 drawable leaderboard
 drawable logout
+drawable medal1st
+drawable medal2nd
+drawable medal3rd
+drawable podium
 drawable sensor_example_sample
 drawable settings
 drawable side_nav_bar
@@ -50,13 +58,15 @@ id drawer_layout
 id fab
 id frameLayout
 id frameLayout2
-id frameLayout4
 id graph_view
 id home_nav_host_fragment
 id imageView
 id imageView2
+id imageView3
 id insights_title
+id leaderboardRecyclerView
 id main
+id medal_icon
 id mobile_navigation
 id nav_about
 id nav_dashboard
@@ -67,12 +77,12 @@ id nav_leaderboard
 id nav_logout
 id nav_settings
 id nav_view
+id oxygen_amount
 id progressBar
 id sensor_symbol
 id textView
 id textView3
 id textView4
-id textView5
 id textView6
 id textView7
 id textView8
@@ -81,6 +91,7 @@ id text_gallery
 id text_slideshow
 id toggle_view_button
 id toolbar
+id user_name
 layout activity_main
 layout app_bar_main
 layout content_main
@@ -91,6 +102,7 @@ layout fragment_insights
 layout fragment_leaderboard
 layout fragment_settings
 layout layout_splash_screen
+layout leaderboard_item
 layout nav_header_main
 menu activity_main_drawer
 menu bottom_nav_menu

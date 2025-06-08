@@ -12,8 +12,12 @@
         "source": "C:\\Users\\Julian Imperial\\.gradle\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:\\layout\\fragment_home.xml"
     },
     {
-        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/fragment_insights.xml",
-        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/fragment_insights.xml"
+        "merged": "C:\\Users\\Julian Imperial\\.gradle\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:\\layout\\leaderboard_item.xml",
+        "source": "C:\\Users\\Julian Imperial\\.gradle\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:\\layout\\leaderboard_item.xml"
+    },
+    {
+        "merged": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:/layout/fragment_leaderboard.xml",
+        "source": "ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-main-47:/layout/fragment_leaderboard.xml"
     },
     {
         "merged": "C:\\Users\\Julian Imperial\\.gradle\\daemon\\8.9\\ca.algaerithms.inc.it.phytoplanktonairsystems.phytopurifier-mergeDebugResources-44:\\layout\\app_bar_main.xml",
