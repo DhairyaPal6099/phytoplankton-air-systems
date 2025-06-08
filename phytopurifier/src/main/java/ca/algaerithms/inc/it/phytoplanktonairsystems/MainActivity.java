@@ -31,6 +31,7 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.ActivityMainBin
 
 public class MainActivity extends AppCompatActivity {
 
+    private NavController navController;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
@@ -59,9 +60,24 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_home, R.id.nav_about, R.id.nav_settings)
                 .setOpenableLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.nav_logout) {
+                logout(); // 👈 call your method here
+                binding.drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            } else {
+                navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+                boolean handled = NavigationUI.onNavDestinationSelected(item, navController);
+                binding.drawerLayout.closeDrawer(GravityCompat.START);
+                return handled;
+            }
+        });
 
         //Display the AlertDialog
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
@@ -103,6 +119,24 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
+    //Logout
+    private void logout() {
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle(R.string.logout)
+                .setMessage(R.string.are_you_sure_you_want_to_logout)
+                .setPositiveButton(R.string.yes, (dialog, which) -> {
+                    // If using Firebase:
+                    // FirebaseAuth.getInstance().signOut();
+
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                })
+                .show();
+    }
+
+    //Exits the application
     private void showExit() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setIcon(R.drawable.exit)
