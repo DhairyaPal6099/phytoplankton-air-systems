@@ -27,6 +27,7 @@ import androidx.fragment.app.Fragment;
 
 import java.util.Calendar;
 
+import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentAccountInfoBinding;
 
 public class AccountInfoFragment extends Fragment {
@@ -39,7 +40,7 @@ public class AccountInfoFragment extends Fragment {
                 if (isGranted) {
                     openGallery();
                 } else {
-                    Toast.makeText(requireContext(), "Gallery access permission denied.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireContext(), getString(R.string.gallery_permission_denied), Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -62,13 +63,13 @@ public class AccountInfoFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        prefs = requireContext().getSharedPreferences("account_info", Context.MODE_PRIVATE);
+        prefs = requireContext().getSharedPreferences(getString(R.string.account_info_title), Context.MODE_PRIVATE);
 
         // Load saved values
-        binding.usernameInput.setText(prefs.getString("username", ""));
-        binding.emailInput.setText(prefs.getString("email", ""));
-        binding.phoneInput.setText(prefs.getString("phone", ""));
-        binding.birthdayInput.setText(prefs.getString("birthday", ""));
+        binding.usernameInput.setText(prefs.getString(getString(R.string.account_info_username), ""));
+        binding.emailInput.setText(prefs.getString(getString(R.string.account_info_email), ""));
+        binding.phoneInput.setText(prefs.getString(getString(R.string.account_info_phone), ""));
+        binding.birthdayInput.setText(prefs.getString(getString(R.string.account_info_birthday), ""));
 
         // Date Picker
         binding.birthdayInput.setOnClickListener(v -> {
@@ -103,22 +104,22 @@ public class AccountInfoFragment extends Fragment {
 
             // 1. Required field check
             if (username.isEmpty()) {
-                binding.usernameInput.setError("Name is required");
+                binding.usernameInput.setError(getString(R.string.name_required));
                 hasError = true;
             }
 
             // 2. Valid email check
             if (email.isEmpty()) {
-                binding.emailInput.setError("Email is required");
+                binding.emailInput.setError(getString(R.string.email_required));
                 hasError = true;
             } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                binding.emailInput.setError("Invalid email format");
+                binding.emailInput.setError(getString(R.string.invalid_email));
                 hasError = true;
             }
 
             // 3. Phone number must be at least 9 digits
             if (phone.isEmpty()) {
-                binding.phoneInput.setError("Phone number is required");
+                binding.phoneInput.setError(getString(R.string.phone_required));
                 hasError = true;
             } else if (phone.length() < 9) {
                 binding.phoneInput.setError("Phone must be at least 9 digits");
@@ -127,7 +128,7 @@ public class AccountInfoFragment extends Fragment {
 
             // 4. Birthday required
             if (birthday.isEmpty()) {
-                binding.birthdayInput.setError("Birthday is required");
+                binding.birthdayInput.setError(getString(R.string.birthday_required));
                 hasError = true;
             }
 
@@ -141,7 +142,7 @@ public class AccountInfoFragment extends Fragment {
                     .putString("birthday", birthday)
                     .apply();
 
-            Toast.makeText(getContext(), "Details saved successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), getString(R.string.details_saved), Toast.LENGTH_SHORT).show();
 
         });
 
@@ -158,7 +159,7 @@ public class AccountInfoFragment extends Fragment {
 
             prefs.edit().clear().apply();//clear data from shared pref
 
-            Toast.makeText(getContext(), "Fields cleared", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), getString(R.string.fields_cleared), Toast.LENGTH_SHORT).show();
         });
 
 
