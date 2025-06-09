@@ -22,6 +22,40 @@
     <string name="about">About</string>
     <string name="settings">Settings</string>
     <string name="logout">Logout</string>
+
+    <string-array name="settings_options">
+        <item>Verrouiller l écran en mode portrait</item>
+        <item>Informations du compte</item>
+        <item>Supprimer le compte</item>
+        <item>Données et confidentialité</item>
+    </string-array>
+
+
+    <string name="account_info_username">Nom utilisateur</string>
+    <string name="account_info_email">Courriel</string>
+    <string name="account_info_phone">Numéro de téléphone</string>
+    <string name="account_info_birthday">Date de naissance</string>
+    <string name="account_info_title">Informations du compte</string>
+
+
+    <string name="save">Enregistrer</string>
+    <string name="profile_image_desc">Photo de profil</string>
+    <string name="setting_title">Setting Title</string>
+    <string name="enter_10_digit_phone_number">Entrez un numéro à 10 chiffres</string>
+    <string name="yyyy_mm_dd">AAAA-MM-JJ</string>
+    <string name="clear">Effacer</string>
+    <string name="example_domain_com">exemple@domaine.com</string>
+    <string name="enter_your_full_name">Entrez votre nom complet</string>
+
+    <string name="gallery_permission_denied">Autorisation d accès à la galerie refusée.</string>
+    <string name="name_required">Le nom est requis.</string>
+    <string name="email_required">L adresse e-mail est requise.</string>
+    <string name="invalid_email">Format d &amp; e-mail invalide.</string>
+    <string name="phone_required">Le numéro de téléphone est requis.</string>
+    <string name="phone_invalid">Le numéro de téléphone doit comporter au moins 9 chiffres.</string>
+    <string name="birthday_required">La date de naissance est requise.</string>
+    <string name="details_saved">Détails enregistrés avec succès.</string>
+    <string name="fields_cleared">Champs effacés.</string>
     <string name="leaderboard">Leaderboard</string>
     <string name="graph_view">Graph View</string>
     <string name="dashboard_view">Dashboard View</string>
@@ -49,6 +83,9 @@
     <string name="action_share">Share</string>
     <string name="action_achievements">Achievements</string>
     <string name="action_notifications">Notifications</string>
+    <string name="contact_support_phonenumber">tel: 1234567890</string>
+
+
     <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout?</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -56,4 +93,12 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="create_an_account">Create an Account</string>
     <string name="remember_me">Remember me</string>
+    <string name="lockportrait">lockPortrait</string>
+    <string name="empty_string" />
+    <string name="phone_must_be_at_least_9_digits">Phone must be at least 9 digits</string>
+    <string name="image_forwardslash_asterisk">image/*</string>
+    <string name="username">username</string>
+    <string name="email_lowercase">email</string>
+    <string name="phone_lowercase">phone</string>
+    <string name="birthday_lowercase">birthday</string>
 </resources>

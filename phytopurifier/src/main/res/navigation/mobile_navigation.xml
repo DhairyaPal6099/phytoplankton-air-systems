@@ -21,5 +21,18 @@
         android:id="@+id/nav_settings"
         android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.settings.SettingsFragment"
         android:label="@string/settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings">
+
+        <action
+            android:id="@+id/action_nav_settings_to_accountInfoFragment"
+            app:destination="@id/accountInfoFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/accountInfoFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.settings.AccountInfoFragment"
+        android:label="@string/account_info_title"
+        tools:layout="@layout/fragment_account_info" />
+
 </navigation>
