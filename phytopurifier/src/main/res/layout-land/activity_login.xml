@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/login_activity"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/loginbg"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/profile_land"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="105dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/login_profile"
+            android:layout_width="match_parent"
+            android:layout_height="246dp"
+            android:src="@drawable/welcome" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:gravity="center_horizontal"
+        android:layout_toRightOf="@+id/profile_land"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/login_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/faded_white"
+            android:ems="15"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/fade"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/login_Password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_username"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/faded_white"
+            android:drawableEnd="@drawable/visibility_on"
+            android:drawableTint="@color/forest_green"
+            android:ems="15"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/fade"
+            android:textSize="20sp" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="17sp"
+                android:text="@string/remember_me"
+                android:textColor="@color/faded_black" />
+
+            <Button
+                android:id="@+id/login_forgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/faded_black"
+                android:layout_marginLeft="25dp"
+                android:background="@color/transparent"
+                android:text="@string/forgot_password" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_corners"
+            android:ems="9"
+            android:text="@string/login"
+            android:textSize="20sp" />
+
+        <!-- "Create an Account" Button at the Bottom -->
+        <Button
+            android:id="@+id/login_createAccountButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/signup_button_background"
+            android:ems="15"
+            android:text="@string/create_an_account" />
+    </LinearLayout>
+
+</RelativeLayout>
