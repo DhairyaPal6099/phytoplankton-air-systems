@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/nav_community"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.home.community.CommunityFragment"
-        android:label="Community"
-        tools:layout="@layout/fragment_community" />
+        android:id="@+id/nav_insights"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.home.insights.InsightsFragment"
+        android:label="Insights"
+        tools:layout="@layout/fragment_insights" />
 
     <fragment
         android:id="@+id/nav_leaderboard"
