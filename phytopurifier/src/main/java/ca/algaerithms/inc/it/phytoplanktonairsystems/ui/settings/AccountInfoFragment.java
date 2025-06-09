@@ -66,10 +66,10 @@ public class AccountInfoFragment extends Fragment {
         prefs = requireContext().getSharedPreferences(getString(R.string.account_info_title), Context.MODE_PRIVATE);
 
         // Load saved values
-        binding.usernameInput.setText(prefs.getString(getString(R.string.account_info_username), ""));
-        binding.emailInput.setText(prefs.getString(getString(R.string.account_info_email), ""));
-        binding.phoneInput.setText(prefs.getString(getString(R.string.account_info_phone), ""));
-        binding.birthdayInput.setText(prefs.getString(getString(R.string.account_info_birthday), ""));
+        binding.usernameInput.setText(prefs.getString(getString(R.string.account_info_username), getString(R.string.empty_string)));
+        binding.emailInput.setText(prefs.getString(getString(R.string.account_info_email), getString(R.string.empty_string)));
+        binding.phoneInput.setText(prefs.getString(getString(R.string.account_info_phone), getString(R.string.empty_string)));
+        binding.birthdayInput.setText(prefs.getString(getString(R.string.account_info_birthday), getString(R.string.empty_string)));
 
         // Date Picker
         binding.birthdayInput.setOnClickListener(v -> {
@@ -77,7 +77,7 @@ public class AccountInfoFragment extends Fragment {
             DatePickerDialog picker = new DatePickerDialog(
                     requireContext(),
                     (view1, year, month, day) -> {
-                        String formattedDate = String.format("%04d-%02d-%02d", year, month + 1, day);
+                        String formattedDate = String.format(getString(R.string.birthdate_format), year, month + 1, day);
                         binding.birthdayInput.setText(formattedDate);
                     },
                     calendar.get(Calendar.YEAR),
@@ -122,7 +122,7 @@ public class AccountInfoFragment extends Fragment {
                 binding.phoneInput.setError(getString(R.string.phone_required));
                 hasError = true;
             } else if (phone.length() < 9) {
-                binding.phoneInput.setError("Phone must be at least 9 digits");
+                binding.phoneInput.setError(getString(R.string.phone_must_be_at_least_9_digits));
                 hasError = true;
             }
 
@@ -136,10 +136,10 @@ public class AccountInfoFragment extends Fragment {
 
             // Save to SharedPreferences
             prefs.edit()
-                    .putString("username", username)
-                    .putString("email", email)
-                    .putString("phone", phone)
-                    .putString("birthday", birthday)
+                    .putString(getString(R.string.username), username)
+                    .putString(getString(R.string.email_lowercase), email)
+                    .putString(getString(R.string.phone_lowercase), phone)
+                    .putString(getString(R.string.birthday_lowercase), birthday)
                     .apply();
 
             Toast.makeText(getContext(), getString(R.string.details_saved), Toast.LENGTH_SHORT).show();
@@ -147,10 +147,10 @@ public class AccountInfoFragment extends Fragment {
         });
 
         binding.clearButton.setOnClickListener(v -> {
-            binding.usernameInput.setText("");
-            binding.emailInput.setText("");
-            binding.phoneInput.setText("");
-            binding.birthdayInput.setText("");
+            binding.usernameInput.setText(getString(R.string.empty_string));
+            binding.emailInput.setText(getString(R.string.empty_string));
+            binding.phoneInput.setText(getString(R.string.empty_string));
+            binding.birthdayInput.setText(getString(R.string.empty_string));
 
             binding.usernameInput.setError(null);
             binding.emailInput.setError(null);
@@ -177,7 +177,7 @@ public class AccountInfoFragment extends Fragment {
 
     private void openGallery() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        intent.setType("image/*");
+        intent.setType(getString(R.string.image_forwardslash_asterisk));
         imagePickerLauncher.launch(intent);
     }
 

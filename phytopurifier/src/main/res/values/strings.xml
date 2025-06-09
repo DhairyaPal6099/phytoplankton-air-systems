@@ -95,4 +95,14 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="create_an_account">Create an Account</string>
     <string name="remember_me">Remember me</string>
+    <string name="lockportrait">lockPortrait</string>
+    <string name="empty_string" />
+    <string name="phone_must_be_at_least_9_digits">Phone must be at least 9 digits</string>
+    <string name="image_forwardslash_asterisk">image/*</string>
+    <string name="username">username</string>
+    <string name="email_lowercase">email</string>
+    <string name="phone_lowercase">phone</string>
+    <string name="birthday_lowercase">birthday</string>
+    <string name="birthdate_format" translatable="false">%04d-%02d-%02d</string>
+    <string name="settings_lowercase">settings</string>
 </resources>

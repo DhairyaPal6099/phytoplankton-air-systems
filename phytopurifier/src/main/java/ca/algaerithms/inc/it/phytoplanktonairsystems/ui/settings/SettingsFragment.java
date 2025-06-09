@@ -47,12 +47,12 @@ public class SettingsFragment extends Fragment {
                 if (position == 0) { // Lock screen to portrait
                     switchToggle.setVisibility(View.VISIBLE);
 
-                    SharedPreferences prefs = requireContext().getSharedPreferences("settings", Context.MODE_PRIVATE);
-                    boolean locked = prefs.getBoolean("lockPortrait", false);
+                    SharedPreferences prefs = requireContext().getSharedPreferences(getString(R.string.settings_lowercase), Context.MODE_PRIVATE);
+                    boolean locked = prefs.getBoolean(getString(R.string.lockportrait), false);
                     switchToggle.setChecked(locked);
 
                     switchToggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                        prefs.edit().putBoolean("lockPortrait", isChecked).apply();
+                        prefs.edit().putBoolean(getString(R.string.lockportrait), isChecked).apply();
                         if (isChecked) {
                             requireActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                         } else {
