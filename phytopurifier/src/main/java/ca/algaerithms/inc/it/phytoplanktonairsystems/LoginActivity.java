@@ -43,9 +43,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         googleSignInButton = findViewById(R.id.btn_google_sign_in);
-        googleSignInButton.setSize(SignInButton.SIZE_WIDE);
-        // Remove default styling
-        googleSignInButton.setBackgroundResource(R.drawable.google_button_background);
 
 // Optional: Remove text if you just want the "G" icon
         for (int i = 0; i < googleSignInButton.getChildCount(); i++) {
