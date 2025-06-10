@@ -86,8 +86,6 @@
     <string name="action_share">Share</string>
     <string name="action_achievements">Achievements</string>
     <string name="action_notifications">Notifications</string>
-
-
     <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout?</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -104,5 +102,6 @@
     <string name="phone_lowercase">phone</string>
     <string name="birthday_lowercase">birthday</string>
     <string name="birthdate_format" translatable="false">%04d-%02d-%02d</string>
-    <string name="settings_lowercase">settings</string>
+    <string name="settings_lowercase" translatable="false">settings</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
 </resources>
