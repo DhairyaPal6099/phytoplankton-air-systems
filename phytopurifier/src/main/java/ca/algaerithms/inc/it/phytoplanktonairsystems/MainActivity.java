@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SharedPreferences prefs = getSharedPreferences("settings", MODE_PRIVATE);
-        if (prefs.getBoolean("lockPortrait", false)) {
+        SharedPreferences prefs = getSharedPreferences(getString(R.string.settings_lowercase), MODE_PRIVATE);
+        if (prefs.getBoolean(getString(R.string.lockportrait), false)) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
 
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             int id = item.getItemId();
 
             if (id == R.id.nav_logout) {
-                logout(); // 👈 call your method here
+                logout();
                 binding.drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             } else {
@@ -133,8 +133,6 @@ public class MainActivity extends AppCompatActivity {
                 .setTitle(R.string.logout)
                 .setMessage(R.string.are_you_sure_you_want_to_logout)
                 .setPositiveButton(R.string.yes, (dialog, which) -> {
-                    // If using Firebase:
-                    // FirebaseAuth.getInstance().signOut();
 
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
