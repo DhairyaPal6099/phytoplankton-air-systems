@@ -104,4 +104,6 @@
     <string name="birthdate_format" translatable="false">%04d-%02d-%02d</string>
     <string name="settings_lowercase" translatable="false">settings</string>
     <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="permission_granted">Permission granted</string>
+    <string name="permission_denied_open_settings_to_allow">Permission denied. Open Settings to allow.</string>
 </resources>
