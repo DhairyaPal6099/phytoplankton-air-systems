@@ -22,11 +22,6 @@
             android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <!-- Home Screen (Main) -->
@@ -38,8 +33,14 @@
 
         <!-- Splash Screen -->
         <activity
-            android:name=".SplashScreen"
-            android:exported="true">
+            android:name=".SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
     </application>
