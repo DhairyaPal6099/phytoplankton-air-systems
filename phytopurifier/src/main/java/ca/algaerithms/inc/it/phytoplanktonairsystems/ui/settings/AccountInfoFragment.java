@@ -180,6 +180,9 @@ public class AccountInfoFragment extends Fragment {
             binding.phoneInput.setError(null);
             binding.birthdayInput.setError(null);
 
+            // Reset profile image to default
+            binding.profileImage.setImageResource(R.drawable.profile);
+
             prefs.edit().clear().apply();
 
             Toast.makeText(getContext(), getString(R.string.fields_cleared), Toast.LENGTH_SHORT).show();
