@@ -56,50 +56,52 @@
     <string name="birthday_required">La date de naissance est requise.</string>
     <string name="details_saved">Détails enregistrés avec succès.</string>
     <string name="fields_cleared">Champs effacés.</string>
-    <string name="leaderboard">Leaderboard</string>
-    <string name="graph_view">Graph View</string>
-    <string name="dashboard_view">Dashboard View</string>
-    <string name="dashboard">Dashboard</string>
-    <string name="oxygen">Oxygen</string>
-    <string name="produced">Produced</string>
-    <string name="aqi_number">AQI Number</string>
-    <string name="notifcation_sample">Notifcation Sample</string>
-    <string name="graph_view_2">Graph View</string>
-    <string name="insights">Insights</string>
-    <string name="did_you_know">Did you know?</string>
-    <string name="test_info">Our air purifier reduces CO2 emissions by up to 20% in urban environments.</string>
-    <string name="about_us">About Us</string>
-    <string name="information_about_us">Information About us.</string>
-    <string name="scotia_bank">Scotia Bank</string>
+    <string name="leaderboard">Classement</string>
+    <string name="graph_view">Vue graphique</string>
+    <string name="dashboard_view">Vue du tableau de bord</string>
+    <string name="dashboard">Tableau de bord</string>
+    <string name="oxygen">Oxygène</string>
+    <string name="produced">Produit</string>
+    <string name="aqi_number">Indice AQI</string>
+    <string name="notifcation_sample">Exemple de notification</string>
+    <string name="graph_view_2">Vue graphique</string>
+    <string name="insights">Perspectives</string>
+    <string name="did_you_know">Le saviez-vous ?</string>
+    <string name="test_info">Notre purificateur d’air réduit les émissions de CO2 jusqu’à 20 % en milieu urbain.</string>
+    <string name="about_us">À propos de nous</string>
+    <string name="information_about_us">Informations à notre sujet.</string>
+    <string name="scotia_bank">Banque Scotia</string>
     <string name="rbc">RBC</string>
     <string name="td">TD</string>
 
     <string-array name="video_titles">
-        <item>What are Phytoplankton?</item>
-        <item>How Phytoplankton Helps Clean Air</item>
-        <item>Phytoplankton and the Climate</item>
+        <item>Qu’est-ce que le phytoplancton ?</item>
+        <item>Comment le phytoplancton aide à purifier l’air</item>
+        <item>Phytoplancton et climat</item>
     </string-array>
+
     <string name="action_support">Support</string>
-    <string name="action_share">Share</string>
-    <string name="action_achievements">Achievements</string>
+    <string name="action_share">Partager</string>
+    <string name="action_achievements">Réalisations</string>
     <string name="action_notifications">Notifications</string>
     <string name="contact_support_phonenumber">tel: 1234567890</string>
 
-
-    <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout?</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="login">Login</string>
-    <string name="forgot_password">Forgot Password?</string>
-    <string name="create_an_account">Create an Account</string>
-    <string name="remember_me">Remember me</string>
-    <string name="lockportrait">lockPortrait</string>
+    <string name="are_you_sure_you_want_to_logout">Êtes-vous sûr de vouloir vous déconnecter ?</string>
+    <string name="email">E-mail</string>
+    <string name="password">Mot de passe</string>
+    <string name="login">Connexion</string>
+    <string name="forgot_password">Mot de passe oublié ?</string>
+    <string name="create_an_account">Créer un compte</string>
+    <string name="remember_me">Se souvenir de moi</string>
+    <string name="lockportrait">verrouillerPortrait</string>
     <string name="empty_string" />
-    <string name="phone_must_be_at_least_9_digits">Phone must be at least 9 digits</string>
+    <string name="phone_must_be_at_least_9_digits">Le téléphone doit comporter au moins 9 chiffres</string>
     <string name="image_forwardslash_asterisk">image/*</string>
-    <string name="username">username</string>
-    <string name="email_lowercase">email</string>
-    <string name="phone_lowercase">phone</string>
-    <string name="birthday_lowercase">birthday</string>
-    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="username">nom d’utilisateur</string>
+    <string name="email_lowercase">e-mail</string>
+    <string name="phone_lowercase">téléphone</string>
+    <string name="birthday_lowercase">anniversaire</string>
+    <string name="sign_in_with_google">Se connecter avec Google</string>
+    <string name="permission_granted">Autorisation accordée</string>
+    <string name="permission_denied_open_settings_to_allow">Autorisation refusée. Ouvrez les paramètres pour autoriser.</string>
 </resources>
