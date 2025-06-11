@@ -4,7 +4,7 @@
       Dharmik Shah – N01581796 -->
 <resources>
     <string name="app_name">Phytoplankton Air Systems</string>
-    <string name="app_tagline">Fresh Air. Sustainable Future.</string>
+    <string name="app_tagline">Because trees get all the credit.</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
