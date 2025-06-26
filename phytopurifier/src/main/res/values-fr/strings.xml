@@ -104,4 +104,5 @@
     <string name="sign_in_with_google">Se connecter avec Google</string>
     <string name="permission_granted">Autorisation accordée</string>
     <string name="permission_denied_open_settings_to_allow">Autorisation refusée. Ouvrez les paramètres pour autoriser.</string>
+    <string name="registration">Registration</string>
 </resources>
