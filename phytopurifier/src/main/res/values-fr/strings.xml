@@ -105,4 +105,11 @@
     <string name="permission_granted">Autorisation accordée</string>
     <string name="permission_denied_open_settings_to_allow">Autorisation refusée. Ouvrez les paramètres pour autoriser.</string>
     <string name="registration">Registration</string>
+    <string name="email_is_required">Email is required</string>
+    <string name="invalid_email_format">Invalid email format</string>
+    <string name="verification_email_sent">Verification email sent</string>
+    <string name="failed_to_send_verification_email">Failed to send verification email</string>
+    <string name="registration_failed">"Registration failed: "</string>
+    <string name="email_verified_you_can_continue">Email verified! You can continue.</string>
+    <string name="email_not_verified_yet_please_check_your_inbox">Email not verified yet. Please check your inbox.</string>
 </resources>

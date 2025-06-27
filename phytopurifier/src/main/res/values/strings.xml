@@ -107,4 +107,13 @@
     <string name="permission_granted">Permission granted</string>
     <string name="permission_denied_open_settings_to_allow">Permission denied. Open Settings to allow.</string>
     <string name="registration">Registration</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email_is_required">Email is required</string>
+    <string name="invalid_email_format">Invalid email format</string>
+    <string name="verification_email_sent">Verification email sent</string>
+    <string name="failed_to_send_verification_email">Failed to send verification email</string>
+    <string name="registration_failed">"Registration failed: "</string>
+    <string name="email_verified_you_can_continue">Email verified! You can continue.</string>
+    <string name="email_not_verified_yet_please_check_your_inbox">Email not verified yet. Please check your inbox.</string>
 </resources>

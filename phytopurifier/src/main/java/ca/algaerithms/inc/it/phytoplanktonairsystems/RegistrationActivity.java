@@ -7,6 +7,13 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
+import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.ActivityMainBinding;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -21,6 +28,10 @@ public class RegistrationActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(R.string.registration);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.registration_fragment_container);
+        NavController navController = navHostFragment.getNavController();
+
     }
 
     @Override
@@ -31,4 +42,7 @@ public class RegistrationActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }
