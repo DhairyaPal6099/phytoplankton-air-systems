@@ -86,6 +86,8 @@
     <string name="action_notifications">Notifications</string>
     <string name="contact_support_phonenumber">tel: 1234567890</string>
 
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="are_you_sure_you_want_to_logout">Êtes-vous sûr de vouloir vous déconnecter ?</string>
     <string name="email">E-mail</string>
     <string name="password">Mot de passe</string>
@@ -112,4 +114,10 @@
     <string name="registration_failed">"Registration failed: "</string>
     <string name="email_verified_you_can_continue">Email verified! You can continue.</string>
     <string name="email_not_verified_yet_please_check_your_inbox">Email not verified yet. Please check your inbox.</string>
+    <string name="abc_gmail_com">abc@gmail.com</string>
+    <string name="check_verification">Check Verification</string>
+    <string name="continue_button">Continue</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="display_name">Display Name:</string>
 </resources>
