@@ -104,7 +104,7 @@ public class RegistrationEmailFragment extends Fragment {
     }
 
     private void nextFragment() {
-        // Pass email forward to next fragment
+        // Passing email forward to next fragment
         Bundle bundle = new Bundle();
         bundle.putString("email", email);
 

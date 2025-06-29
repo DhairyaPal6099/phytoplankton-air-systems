@@ -50,7 +50,7 @@ public class RegistrationNameFragment extends Fragment {
 
             String fullName = firstName + " " + lastName;
 
-            // Pass email and full name to next fragment
+            // Passing email and full name to next fragment
             Bundle bundle = new Bundle();
             bundle.putString("email", email);
             bundle.putString("name", fullName);
