@@ -3,10 +3,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ccp="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/registrationbg"
     android:id="@+id/registration_phone"
     tools:context=".ui.registration.RegistrationPhoneFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/forest_green"
+            android:layout_marginLeft="5dp"
+            android:text="Phone Number:"
+            android:textSize="30dp" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <!-- Country Code Picker -->
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/registration_ccp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ccp:ccp_textSize="20sp"
+                android:layout_marginTop="10dp"
+                ccp:ccp_arrowColor="@color/forest_green"
+                ccp:ccpDialog_backgroundColor="@color/signupBackground"
+                ccp:ccp_contentColor="@color/forest_green"
+                ccp:ccpDialog_textColor="@color/forest_green"
+                ccp:ccp_showNameCode="false"
+                ccp:ccp_defaultNameCode="CA"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="8dp"/>
+            <EditText
+                android:id="@+id/registrationPhone_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/semirounded_corners"
+                android:padding="10dp"
+                android:ems="10"
+                android:hint="(XXX) XXX-XXXX"
+                android:textColorHint="#85898f"
+                android:maxLength="10"
+                android:textColor="@color/forest_green"
+                android:inputType="phone"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/registrationPhone_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_google_signin_btn_icon_disabled"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:text="Continue" />
+
+    </LinearLayout>
 </RelativeLayout>
