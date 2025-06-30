@@ -11,14 +11,14 @@
         android:id="@+id/icon"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@drawable/action_contactsupport"
-        android:contentDescription="Support" />
+        android:src="@drawable/action_share"
+        android:contentDescription="Share" />
 
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Support"
+        android:text="Share"
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:layout_marginStart="6dp" />

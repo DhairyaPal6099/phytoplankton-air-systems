@@ -2,20 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_contactsupport"
+        android:id="@+id/action_share"
         android:title="@string/action_support"
         app:showAsAction="always"
-        app:actionLayout="@layout/menu_action_support" />
-    <item
-        android:id="@+id/action_share"
-        android:title="@string/action_share"
-        app:showAsAction="never" />
+        app:actionLayout="@layout/menu_action_share" />
+
     <item
         android:id="@+id/action_achievements"
         android:title="@string/action_achievements"
         app:showAsAction="never" />
+
     <item
         android:id="@+id/action_notifications"
         android:title="@string/action_notifications"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_support"
+        android:title="@string/action_support"
         app:showAsAction="never" />
 </menu>
