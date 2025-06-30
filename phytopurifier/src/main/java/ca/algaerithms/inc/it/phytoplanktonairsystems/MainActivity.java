@@ -52,14 +52,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, R.string.replace_with_your_own_action, Snackbar.LENGTH_LONG)
-                        .setAction(R.string.action, null)
-                        .setAnchorView(R.id.fab).show();
-            }
-        });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
