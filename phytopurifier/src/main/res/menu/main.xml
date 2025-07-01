@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_share"
-        android:title="@string/action_support"
+        android:title="@string/action_share"
         app:showAsAction="always"
         app:actionLayout="@layout/menu_action_share" />
 
@@ -18,7 +18,7 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_support"
+        android:id="@+id/action_contact_support"
         android:title="@string/action_support"
         app:showAsAction="never" />
 </menu>
