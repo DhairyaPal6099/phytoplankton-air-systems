@@ -81,7 +81,7 @@
         <item>How Phytoplankton Helps Clean Air</item>
         <item>Phytoplankton and the Climate</item>
     </string-array>
-    <string name="contact_support_phonenumber" translatable="false">tel: 1234567890</string>
+    <string name="contact_support_phonenumber" translatable="false">tel: 4371234567</string>
     <string name="action_support">Support</string>
     <string name="action_share">Share</string>
     <string name="action_achievements">Achievements</string>
@@ -107,4 +107,11 @@
     <string name="permission_granted">Permission granted</string>
     <string name="permission_denied_open_settings_to_allow">Permission denied. Open Settings to allow.</string>
     <string name="notifications">Notifications</string>
+    <string name="mailto_algaerithms_gmail_com">mailto:algaerithms@gmail.com</string>
+    <string name="support_request">Support Request</string>
+    <string name="no_email_app_found">No email app found</string>
+    <string name="contact_support_title">Something broken? Reach out to us!</string>
+    <string name="company_email">algaerithms@gmail.com</string>
+    <string name="phone">Phone</string>
+    <string name="company_phonenumber">+1 (437)-123-4567</string>
 </resources>

@@ -84,7 +84,7 @@
     <string name="action_share">Partager</string>
     <string name="action_achievements">Réalisations</string>
     <string name="action_notifications">Notifications</string>
-    <string name="contact_support_phonenumber">tel: 1234567890</string>
+    <string name="contact_support_phonenumber">tel: 4371234567</string>
 
     <string name="are_you_sure_you_want_to_logout">Êtes-vous sûr de vouloir vous déconnecter ?</string>
     <string name="email">E-mail</string>
@@ -105,4 +105,6 @@
     <string name="permission_granted">Autorisation accordée</string>
     <string name="permission_denied_open_settings_to_allow">Autorisation refusée. Ouvrez les paramètres pour autoriser.</string>
     <string name="notifications">Notifications</string>
+    <string name="no_email_app_found">No email app found</string>
+    <string name="contact_support_title">Something broken? Reach out to us!</string>
 </resources>
