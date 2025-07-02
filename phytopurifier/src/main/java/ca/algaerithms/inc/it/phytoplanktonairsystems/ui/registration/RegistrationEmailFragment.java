@@ -53,12 +53,10 @@ public class RegistrationEmailFragment extends Fragment {
                 return;
             }
 
-            //createUserAndSendVerification(email);
-
-            nextFragment();
+            createUserAndSendVerification(email);
         });
 
-        //registrationVerifyOtp_button.setOnClickListener(v -> checkEmailVerification());
+        registrationVerifyOtp_button.setOnClickListener(v -> checkEmailVerification());
 
         return view;
     }
@@ -84,7 +82,13 @@ public class RegistrationEmailFragment extends Fragment {
                         }
                     } else {
                         registrationEmail_continueButton.setEnabled(true);
-                        Toast.makeText(getContext(), getString(R.string.registration_failed) + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        Exception e = task.getException();
+                        if (e != null && e.getMessage() != null &&
+                                e.getMessage().toLowerCase().contains(getString(R.string.email_address_is_already_in_use))) {
+                            Toast.makeText(getContext(), R.string.this_email_is_already_registered_please_use_a_different_email_or_login, Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(getContext(), R.string.registration_failed + e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
                     }
                 });
     }

@@ -1,66 +1,156 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems.ui.registration;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.text.InputType;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.regex.Pattern;
+
+import ca.algaerithms.inc.it.phytoplanktonairsystems.MainActivity;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RegistrationPasswordFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class RegistrationPasswordFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private EditText passwordEditText, confirmPasswordEditText;
+    private Button submitButton;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private String email, name, birthdate, phone;
 
-    public RegistrationPasswordFragment() {
-        // Required empty public constructor
-    }
+    private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RegistrationPasswordFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RegistrationPasswordFragment newInstance(String param1, String param2) {
-        RegistrationPasswordFragment fragment = new RegistrationPasswordFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+    private boolean isPasswordVisible = false;
+    private boolean isConfirmPasswordVisible = false;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registration_password, container, false);
+        View view = inflater.inflate(R.layout.fragment_registration_password, container, false);
+
+        passwordEditText = view.findViewById(R.id.registrationPassword_editText);
+        confirmPasswordEditText = view.findViewById(R.id.registrationConfirmPassword_editText);
+        submitButton = view.findViewById(R.id.registrationPassword_button);
+
+        if (getArguments() != null) {
+            email = getArguments().getString("email");
+            name = getArguments().getString("name");
+            birthdate = getArguments().getString("birthdate");
+            phone = getArguments().getString("phone");
+        }
+
+        setupPasswordToggle(passwordEditText, true);
+        setupPasswordToggle(confirmPasswordEditText, false);
+
+        handleSubmitButton();
+
+        return view;
     }
+
+    private void handleSubmitButton() {
+        submitButton.setOnClickListener(v -> {
+            String password = passwordEditText.getText().toString().trim();
+            String confirmPassword = confirmPasswordEditText.getText().toString().trim();
+
+            if (!isPasswordValid(password)) {
+                passwordEditText.setError(getString(R.string.password_must_include_upper_lower_case_and_number_or_special_character));
+                return;
+            }
+
+            if (!password.equals(confirmPassword)) {
+                confirmPasswordEditText.setError(getString(R.string.passwords_do_not_match));
+                return;
+            }
+
+            saveAuthenticatedUserData(password);
+        });
+    }
+
+private void saveAuthenticatedUserData(String password) {
+    FirebaseUser user = firebaseAuth.getCurrentUser();
+
+    if (user != null && user.getEmail() != null && user.getEmail().equals(email)) {
+        user.updatePassword(password).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                String uid = user.getUid();
+
+                Map<String, Object> userData = new HashMap<>();
+                userData.put("email", email);
+                userData.put("name", name);
+                userData.put("birthdate", birthdate);
+                userData.put("phone", phone);
+                userData.put("password",password);
+                userData.put("uid", uid);
+
+                db.collection("users").document(uid)
+                        .set(userData)
+                        .addOnSuccessListener(aVoid -> {
+                            Toast.makeText(getContext(), getString(R.string.registration_successful), Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(getActivity(), MainActivity.class);
+                            startActivity(intent);
+                            requireActivity().finish();
+                        })
+                        .addOnFailureListener(e ->
+                                Toast.makeText(getContext(), R.string.error_saving_user_data, Toast.LENGTH_SHORT).show());
+            } else {
+                Toast.makeText(getContext(), R.string.failed_to_update_password, Toast.LENGTH_SHORT).show();
+            }
+        });
+    } else {
+        Toast.makeText(getContext(), R.string.user_not_authenticated, Toast.LENGTH_SHORT).show();
+    }
+}
+
+@SuppressLint("ClickableViewAccessibility")
+private void setupPasswordToggle(EditText editText, boolean isMainField) {
+    editText.setOnTouchListener((v, event) -> {
+        if (event.getAction() == MotionEvent.ACTION_UP &&
+                event.getRawX() >= (editText.getRight() - editText.getCompoundDrawables()[2].getBounds().width())) {
+
+            boolean isVisible = isMainField ? isPasswordVisible : isConfirmPasswordVisible;
+
+            editText.setInputType(isVisible
+                    ? InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD
+                    : InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            editText.setSelection(editText.getText().length());
+
+            int iconRes = isVisible ? R.drawable.visibility_on : R.drawable.visibility_off;
+            Drawable icon = ContextCompat.getDrawable(requireContext(), iconRes);
+            editText.setCompoundDrawablesWithIntrinsicBounds(null, null, icon, null);
+
+            if (isMainField) {
+                isPasswordVisible = !isPasswordVisible;
+            } else {
+                isConfirmPasswordVisible = !isConfirmPasswordVisible;
+            }
+
+            return true;
+        }
+        return false;
+    });
+}
+
+private boolean isPasswordValid(String password) {
+    Pattern pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d\\W]).{6,}$");
+    return pattern.matcher(password).matches();
+}
 }
