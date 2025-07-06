@@ -33,7 +33,8 @@ android {
 }
 
 dependencies {
-
+    implementation libs.ccp //for country code picker
+    implementation libs.libphonenumber //phone number validate
     implementation libs.appcompat
     implementation libs.material
     implementation libs.constraintlayout
