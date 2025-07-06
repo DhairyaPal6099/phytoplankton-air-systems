@@ -50,6 +50,31 @@ public class LoginActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.login_username);
         passwordEditText = findViewById(R.id.login_Password);
 
+        //Login button logic
+        loginButtonClick();
+
+        createAccountButton = findViewById(R.id.login_createAccountButton);
+        createAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+                startActivity(intent);
+            }
+        });
+        googleSignInButton = findViewById(R.id.btn_google_sign_in);
+
+        // Optional: Remove text if you just want the "G" icon
+        for (int i = 0; i < googleSignInButton.getChildCount(); i++) {
+            View v = googleSignInButton.getChildAt(i);
+            if (v instanceof TextView) {
+                ((TextView) v).setText(R.string.sign_in_with_google); // remove the "Sign in" text
+            }
+        }
+
+        setupPasswordToggle();
+    }
+
+    private void loginButtonClick() {
 
         // Login button click
         loginSubmitButton.setOnClickListener(view -> {
@@ -61,12 +86,12 @@ public class LoginActivity extends AppCompatActivity {
             passwordEditText.setError(null);
 
             if (email.isEmpty()) {
-                emailEditText.setError("Email is required");
+                emailEditText.setError(getString(R.string.email_is_required));
                 return;
             }
 
             if (password.isEmpty()) {
-                passwordEditText.setError("Password is required");
+                passwordEditText.setError(getString(R.string.password_is_required));
                 return;
             }
 
@@ -79,10 +104,10 @@ public class LoginActivity extends AppCompatActivity {
                             Exception exception = task.getException();
                             if (exception instanceof FirebaseAuthInvalidCredentialsException ||
                                     exception instanceof FirebaseAuthInvalidUserException) {
-                                errorTextView.setText(" Invalid email or password");
+                                errorTextView.setText(R.string.invalid_email_or_password);
                                 errorTextView.setVisibility(View.VISIBLE);
                             } else {
-                                errorTextView.setText("Login failed. Please try again.");
+                                errorTextView.setText(R.string.login_failed_please_try_again);
                                 errorTextView.setVisibility(View.VISIBLE);
                             }
                         }
@@ -98,28 +123,6 @@ public class LoginActivity extends AppCompatActivity {
             passwordEditText.setOnFocusChangeListener(clearErrorOnFocus);
 
         });
-
-
-
-        createAccountButton = findViewById(R.id.login_createAccountButton);
-        createAccountButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
-                startActivity(intent);
-            }
-        });
-        googleSignInButton = findViewById(R.id.btn_google_sign_in);
-
-// Optional: Remove text if you just want the "G" icon
-        for (int i = 0; i < googleSignInButton.getChildCount(); i++) {
-            View v = googleSignInButton.getChildAt(i);
-            if (v instanceof TextView) {
-                ((TextView) v).setText(R.string.sign_in_with_google); // remove the "Sign in" text
-            }
-        }
-
-        setupPasswordToggle();
     }
 
     @SuppressLint("ClickableViewAccessibility")

@@ -139,4 +139,7 @@
     <string name="verification_link_check_text">A verification link has been sent. Please check your inbox.</string>
     <string name="ok">OK</string>
     <string name="failed_to_reload_user">Failed to reload user</string>
+    <string name="password_is_required">Password is required</string>
+    <string name="invalid_email_or_password">" Invalid email or password"</string>
+    <string name="login_failed_please_try_again">" Login failed. Please try again."</string>
 </resources>
