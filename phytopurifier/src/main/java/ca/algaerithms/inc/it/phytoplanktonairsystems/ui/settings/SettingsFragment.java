@@ -115,6 +115,9 @@ public class SettingsFragment extends Fragment {
                 case 5:
                     navController.navigate(R.id.privacyPolicyFragment);
                     break;
+                case 6: // Assuming Delete Account is at index 6 in your string-array
+                    navController.navigate(R.id.deleteAccountFragment);
+                    break;
 
                 // More cases can go here
             }

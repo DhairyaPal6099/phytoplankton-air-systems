@@ -40,6 +40,11 @@
         android:label="Privacy Policy"
         tools:layout="@layout/fragment_privacy_policy" />
 
+    <fragment
+        android:id="@+id/deleteAccountFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.settings.DeleteAccountFragment"
+        android:label="Delete Account"
+        tools:layout="@layout/fragment_delete_account" />
 
     <fragment
         android:id="@+id/accountInfoFragment"
