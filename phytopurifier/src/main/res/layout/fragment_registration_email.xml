@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/registrationbg"
+    android:id="@+id/registration_email"
+    tools:context=".ui.registration.RegistrationEmailFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/forest_green"
+            android:layout_marginLeft="5dp"
+            android:text="@string/email_address"
+            android:textSize="30dp" />
+
+        <EditText
+            android:id="@+id/registrationEmail_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/semirounded_corners"
+            android:padding="10dp"
+            android:ems="15"
+            android:hint="@string/abc_gmail_com"
+            android:textColorHint="#85898f"
+            android:textColor="@color/forest_green"
+            android:inputType="textEmailAddress"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/registrationEmail_continueButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corners"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:text="@string/continue_button" />
+
+    </LinearLayout>
+</RelativeLayout>
