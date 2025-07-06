@@ -108,4 +108,5 @@
     <string name="permission_granted">Autorisation accordée</string>
     <string name="permission_denied_open_settings_to_allow">Autorisation refusée. Ouvrez les paramètres pour autoriser.</string>
     <string name="terms_of_service_text">terms of service text</string>
+    <string name="section_header">Section Header</string>
 </resources>

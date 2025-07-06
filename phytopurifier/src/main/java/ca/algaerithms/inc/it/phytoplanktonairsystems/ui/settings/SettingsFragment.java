@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import com.google.android.material.materialswitch.MaterialSwitch;
+
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -38,12 +40,24 @@ public class SettingsFragment extends Fragment {
                 R.id.setting_title,
                 settingTitles) {
 
+            @NonNull
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
 
                 TextView title = view.findViewById(R.id.setting_title);
                 Switch switchToggle = view.findViewById(R.id.setting_switch);
+                TextView sectionHeader = view.findViewById(R.id.setting_section_header);
+
+// SECTION HEADER
+                if (position == 0) {
+                    sectionHeader.setVisibility(View.VISIBLE);
+                    sectionHeader.setText("App Preferences");
+                } else {
+                    sectionHeader.setVisibility(View.GONE);
+                }
+
+
 
                 if (position == 0) { // Lock screen to portrait
                     switchToggle.setVisibility(View.VISIBLE);
@@ -88,7 +102,7 @@ public class SettingsFragment extends Fragment {
 
         // Handle navigation
         binding.settingsList.setOnItemClickListener((parent, view1, position, id) -> {
-            if (position == 1) {
+            if (position == 2) {
                 NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
                 navController.navigate(R.id.action_nav_settings_to_accountInfoFragment);
             }
