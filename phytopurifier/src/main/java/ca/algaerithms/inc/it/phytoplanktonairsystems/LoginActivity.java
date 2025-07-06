@@ -7,8 +7,10 @@ import android.text.InputType;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,11 +18,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.common.SignInButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
+    private TextView errorTextView;
+    private EditText emailEditText, passwordEditText;
+    private CheckBox rememberMeCheckBox;
     private Button loginSubmitButton, createAccountButton;
     private SignInButton googleSignInButton;
 
@@ -33,15 +41,55 @@ public class LoginActivity extends AppCompatActivity {
         // Firebase Auth instance
         mAuth = FirebaseAuth.getInstance();
 
-
+        // UI elements
+        errorTextView = findViewById(R.id.login_errorTextView);
+        rememberMeCheckBox = findViewById(R.id.login_rememberMeCheckBox);
         loginSubmitButton = findViewById(R.id.login_button);
-        loginSubmitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
+        createAccountButton = findViewById(R.id.login_createAccountButton);
+        googleSignInButton = findViewById(R.id.btn_google_sign_in);
+        emailEditText = findViewById(R.id.login_username);
+        passwordEditText = findViewById(R.id.login_Password);
+
+
+        // Login button click
+        loginSubmitButton.setOnClickListener(view -> {
+            String email = emailEditText.getText().toString().trim();
+            String password = passwordEditText.getText().toString().trim();
+
+            errorTextView.setVisibility(View.GONE);
+            emailEditText.setError(null);
+            passwordEditText.setError(null);
+
+            if (email.isEmpty()) {
+                emailEditText.setError("Email is required");
+                return;
             }
+
+            if (password.isEmpty()) {
+                passwordEditText.setError("Password is required");
+                return;
+            }
+
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            finish();
+                        } else {
+                            Exception exception = task.getException();
+                            if (exception instanceof FirebaseAuthInvalidCredentialsException ||
+                                    exception instanceof FirebaseAuthInvalidUserException) {
+                                errorTextView.setText(" Invalid email or password");
+                                errorTextView.setVisibility(View.VISIBLE);
+                            } else {
+                                errorTextView.setText("Login failed. Please try again.");
+                                errorTextView.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    });
         });
+
+
 
         createAccountButton = findViewById(R.id.login_createAccountButton);
         createAccountButton.setOnClickListener(new View.OnClickListener() {
