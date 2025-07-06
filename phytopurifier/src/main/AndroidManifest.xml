@@ -19,21 +19,21 @@
 
         <!-- Login Screen -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar">
         </activity>
 
         <!-- Home Screen (Main) -->
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar">
         </activity>
 
         <!-- Splash Screen -->
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".ui.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar">
             <intent-filter>

@@ -3,7 +3,7 @@
    Sanskriti Mansotra – N01523183
    Dharmik Shah – N01581796 */
 
-package ca.algaerithms.inc.it.phytoplanktonairsystems;
+package ca.algaerithms.inc.it.phytoplanktonairsystems.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.splashscreen.SplashScreen;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

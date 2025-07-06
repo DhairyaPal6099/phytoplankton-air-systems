@@ -49,6 +49,7 @@ dependencies {
     implementation libs.googleid
     implementation libs.firebase.database
     implementation libs.core.splashscreen
+    implementation libs.firebase.firestore
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core

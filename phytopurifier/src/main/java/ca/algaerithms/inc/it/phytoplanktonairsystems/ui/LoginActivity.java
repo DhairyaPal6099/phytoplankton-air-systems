@@ -1,4 +1,4 @@
-package ca.algaerithms.inc.it.phytoplanktonairsystems;
+package ca.algaerithms.inc.it.phytoplanktonairsystems.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,9 +13,10 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.common.SignInButton;
 import com.google.firebase.auth.FirebaseAuth;
+
+import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 
 public class LoginActivity extends AppCompatActivity {
 

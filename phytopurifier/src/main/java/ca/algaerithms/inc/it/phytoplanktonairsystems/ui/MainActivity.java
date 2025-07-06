@@ -3,7 +3,7 @@
    Sanskriti Mansotra – N01523183
    Dharmik Shah – N01581796 */
 
-package ca.algaerithms.inc.it.phytoplanktonairsystems;
+package ca.algaerithms.inc.it.phytoplanktonairsystems.ui;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,8 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.FirebaseApp;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
@@ -40,6 +40,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FirebaseApp.initializeApp(this);
 
         SharedPreferences prefs = getSharedPreferences(getString(R.string.settings_lowercase), MODE_PRIVATE);
         if (prefs.getBoolean(getString(R.string.lockportrait), false)) {
