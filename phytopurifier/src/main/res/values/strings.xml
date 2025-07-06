@@ -4,7 +4,7 @@
       Dharmik Shah – N01581796 -->
 <resources>
     <string name="app_name">Phytoplankton Air Systems</string>
-    <string name="app_tagline">Fresh Air. Sustainable Future.</string>
+    <string name="app_tagline">Because trees get all the credit.</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -27,10 +27,14 @@
 
     <string-array name="settings_options">
         <item>Lock screen to portrait</item>
+        <item>Enable dark mode</item>
         <item>Account Info</item>
+        <item>Accessibility settings</item>
+        <item>Terms of Service</item>
+        <item>Privacy Policy</item>
         <item>Delete Account</item>
-        <item>Data &amp; Privacy</item>
     </string-array>
+
 
 
     <string name="account_info_username">Username</string>
@@ -86,8 +90,6 @@
     <string name="action_share">Share</string>
     <string name="action_achievements">Achievements</string>
     <string name="action_notifications">Notifications</string>
-
-
     <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout?</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -96,6 +98,7 @@
     <string name="create_an_account">Create an Account</string>
     <string name="remember_me">Remember me</string>
     <string name="lockportrait">lockPortrait</string>
+    <string name="dark_mode">darkMode</string>
     <string name="empty_string" />
     <string name="phone_must_be_at_least_9_digits">Phone must be at least 9 digits</string>
     <string name="image_forwardslash_asterisk">image/*</string>
@@ -104,5 +107,10 @@
     <string name="phone_lowercase">phone</string>
     <string name="birthday_lowercase">birthday</string>
     <string name="birthdate_format" translatable="false">%04d-%02d-%02d</string>
-    <string name="settings_lowercase">settings</string>
+    <string name="settings_lowercase" translatable="false">settings</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="permission_granted">Permission granted</string>
+    <string name="permission_denied_open_settings_to_allow">Permission denied. Open Settings to allow.</string>
+    <string name="terms_of_service_text">terms of service text</string>
+    <string name="section_header">Section Header</string>
 </resources>
