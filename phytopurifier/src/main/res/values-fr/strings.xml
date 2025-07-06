@@ -96,6 +96,7 @@
     <string name="create_an_account">Créer un compte</string>
     <string name="remember_me">Se souvenir de moi</string>
     <string name="lockportrait">verrouillerPortrait</string>
+    <string name="dark_mode">darkMode</string>
     <string name="empty_string" />
     <string name="phone_must_be_at_least_9_digits">Le téléphone doit comporter au moins 9 chiffres</string>
     <string name="image_forwardslash_asterisk">image/*</string>
@@ -106,4 +107,5 @@
     <string name="sign_in_with_google">Se connecter avec Google</string>
     <string name="permission_granted">Autorisation accordée</string>
     <string name="permission_denied_open_settings_to_allow">Autorisation refusée. Ouvrez les paramètres pour autoriser.</string>
+    <string name="terms_of_service_text">terms of service text</string>
 </resources>

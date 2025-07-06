@@ -12,6 +12,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -46,7 +47,6 @@ public class SettingsFragment extends Fragment {
 
                 if (position == 0) { // Lock screen to portrait
                     switchToggle.setVisibility(View.VISIBLE);
-
                     SharedPreferences prefs = requireContext().getSharedPreferences(getString(R.string.settings_lowercase), Context.MODE_PRIVATE);
                     boolean locked = prefs.getBoolean(getString(R.string.lockportrait), false);
                     switchToggle.setChecked(locked);
@@ -60,9 +60,25 @@ public class SettingsFragment extends Fragment {
                         }
                     });
 
+                } else if (position == 1) { // Dark mode toggle
+                    switchToggle.setVisibility(View.VISIBLE);
+                    SharedPreferences prefs = requireContext().getSharedPreferences(getString(R.string.settings_lowercase), Context.MODE_PRIVATE);
+                    boolean darkMode = prefs.getBoolean(getString(R.string.dark_mode), false);
+                    switchToggle.setChecked(darkMode);
+
+                    switchToggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                        prefs.edit().putBoolean(getString(R.string.dark_mode), isChecked).apply();
+                        if (isChecked) {
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                        } else {
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                        }
+                    });
+
                 } else {
                     switchToggle.setVisibility(View.GONE);
                 }
+
 
                 return view;
             }
