@@ -37,17 +37,6 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/registrationVerifyOtp_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@color/transparent"
-            android:layout_marginTop="10dp"
-            android:text="@string/check_verification"
-            android:textColor="@color/transparent_black"
-            android:visibility="gone" />
-
-        <Button
             android:id="@+id/registrationEmail_continueButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

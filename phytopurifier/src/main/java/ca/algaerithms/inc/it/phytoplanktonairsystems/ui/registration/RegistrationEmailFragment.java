@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -22,8 +23,10 @@ public class RegistrationEmailFragment extends Fragment {
 
     private FirebaseAuth firebaseAuth;
     private String email;
-    private Button registrationEmail_continueButton, registrationVerifyOtp_button;
+    private Button registrationEmail_continueButton;
     private EditText registrationEmail_editText;
+
+    private Snackbar verificationSnackbar;
 
     private static final String TEMP_PASSWORD = "Absjdbcsibeskbd52654";
 
@@ -36,7 +39,6 @@ public class RegistrationEmailFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         registrationEmail_editText = view.findViewById(R.id.registrationEmail_editText);
         registrationEmail_continueButton = view.findViewById(R.id.registrationEmail_continueButton);
-        registrationVerifyOtp_button = view.findViewById(R.id.registrationVerifyOtp_button);
 
         registrationEmail_continueButton.setOnClickListener(v -> {
             email = registrationEmail_editText.getText().toString().trim();
@@ -56,8 +58,6 @@ public class RegistrationEmailFragment extends Fragment {
             createUserAndSendVerification(email);
         });
 
-        registrationVerifyOtp_button.setOnClickListener(v -> checkEmailVerification());
-
         return view;
     }
 
@@ -66,42 +66,61 @@ public class RegistrationEmailFragment extends Fragment {
 
         firebaseAuth.createUserWithEmailAndPassword(email, TEMP_PASSWORD)
                 .addOnCompleteListener(requireActivity(), task -> {
+                    registrationEmail_continueButton.setEnabled(true);
+
                     if (task.isSuccessful()) {
                         FirebaseUser user = firebaseAuth.getCurrentUser();
                         if (user != null) {
                             user.sendEmailVerification()
                                     .addOnCompleteListener(verificationTask -> {
                                         if (verificationTask.isSuccessful()) {
-                                            Toast.makeText(getContext(), R.string.verification_email_sent, Toast.LENGTH_SHORT).show();
-                                            registrationVerifyOtp_button.setVisibility(View.VISIBLE);
+                                            checkEmailVerification(); // Start checking loop
                                         } else {
                                             Toast.makeText(getContext(), R.string.failed_to_send_verification_email, Toast.LENGTH_SHORT).show();
                                         }
-                                        registrationEmail_continueButton.setEnabled(true);
                                     });
                         }
                     } else {
-                        registrationEmail_continueButton.setEnabled(true);
                         Exception e = task.getException();
                         if (e != null && e.getMessage() != null &&
                                 e.getMessage().toLowerCase().contains(getString(R.string.email_address_is_already_in_use))) {
                             Toast.makeText(getContext(), R.string.this_email_is_already_registered_please_use_a_different_email_or_login, Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(getContext(), R.string.registration_failed + e.getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getContext(), getString(R.string.registration_failed) + e.getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
                 });
     }
 
+    private void showVerificationSnackbar() {
+        if (verificationSnackbar == null || !verificationSnackbar.isShown()) {
+            verificationSnackbar = Snackbar.make(requireView(),
+                            R.string.verification_link_check_test,
+                            Snackbar.LENGTH_INDEFINITE)
+                    .setAction(R.string.ok, snackbarView -> verificationSnackbar.dismiss());
+            verificationSnackbar.show();
+        }
+    }
+
     private void checkEmailVerification() {
+        showVerificationSnackbar();
+
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if (user != null) {
             user.reload().addOnCompleteListener(task -> {
-                if (user.isEmailVerified()) {
-                    Toast.makeText(getContext(), R.string.email_verified_you_can_continue, Toast.LENGTH_SHORT).show();
-                    nextFragment();
+                if (task.isSuccessful()) {
+                    if (user.isEmailVerified()) {
+                        if (verificationSnackbar != null && verificationSnackbar.isShown()) {
+                            verificationSnackbar.dismiss();
+                        }
+                        Toast.makeText(getContext(), R.string.email_verified_you_can_continue, Toast.LENGTH_SHORT).show();
+                        nextFragment();
+                    } else {
+                        // Try again in 3 seconds
+                        registrationEmail_editText.postDelayed(this::checkEmailVerification, 3000);
+                    }
                 } else {
-                    Toast.makeText(getContext(), R.string.email_not_verified_yet_please_check_your_inbox, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.failed_to_reload_user, Toast.LENGTH_SHORT).show();
                 }
             });
         }
