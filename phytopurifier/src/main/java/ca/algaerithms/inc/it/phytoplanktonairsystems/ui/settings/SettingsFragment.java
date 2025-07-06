@@ -58,7 +58,6 @@ public class SettingsFragment extends Fragment {
                 }
 
 
-
                 if (position == 0) { // Lock screen to portrait
                     switchToggle.setVisibility(View.VISIBLE);
                     SharedPreferences prefs = requireContext().getSharedPreferences(getString(R.string.settings_lowercase), Context.MODE_PRIVATE);
