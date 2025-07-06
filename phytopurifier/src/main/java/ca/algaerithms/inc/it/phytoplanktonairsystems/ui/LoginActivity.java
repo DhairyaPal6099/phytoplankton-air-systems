@@ -17,6 +17,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.firebase.auth.FirebaseAuth;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.RegistrationActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

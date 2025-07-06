@@ -61,7 +61,9 @@ public class AchievementManager {
                     newAchievement.put("message", message);
                     newAchievement.put("timestamp", new Timestamp(new Date()));
 
-                    reference.update("achievements", FieldValue.arrayUnion(newAchievement));
+                    if (!title.isEmpty() && !message.isEmpty()) {
+                        reference.update("achievements", FieldValue.arrayUnion(newAchievement));
+                    }
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -83,8 +85,20 @@ public class AchievementManager {
                 List<AchievementModel> results = new ArrayList<>();
                 if (achievementList != null) {
                     for (Map<String, Object> achievement : achievementList) {
-                        Timestamp timestamp = (Timestamp) achievement.get("timestamp");
-                        results.add(new AchievementModel((String) achievement.get("title"), (String) achievement.get("message"), timestamp.toDate()));
+                        if (achievement != null) {
+                            String title = (String) achievement.get("title");
+                            String message = (String) achievement.get("message");
+
+                            if (title != null && message != null && !title.trim().isEmpty() && !message.trim().isEmpty()) {
+                                Timestamp timestamp;
+                                if (achievement.get("timestamp") == null) {
+                                    timestamp = new Timestamp(new Date());
+                                } else {
+                                    timestamp = (Timestamp) achievement.get("timestamp");
+                                }
+                                results.add(new AchievementModel(title, message, timestamp.toDate()));
+                            }
+                        }
                     }
                 }
 

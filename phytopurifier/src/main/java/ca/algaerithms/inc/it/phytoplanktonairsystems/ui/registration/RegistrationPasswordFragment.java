@@ -26,7 +26,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import ca.algaerithms.inc.it.phytoplanktonairsystems.MainActivity;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.ui.MainActivity;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 
 public class RegistrationPasswordFragment extends Fragment {
