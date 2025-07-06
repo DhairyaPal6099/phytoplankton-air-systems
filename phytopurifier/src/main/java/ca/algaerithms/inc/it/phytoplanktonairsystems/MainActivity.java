@@ -15,6 +15,7 @@ import android.view.Menu;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
@@ -134,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
                 .setMessage(R.string.are_you_sure_you_want_to_logout)
                 .setPositiveButton(R.string.yes, (dialog, which) -> {
 
+                    // Sign the user out from Firebase
+                    FirebaseAuth.getInstance().signOut();
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);

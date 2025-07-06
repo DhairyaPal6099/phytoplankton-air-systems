@@ -2,6 +2,7 @@ package ca.algaerithms.inc.it.phytoplanktonairsystems;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.MotionEvent;
@@ -24,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+        private FirebaseAuth mAuth;
 
     private TextView errorTextView;
     private EditText emailEditText, passwordEditText;
@@ -32,11 +33,18 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginSubmitButton, createAccountButton;
     private SignInButton googleSignInButton;
 
+    private SharedPreferences prefs;
+    private static final String PREFS_NAME = "app_prefs";
+    private static final String KEY_REMEMBER_ME = "rememberMe";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+
+        // SharedPreferences init
+        prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
         // Firebase Auth instance
         mAuth = FirebaseAuth.getInstance();
@@ -49,6 +57,9 @@ public class LoginActivity extends AppCompatActivity {
         googleSignInButton = findViewById(R.id.btn_google_sign_in);
         emailEditText = findViewById(R.id.login_username);
         passwordEditText = findViewById(R.id.login_Password);
+
+        // Always start with checkbox cleared
+        rememberMeCheckBox.setChecked(false);
 
         //Login button logic
         loginButtonClick();
@@ -72,6 +83,25 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         setupPasswordToggle();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser != null) {
+            boolean rememberMe = prefs.getBoolean(KEY_REMEMBER_ME, false);
+
+            if (!rememberMe) {
+                mAuth.signOut(); // User chose NOT to remember, so sign out immediately
+            } else {
+                // User chose to remember, go to MainActivity directly
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                finish();
+            }
+        }
     }
 
     private void loginButtonClick() {
@@ -98,6 +128,9 @@ public class LoginActivity extends AppCompatActivity {
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
+                            // Save Remember Me choice
+                            prefs.edit().putBoolean(KEY_REMEMBER_ME, rememberMeCheckBox.isChecked()).apply();
+
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();
                         } else {
