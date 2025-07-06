@@ -24,12 +24,14 @@
     <string name="logout">Logout</string>
 
     <string-array name="settings_options">
-        <item>Verrouiller l écran en mode portrait</item>
+        <item>Verrouiller l’écran en mode portrait</item>
+        <item>Activer le mode sombre</item>
         <item>Informations du compte</item>
+        <item>Paramètres d’accessibilité</item>
+        <item>Conditions d’utilisation</item>
+        <item>Politique de confidentialité</item>
         <item>Supprimer le compte</item>
-        <item>Données et confidentialité</item>
     </string-array>
-
 
     <string name="account_info_username">Nom utilisateur</string>
     <string name="account_info_email">Courriel</string>

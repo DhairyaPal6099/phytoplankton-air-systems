@@ -27,10 +27,14 @@
 
     <string-array name="settings_options">
         <item>Lock screen to portrait</item>
+        <item>Enable dark mode</item>
         <item>Account Info</item>
+        <item>Accessibility settings</item>
+        <item>Terms of Service</item>
+        <item>Privacy Policy</item>
         <item>Delete Account</item>
-        <item>Data &amp; Privacy</item>
     </string-array>
+
 
 
     <string name="account_info_username">Username</string>
