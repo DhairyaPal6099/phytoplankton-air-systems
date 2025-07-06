@@ -8,18 +8,31 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.common.SignInButton;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class LoginActivity extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
+
     private Button loginSubmitButton;
+    private SignInButton googleSignInButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+
+        // Firebase Auth instance
+        mAuth = FirebaseAuth.getInstance();
+
 
         loginSubmitButton = findViewById(R.id.login_button);
         loginSubmitButton.setOnClickListener(new View.OnClickListener() {
@@ -29,9 +42,17 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        googleSignInButton = findViewById(R.id.btn_google_sign_in);
+
+// Optional: Remove text if you just want the "G" icon
+        for (int i = 0; i < googleSignInButton.getChildCount(); i++) {
+            View v = googleSignInButton.getChildAt(i);
+            if (v instanceof TextView) {
+                ((TextView) v).setText(R.string.sign_in_with_google); // remove the "Sign in" text
+            }
+        }
 
         setupPasswordToggle();
-
     }
 
     @SuppressLint("ClickableViewAccessibility")

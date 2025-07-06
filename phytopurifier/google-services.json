@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "861565060606",
+    "project_id": "phytoplankton-air-systems",
+    "storage_bucket": "phytoplankton-air-systems.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861565060606:android:f3cb6cfd952b04c9df2caf",
+        "android_client_info": {
+          "package_name": "ca.algaerithms.inc.it.phytoplanktonairsystems"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_mfMQzwIMcl95GSZdZp2-fpC2BM96DWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

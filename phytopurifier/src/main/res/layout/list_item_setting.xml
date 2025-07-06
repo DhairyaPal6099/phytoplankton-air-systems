@@ -2,27 +2,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Optional Section Header -->
     <TextView
-    android:id="@+id/setting_title"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/setting_title"
-    android:textSize="16sp"
-        android:textColor="#212121"
-        android:textStyle="bold"
-    android:layout_alignParentStart="true"
-    android:layout_centerVertical="true"/>
-
-    <Switch
-        android:id="@+id/setting_switch"
-        android:layout_width="wrap_content"
+        android:id="@+id/setting_section_header"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:visibility="gone"/>
+        android:text="@string/section_header"
+        android:textColor="#616161"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:paddingTop="12dp"
+        android:paddingBottom="6dp"
+        android:letterSpacing="0.05" />
 
+
+    <!-- Setting Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/setting_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/setting_title"
+            android:textSize="16sp"
+            android:textColor="#212121"
+            android:textStyle="bold" />
+
+        <Switch
+            android:id="@+id/setting_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+    </LinearLayout>
 
 </LinearLayout>

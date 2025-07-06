@@ -13,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,8 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.Calendar;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
@@ -35,15 +38,35 @@ public class AccountInfoFragment extends Fragment {
     private FragmentAccountInfoBinding binding;
     private SharedPreferences prefs;
 
+    private int permissionRequestCount = 0;
+    private static final int MAX_PERMISSION_ATTEMPTS = 2;
+
+    // Launcher for requesting permission to read media images from storage
+    // Must be declared at class level to be lifecycle-aware and reusable across methods
     private final ActivityResultLauncher<String> requestPermissionLauncher =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
                 if (isGranted) {
+                    permissionRequestCount = 0;
+                    Snackbar.make(binding.getRoot(), getString(R.string.permission_granted), Snackbar.LENGTH_SHORT).show();
                     openGallery();
                 } else {
-                    Toast.makeText(requireContext(), getString(R.string.gallery_permission_denied), Toast.LENGTH_SHORT).show();
+                    permissionRequestCount++;
+                    if (permissionRequestCount > MAX_PERMISSION_ATTEMPTS) {
+                        Snackbar.make(binding.getRoot(), getString(R.string.permission_denied_open_settings_to_allow), Snackbar.LENGTH_LONG)
+                                .setAction(getString(R.string.settings), v -> {
+                                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                    Uri uri = Uri.fromParts("package", requireContext().getPackageName(), null);
+                                    intent.setData(uri);
+                                    startActivity(intent);
+                                })
+                                .show();
+                    } else {
+                        Snackbar.make(binding.getRoot(), getString(R.string.gallery_permission_denied), Snackbar.LENGTH_SHORT).show();
+                    }
                 }
             });
 
+    // Launcher for handling the result of image picking from gallery
     private final ActivityResultLauncher<Intent> imagePickerLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
                 if (result.getResultCode() == android.app.Activity.RESULT_OK && result.getData() != null) {
@@ -143,9 +166,9 @@ public class AccountInfoFragment extends Fragment {
                     .apply();
 
             Toast.makeText(getContext(), getString(R.string.details_saved), Toast.LENGTH_SHORT).show();
-
         });
 
+        // Clear Button
         binding.clearButton.setOnClickListener(v -> {
             binding.usernameInput.setText(getString(R.string.empty_string));
             binding.emailInput.setText(getString(R.string.empty_string));
@@ -157,22 +180,26 @@ public class AccountInfoFragment extends Fragment {
             binding.phoneInput.setError(null);
             binding.birthdayInput.setError(null);
 
-            prefs.edit().clear().apply();//clear data from shared pref
+            // Reset profile image to default
+            binding.profileImage.setImageResource(R.drawable.profile);
+
+            prefs.edit().clear().apply();
 
             Toast.makeText(getContext(), getString(R.string.fields_cleared), Toast.LENGTH_SHORT).show();
         });
 
+        // Profile Image Click
+        binding.profileImage.setOnClickListener(v -> requestGalleryPermission());
+    }
 
-
-        // Profile Image Click → Request Permission
-        binding.profileImage.setOnClickListener(v -> {
-            if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_MEDIA_IMAGES)
-                    == PackageManager.PERMISSION_GRANTED) {
-                openGallery();
-            } else {
-                requestPermissionLauncher.launch(Manifest.permission.READ_MEDIA_IMAGES);
-            }
-        });
+    private void requestGalleryPermission() {
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_MEDIA_IMAGES)
+                == PackageManager.PERMISSION_GRANTED) {
+            Snackbar.make(binding.getRoot(), getString(R.string.permission_granted), Snackbar.LENGTH_SHORT).show();
+            openGallery();
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.READ_MEDIA_IMAGES);
+        }
     }
 
     private void openGallery() {
