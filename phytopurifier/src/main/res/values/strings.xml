@@ -138,7 +138,7 @@
     <string name="confirm_password">Confirm password</string>
     <string name="submit">Submit</string>
     <string name="email_address">Email Address:</string>
-    <string name="verification_link_check_test">A verification link has been sent. Please check your inbox.</string>
+    <string name="verification_link_check_text">A verification link has been sent. Please check your inbox.</string>
     <string name="ok">OK</string>
     <string name="failed_to_reload_user">Failed to reload user</string>
 </resources>

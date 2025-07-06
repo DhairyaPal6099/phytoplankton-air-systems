@@ -74,6 +74,7 @@ public class RegistrationEmailFragment extends Fragment {
                             user.sendEmailVerification()
                                     .addOnCompleteListener(verificationTask -> {
                                         if (verificationTask.isSuccessful()) {
+                                            showVerificationSnackbar();
                                             checkEmailVerification(); // Start checking loop
                                         } else {
                                             Toast.makeText(getContext(), R.string.failed_to_send_verification_email, Toast.LENGTH_SHORT).show();
@@ -95,7 +96,7 @@ public class RegistrationEmailFragment extends Fragment {
     private void showVerificationSnackbar() {
         if (verificationSnackbar == null || !verificationSnackbar.isShown()) {
             verificationSnackbar = Snackbar.make(requireView(),
-                            R.string.verification_link_check_test,
+                            R.string.verification_link_check_text,
                             Snackbar.LENGTH_INDEFINITE)
                     .setAction(R.string.ok, snackbarView -> verificationSnackbar.dismiss());
             verificationSnackbar.show();
@@ -103,7 +104,6 @@ public class RegistrationEmailFragment extends Fragment {
     }
 
     private void checkEmailVerification() {
-        showVerificationSnackbar();
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if (user != null) {
