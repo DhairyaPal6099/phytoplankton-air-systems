@@ -87,6 +87,16 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
                     });
+
+            View.OnFocusChangeListener clearErrorOnFocus = (v, hasFocus) -> {
+                if (hasFocus && errorTextView.getVisibility() == View.VISIBLE) {
+                    errorTextView.setVisibility(View.GONE);
+                }
+            };
+
+            emailEditText.setOnFocusChangeListener(clearErrorOnFocus);
+            passwordEditText.setOnFocusChangeListener(clearErrorOnFocus);
+
         });
 
 
