@@ -101,9 +101,18 @@ public class SettingsFragment extends Fragment {
 
         // Handle navigation
         binding.settingsList.setOnItemClickListener((parent, view1, position, id) -> {
-            if (position == 2) {
-                NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
-                navController.navigate(R.id.action_nav_settings_to_accountInfoFragment);
+            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+
+            switch (position) {
+                case 2:
+                    navController.navigate(R.id.action_nav_settings_to_accountInfoFragment);
+                    break;
+
+                case 4:
+                    navController.navigate(R.id.termsOfServiceFragment);
+                    break;
+
+                // Add more cases later (e.g., privacyPolicyFragment, deleteAccountFragment)
             }
         });
 
