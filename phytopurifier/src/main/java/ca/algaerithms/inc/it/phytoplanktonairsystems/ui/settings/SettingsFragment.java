@@ -112,7 +112,11 @@ public class SettingsFragment extends Fragment {
                     navController.navigate(R.id.termsOfServiceFragment);
                     break;
 
-                // Add more cases later (e.g., privacyPolicyFragment, deleteAccountFragment)
+                case 5:
+                    navController.navigate(R.id.privacyPolicyFragment);
+                    break;
+
+                // More cases can go here
             }
         });
 
