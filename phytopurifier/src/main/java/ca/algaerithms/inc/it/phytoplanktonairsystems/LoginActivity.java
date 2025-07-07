@@ -14,18 +14,36 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.credentials.CredentialManager;
 
+import com.google.android.gms.auth.api.identity.BeginSignInRequest;
+import com.google.android.gms.auth.api.identity.Identity;
+import com.google.android.gms.auth.api.identity.SignInClient;
+import com.google.android.gms.auth.api.identity.SignInCredential;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
-        private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
+    private GoogleSignInClient googleSignInClient;
 
     private TextView errorTextView;
     private EditText emailEditText, passwordEditText;
@@ -36,6 +54,24 @@ public class LoginActivity extends AppCompatActivity {
     private SharedPreferences prefs;
     private static final String PREFS_NAME = "app_prefs";
     private static final String KEY_REMEMBER_ME = "rememberMe";
+
+    // Launcher for Google Sign-In Intent result
+    private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                    GoogleSignInAccount account = GoogleSignIn.getSignedInAccountFromIntent(result.getData()).getResult();
+                    if (account != null && account.getIdToken() != null) {
+                        firebaseAuthWithGoogle(account.getIdToken());
+                    } else {
+                        Toast.makeText(this, R.string.google_sign_in_failed, Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(this, R.string.google_sign_in_cancelled, Toast.LENGTH_SHORT).show();
+                }
+            }
+    );
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +97,7 @@ public class LoginActivity extends AppCompatActivity {
         // Always start with checkbox cleared
         rememberMeCheckBox.setChecked(false);
 
+        setupPasswordToggle();
         //Login button logic
         loginButtonClick();
 
@@ -72,7 +109,18 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        googleSignInButton = findViewById(R.id.btn_google_sign_in);
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.web_client_id))  // your OAuth 2.0 client ID from Firebase console
+                .requestEmail()
+                .build();
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        googleSignInButton.setOnClickListener(v -> {
+            Intent signInIntent = googleSignInClient.getSignInIntent();
+            signInLauncher.launch(signInIntent);
+        });
 
         // Optional: Remove text if you just want the "G" icon
         for (int i = 0; i < googleSignInButton.getChildCount(); i++) {
@@ -81,8 +129,6 @@ public class LoginActivity extends AppCompatActivity {
                 ((TextView) v).setText(R.string.sign_in_with_google); // remove the "Sign in" text
             }
         }
-
-        setupPasswordToggle();
     }
 
     @Override
@@ -102,6 +148,45 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         }
+    }
+
+    private void firebaseAuthWithGoogle(String idToken) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = mAuth.getCurrentUser();
+
+                        if (user != null) {
+                            String uid = user.getUid();
+                            String name = user.getDisplayName();
+                            String email = user.getEmail();
+                            String phone = user.getPhoneNumber(); // Often null
+
+                            // Create user info map
+                            Map<String, Object> userMap = new HashMap<>();
+                            if (name != null) userMap.put("name", name);
+                            if (email != null) userMap.put("email", email);
+                            if (phone != null) userMap.put("phone", phone);
+
+                            FirebaseFirestore db = FirebaseFirestore.getInstance();
+                            db.collection("users")
+                                    .document(uid)
+                                    .set(userMap)
+                                    .addOnSuccessListener(unused -> {
+                                        Toast.makeText(this, getString(R.string.welcome) + name, Toast.LENGTH_SHORT).show();
+                                        // Navigate to MainActivity after saving
+                                        startActivity(new Intent(this, MainActivity.class));
+                                        finish();
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Toast.makeText(this, getString(R.string.failed_to_save_user_info) + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    });
+                        }
+                    } else {
+                        Toast.makeText(this, getString(R.string.firebase_auth_failed) + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     private void loginButtonClick() {
