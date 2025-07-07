@@ -105,9 +105,10 @@ public class LoginActivity extends AppCompatActivity {
         //Login button logic
         loginButtonClick();
 
+        // Forgot password
         forgotPasswordButton.setOnClickListener(v -> showForgotPasswordDialog());
 
-        createAccountButton = findViewById(R.id.login_createAccountButton);
+        // Create an account
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,8 +125,11 @@ public class LoginActivity extends AppCompatActivity {
         googleSignInClient = GoogleSignIn.getClient(this, gso);
 
         googleSignInButton.setOnClickListener(v -> {
-            Intent signInIntent = googleSignInClient.getSignInIntent();
-            signInLauncher.launch(signInIntent);
+            // Sign out first to trigger account chooser
+            googleSignInClient.signOut().addOnCompleteListener(task -> {
+                Intent signInIntent = googleSignInClient.getSignInIntent();
+                signInLauncher.launch(signInIntent);
+            });
         });
 
         // Optional: Remove text if you just want the "G" icon
@@ -145,17 +149,18 @@ public class LoginActivity extends AppCompatActivity {
 
         if (currentUser != null) {
             boolean rememberMe = prefs.getBoolean(KEY_REMEMBER_ME, false);
+            boolean isGoogleUser = GoogleSignIn.getLastSignedInAccount(this) != null;
 
-            if (!rememberMe) {
-                mAuth.signOut(); // User chose NOT to remember, so sign out immediately
-            } else {
-                // User chose to remember, go to MainActivity directly
+            if (isGoogleUser || rememberMe) {
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 finish();
+            } else {
+                mAuth.signOut(); // Sign out email/password users who didn't check Remember Me
             }
         }
     }
 
+    // Forgot password button login
     private void showForgotPasswordDialog(){
         EditText emailInput = new EditText(this);
         emailInput.setHint(R.string.enter_your_email);
@@ -188,7 +193,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                // Directly send reset email without pre-check
+                // Directly send reset email
                 mAuth.sendPasswordResetEmail(email)
                         .addOnSuccessListener(unused -> {
                             Snackbar.make(findViewById(android.R.id.content),
