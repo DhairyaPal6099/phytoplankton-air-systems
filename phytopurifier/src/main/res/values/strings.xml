@@ -144,7 +144,7 @@
     <string name="password_is_required">Password is required</string>
     <string name="invalid_email_or_password">" Invalid email or password"</string>
     <string name="login_failed_please_try_again">" Login failed. Please try again."</string>
-    <string name="web_client_id">861565060606-tn4u9doltr0e7a0aa31qbukvnvtun3n3.apps.googleusercontent.com</string>
+    <string name="web_client_id">861565060606-3gvutn5pq32ru6ucpemb2hputd9195vn.apps.googleusercontent.com</string>
     <string name="google_sign_in_failed">Google sign-in failed</string>
     <string name="google_sign_in_cancelled">Google sign-in cancelled</string>
     <string name="firebase_auth_failed">"Firebase auth failed: "</string>
