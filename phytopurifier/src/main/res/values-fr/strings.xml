@@ -148,4 +148,6 @@
     <string name="firebase_auth_failed">"Firebase auth failed: "</string>
     <string name="welcome">"Welcome "</string>
     <string name="failed_to_save_user_info">"Failed to save user info: "</string>
+    <string name="phone_number">Phone Number:</string>
+    <string name="phoneNumber_hint">(XXX) XXX-XXXX</string>
 </resources>
