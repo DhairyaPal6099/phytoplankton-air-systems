@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.credentials.CredentialManager;
 
@@ -29,6 +30,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -38,6 +40,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
@@ -48,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView errorTextView;
     private EditText emailEditText, passwordEditText;
     private CheckBox rememberMeCheckBox;
-    private Button loginSubmitButton, createAccountButton;
+    private Button loginSubmitButton, forgotPasswordButton, createAccountButton;
     private SignInButton googleSignInButton;
 
     private SharedPreferences prefs;
@@ -90,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
         rememberMeCheckBox = findViewById(R.id.login_rememberMeCheckBox);
         loginSubmitButton = findViewById(R.id.login_button);
         createAccountButton = findViewById(R.id.login_createAccountButton);
+        forgotPasswordButton = findViewById(R.id.login_forgotPassword);
         googleSignInButton = findViewById(R.id.btn_google_sign_in);
         emailEditText = findViewById(R.id.login_username);
         passwordEditText = findViewById(R.id.login_Password);
@@ -100,6 +104,8 @@ public class LoginActivity extends AppCompatActivity {
         setupPasswordToggle();
         //Login button logic
         loginButtonClick();
+
+        forgotPasswordButton.setOnClickListener(v -> showForgotPasswordDialog());
 
         createAccountButton = findViewById(R.id.login_createAccountButton);
         createAccountButton.setOnClickListener(new View.OnClickListener() {
@@ -149,6 +155,57 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
+
+    private void showForgotPasswordDialog(){
+        EditText emailInput = new EditText(this);
+        emailInput.setHint(R.string.enter_your_email);
+        emailInput.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        emailInput.setPadding(50, 40, 50, 40);
+
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.forgot_password)
+                .setMessage(R.string.enter_your_registered_email_to_receive_a_reset_link)
+                .setView(emailInput)
+                .setPositiveButton(getString(R.string.send), null)
+                .setNegativeButton(getString(R.string.cancel), (d, w) -> d.dismiss())
+                .create();
+
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(true);
+
+        dialog.setOnShowListener(dlg -> {
+            Button sendButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            sendButton.setOnClickListener(v -> {
+                String email = emailInput.getText().toString().trim();
+
+                if (email.isEmpty()) {
+                    emailInput.setError(getString(R.string.email_cannot_be_empty));
+                    return;
+                }
+
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    emailInput.setError(getString(R.string.please_enter_a_valid_email));
+                    return;
+                }
+
+                // Directly send reset email without pre-check
+                mAuth.sendPasswordResetEmail(email)
+                        .addOnSuccessListener(unused -> {
+                            Snackbar.make(findViewById(android.R.id.content),
+                                    getString(R.string.password_reset_link_sent_to) + email,
+                                    Snackbar.LENGTH_LONG).show();
+                            dialog.dismiss();
+                        })
+                        .addOnFailureListener(e -> {
+                            // For example: invalid-email format or network failure
+                            emailInput.setError(getString(R.string.failed_to_send_reset_link) + e.getMessage());
+                        });
+            });
+        });
+
+        dialog.show();
+    }
+
 
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);

@@ -150,4 +150,12 @@
     <string name="failed_to_save_user_info">"Failed to save user info: "</string>
     <string name="phone_number">Phone Number:</string>
     <string name="phoneNumber_hint">(XXX) XXX-XXXX</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_registered_email_to_receive_a_reset_link">Enter your registered email to receive a reset link.</string>
+    <string name="send">Send</string>
+    <string name="email_cannot_be_empty">Email cannot be empty.</string>
+    <string name="cancel">Cancel</string>
+    <string name="please_enter_a_valid_email">Please enter a valid email.</string>
+    <string name="password_reset_link_sent_to">"Password reset link sent to "</string>
+    <string name="failed_to_send_reset_link">"Failed to send reset link: "</string>
 </resources>
