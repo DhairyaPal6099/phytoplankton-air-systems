@@ -139,4 +139,9 @@
     <string name="verification_link_check_text">A verification link has been sent. Please check your inbox.</string>
     <string name="ok">OK</string>
     <string name="failed_to_reload_user">Failed to reload user</string>
+    <string name="your_comment">Your Comment</string>
+    <string name="emailv2">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="name">Name</string>
+    <string name="submit_feedback">Submit Feedback</string>
 </resources>
