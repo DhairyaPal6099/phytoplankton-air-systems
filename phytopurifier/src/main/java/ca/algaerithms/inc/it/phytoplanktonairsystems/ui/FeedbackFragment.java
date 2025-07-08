@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RatingBar;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 
@@ -16,6 +19,11 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
  * create an instance of this fragment.
  */
 public class FeedbackFragment extends Fragment {
+
+    EditText etName, etPhone, etEmail, etComment;
+    RatingBar ratingBar;
+    Button btnSubmit;
+    String deviceModel;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +69,18 @@ public class FeedbackFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_feedback, container, false);
+        View view = inflater.inflate(R.layout.fragment_feedback, container, false);
+
+        etName = view.findViewById(R.id.etName);
+        etPhone = view.findViewById(R.id.etPhone);
+        etEmail = view.findViewById(R.id.etEmail);
+        etComment = view.findViewById(R.id.etComment);
+        ratingBar = view.findViewById(R.id.ratingBar);
+        btnSubmit = view.findViewById(R.id.btnSubmit);
+
+        // Get device model
+        deviceModel = android.os.Build.MODEL;
+
+        return view;
     }
 }
