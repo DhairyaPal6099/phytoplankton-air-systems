@@ -8,6 +8,7 @@ public class NotificationModel {
     private String title;
     private String message;
     private Date timestamp;
+    private String type;
 
     public NotificationModel() {}
 
@@ -15,6 +16,7 @@ public class NotificationModel {
         this.title = title;
         this.message = message;
         this.timestamp = timestamp;
+        this.type = type;
     }
 
     public String getTitle() {
@@ -28,6 +30,7 @@ public class NotificationModel {
     public Date getTimestamp() {
         return timestamp;
     }
+    public String getType() { return type; }
 
     public String getFormattedDate() {
         return new SimpleDateFormat("MMM dd, yyyy - hh:mm a", Locale.getDefault()).format(timestamp);

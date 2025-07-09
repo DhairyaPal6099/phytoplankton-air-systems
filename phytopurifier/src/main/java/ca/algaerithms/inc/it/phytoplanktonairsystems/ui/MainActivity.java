@@ -32,6 +32,11 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.work.ExistingPeriodicWorkPolicy;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkManager;
+import androidx.work.WorkRequest;
 
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -42,8 +47,11 @@ import android.widget.TextView;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
+import ca.algaerithms.inc.it.phytoplanktonairsystems.DailyNotificationWorker;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.ActivityMainBinding;
 
@@ -99,6 +107,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Populate navigation drawer header with user info
         populateUserHeader();
+
+        //Schedule the daily notification worker
+        scheduleDailyNotificationWorker();
 
         //Display the AlertDialog
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
@@ -262,5 +273,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void scheduleDailyNotificationWorker() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 0);
+
+        long currentTime = System.currentTimeMillis();
+        long targetTime = calendar.getTimeInMillis();
+
+        long delay = targetTime > currentTime
+                ? targetTime - currentTime
+                : TimeUnit.DAYS.toMillis(1) - (currentTime - targetTime);
+
+        PeriodicWorkRequest dailyRequest =
+                new PeriodicWorkRequest.Builder(DailyNotificationWorker.class, 24, TimeUnit.HOURS)
+                        .setInitialDelay(delay, TimeUnit.MILLISECONDS)
+                        .build();
+
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+                "daily_algae_check",
+                ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE,
+                dailyRequest
+        );
     }
 }

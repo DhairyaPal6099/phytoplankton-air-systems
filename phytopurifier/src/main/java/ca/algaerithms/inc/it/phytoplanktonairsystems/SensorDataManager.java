@@ -42,4 +42,21 @@ public class SensorDataManager {
     public LiveData<SensorData> getSensorLiveData() {
         return sensorLiveData;
     }
+
+    public void getSensorLatestData(SensorDataCallback callback) {
+        deviceRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DataSnapshot snapshot = task.getResult();
+                SensorData data = snapshot.getValue(SensorData.class);
+                callback.onDataFetched(data);
+            } else {
+                callback.onError(DatabaseError.fromException(task.getException()));
+            }
+        });
+    }
+
+    public interface SensorDataCallback {
+        void onDataFetched(SensorData data);
+        void onError(DatabaseError error);
+    }
 }

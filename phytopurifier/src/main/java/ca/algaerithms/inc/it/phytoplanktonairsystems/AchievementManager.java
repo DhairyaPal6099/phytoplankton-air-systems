@@ -153,29 +153,5 @@ public class AchievementManager {
                 Log.e("Achievements", "Failed to fetch co2_converted", error.toException());
             }
         });
-
-        /*firestore.collection("users").document(uid)
-                .get()
-                .addOnSuccessListener(doc -> {
-                    Double co2 = doc.getDouble("lifetime_co2_converted");
-                    if (co2 == null) return;
-
-                    if (co2 > 10000) {
-                        checkAndAddAchievement("Phresh Air Master", "Converted over 10,000kg of CO₂!");
-                    }
-                    if (co2 > 5000) {
-                        checkAndAddAchievement("Carbon Catcher", "Converted over 5,000kg of CO₂!");
-                    }
-                    if (co2 > 1000) {
-                        checkAndAddAchievement("Phytopurifier Pro", "Converted over 1,000kg of CO₂!");
-                    }
-                    if (co2 > 250) {
-                        checkAndAddAchievement("Fresh Air Fan", "Converted over 250kg of CO₂!");
-                    }
-                    if (co2 > 25) {
-                        checkAndAddAchievement("Rejuvenation Rookie", "Converted over 25kg of CO₂!");
-                    }
-                });
-         */
     }
 }
