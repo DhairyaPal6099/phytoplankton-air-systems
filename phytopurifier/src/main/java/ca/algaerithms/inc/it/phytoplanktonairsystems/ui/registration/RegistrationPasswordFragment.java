@@ -21,12 +21,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import ca.algaerithms.inc.it.phytoplanktonairsystems.MainActivity;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.ui.MainActivity;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 
 public class RegistrationPasswordFragment extends Fragment {
@@ -35,6 +37,7 @@ public class RegistrationPasswordFragment extends Fragment {
     private Button submitButton;
 
     private String email, name, birthdate, phone;
+    private int lifetime_co2_converted = 0;
 
     private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -92,6 +95,8 @@ private void saveAuthenticatedUserData(String password) {
         user.updatePassword(password).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 String uid = user.getUid();
+                List<Map<String, Object>> achievements = new ArrayList<>();
+                List<Map<String, Object>> notifications = new ArrayList<>();
 
                 Map<String, Object> userData = new HashMap<>();
                 userData.put("email", email);
@@ -99,6 +104,9 @@ private void saveAuthenticatedUserData(String password) {
                 userData.put("birthdate", birthdate);
                 userData.put("phone", phone);
                 userData.put("uid", uid);
+                userData.put("achievements", achievements);
+                userData.put("notifications", notifications);
+                userData.put("lifetime_co2_converted", lifetime_co2_converted);
 
                 db.collection("users").document(uid)
                         .set(userData)

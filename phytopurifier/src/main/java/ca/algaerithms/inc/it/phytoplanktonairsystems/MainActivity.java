@@ -35,6 +35,7 @@ import android.widget.TextView;
 
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.ActivityMainBinding;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.ui.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     private TextView nameTextView, emailTextView;
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,22 +59,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, R.string.replace_with_your_own_action, Snackbar.LENGTH_LONG)
-                        .setAction(R.string.action, null)
-                        .setAnchorView(R.id.fab).show();
-            }
-        });
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_about, R.id.nav_accountInfo, R.id.nav_settings, R.id.nav_feedback)
+                R.id.nav_home, R.id.nav_about, R.id.nav_accountInfo, R.id.nav_feedback, R.id.nav_settings)
                 .setOpenableLayout(drawer)
                 .build();
+
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
@@ -112,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        MenuItem item = menu.findItem(R.id.action_contactsupport);
+        MenuItem item = menu.findItem(R.id.action_share);
         View actionView = item.getActionView();
 
         if (actionView != null) {

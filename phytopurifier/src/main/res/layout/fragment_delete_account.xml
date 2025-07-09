@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/delete_account_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_account"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingBottom="12dp" />
+
+        <TextView
+            android:id="@+id/delete_account_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Message_for_confirrmation"
+            android:textSize="16sp"
+            android:paddingBottom="16dp" />
+
+        <TextView
+            android:id="@+id/delete_account_warning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/this_action_is_permanent_and_cannot_be_undone"
+            android:textColor="#B00020"
+            android:textStyle="italic"
+            android:paddingBottom="24dp" />
+
+        <Button
+            android:id="@+id/btn_delete_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_my_account"
+            android:backgroundTint="#B00020"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+</ScrollView>
