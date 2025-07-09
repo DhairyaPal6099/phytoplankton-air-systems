@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import ca.algaerithms.inc.it.phytoplanktonairsystems.LoginActivity;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.ui.LoginActivity;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 
 public class DeleteAccountFragment extends Fragment {

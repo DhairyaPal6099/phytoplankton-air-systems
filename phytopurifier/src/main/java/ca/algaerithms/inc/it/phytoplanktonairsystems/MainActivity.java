@@ -31,6 +31,7 @@ import android.content.pm.ActivityInfo;
 
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.ActivityMainBinding;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.ui.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,14 +49,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, R.string.replace_with_your_own_action, Snackbar.LENGTH_LONG)
-                        .setAction(R.string.action, null)
-                        .setAnchorView(R.id.fab).show();
-            }
-        });
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
@@ -101,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        MenuItem item = menu.findItem(R.id.action_contactsupport);
+        MenuItem item = menu.findItem(R.id.action_share);
         View actionView = item.getActionView();
 
         if (actionView != null) {
