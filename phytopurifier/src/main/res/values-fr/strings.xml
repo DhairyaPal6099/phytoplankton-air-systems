@@ -139,4 +139,23 @@
     <string name="verification_link_check_text">A verification link has been sent. Please check your inbox.</string>
     <string name="ok">OK</string>
     <string name="failed_to_reload_user">Failed to reload user</string>
+    <string name="password_is_required">Password is required</string>
+    <string name="invalid_email_or_password">" Invalid email or password"</string>
+    <string name="login_failed_please_try_again">" Login failed. Please try again."</string>
+    <string name="web_client_id">861565060606-3gvutn5pq32ru6ucpemb2hputd9195vn.apps.googleusercontent.com</string>
+    <string name="google_sign_in_failed">Google sign-in failed</string>
+    <string name="google_sign_in_cancelled">Google sign-in cancelled</string>
+    <string name="firebase_auth_failed">"Firebase auth failed: "</string>
+    <string name="welcome">"Welcome "</string>
+    <string name="failed_to_save_user_info">"Failed to save user info: "</string>
+    <string name="phone_number">Phone Number:</string>
+    <string name="phoneNumber_hint">(XXX) XXX-XXXX</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_registered_email_to_receive_a_reset_link">Enter your registered email to receive a reset link.</string>
+    <string name="send">Send</string>
+    <string name="email_cannot_be_empty">Email cannot be empty.</string>
+    <string name="cancel">Cancel</string>
+    <string name="please_enter_a_valid_email">Please enter a valid email.</string>
+    <string name="password_reset_link_sent_to">"Password reset link sent to "</string>
+    <string name="failed_to_send_reset_link">"Failed to send reset link: "</string>
 </resources>

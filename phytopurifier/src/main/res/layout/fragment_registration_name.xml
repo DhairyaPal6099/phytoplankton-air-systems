@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textColor="@color/forest_green"
+            android:textStyle="bold"
             android:layout_marginLeft="5dp"
             android:text="@string/display_name"
             android:textSize="30dp" />
@@ -55,7 +56,7 @@
             android:id="@+id/registration_display_continueButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/common_google_signin_btn_icon_disabled"
+            android:background="@drawable/rounded_corners"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:ems="10"
