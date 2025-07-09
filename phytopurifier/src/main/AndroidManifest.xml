@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
@@ -14,26 +17,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhytoplanktonAirSystems"
         tools:targetApi="35">
+
+
         <!-- Login Screen -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.LoginActivity"
             android:exported="true"
-            android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar"></activity>
+            android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar">
+        </activity>
 
         <activity
-            android:name=".RegistrationActivity"
+            android:name=".ui.RegistrationActivity"
             android:exported="true"
             android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar"/>
 
         <!-- Home Screen (Main) -->
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar"></activity>
+            android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar">
+        </activity>
 
         <!-- Splash Screen -->
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".ui.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar">
             <intent-filter>
@@ -42,6 +49,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
     </application>
 
 </manifest>

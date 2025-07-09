@@ -37,4 +37,5 @@
 
 
 
+    <color name="error_message">#cc0000</color>
 </resources>

@@ -18,6 +18,13 @@
         tools:layout="@layout/fragment_about" />
 
     <fragment
+        android:id="@+id/nav_feedback"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.FeedbackFragment"
+        android:label="@string/feedbackv2"
+        tools:layout="@layout/fragment_feedback" />
+
+
+    <fragment
         android:id="@+id/nav_settings"
         android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.settings.SettingsFragment"
         android:label="@string/settings"
@@ -51,5 +58,23 @@
         android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.settings.AccountInfoFragment"
         android:label="@string/account_info_title"
         tools:layout="@layout/fragment_account_info" />
+
+    <fragment
+        android:id="@+id/action_notifications"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.supportActionBarFragments.NotificationsFragment"
+        android:label="@string/notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/action_achievements"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.supportActionBarFragments.AchievementsFragment"
+        android:label="Achievements"
+        tools:layout="@layout/fragment_achievements" />
+
+    <fragment
+        android:id="@+id/action_contact_support"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.supportActionBarFragments.ContactSupportFragment"
+        android:label="Contact Support"
+        tools:layout="@layout/fragment_contact_support" />
 
 </navigation>
