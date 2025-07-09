@@ -25,6 +25,11 @@
             android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar">
         </activity>
 
+        <activity
+            android:name=".ui.RegistrationActivity"
+            android:exported="true"
+            android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar"/>
+
         <!-- Home Screen (Main) -->
         <activity
             android:name=".ui.MainActivity"
