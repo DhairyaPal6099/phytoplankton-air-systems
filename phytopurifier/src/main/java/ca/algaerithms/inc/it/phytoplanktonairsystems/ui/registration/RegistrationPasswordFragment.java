@@ -98,7 +98,6 @@ private void saveAuthenticatedUserData(String password) {
                 userData.put("name", name);
                 userData.put("birthdate", birthdate);
                 userData.put("phone", phone);
-                userData.put("password",password);
                 userData.put("uid", uid);
 
                 db.collection("users").document(uid)
