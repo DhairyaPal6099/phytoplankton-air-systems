@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+    implementation libs.credentials.v121 // required for One Tap
     implementation libs.ccp //for country code picker
     implementation libs.libphonenumber //phone number validate
     implementation libs.appcompat

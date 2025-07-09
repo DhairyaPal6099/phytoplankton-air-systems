@@ -2,6 +2,7 @@
 agp = "8.7.3"
 ccp = "2.7.3"
 coreSplashscreen = "1.0.1"
+credentialsVersion = "1.5.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
@@ -26,6 +27,7 @@ firebaseFirestore = "25.1.4"
 [libraries]
 ccp = { module = "com.hbb20:ccp", version.ref = "ccp" }
 core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
+credentials-v121 = { module = "androidx.credentials:credentials", version.ref = "credentialsVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
