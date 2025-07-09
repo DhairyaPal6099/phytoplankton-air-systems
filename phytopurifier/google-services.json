@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "861565060606",
+    "firebase_url": "https://phytoplankton-air-systems-default-rtdb.firebaseio.com",
     "project_id": "phytoplankton-air-systems",
     "storage_bucket": "phytoplankton-air-systems.firebasestorage.app"
   },
@@ -12,7 +13,20 @@
           "package_name": "ca.algaerithms.inc.it.phytoplanktonairsystems"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "861565060606-si5bmvm3i0vkp0tprq8em3o6pqrrau1d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ca.algaerithms.inc.it.phytoplanktonairsystems",
+            "certificate_hash": "c1fafd00cc43056617deaf99c8a9895e8731a44f"
+          }
+        },
+        {
+          "client_id": "861565060606-3gvutn5pq32ru6ucpemb2hputd9195vn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyD_mfMQzwIMcl95GSZdZp2-fpC2BM96DWg"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "861565060606-3gvutn5pq32ru6ucpemb2hputd9195vn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

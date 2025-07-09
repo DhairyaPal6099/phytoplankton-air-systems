@@ -16,6 +16,9 @@ import android.view.View;
 import android.view.Menu;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.FirebaseApp;
 
 import androidx.activity.OnBackPressedCallback;
@@ -33,6 +36,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.widget.Toast;
+import android.widget.TextView;
 
 
 import java.io.File;
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private TextView nameTextView, emailTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_about, R.id.nav_settings)
+                R.id.nav_home, R.id.nav_about,R.id.nav_feedback, R.id.nav_settings)
                 .setOpenableLayout(drawer)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -91,6 +96,9 @@ public class MainActivity extends AppCompatActivity {
                 return handled;
             }
         });
+
+        // Populate navigation drawer header with user info
+        populateUserHeader();
 
         //Display the AlertDialog
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
@@ -129,6 +137,40 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.onNavDestinationSelected(item, navController);
     }
 
+    //
+    private void populateUserHeader() {
+        // Instance of the currently signed-in user from Firebase
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String email = user.getEmail(); // Get user's email
+
+            // Access the navigation drawer's header view
+            NavigationView navigationView = binding.navView;
+            View headerView = navigationView.getHeaderView(0);
+
+            // Get references to the TextViews in the header
+            nameTextView = headerView.findViewById(R.id.nav_header_username);
+            emailTextView = headerView.findViewById(R.id.nav_header_userEmail);
+
+            // Display user's email directly (always available)
+            emailTextView.setText(email);
+
+            // Retrieve the user's name from Firestore using their UID
+            FirebaseFirestore.getInstance().collection("users")
+                    .document(user.getUid()) // Reference the correct user document
+                    .get()
+                    .addOnSuccessListener(documentSnapshot -> {
+                        String name = documentSnapshot.getString("name"); // Get "name" field
+                        // Set the name if found, otherwise use "User" as fallback
+                        nameTextView.setText(name != null ? name : "User");
+                    })
+                    .addOnFailureListener(e -> {
+                        // In case of error fetching from Firestore, fallback to "User"
+                        nameTextView.setText("User");
+                    });
+        }
+    }
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -143,6 +185,8 @@ public class MainActivity extends AppCompatActivity {
                 .setMessage(R.string.are_you_sure_you_want_to_logout)
                 .setPositiveButton(R.string.yes, (dialog, which) -> {
 
+                    // Sign the user out from Firebase
+                    FirebaseAuth.getInstance().signOut();
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);

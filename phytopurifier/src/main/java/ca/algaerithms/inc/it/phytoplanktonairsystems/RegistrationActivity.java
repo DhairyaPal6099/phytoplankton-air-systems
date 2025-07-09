@@ -13,6 +13,9 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.ActivityMainBinding;
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -37,12 +40,22 @@ public class RegistrationActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) { // Handle the back arrow click
-            finish(); // Close the current activity and return to the previous one
+            onBackPressed(); // Call onBackpressed to delete the temp user and finish the activity
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null && (!user.isEmailVerified() || user.isEmailVerified())) {
+            user.delete().addOnCompleteListener(task -> {
+                // After deleting, finish the activity
+                finish();
+            });
+        } else {
+            super.onBackPressed();
+        }
+    }
 }
