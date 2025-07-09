@@ -66,14 +66,6 @@ public class SettingsFragment extends Fragment {
             Toast.makeText(getContext(), isChecked ? "Animations Reduced" : "Animations Restored", Toast.LENGTH_SHORT).show();
         });
 
-        binding.settingsList.setAdapter(adapter);
-        // Navigation for profile details and legal links
-        View profileSection = view.findViewById(R.id.profileCircleImageView);
-        profileSection.setOnClickListener(v -> {
-            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
-            navController.navigate(R.id.action_nav_settings_to_accountInfoFragment);
-        });
-
         TextView privacyPolicy = view.findViewById(R.id.privacyPolicyText);
         privacyPolicy.setOnClickListener(v -> {
             NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);

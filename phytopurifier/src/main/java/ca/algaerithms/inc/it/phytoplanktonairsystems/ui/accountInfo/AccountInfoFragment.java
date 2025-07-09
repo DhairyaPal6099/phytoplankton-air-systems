@@ -35,7 +35,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-import ca.algaerithms.inc.it.phytoplanktonairsystems.LoginActivity;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.ui.LoginActivity;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentAccountInfoBinding;
 
