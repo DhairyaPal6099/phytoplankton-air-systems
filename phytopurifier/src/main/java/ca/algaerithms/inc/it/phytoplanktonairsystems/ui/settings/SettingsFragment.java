@@ -70,14 +70,6 @@ public class SettingsFragment extends Fragment {
 
         binding.settingsList.setAdapter(adapter);
 
-        // Handle navigation
-        binding.settingsList.setOnItemClickListener((parent, view1, position, id) -> {
-            if (position == 1) {
-                NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
-                navController.navigate(R.id.action_nav_settings_to_accountInfoFragment);
-            }
-        });
-
         return view;
     }
 

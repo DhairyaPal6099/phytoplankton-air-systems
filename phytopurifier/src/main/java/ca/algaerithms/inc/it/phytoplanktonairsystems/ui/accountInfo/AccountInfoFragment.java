@@ -2,7 +2,7 @@
    Dhairya Pal – N01576099
    Sanskriti Mansotra – N01523183
    Dharmik Shah – N01581796 */
-package ca.algaerithms.inc.it.phytoplanktonairsystems.ui.settings;
+package ca.algaerithms.inc.it.phytoplanktonairsystems.ui.accountInfo;
 
 import android.Manifest;
 import android.app.DatePickerDialog;
