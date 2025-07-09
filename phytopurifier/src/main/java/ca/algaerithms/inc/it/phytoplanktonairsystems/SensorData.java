@@ -9,6 +9,10 @@ public class SensorData {
     private boolean proximity;
     private Date lastUpdated;
 
+    private double co2_converted;
+    private double algaeHealth;
+    private long timestamp;
+
     // No-arg constructor required for Firebase
     public SensorData() {}
 
@@ -33,7 +37,6 @@ public class SensorData {
         return lastUpdated;
     }
 
-    // Setters - Needed for Firebase to deserialize
     public void setTurbidity(int turbidity) {
         this.turbidity = turbidity;
     }
@@ -52,6 +55,25 @@ public class SensorData {
 
     public void setLastUpdated(Date lastUpdated) {
         this.lastUpdated = lastUpdated;
+    }
+    public double getCo2_converted() {
+        return co2_converted;
+    }
+
+    public void setCo2_converted(double co2_converted) {
+        this.co2_converted = co2_converted;
+    }
+
+    public void setAlgaeHealth(double algaeHealth) {
+        this.algaeHealth = algaeHealth;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 
     // TODO: Implement algae health calculation based on sensor values

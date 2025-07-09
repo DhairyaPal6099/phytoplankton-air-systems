@@ -8,6 +8,11 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
@@ -113,10 +118,43 @@ public class AchievementManager {
     }
 
     public  void evaluateCo2Achievements() {
+        Log.d("AchievementManager", "Evaluating CO2 achievements...");
         String uid = FirebaseAuth.getInstance().getUid();
         if (uid == null) return;
 
-        firestore.collection("users").document(uid)
+        DatabaseReference co2Ref = FirebaseDatabase.getInstance().getReference("device_001/co2_converted");
+
+        co2Ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Long co2Long = snapshot.getValue(Long.class);
+                if (co2Long == null) return;
+
+                double co2 = co2Long.doubleValue();
+                if (co2 > 10000) {
+                    checkAndAddAchievement("Phresh Air Master", "Converted over 10,000kg of CO₂!");
+                }
+                if (co2 > 5000) {
+                    checkAndAddAchievement("Carbon Catcher", "Converted over 5,000kg of CO₂!");
+                }
+                if (co2 > 1000) {
+                    checkAndAddAchievement("Phytopurifier Pro", "Converted over 1,000kg of CO₂!");
+                }
+                if (co2 > 250) {
+                    checkAndAddAchievement("Fresh Air Fan", "Converted over 250kg of CO₂!");
+                }
+                if (co2 > 25) {
+                    checkAndAddAchievement("Rejuvenation Rookie", "Converted over 25kg of CO₂!");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("Achievements", "Failed to fetch co2_converted", error.toException());
+            }
+        });
+
+        /*firestore.collection("users").document(uid)
                 .get()
                 .addOnSuccessListener(doc -> {
                     Double co2 = doc.getDouble("lifetime_co2_converted");
@@ -124,15 +162,20 @@ public class AchievementManager {
 
                     if (co2 > 10000) {
                         checkAndAddAchievement("Phresh Air Master", "Converted over 10,000kg of CO₂!");
-                    } else if (co2 > 5000) {
+                    }
+                    if (co2 > 5000) {
                         checkAndAddAchievement("Carbon Catcher", "Converted over 5,000kg of CO₂!");
-                    } else if (co2 > 1000) {
+                    }
+                    if (co2 > 1000) {
                         checkAndAddAchievement("Phytopurifier Pro", "Converted over 1,000kg of CO₂!");
-                    } else if (co2 > 250) {
+                    }
+                    if (co2 > 250) {
                         checkAndAddAchievement("Fresh Air Fan", "Converted over 250kg of CO₂!");
-                    } else if (co2 > 25) {
+                    }
+                    if (co2 > 25) {
                         checkAndAddAchievement("Rejuvenation Rookie", "Converted over 25kg of CO₂!");
                     }
                 });
+         */
     }
 }

@@ -37,6 +37,7 @@ public class RegistrationPasswordFragment extends Fragment {
     private Button submitButton;
 
     private String email, name, birthdate, phone;
+    private int lifetime_co2_converted = 0;
 
     private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -104,8 +105,9 @@ private void saveAuthenticatedUserData(String password) {
                 userData.put("phone", phone);
                 userData.put("password",password);
                 userData.put("uid", uid);
-                userData.put("Achievements", achievements);
-                userData.put("Notifications", notifications);
+                userData.put("achievements", achievements);
+                userData.put("notifications", notifications);
+                userData.put("lifetime_co2_converted", lifetime_co2_converted);
 
                 db.collection("users").document(uid)
                         .set(userData)
