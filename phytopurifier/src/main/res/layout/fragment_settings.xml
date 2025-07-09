@@ -13,7 +13,7 @@
         <!-- Header -->
         <TextView
             style="@style/viewParent.headerText"
-            android:text="Settings" />
+            android:text="@string/settings" />
 
         <!-- Profile section -->
         <RelativeLayout
@@ -34,7 +34,7 @@
             <TextView
                 android:id="@+id/usernameTextView"
                 style="@style/viewParent.headerText"
-                android:text="Username"
+                android:text="@string/username"
                 android:textSize="18sp"
                 android:layout_toEndOf="@id/profileCircleImageView"
                 android:layout_marginTop="5dp" />
@@ -42,7 +42,7 @@
             <TextView
                 android:id="@+id/editDetailsTextView"
                 style="@style/viewParent.headerText"
-                android:text="Edit personal details"
+                android:text="@string/edit_personal_details"
                 android:textSize="16sp"
                 android:textColor="#5D5C5C"
                 android:layout_below="@id/usernameTextView"
@@ -59,38 +59,43 @@
         <!-- App Preferences Section -->
         <TextView
             style="@style/viewParent.headerText.settingsMiniTitle"
-            android:text="App Preferences" />
+            android:text="@string/app_preferences" />
 
         <Switch
             android:id="@+id/lockScreenModeSwitch"
             style="@style/settingsText"
+            android:layout_width="349dp"
             android:drawableLeft="@drawable/ic_potrait"
-            android:text="Lock screen to portrait" />
+            android:text="@string/lock_screen_to_portrait" />
 
         <Switch
             android:id="@+id/darkModeSwitch"
             style="@style/settingsText"
+            android:layout_width="349dp"
+            android:layout_height="51dp"
             android:drawableLeft="@drawable/ic_dark_mode"
-            android:text="Dark Mode" />
+            android:text="@string/Dark_mode" />
 
         <!-- Notifications Placeholder (non-functional currently) -->
 
         <!-- Legal Section -->
         <TextView
             style="@style/viewParent.headerText.settingsMiniTitle"
-            android:text="Legal" />
+            android:text="@string/legal" />
 
         <TextView
             android:id="@+id/privacyPolicyText"
             style="@style/viewParent.headerText.settingsTextIcon"
             android:drawableLeft="@drawable/ic_privacypolicy"
-            android:text="Privacy Policy" />
+            android:text="@string/Privacy_Policy" />
 
         <TextView
             android:id="@+id/termsOfServiceText"
             style="@style/viewParent.headerText.settingsTextIcon"
+            android:layout_width="331dp"
+            android:layout_height="51dp"
             android:drawableLeft="@drawable/ic_terms"
-            android:text="Terms of Service" />
+            android:text="@string/Terms_of_service" />
 
         <!-- Accessibility Section -->
         <TextView
@@ -107,13 +112,13 @@
         <TextView
             android:id="@+id/logoutText"
             style="@style/viewParent.headerText.settingsTextIcon"
-            android:drawableLeft="@drawable/ic_logout"
-            android:text="Delete Account" />
+            android:drawableLeft="@drawable/ic_delete"
+            android:text="@string/Delete_account" />
 
         <!-- App Version -->
         <TextView
             style="@style/viewParent.headerText.settingsMiniTitle"
-            android:text="App ver 2.0.1"
+            android:text="@string/app_ver_1_0"
             android:textAlignment="center"
             android:paddingTop="16dp" />
     </LinearLayout>
