@@ -1,4 +1,4 @@
-package ca.algaerithms.inc.it.phytoplanktonairsystems;
+package ca.algaerithms.inc.it.phytoplanktonairsystems.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -42,6 +42,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.RegistrationActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
