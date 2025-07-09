@@ -34,19 +34,10 @@
             <TextView
                 android:id="@+id/usernameTextView"
                 style="@style/viewParent.headerText"
-                android:text="@string/username"
+                android:text="@string/haki_sharifi"
                 android:textSize="18sp"
                 android:layout_toEndOf="@id/profileCircleImageView"
                 android:layout_marginTop="5dp" />
-
-            <TextView
-                android:id="@+id/editDetailsTextView"
-                style="@style/viewParent.headerText"
-                android:text="@string/edit_personal_details"
-                android:textSize="16sp"
-                android:textColor="#5D5C5C"
-                android:layout_below="@id/usernameTextView"
-                android:layout_toEndOf="@id/profileCircleImageView" />
 
             <ImageView
                 android:id="@+id/profileMoreIcon"

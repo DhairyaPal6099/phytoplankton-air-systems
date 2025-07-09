@@ -300,5 +300,6 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     Verification sent, please log out and log back in to update your email
 </string>
     <string name="failed_to_send_verification">Failed to send verification</string>
+    <string name="haki_sharifi">Haki Sharifi</string>
 
 </resources>

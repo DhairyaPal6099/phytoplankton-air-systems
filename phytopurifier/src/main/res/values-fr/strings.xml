@@ -187,4 +187,5 @@
     <string name="verification_sent_please_log_out_and_log_back_in_to_update_your_email">Verification sent! Please log out and log back in to update your email.</string>
     <string name="log_out">Log out</string>
     <string name="failed_to_send_verification">"Failed to send verification: "</string>
+    <string name="haki_sharifi">Haki Sharifi</string>
 </resources>
