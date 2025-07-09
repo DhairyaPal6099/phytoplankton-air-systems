@@ -24,7 +24,7 @@ public class DailyNotificationWorker extends Worker {
             @Override
             public void onDataFetched(SensorData data) {
                 if (data != null) {
-                    NotificationManager.getInstance().sendEndOfDayAlgaeStatus(data.getAlgaeHealth(), data.getTurbidity());
+                    NotificationManagerPhytopurifier.getInstance(getApplicationContext()).sendEndOfDayAlgaeStatus(data.getAlgaeHealth(), data.getTurbidity());
                 }
             }
 

@@ -1,19 +1,20 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -21,15 +22,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
-public class NotificationManager {
+public class NotificationManagerPhytopurifier {
     private static final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-    private static NotificationManager instance;
+    private static NotificationManagerPhytopurifier instance;
+    private final Context context;
+    private static final String CHANNEL_ID = "eod_channel";
 
-    private NotificationManager() {}
+    private NotificationManagerPhytopurifier(Context context) {
+        this.context = context.getApplicationContext();
+        createNotificationChannel();
+    }
 
-    public static NotificationManager getInstance() {
+    public static NotificationManagerPhytopurifier getInstance(Context context) {
         if (instance == null) {
-            instance = new NotificationManager();
+            instance = new NotificationManagerPhytopurifier(context);
         }
         return instance;
     }
@@ -56,7 +62,7 @@ public class NotificationManager {
 
                     callback.accept(result);
                 })
-                .addOnFailureListener(e -> Log.e("NotificationManager", "Fetch failed: " + e.getMessage()));
+                .addOnFailureListener(e -> Log.e("NotificationManagerPhytopurifier", "Fetch failed: " + e.getMessage()));
     }
 
     public void sendNotification(String title, String message) {
@@ -71,7 +77,18 @@ public class NotificationManager {
         newNotif.put("timestamp", new Timestamp(new Date()));
 
         userRef.update("notifications", FieldValue.arrayUnion(newNotif))
-                .addOnFailureListener(e -> Log.e("NotificationManager", "Send failed: " + e.getMessage()));
+                .addOnFailureListener(e -> Log.e("NotificationManagerPhytopurifier", "Send failed: " + e.getMessage()));
+    }
+
+    private void showSystemNotification(String title, String message) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setAutoCancel(true);
+
+        NotificationManagerCompat.from(context)
+                .notify((int) System.currentTimeMillis(), builder.build());
     }
 
     public void sendEndOfDayAlgaeStatus(double algaeHealth, double turbidity) {
@@ -97,7 +114,26 @@ public class NotificationManager {
                 .collection("users")
                 .document(uid)
                 .update("notifications", FieldValue.arrayUnion(notification))
-                .addOnSuccessListener(aVoid -> Log.d("NotificationManager", "End-of-day algae status added"))
-                .addOnFailureListener(e -> Log.e("NotificationManager", "Failed to add notification", e));
+                .addOnSuccessListener(aVoid -> Log.d("NotificationManagerPhytopurifier", "End-of-day algae status added"))
+                .addOnFailureListener(e -> Log.e("NotificationManagerPhytopurifier", "Failed to add notification", e));
+
+        showSystemNotification("Daily algae status", statusMessage);
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    CHANNEL_ID,
+                    "Phytopurifier Notifications",
+                    NotificationManager.IMPORTANCE_DEFAULT
+            );
+            channel.setDescription("Daily algae health and system status notifications");
+
+            android.app.NotificationManager manager =
+                    (android.app.NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            if (manager != null) {
+                manager.createNotificationChannel(channel);
+            }
+        }
     }
 }

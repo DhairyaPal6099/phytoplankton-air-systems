@@ -1,7 +1,12 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems.ui.supportActionBarFragments;
 
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,22 +14,39 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.NotificationAdapter;
-import ca.algaerithms.inc.it.phytoplanktonairsystems.NotificationManager;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.NotificationManagerPhytopurifier;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.NotificationModel;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 
 public class NotificationsFragment extends Fragment {
 
     private NotificationAdapter adapter;
+    private ActivityResultLauncher<String> requestPermissionLauncher;
     private List<NotificationModel> notificationModelList = new ArrayList<>();
 
     public NotificationsFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        requestPermissionLauncher = registerForActivityResult(
+                new ActivityResultContracts.RequestPermission(),
+                isGranted -> {
+                    if (isGranted) {
+                        Toast.makeText(getContext(), "Notifications permissions granted!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getContext(), "Notifications permissions denied!", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     @Override
@@ -38,11 +60,17 @@ public class NotificationsFragment extends Fragment {
         adapter = new NotificationAdapter(notificationModelList);
         recyclerView.setAdapter(adapter);
 
-        NotificationManager.getInstance().getAllNotifications(fetchedList -> {
-            notificationModelList.clear();
-            notificationModelList.addAll(fetchedList);
-            adapter.notifyDataSetChanged();
+        NotificationManagerPhytopurifier.getInstance(requireContext()).getAllNotifications(fetchedList -> {
+            adapter.updateList(fetchedList);
         });
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
+                requestPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS);
+            }
+        }
+
         return view;
     }
 }

@@ -8,10 +8,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> {
-    private final List<NotificationModel> notificationModelList;
+    private List<NotificationModel> notificationModelList;
 
     public NotificationAdapter(List<NotificationModel> notificationModelList) {
         this.notificationModelList = notificationModelList;
@@ -46,5 +47,10 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             message = itemView.findViewById(R.id.notificationMessage);
             timestamp = itemView.findViewById(R.id.notificationTimestamp);
         }
+    }
+
+    public void updateList(List<NotificationModel> newList) {
+        this.notificationModelList = new ArrayList<>(newList); // Defensive copy
+        notifyDataSetChanged();
     }
 }
