@@ -3,102 +3,173 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/turquoise"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:clipChildren="false">
 
-        <!-- Profile Picture -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/profile_card"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="60dp"
-            app:cardElevation="4dp">
-
-            <ImageView
-                android:id="@+id/profile_image"
+            <!-- Header with background and profile image -->
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/profile"
-                android:contentDescription="@string/profile_image_desc" />
-        </androidx.cardview.widget.CardView>
+                android:layout_height="200dp"
+                android:background="@drawable/account_info_header_bg">
 
-        <EditText
-            android:id="@+id/username_input"
+                <!-- Profile Picture -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="-60dp"
+                    app:cardCornerRadius="60dp"
+                    app:cardElevation="6dp">
+
+                    <ImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/profile"
+                        android:contentDescription="Profile Picture" />
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
+
+        <!-- Form Section -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:padding="12dp"
-            android:textStyle="bold"
-            android:textColor="#212121"
-            android:hint="@string/enter_your_full_name"
-            android:inputType="textPersonName"
-            android:importantForAutofill="yes"
-            android:autofillHints="name" />
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="60dp">
 
-        <EditText
-            android:id="@+id/email_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:padding="12dp"
-            android:textStyle="bold"
-            android:textColor="#212121"
-            android:hint="@string/example_domain_com"
-            android:inputType="textEmailAddress"
-            android:importantForAutofill="yes"
-            android:autofillHints="emailAddress" />
+            <!-- Full Name -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp">
 
-        <EditText
-            android:id="@+id/phone_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:padding="12dp"
-            android:textStyle="bold"
-            android:textColor="#212121"
-            android:hint="@string/enter_10_digit_phone_number"
-            android:inputType="phone"
-            android:maxLength="10"
-            android:minEms="10"
-            android:importantForAutofill="yes"
-            android:autofillHints="phone" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Full Name"
+                    android:textStyle="bold"
+                    android:textColor="#444"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="4dp" />
 
-        <EditText
-            android:id="@+id/birthday_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:padding="12dp"
-            android:textStyle="bold"
-            android:textColor="#212121"
-            android:hint="@string/yyyy_mm_dd"
-            android:focusable="false"
-            android:clickable="true"
-            android:inputType="none" />
+                <EditText
+                    android:id="@+id/username_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/semirounded_corners"
+                    android:backgroundTint="@color/faded_white"
+                    android:paddingHorizontal="12dp"
+                    android:inputType="textPersonName"
+                    android:textColor="#000"
+                    android:hint="Enter your name" />
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/save_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="@string/update"
-            android:layout_marginTop="16dp" />
+            <!-- Email Address -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp">
 
-        <Button
-            android:id="@+id/clear_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="@string/clear"
-            android:layout_marginTop="8dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email Address"
+                    android:textStyle="bold"
+                    android:textColor="#444"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="4dp" />
 
+                <EditText
+                    android:id="@+id/email_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/semirounded_corners"
+                    android:backgroundTint="@color/faded_white"
+                    android:paddingHorizontal="12dp"
+                    android:inputType="textEmailAddress"
+                    android:hint="Enter your email" />
+            </LinearLayout>
 
+            <!-- Phone Number -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Phone Number"
+                    android:textStyle="bold"
+                    android:textColor="#444"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="4dp" />
+
+                <EditText
+                    android:id="@+id/phone_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/semirounded_corners"
+                    android:backgroundTint="@color/faded_white"
+                    android:paddingHorizontal="12dp"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:textColor="#000"
+                    android:hint="Enter phone number" />
+            </LinearLayout>
+
+            <!-- Birthday -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Birthday"
+                    android:textStyle="bold"
+                    android:textColor="#444"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="4dp" />
+
+                <EditText
+                    android:id="@+id/birthday_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/semirounded_corners"
+                    android:backgroundTint="@color/faded_white"
+                    android:paddingHorizontal="12dp"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none"
+                    android:textColor="#000"
+                    android:hint="YYYY-MM-DD" />
+            </LinearLayout>
+
+            <!-- Update Button -->
+            <Button
+                android:id="@+id/update_button"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Update"
+                android:textColor="@android:color/white"
+                android:background="@drawable/rounded_corners"
+                android:layout_marginTop="24dp" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

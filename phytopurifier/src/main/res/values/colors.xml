@@ -28,4 +28,7 @@
     <color name="transparent_black">#60000000</color>
     <color name="forest_green">#0B6623</color>
     <color name="error_message">#cc0000</color>
+    <color name="cyan">#00FFFF</color>
+    <color name="teal">#008080</color>
+    <color name="turquoise">#40E0D0</color>
 </resources>

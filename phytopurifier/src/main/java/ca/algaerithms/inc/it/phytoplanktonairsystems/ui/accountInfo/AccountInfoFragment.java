@@ -115,8 +115,7 @@ public class AccountInfoFragment extends Fragment {
             picker.show();
         });
 
-        binding.saveButton.setOnClickListener(v -> saveUserInfo());
-        binding.clearButton.setOnClickListener(v -> loadUserInfo());
+        binding.updateButton.setOnClickListener(v -> saveUserInfo());
         binding.profileImage.setOnClickListener(v -> requestGalleryPermission());
     }
 
