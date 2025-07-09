@@ -37,16 +37,12 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private SharedPreferences prefs;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        SharedPreferences prefs = getSharedPreferences(getString(R.string.settings_lowercase), MODE_PRIVATE);
-        if (prefs.getBoolean(getString(R.string.lockportrait), false)) {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        }
-
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -60,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAnchorView(R.id.fab).show();
             }
         });
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -68,24 +65,24 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_home, R.id.nav_about, R.id.nav_settings)
                 .setOpenableLayout(drawer)
                 .build();
+
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
-
             if (id == R.id.nav_logout) {
                 logout();
                 binding.drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             } else {
-                navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
                 boolean handled = NavigationUI.onNavDestinationSelected(item, navController);
                 binding.drawerLayout.closeDrawer(GravityCompat.START);
                 return handled;
             }
         });
+
 
         //Display the AlertDialog
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {

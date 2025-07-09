@@ -1,6 +1,7 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems.ui.settings;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -46,7 +48,6 @@ public class SettingsFragment extends Fragment {
 
                 TextView title = view.findViewById(R.id.setting_title);
                 Switch switchToggle = view.findViewById(R.id.setting_switch);
-                //TextView sectionHeader = view.findViewById(R.id.setting_section_header);
                 ImageView icon = view.findViewById(R.id.setting_icon);
 
                 title.setText(getItem(position));
@@ -54,7 +55,7 @@ public class SettingsFragment extends Fragment {
                 // Set icons
                 switch (position) {
                     case 0:
-                        icon.setImageResource(R.drawable.ic_potrairt);
+                        icon.setImageResource(R.drawable.ic_potrait);
                         break;
                     case 1:
                         icon.setImageResource(R.drawable.ic_darkmode);
@@ -63,28 +64,20 @@ public class SettingsFragment extends Fragment {
                         icon.setImageResource(R.drawable.profile);
                         break;
                     case 3:
-                        icon.setImageResource(R.drawable.ic_color_blindness);
-                        break;
-                    case 4:
                         icon.setImageResource(R.drawable.ic_terms);
                         break;
-                    case 5:
+                    case 4:
                         icon.setImageResource(R.drawable.ic_privacypolicy);
                         break;
-                    case 6:
+                    case 5:
                         icon.setImageResource(R.drawable.ic_delete);
                         break;
+                    case 6:
+                      icon.setImageResource(R.drawable.ic_motion);
+                       break;
                     default:
                         icon.setImageResource(R.drawable.ic_settings);
                 }
-
-                // SECTION HEADER
-               // if (position == 0) {
-                  //  sectionHeader.setVisibility(View.VISIBLE);
-                 //   sectionHeader.setText("App Preferences");
-                //} else {
-                   // sectionHeader.setVisibility(View.GONE);
-                //}
 
                 SharedPreferences prefs = requireContext().getSharedPreferences(getString(R.string.settings_lowercase), Context.MODE_PRIVATE);
 
@@ -110,6 +103,15 @@ public class SettingsFragment extends Fragment {
                         );
                     });
 
+                } else if (position == 6) { // Reduce Motion
+                    switchToggle.setVisibility(View.VISIBLE);
+                    boolean reduceMotion = prefs.getBoolean(getString(R.string.reduce_motion_key), false);
+                    switchToggle.setChecked(reduceMotion);
+                    switchToggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                        prefs.edit().putBoolean(getString(R.string.reduce_motion_key), isChecked).apply();
+                        Toast.makeText(getContext(), isChecked ? "Animations Reduced" : "Animations Restored", Toast.LENGTH_SHORT).show();
+                    });
+
                 } else {
                     switchToggle.setVisibility(View.GONE);
                 }
@@ -128,13 +130,13 @@ public class SettingsFragment extends Fragment {
                 case 2:
                     navController.navigate(R.id.action_nav_settings_to_accountInfoFragment);
                     break;
-                case 4:
+                case 3:
                     navController.navigate(R.id.termsOfServiceFragment);
                     break;
-                case 5:
+                case 4:
                     navController.navigate(R.id.privacyPolicyFragment);
                     break;
-                case 6:
+                case 5:
                     navController.navigate(R.id.deleteAccountFragment);
                     break;
             }

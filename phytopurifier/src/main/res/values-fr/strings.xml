@@ -27,10 +27,10 @@
         <item>Verrouiller l’écran en mode portrait</item>
         <item>Activer le mode sombre</item>
         <item>Informations du compte</item>
-        <item>Deuteranopia Filter (Green-Blindness)</item>
         <item>Conditions d’utilisation</item>
         <item>Politique de confidentialité</item>
         <item>Supprimer le compte</item>
+        <item>Reduce Motion</item>
     </string-array>
 
     <string name="account_info_username">Nom utilisateur</string>
@@ -39,7 +39,8 @@
     <string name="account_info_birthday">Date de naissance</string>
     <string name="account_info_title">Informations du compte</string>
 
-
+    <string name="reduce_motion">Reduce Motion</string>
+    <string name="reduce_motion_key">reduce_motion</string>
     <string name="save">Enregistrer</string>
     <string name="profile_image_desc">Photo de profil</string>
     <string name="setting_title">Setting Title</string>
@@ -118,6 +119,6 @@
     <string name="this_action_is_permanent_and_cannot_be_undone">This action is permanent and cannot be undone.</string>
     <string name="delete_my_account">Delete My Account</string>
 
-    <string name="green_deficiency_filter">greenDeficiency</string>
+
 
 </resources>
