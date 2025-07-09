@@ -19,7 +19,8 @@
             android:layout_marginTop="20dp"
             android:textColor="@color/forest_green"
             android:layout_marginLeft="5dp"
-            android:text="Phone Number:"
+            android:text="@string/phone_number"
+            android:textStyle="bold"
             android:textSize="30dp" />
 
         <LinearLayout
@@ -52,7 +53,7 @@
                 android:background="@drawable/semirounded_corners"
                 android:padding="10dp"
                 android:ems="10"
-                android:hint="(XXX) XXX-XXXX"
+                android:hint="@string/phoneNumber_hint"
                 android:textColorHint="#85898f"
                 android:maxLength="10"
                 android:textColor="@color/forest_green"
@@ -64,11 +65,11 @@
             android:id="@+id/registrationPhone_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/common_google_signin_btn_icon_disabled"
+            android:background="@drawable/rounded_corners"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:ems="10"
-            android:text="Continue" />
+            android:text="@string/continue_button" />
 
     </LinearLayout>
 </RelativeLayout>
