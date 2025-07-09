@@ -27,9 +27,12 @@
 
     <string-array name="settings_options">
         <item>Lock screen to portrait</item>
+        <item>Enable dark mode</item>
         <item>Account Info</item>
+        <item>Terms of Service</item>
+        <item>Privacy Policy</item>
         <item>Delete Account</item>
-        <item>Data &amp; Privacy</item>
+        <item>Reduce Motion</item>
     </string-array>
 
 
@@ -94,6 +97,7 @@
     <string name="create_an_account">Create an Account</string>
     <string name="remember_me">Remember me</string>
     <string name="lockportrait">lockPortrait</string>
+    <string name="dark_mode">darkMode</string>
     <string name="empty_string" />
     <string name="phone_must_be_at_least_9_digits">Phone must be at least 9 digits</string>
     <string name="image_forwardslash_asterisk">image/*</string>
@@ -106,6 +110,8 @@
     <string name="sign_in_with_google">Sign in with Google</string>
     <string name="permission_granted">Permission granted</string>
     <string name="permission_denied_open_settings_to_allow">Permission denied. Open Settings to allow.</string>
+    <string name="terms_of_service_text">terms of service text</string>
+    <string name="section_header">Section Header</string>
     <string name="notifications">Notifications</string>
     <string name="mailto_algaerithms_gmail_com">mailto:algaerithms@gmail.com</string>
     <string name="support_request">Support Request</string>
@@ -116,28 +122,134 @@
     <string name="company_phonenumber">+1 (437)-123-4567</string>
     <string name="registration">Registration</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="terms_of_service">Terms of Service</string>
+    <string name="content">
+Welcome to PhytoplanktonAirSystems\n
+A smart monitoring app developed by Algaerithms‑Inc. These Terms govern your use of the app and its features.\n\n
+
+1. Eligibility\n
+You must be at least 13 years old to use this app. By accessing the app, you agree to abide by these Terms of Service.\n\n
+
+2. Usage Guidelines\n
+You agree to use the app only for lawful, non-commercial purposes. You must not:\n• Misuse or interfere with the app’s functionality\n• Reverse engineer or attempt to access restricted parts of the system\n\n
+
+3. User Responsibilities\n
+You are responsible for the information you provide, including:\n• Profile details\n• System configuration\n
+Do not:\n• Impersonate others\n• Provide false or misleading information\n\n
+
+4. Ownership\n
+All content, features, branding, and code within the app are the intellectual property of Algaerithms‑Inc. They may not be copied, modified, or reused without express permission.\n\n
+
+5. Termination\n
+We may suspend or restrict your access if these terms are violated. You may delete your account and data anytime using the “Delete Account” option in the app settings.\n\n
+
+6. Modifications\n
+We may update these Terms periodically. Continued use of the app after changes means you accept the updated Terms.\n\n
+
+7. Disclaimer\n
+The app is provided “as is”. We do not guarantee:\n• Uninterrupted performance\n• Data accuracy\n• Absence of minor bugs or limitations
+</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="Message_for_confirrmation">Are you sure you want to delete your account?</string>
+    <string name="this_action_is_permanent_and_cannot_be_undone">This action is permanent and cannot be undone.</string>
+    <string name="delete_my_account">Delete My Account</string>
+
+    <!-- Privacy Policy Fragment -->
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="privacy_policy_content">🔐 Privacy Policy
+
+PhytoplanktonAirSystems values your privacy. This policy describes the types of data we collect, how it\'s used, and how it\'s stored.
+
+1. Information We Collect
+• Profile data: name, birthdate, email, phone number
+• App preferences: dark mode, screen lock, accessibility filters
+• Sensor data: CO₂ levels, light exposure, algae status, water level
+• Diagnostic data: crash logs and usage (if enabled)
+
+2. How We Use Your Data
+• To operate and improve app features
+• To notify you of air system conditions and alerts
+• To retain your personalized settings and usage context
+• To monitor performance and resolve technical issues
+
+3. Data Storage and Processing
+• Data is stored locally on your device using secure Android storage mechanisms
+• Some features use Firebase (by Google) for secure authentication, cloud storage, and diagnostics
+
+4. Data Sharing
+We do not sell or share your personal information with third-party companies. Data stored through Firebase is used strictly for app-related functionality.
+
+5. User Control
+You can manage your profile and preferences within the app. You may delete all stored data using the “Delete Account” feature in Settings.
+
+6. Policy Updates
+We may update this Privacy Policy as needed. All changes will be reflected within the app for your review.
+
+7. Contact
+If you have any privacy-related concerns or inquiries, please contact us at:
+
+</string>
+
+    <!-- Registration - Birthdate -->
+    <string name="birthdate">Birthdate</string>
+    <string name="continue_button">Continue</string>
+
+    <!-- Registration - Email -->
+    <string name="email_address">Email Address</string>
+    <string name="abc_gmail_com">abc@gmail.com</string>
+
+    <!-- Registration - Name -->
+    <string name="display_name">Display Name</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+
+    <!-- Registration - Password -->
+    <string name="password_textView">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="submit">Submit</string>
+
+    <!-- Settings -->
+    <string name="edit_personal_details">Edit Personal Details</string>
+    <string name="app_preferences">App Preferences</string>
+
+    <string name="lock_screen_to_portrait">Lock screen to portrait</string>
+    <string name="Dark_mode">Dark Mode</string>
+    <string name="legal">Legal</string>
+    <string name="Privacy_Policy">Privacy Policy</string>
+    <string name="Terms_of_service">Terms of Service</string>
+    <string name="accessibility">Accessibility</string>
+    <string name="Delete_account">Delete Account</string>
+    <string name="app_ver_1_0">App Version 1.0</string>
+    <string name="registration">registration</string>
+
+    <!-- RegistrationEmailFragment -->
     <string name="email_is_required">Email is required</string>
     <string name="invalid_email_format">Invalid email format</string>
-    <string name="verification_email_sent">Verification email sent</string>
     <string name="failed_to_send_verification_email">Failed to send verification email</string>
-    <string name="registration_failed">"Registration failed: "</string>
+    <string name="email_address_is_already_in_use">This email address is already in use</string>
+    <string name="this_email_is_already_registered_please_use_a_different_email_or_login">
+        This email is already registered. Please use a different email or login.
+    </string>
+    <string name="registration_failed">Registration failed</string>
+    <string name="verification_link_check_text">Please check your email for a verification link</string>
+    <string name="ok">OK</string>
     <string name="email_verified_you_can_continue">Email verified! You can continue.</string>
-    <string name="email_not_verified_yet_please_check_your_inbox">Email not verified yet. Please check your inbox.</string>
-    <string name="abc_gmail_com">abc@gmail.com</string>
-    <string name="check_verification">Check Verification</string>
-    <string name="continue_button">Continue</string>
-    <string name="last_name">Last Name</string>
-    <string name="first_name">First Name</string>
-    <string name="display_name">Display Name:</string>
-    <string name="birthdate">Birthdate:</string>
-    <string name="select_birthdate">Select birthdate</string>
-    <string name="phone_number_is_required">Phone number is required</string>
-    <string name="invalid_phone_number">Invalid phone number</string>
-    <string name="registration_successful">Registration successful!</string>
+    <string name="failed_to_reload_user">Failed to reload user</string>
+
+    <!-- RegistrationPasswordFragment -->
+    <string name="password_must_include_upper_lower_case_and_number_or_special_character">
+        Password must include upper case, lower case, and a number or special character
+    </string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="registration_successful">Registration successful</string>
     <string name="error_saving_user_data">Error saving user data</string>
     <string name="failed_to_update_password">Failed to update password</string>
     <string name="user_not_authenticated">User not authenticated</string>
+
+    <!-- RegistrationPhoneFragment -->
+    <string name="phone_number_is_required">Phone number is required</string>
+    <string name="invalid_phone_number">Invalid phone number</string>
     <string name="password_must_include_upper_lower_case_and_number_or_special_character"><![CDATA[Password must include upper & lower case, and number or special character]]></string>
     <string name="passwords_do_not_match">Passwords do not match</string>
     <string name="email_address_is_already_in_use">email address is already in use</string>

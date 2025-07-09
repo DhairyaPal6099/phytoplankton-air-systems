@@ -33,8 +33,7 @@ android {
 }
 
 dependencies {
-    implementation libs.credentials.v121 // required for One Tap
-    implementation libs.ccp //for country code picker
+    implementation 'com.hbb20:ccp:2.7.3' //for country code picker
     implementation libs.libphonenumber //phone number validate
     implementation libs.appcompat
     implementation libs.material
@@ -57,4 +56,7 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+
 }

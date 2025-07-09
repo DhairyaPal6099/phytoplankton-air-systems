@@ -1,14 +1,125 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_settings_scroll"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ListView
-        android:id="@+id/settings_list"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="#212121"
-        android:textStyle="bold"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp">
 
+        <!-- Header -->
+        <TextView
+            style="@style/viewParent.headerText"
+            android:text="@string/settings" />
 
+        <!-- Profile section -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp">
 
-</RelativeLayout>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileCircleImageView"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/imageBorderColor"
+                android:src="@drawable/profile"
+                android:layout_alignParentStart="true"
+                android:layout_marginRight="10dp" />
+
+            <TextView
+                android:id="@+id/usernameTextView"
+                style="@style/viewParent.headerText"
+                android:text="@string/username"
+                android:textSize="18sp"
+                android:layout_toEndOf="@id/profileCircleImageView"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:id="@+id/editDetailsTextView"
+                style="@style/viewParent.headerText"
+                android:text="@string/edit_personal_details"
+                android:textSize="16sp"
+                android:textColor="#5D5C5C"
+                android:layout_below="@id/usernameTextView"
+                android:layout_toEndOf="@id/profileCircleImageView" />
+
+            <ImageView
+                android:id="@+id/profileMoreIcon"
+                style="@style/viewParent"
+                android:src="@drawable/ic_more"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+
+        <!-- App Preferences Section -->
+        <TextView
+            style="@style/viewParent.headerText.settingsMiniTitle"
+            android:text="@string/app_preferences" />
+
+        <Switch
+            android:id="@+id/lockScreenModeSwitch"
+            style="@style/settingsText"
+            android:layout_width="349dp"
+            android:drawableLeft="@drawable/ic_potrait"
+            android:text="@string/lock_screen_to_portrait" />
+
+        <Switch
+            android:id="@+id/darkModeSwitch"
+            style="@style/settingsText"
+            android:layout_width="349dp"
+            android:layout_height="51dp"
+            android:drawableLeft="@drawable/ic_dark_mode"
+            android:text="@string/Dark_mode" />
+
+        <!-- Notifications Placeholder (non-functional currently) -->
+
+        <!-- Legal Section -->
+        <TextView
+            style="@style/viewParent.headerText.settingsMiniTitle"
+            android:text="@string/legal" />
+
+        <TextView
+            android:id="@+id/privacyPolicyText"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:drawableLeft="@drawable/ic_privacypolicy"
+            android:text="@string/Privacy_Policy" />
+
+        <TextView
+            android:id="@+id/termsOfServiceText"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:layout_width="331dp"
+            android:layout_height="51dp"
+            android:drawableLeft="@drawable/ic_terms"
+            android:text="@string/Terms_of_service" />
+
+        <!-- Accessibility Section -->
+        <TextView
+            style="@style/viewParent.headerText.settingsMiniTitle"
+            android:text="@string/accessibility" />
+
+        <Switch
+            android:id="@+id/reduceMotion"
+            style="@style/settingsText"
+            android:drawableLeft="@drawable/ic_motion"
+            android:text="@string/reduce_motion" />
+
+        <!-- Delete / Logout Section -->
+        <TextView
+            android:id="@+id/logoutText"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:drawableLeft="@drawable/ic_delete"
+            android:text="@string/Delete_account" />
+
+        <!-- App Version -->
+        <TextView
+            style="@style/viewParent.headerText.settingsMiniTitle"
+            android:text="@string/app_ver_1_0"
+            android:textAlignment="center"
+            android:paddingTop="16dp" />
+    </LinearLayout>
+</ScrollView>
