@@ -21,7 +21,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -92,6 +94,8 @@ private void saveAuthenticatedUserData(String password) {
         user.updatePassword(password).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 String uid = user.getUid();
+                List<Map<String, Object>> achievements = new ArrayList<>();
+                List<Map<String, Object>> notifications = new ArrayList<>();
 
                 Map<String, Object> userData = new HashMap<>();
                 userData.put("email", email);
@@ -100,6 +104,8 @@ private void saveAuthenticatedUserData(String password) {
                 userData.put("phone", phone);
                 userData.put("password",password);
                 userData.put("uid", uid);
+                userData.put("Achievements", achievements);
+                userData.put("Notifications", notifications);
 
                 db.collection("users").document(uid)
                         .set(userData)
