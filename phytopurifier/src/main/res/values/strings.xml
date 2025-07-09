@@ -112,58 +112,5 @@
     <string name="sign_in_with_google">Sign in with Google</string>
     <string name="permission_granted">Permission granted</string>
     <string name="permission_denied_open_settings_to_allow">Permission denied. Open Settings to allow.</string>
-    <string name="terms_of_service_text">terms of service text</string>
-    <string name="section_header">Section Header</string>
-    <!-- TODO: Remove or change this placeholder text -->
-
-    <string name="terms_of_service">Terms of Service</string>
-    <string name="content">
-Welcome to PhytoplanktonAirSystems\n
-A smart monitoring app developed by Algaerithms‑Inc. These Terms govern your use of the app and its features.\n\n
-
-1. Eligibility\n
-You must be at least 13 years old to use this app. By accessing the app, you agree to abide by these Terms of Service.\n\n
-
-2. Usage Guidelines\n
-You agree to use the app only for lawful, non-commercial purposes. You must not:\n• Misuse or interfere with the app’s functionality\n• Reverse engineer or attempt to access restricted parts of the system\n\n
-
-3. User Responsibilities\n
-You are responsible for the information you provide, including:\n• Profile details\n• System configuration\n
-Do not:\n• Impersonate others\n• Provide false or misleading information\n\n
-
-4. Ownership\n
-All content, features, branding, and code within the app are the intellectual property of Algaerithms‑Inc. They may not be copied, modified, or reused without express permission.\n\n
-
-5. Termination\n
-We may suspend or restrict your access if these terms are violated. You may delete your account and data anytime using the “Delete Account” option in the app settings.\n\n
-
-6. Modifications\n
-We may update these Terms periodically. Continued use of the app after changes means you accept the updated Terms.\n\n
-
-7. Disclaimer\n
-The app is provided “as is”. We do not guarantee:\n• Uninterrupted performance\n• Data accuracy\n• Absence of minor bugs or limitations
-</string>
-
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="privacy_policy_content">PhytoplanktonAirSystems values your privacy. This policy describes the types of data we collect, how it\'s used, and how it\'s stored.\n\n    1. Information We Collect\n    • Profile data: name, birthdate, email, phone number\n    • App preferences: dark mode, screen lock, accessibility filters\n    • Sensor data: CO₂ levels, light exposure, algae status, water level\n    • Diagnostic data: crash logs and usage (if enabled)\n\n    2. How We Use Your Data\n    • To operate and improve app features\n    • To notify you of air system conditions and alerts\n    • To retain your personalized settings and usage context\n    • To monitor performance and resolve technical issues\n\n    3. Data Storage and Processing\n    • Data is stored locally on your device using secure Android storage mechanisms\n    • Some features use Firebase (by Google) for secure authentication, cloud storage, and diagnostics\n\n    4. Data Sharing\n    We do not sell or share your personal information with third-party companies. Data stored through Firebase is used strictly for app-related functionality.\n\n    5. User Control\n    You can manage your profile and preferences within the app. You may delete all stored data using the “Delete Account” feature in Settings.\n\n    6. Policy Updates\n    We may update this Privacy Policy as needed. All changes will be reflected within the app for your review.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-
-    <string name="delete_account">Delete Account</string>
-    <string name="Message_for_confirrmation">Deleting your account will erase all data stored in this app, including profile information, preferences, and usage history.</string>
-    <string name="this_action_is_permanent_and_cannot_be_undone">This action is permanent and cannot be undone.</string>
-    <string name="delete_my_account">Delete My Account</string>
-    <string name="accessibility">Accessibility</string>
-    <string name="edit_personal_details">Edit personal details</string>
-    <string name="app_preferences">App Preferences</string>
-    <string name="lock_screen_to_portrait">Lock screen to portrait</string>
-    <string name="Dark_mode">Dark Mode</string>
-    <string name="legal">Legal</string>
-    <string name="Privacy_Policy">Privacy Policy</string>
-    <string name="Terms_of_service">Terms of Service</string>
-    <string name="Delete_account">Delete Account</string>
-    <string name="app_ver_1_0">App ver 1.0</string>
-    <!-- TODO: Remove or change this placeholder text -->
-
-
 
 </resources>
