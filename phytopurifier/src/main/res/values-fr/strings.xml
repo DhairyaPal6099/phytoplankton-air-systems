@@ -146,4 +146,11 @@
     <string name="submit_feedback">Submit Feedback</string>
     <string name="feedback">Feedback</string>
     <string name="feedbackv2">Feedback</string>
+    <string name="name_is_required">Name is required</string>
+    <string name="enter_a_valid_10_digit_phone_number">Enter a valid 10-digit phone number</string>
+    <string name="invalid_email_address">Invalid email address</string>
+    <string name="comment_is_required">Comment is required</string>
+    <string name="please_select_a_rating">Please select a rating.</string>
+    <string name="feedback_submitted">Feedback submitted!</string>
+    <string name="error">"Error: "</string>
 </resources>

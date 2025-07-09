@@ -34,46 +34,6 @@ public class FeedbackFragment extends Fragment {
     Button btnSubmit;
     String deviceModel;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public FeedbackFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FeedbackFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FeedbackFragment newInstance(String param1, String param2) {
-        FeedbackFragment fragment = new FeedbackFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -127,43 +87,43 @@ public class FeedbackFragment extends Fragment {
         boolean hasError = false;
 
         if (name.isEmpty()) {
-            etName.setError("Name is required");
+            etName.setError(getString(R.string.name_is_required));
             hasError = true;
         }
 
         if (phone.isEmpty()) {
-            etPhone.setError("Phone number is required");
+            etPhone.setError(getString(R.string.phone_number_is_required));
             hasError = true;
         } else if (!phone.matches("\\d{10}")) {
-            etPhone.setError("Enter a valid 10-digit phone number");
+            etPhone.setError(getString(R.string.enter_a_valid_10_digit_phone_number));
             hasError = true;
         }
 
         if (email.isEmpty()) {
-            etEmail.setError("Email is required");
+            etEmail.setError(getString(R.string.email_is_required));
             hasError = true;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            etEmail.setError("Invalid email address");
+            etEmail.setError(getString(R.string.invalid_email_address));
             hasError = true;
         }
 
         if (comment.isEmpty()) {
-            etComment.setError("Comment is required");
+            etComment.setError(getString(R.string.comment_is_required));
             hasError = true;
         }
 
         if (rating == 0) {
-            Toast.makeText(getContext(), "Please select a rating.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.please_select_a_rating, Toast.LENGTH_SHORT).show();
             hasError = true;
         }
 
         if (hasError) return;
 
-//        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-//        if (currentUser == null) {
-//            Toast.makeText(getContext(), "You must be signed in to submit feedback.", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser == null) {
+            Toast.makeText(getContext(), "You must be signed in to submit feedback.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         Map<String, Object> feedback = new HashMap<>();
         feedback.put("name", name);
@@ -172,16 +132,16 @@ public class FeedbackFragment extends Fragment {
         feedback.put("comment", comment);
         feedback.put("rating", rating);
         feedback.put("deviceModel", deviceModel);
-        //feedback.put("userId", currentUser.getUid());
+        feedback.put("userId", currentUser.getUid());
 
         FirebaseFirestore.getInstance().collection("feedback")
                 .add(feedback)
                 .addOnSuccessListener(doc -> {
-                    Toast.makeText(getContext(), "Feedback submitted!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.feedback_submitted), Toast.LENGTH_SHORT).show();
                     clearFields();
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(getContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), getString(R.string.error) + e.getMessage(), Toast.LENGTH_LONG).show();
                 });
     }
 
