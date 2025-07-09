@@ -27,8 +27,13 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentAccountInfoBinding;
@@ -36,8 +41,9 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentAccount
 public class AccountInfoFragment extends Fragment {
 
     private FragmentAccountInfoBinding binding;
-    private SharedPreferences prefs;
-
+    private FirebaseUser currentUser;
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private String originalEmail;
     private int permissionRequestCount = 0;
     private static final int MAX_PERMISSION_ATTEMPTS = 2;
 
@@ -86,15 +92,14 @@ public class AccountInfoFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        prefs = requireContext().getSharedPreferences(getString(R.string.account_info_title), Context.MODE_PRIVATE);
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser == null) {
+            Toast.makeText(getContext(), R.string.user_not_authenticated, Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        // Load saved values
-        binding.usernameInput.setText(prefs.getString(getString(R.string.account_info_username), getString(R.string.empty_string)));
-        binding.emailInput.setText(prefs.getString(getString(R.string.account_info_email), getString(R.string.empty_string)));
-        binding.phoneInput.setText(prefs.getString(getString(R.string.account_info_phone), getString(R.string.empty_string)));
-        binding.birthdayInput.setText(prefs.getString(getString(R.string.account_info_birthday), getString(R.string.empty_string)));
+        loadUserInfo();
 
-        // Date Picker
         binding.birthdayInput.setOnClickListener(v -> {
             Calendar calendar = Calendar.getInstance();
             DatePickerDialog picker = new DatePickerDialog(
@@ -110,92 +115,96 @@ public class AccountInfoFragment extends Fragment {
             picker.show();
         });
 
-        // Save Button
-        binding.saveButton.setOnClickListener(v -> {
-            String username = binding.usernameInput.getText().toString().trim();
-            String email = binding.emailInput.getText().toString().trim();
-            String phone = binding.phoneInput.getText().toString().trim();
-            String birthday = binding.birthdayInput.getText().toString().trim();
-
-            boolean hasError = false;
-
-            // Clear old errors
-            binding.usernameInput.setError(null);
-            binding.emailInput.setError(null);
-            binding.phoneInput.setError(null);
-            binding.birthdayInput.setError(null);
-
-            // 1. Required field check
-            if (username.isEmpty()) {
-                binding.usernameInput.setError(getString(R.string.name_required));
-                hasError = true;
-            }
-
-            // 2. Valid email check
-            if (email.isEmpty()) {
-                binding.emailInput.setError(getString(R.string.email_required));
-                hasError = true;
-            } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                binding.emailInput.setError(getString(R.string.invalid_email));
-                hasError = true;
-            }
-
-            // 3. Phone number must be at least 9 digits
-            if (phone.isEmpty()) {
-                binding.phoneInput.setError(getString(R.string.phone_required));
-                hasError = true;
-            } else if (phone.length() < 9) {
-                binding.phoneInput.setError(getString(R.string.phone_must_be_at_least_9_digits));
-                hasError = true;
-            }
-
-            // 4. Birthday required
-            if (birthday.isEmpty()) {
-                binding.birthdayInput.setError(getString(R.string.birthday_required));
-                hasError = true;
-            }
-
-            if (hasError) return;
-
-            // Save to SharedPreferences
-            prefs.edit()
-                    .putString(getString(R.string.username), username)
-                    .putString(getString(R.string.email_lowercase), email)
-                    .putString(getString(R.string.phone_lowercase), phone)
-                    .putString(getString(R.string.birthday_lowercase), birthday)
-                    .apply();
-
-            Toast.makeText(getContext(), getString(R.string.details_saved), Toast.LENGTH_SHORT).show();
-        });
-
-        // Clear Button
-        binding.clearButton.setOnClickListener(v -> {
-            binding.usernameInput.setText(getString(R.string.empty_string));
-            binding.emailInput.setText(getString(R.string.empty_string));
-            binding.phoneInput.setText(getString(R.string.empty_string));
-            binding.birthdayInput.setText(getString(R.string.empty_string));
-
-            binding.usernameInput.setError(null);
-            binding.emailInput.setError(null);
-            binding.phoneInput.setError(null);
-            binding.birthdayInput.setError(null);
-
-            // Reset profile image to default
-            binding.profileImage.setImageResource(R.drawable.profile);
-
-            prefs.edit().clear().apply();
-
-            Toast.makeText(getContext(), getString(R.string.fields_cleared), Toast.LENGTH_SHORT).show();
-        });
-
-        // Profile Image Click
+        binding.saveButton.setOnClickListener(v -> saveUserInfo());
+        binding.clearButton.setOnClickListener(v -> loadUserInfo());
         binding.profileImage.setOnClickListener(v -> requestGalleryPermission());
+    }
+
+    private void loadUserInfo() {
+        db.collection("users").document(currentUser.getUid()).get()
+                .addOnSuccessListener(snapshot -> {
+                    if (snapshot.exists()) {
+                        binding.usernameInput.setText(snapshot.getString("name"));
+                        binding.emailInput.setText(snapshot.getString("email"));
+                        binding.phoneInput.setText(snapshot.getString("phone"));
+                        binding.birthdayInput.setText(snapshot.getString("birthdate"));
+                        originalEmail = snapshot.getString("email");
+                    }
+                })
+                .addOnFailureListener(e ->
+                        Toast.makeText(getContext(), "Failed to load user data", Toast.LENGTH_SHORT).show());
+    }
+
+    private void saveUserInfo() {
+        String name = binding.usernameInput.getText().toString().trim();
+        String email = binding.emailInput.getText().toString().trim();
+        String phone = binding.phoneInput.getText().toString().trim();
+        String birthday = binding.birthdayInput.getText().toString().trim();
+
+        boolean hasError = false;
+
+        binding.usernameInput.setError(null);
+        binding.emailInput.setError(null);
+        binding.phoneInput.setError(null);
+        binding.birthdayInput.setError(null);
+
+        if (name.isEmpty()) {
+            binding.usernameInput.setError(getString(R.string.name_required));
+            hasError = true;
+        }
+
+        if (email.isEmpty()) {
+            binding.emailInput.setError(getString(R.string.email_required));
+            hasError = true;
+        } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.emailInput.setError(getString(R.string.invalid_email));
+            hasError = true;
+        }
+
+        if (phone.isEmpty()) {
+            binding.phoneInput.setError(getString(R.string.phone_required));
+            hasError = true;
+        } else if (phone.length() < 9) {
+            binding.phoneInput.setError(getString(R.string.phone_must_be_at_least_9_digits));
+            hasError = true;
+        }
+
+        if (birthday.isEmpty()) {
+            binding.birthdayInput.setError(getString(R.string.birthday_required));
+            hasError = true;
+        }
+
+        if (hasError || currentUser == null) return;
+
+        Map<String, Object> updates = new HashMap<>();
+        updates.put("name", name);
+        updates.put("phone", phone);
+        updates.put("birthdate", birthday);
+
+        if (!email.equals(originalEmail)) {
+            currentUser.verifyBeforeUpdateEmail(email)
+                    .addOnSuccessListener(unused -> {
+                        Toast.makeText(getContext(),
+                                "A verification email has been sent to " + email +
+                                        ". After verifying, please reopen this screen to apply changes.",
+                                Toast.LENGTH_LONG).show();
+                    })
+                    .addOnFailureListener(e ->
+                            Toast.makeText(getContext(), "Failed to send verification: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+            return;
+        }
+
+        db.collection("users").document(currentUser.getUid())
+                .update(updates)
+                .addOnSuccessListener(unused ->
+                        Toast.makeText(getContext(), R.string.details_saved, Toast.LENGTH_SHORT).show())
+                .addOnFailureListener(e ->
+                        Toast.makeText(getContext(), R.string.error_saving_user_data, Toast.LENGTH_SHORT).show());
     }
 
     private void requestGalleryPermission() {
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_MEDIA_IMAGES)
                 == PackageManager.PERMISSION_GRANTED) {
-            Snackbar.make(binding.getRoot(), getString(R.string.permission_granted), Snackbar.LENGTH_SHORT).show();
             openGallery();
         } else {
             requestPermissionLauncher.launch(Manifest.permission.READ_MEDIA_IMAGES);

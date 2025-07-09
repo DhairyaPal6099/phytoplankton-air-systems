@@ -158,4 +158,5 @@
     <string name="please_enter_a_valid_email">Please enter a valid email.</string>
     <string name="password_reset_link_sent_to">"Password reset link sent to "</string>
     <string name="failed_to_send_reset_link">"Failed to send reset link: "</string>
+    <string name="update">Update</string>
 </resources>

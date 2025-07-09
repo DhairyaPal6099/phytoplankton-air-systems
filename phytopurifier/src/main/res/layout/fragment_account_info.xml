@@ -88,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
-            android:text="@string/save"
+            android:text="@string/update"
             android:layout_marginTop="16dp" />
 
         <Button
