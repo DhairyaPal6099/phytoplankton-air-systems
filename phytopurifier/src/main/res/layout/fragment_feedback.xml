@@ -1,49 +1,73 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/loginbg"
     android:id="@+id/nav_feedback">
 
+    <TextView
+        android:id="@+id/etTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="60dp"
+        android:textColor="@color/forest_green"
+        android:text="How would you rate your experience?"
+        android:textStyle="bold"
+        android:textSize="30sp" />
+
     <LinearLayout
+        android:id="@+id/feedback_layout"
         android:orientation="vertical"
         android:padding="16dp"
+        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/etName"
-            android:hint="@string/name"
-            android:textStyle="bold"
-            android:inputType="textPersonName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/faded_white"
+            android:ems="20"
+            android:padding="15dp"
+            android:hint="@string/name" />
 
         <EditText
             android:id="@+id/etPhone"
             android:hint="@string/phone_number"
-            android:inputType="phone"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/faded_white"
+            android:ems="20"
+            android:padding="15dp"
+            android:layout_marginTop="10dp"/>
 
         <EditText
             android:id="@+id/etEmail"
             android:hint="@string/emailv2"
-            android:textStyle="bold"
             android:inputType="textEmailAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="@color/faded_white"
+            android:ems="20"
+            android:padding="15dp"
+            android:layout_marginTop="10dp" />
 
         <EditText
             android:id="@+id/etComment"
             android:hint="@string/your_comment"
             android:background="@drawable/semirounded_corners"
+            android:inputType="textMultiLine"
             android:minLines="4"
-            android:textStyle="bold"
-            android:gravity="center_vertical"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine" />
+            android:backgroundTint="@color/faded_white"
+            android:ems="20"
+            android:padding="15dp"
+            android:layout_marginTop="10dp" />
 
         <RatingBar
             android:id="@+id/ratingBar"
@@ -61,5 +85,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"/>
+
+
+
     </LinearLayout>
-</ScrollView>
+
+</RelativeLayout>
