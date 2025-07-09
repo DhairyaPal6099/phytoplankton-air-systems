@@ -35,6 +35,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import ca.algaerithms.inc.it.phytoplanktonairsystems.LoginActivity;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentAccountInfoBinding;
 
@@ -128,10 +129,30 @@ public class AccountInfoFragment extends Fragment {
                         binding.phoneInput.setText(snapshot.getString("phone"));
                         binding.birthdayInput.setText(snapshot.getString("birthdate"));
                         originalEmail = snapshot.getString("email");
+
+                        // Sync Firestore email with FirebaseAuth email
+                        String authEmail = currentUser.getEmail();
+                        if (authEmail != null && !authEmail.equals(originalEmail)) {
+                            db.collection("users").document(currentUser.getUid())
+                                    .update("email", authEmail)
+                                    .addOnSuccessListener(unused -> {
+                                        originalEmail = authEmail;
+                                        Snackbar.make(binding.getRoot(),
+                                                        R.string.email_verified,
+                                                        Snackbar.LENGTH_SHORT)
+                                                .setAction(getString(R.string.ok), null)
+                                                .show();
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Toast.makeText(getContext(),
+                                                getString(R.string.failed_to_update) + e.getMessage(),
+                                                Toast.LENGTH_SHORT).show();
+                                    });
+                        }
                     }
                 })
                 .addOnFailureListener(e ->
-                        Toast.makeText(getContext(), "Failed to load user data", Toast.LENGTH_SHORT).show());
+                        Toast.makeText(getContext(), R.string.failed_to_load_user_data, Toast.LENGTH_SHORT).show());
     }
 
     private void saveUserInfo() {
@@ -183,13 +204,20 @@ public class AccountInfoFragment extends Fragment {
         if (!email.equals(originalEmail)) {
             currentUser.verifyBeforeUpdateEmail(email)
                     .addOnSuccessListener(unused -> {
-                        Toast.makeText(getContext(),
-                                "A verification email has been sent to " + email +
-                                        ". After verifying, please reopen this screen to apply changes.",
-                                Toast.LENGTH_LONG).show();
+                        Snackbar.make(binding.getRoot(),
+                                        getString(R.string.verification_sent_please_log_out_and_log_back_in_to_update_your_email),
+                                        Snackbar.LENGTH_INDEFINITE)
+                                .setAction(R.string.log_out, v -> {
+                                    FirebaseAuth.getInstance().signOut();
+                                    Intent intent = new Intent(requireContext(), LoginActivity.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
+                                })
+                                .show();
                     })
                     .addOnFailureListener(e ->
-                            Toast.makeText(getContext(), "Failed to send verification: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                            Toast.makeText(getContext(), getString(R.string.failed_to_send_verification) + e.getMessage(), Toast.LENGTH_SHORT).show()
+                    );
             return;
         }
 

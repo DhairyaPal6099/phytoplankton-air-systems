@@ -161,4 +161,10 @@
     <string name="password_reset_link_sent_to">"Password reset link sent to "</string>
     <string name="failed_to_send_reset_link">"Failed to send reset link: "</string>
     <string name="update">Update</string>
+    <string name="email_verified">Email verified!</string>
+    <string name="failed_to_update">"Failed to update: "</string>
+    <string name="failed_to_load_user_data">Failed to load user data</string>
+    <string name="verification_sent_please_log_out_and_log_back_in_to_update_your_email">Verification sent! Please log out and log back in to update your email.</string>
+    <string name="log_out">Log out</string>
+    <string name="failed_to_send_verification">"Failed to send verification: "</string>
 </resources>
