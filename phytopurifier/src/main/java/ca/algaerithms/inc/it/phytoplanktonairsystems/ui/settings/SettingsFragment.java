@@ -33,113 +33,62 @@ public class SettingsFragment extends Fragment {
         binding = FragmentSettingsBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        String[] settingTitles = getResources().getStringArray(R.array.settings_options);
+        SharedPreferences prefs = requireContext().getSharedPreferences(getString(R.string.settings_lowercase), Context.MODE_PRIVATE);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                requireContext(),
-                R.layout.list_item_setting,
-                R.id.setting_title,
-                settingTitles) {
+        // Lock screen to portrait
+        Switch lockScreenSwitch = view.findViewById(R.id.lockScreenModeSwitch);
+        boolean isLocked = prefs.getBoolean(getString(R.string.lockportrait), false);
+        lockScreenSwitch.setChecked(isLocked);
+        lockScreenSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            prefs.edit().putBoolean(getString(R.string.lockportrait), isChecked).apply();
+            requireActivity().setRequestedOrientation(
+                    isChecked ? ActivityInfo.SCREEN_ORIENTATION_PORTRAIT : ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+            );
+        });
 
-            @NonNull
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                View view = super.getView(position, convertView, parent);
+        // Dark mode
+        Switch darkModeSwitch = view.findViewById(R.id.darkModeSwitch);
+        boolean darkMode = prefs.getBoolean(getString(R.string.dark_mode), false);
+        darkModeSwitch.setChecked(darkMode);
+        darkModeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            prefs.edit().putBoolean(getString(R.string.dark_mode), isChecked).apply();
+            AppCompatDelegate.setDefaultNightMode(
+                    isChecked ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO
+            );
+        });
 
-                TextView title = view.findViewById(R.id.setting_title);
-                Switch switchToggle = view.findViewById(R.id.setting_switch);
-                ImageView icon = view.findViewById(R.id.setting_icon);
+        // Reduce motion
+        Switch reduceMotionSwitch = view.findViewById(R.id.reduceMotion);
+        boolean reduceMotion = prefs.getBoolean(getString(R.string.reduce_motion_key), false);
+        reduceMotionSwitch.setChecked(reduceMotion);
+        reduceMotionSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            prefs.edit().putBoolean(getString(R.string.reduce_motion_key), isChecked).apply();
+            Toast.makeText(getContext(), isChecked ? "Animations Reduced" : "Animations Restored", Toast.LENGTH_SHORT).show();
+        });
 
-                title.setText(getItem(position));
-
-                // Set icons
-                switch (position) {
-                    case 0:
-                        icon.setImageResource(R.drawable.ic_potrait);
-                        break;
-                    case 1:
-                        icon.setImageResource(R.drawable.ic_darkmode);
-                        break;
-                    case 2:
-                        icon.setImageResource(R.drawable.profile);
-                        break;
-                    case 3:
-                        icon.setImageResource(R.drawable.ic_terms);
-                        break;
-                    case 4:
-                        icon.setImageResource(R.drawable.ic_privacypolicy);
-                        break;
-                    case 5:
-                        icon.setImageResource(R.drawable.ic_delete);
-                        break;
-                    case 6:
-                      icon.setImageResource(R.drawable.ic_motion);
-                       break;
-                    default:
-                        icon.setImageResource(R.drawable.ic_settings);
-                }
-
-                SharedPreferences prefs = requireContext().getSharedPreferences(getString(R.string.settings_lowercase), Context.MODE_PRIVATE);
-
-                if (position == 0) { // Lock screen to portrait
-                    switchToggle.setVisibility(View.VISIBLE);
-                    boolean locked = prefs.getBoolean(getString(R.string.lockportrait), false);
-                    switchToggle.setChecked(locked);
-                    switchToggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                        prefs.edit().putBoolean(getString(R.string.lockportrait), isChecked).apply();
-                        requireActivity().setRequestedOrientation(
-                                isChecked ? ActivityInfo.SCREEN_ORIENTATION_PORTRAIT : ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
-                        );
-                    });
-
-                } else if (position == 1) { // Dark Mode
-                    switchToggle.setVisibility(View.VISIBLE);
-                    boolean darkMode = prefs.getBoolean(getString(R.string.dark_mode), false);
-                    switchToggle.setChecked(darkMode);
-                    switchToggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                        prefs.edit().putBoolean(getString(R.string.dark_mode), isChecked).apply();
-                        AppCompatDelegate.setDefaultNightMode(
-                                isChecked ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO
-                        );
-                    });
-
-                } else if (position == 6) { // Reduce Motion
-                    switchToggle.setVisibility(View.VISIBLE);
-                    boolean reduceMotion = prefs.getBoolean(getString(R.string.reduce_motion_key), false);
-                    switchToggle.setChecked(reduceMotion);
-                    switchToggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                        prefs.edit().putBoolean(getString(R.string.reduce_motion_key), isChecked).apply();
-                        Toast.makeText(getContext(), isChecked ? "Animations Reduced" : "Animations Restored", Toast.LENGTH_SHORT).show();
-                    });
-
-                } else {
-                    switchToggle.setVisibility(View.GONE);
-                }
-
-                return view;
-            }
-        };
-
-        binding.settingsList.setAdapter(adapter);
-
-        // Handle navigation
-        binding.settingsList.setOnItemClickListener((parent, view1, position, id) -> {
+        // Navigation for profile details and legal links
+        View profileSection = view.findViewById(R.id.profileCircleImageView);
+        profileSection.setOnClickListener(v -> {
             NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.action_nav_settings_to_accountInfoFragment);
+        });
 
-            switch (position) {
-                case 2:
-                    navController.navigate(R.id.action_nav_settings_to_accountInfoFragment);
-                    break;
-                case 3:
-                    navController.navigate(R.id.termsOfServiceFragment);
-                    break;
-                case 4:
-                    navController.navigate(R.id.privacyPolicyFragment);
-                    break;
-                case 5:
-                    navController.navigate(R.id.deleteAccountFragment);
-                    break;
-            }
+        TextView privacyPolicy = view.findViewById(R.id.privacyPolicyText);
+        privacyPolicy.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.privacyPolicyFragment);
+        });
+
+        TextView termsText = view.findViewById(R.id.termsOfServiceText);
+        termsText.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.termsOfServiceFragment);
+        });
+
+        TextView deleteAccount = view.findViewById(R.id.logoutText);
+        deleteAccount.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.deleteAccountFragment);
         });
 
         return view;
