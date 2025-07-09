@@ -66,10 +66,10 @@ public class SettingsFragment extends Fragment {
                         icon.setImageResource(R.drawable.ic_color_blindness);
                         break;
                     case 4:
-                        icon.setImageResource(R.drawable.ic_privacypolicy);
+                        icon.setImageResource(R.drawable.ic_terms);
                         break;
                     case 5:
-                        icon.setImageResource(R.drawable.ic_terms);
+                        icon.setImageResource(R.drawable.ic_privacypolicy);
                         break;
                     case 6:
                         icon.setImageResource(R.drawable.ic_delete);

@@ -22,8 +22,10 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_settings"></ImageView>
-            <!--card_view:tint="#738290" /-->
+            android:src="@drawable/ic_settings">
+
+        </ImageView>
+
 
         <!-- Title and Toggle Container -->
         <LinearLayout
@@ -36,7 +38,7 @@
                 android:id="@+id/setting_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Setting Title"
+                android:text="@string/setting_title"
                 android:textStyle="bold"
                 android:textColor="#212121"
                 android:textSize="16sp" />
@@ -44,9 +46,11 @@
         </LinearLayout>
 
         <Switch
+
             android:id="@+id/setting_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone" />
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>
