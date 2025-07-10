@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="error_message">#cc0000</color>
+    <color name="cyan">#00FFFF</color>
+    <color name="teal">#008080</color>
+    <color name="turquoise">#40E0D0</color>
 </resources>

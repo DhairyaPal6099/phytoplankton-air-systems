@@ -291,4 +291,15 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="reduce_motion_key">reduce_motion</string>
     <string name="select_birthdate">Select your birthdate</string>
     <string name="verification_email_sent">Verification email sent!</string>
+
+    <string name="email_verified">Email verified</string>
+    <string name="failed_to_update">Failed to update</string>
+    <string name="failed_to_load_user_data">Failed to load user data</string>
+    <string name="log_out">Log out</string>
+    <string name="verification_sent_please_log_out_and_log_back_in_to_update_your_email">
+    Verification sent, please log out and log back in to update your email
+</string>
+    <string name="failed_to_send_verification">Failed to send verification</string>
+    <string name="haki_sharifi">Haki Sharifi</string>
+
 </resources>
