@@ -35,6 +35,7 @@ android {
 dependencies {
     implementation libs.ccp //for country code picker
     implementation libs.libphonenumber //phone number validate
+    implementation libs.lottie //Lottie for animated splash screen
     implementation libs.appcompat
     implementation libs.material
     implementation libs.constraintlayout
