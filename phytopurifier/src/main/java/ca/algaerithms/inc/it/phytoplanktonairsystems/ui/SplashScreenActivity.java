@@ -27,15 +27,16 @@ public class SplashScreenActivity extends AppCompatActivity {
         SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_splash_screen);
+
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }, 5500);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            startActivity(new Intent(this, LoginActivity.class));
-            finish();
-        }, 2000);
     }
 }
