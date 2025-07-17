@@ -2,6 +2,7 @@
 
     <!-- Base application theme (light) -->
     <style name="Theme.PhytoplanktonAirSystems" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowSplashScreenBackground" tools:targetApi="31">@color/teal</item>
         <!-- Primary brand color -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
