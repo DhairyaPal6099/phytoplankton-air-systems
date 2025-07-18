@@ -3,23 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/loginbg"
     tools:context=".ui.supportActionBarFragments.ContactSupportFragment">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
-        android:text="@string/contact_support_title" />
+        android:layout_marginTop="100dp"
+        android:text="@string/contact_support_title"
+        android:textColor="@color/signupBackground"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/emailButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="220dp"
         android:layout_marginStart="-75dp"
         android:layout_gravity="center_horizontal"
         android:text="@string/email" />
@@ -28,8 +30,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="230dp"
         android:layout_marginStart="130dp"
+        android:textColor="@color/signupBackground"
+        android:textStyle="bold"
         android:layout_gravity="center_horizontal"
         android:text="@string/company_email" />
 
@@ -38,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="270dp"
         android:layout_marginStart="-74dp"
         android:layout_gravity="center_horizontal"
         android:text="@string/phone" />
@@ -47,9 +51,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="280dp"
         android:layout_marginStart="130dp"
+        android:textStyle="bold"
+        android:textColor="@color/signupBackground"
         android:layout_gravity="center_horizontal"
         android:text="@string/company_phonenumber" />
+
+    <ImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:layout_gravity="center" />
 
 </FrameLayout>

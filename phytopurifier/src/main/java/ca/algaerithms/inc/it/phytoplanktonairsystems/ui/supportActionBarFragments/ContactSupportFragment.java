@@ -10,7 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentContactSupportBinding;
@@ -33,12 +36,15 @@ public class ContactSupportFragment extends Fragment {
         Button emailButton = binding.emailButton;
         Button phoneButton = binding.phoneButton;
 
+        ImageView gifImageView = binding.gifImageView;
+        Glide.with(this).asGif().load(R.drawable.gif_contactsupport).into(gifImageView);
+
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse(getString(R.string.mailto_algaerithms_gmail_com)));
-                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.support_request));
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:algaerithms@gmail.com"));
+                //intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.support_request));
                 if (intent.resolveActivity(getContext().getPackageManager()) != null) {
                     startActivity(intent);
                 } else {
