@@ -44,12 +44,8 @@ public class ContactSupportFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                 intent.setData(Uri.parse("mailto:algaerithms@gmail.com"));
-                //intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.support_request));
-                if (intent.resolveActivity(getContext().getPackageManager()) != null) {
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(getContext(), getString(R.string.no_email_app_found), Toast.LENGTH_SHORT).show();
-                }
+                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.support_request));
+                startActivity(intent);
             }
         });
         phoneButton.setOnClickListener(new View.OnClickListener() {
