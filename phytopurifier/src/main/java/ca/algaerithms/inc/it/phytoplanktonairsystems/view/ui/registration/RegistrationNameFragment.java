@@ -40,6 +40,7 @@ public class RegistrationNameFragment extends Fragment {
             String firstName = firstNameEditText.getText().toString().trim();
             String lastName = lastNameEditText.getText().toString().trim();
 
+            //Method call
             if (!ValidationUtils.isValidName(firstName)) {
                 firstNameEditText.setError(getString(R.string.first_name_is_required));
                 firstNameEditText.requestFocus();

@@ -17,6 +17,8 @@ import com.google.i18n.phonenumbers.Phonenumber;
 import com.hbb20.CountryCodePicker;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.RegistrationController;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.utils.ValidationUtils;
 
 public class RegistrationPhoneFragment extends Fragment {
 
@@ -54,37 +56,16 @@ public class RegistrationPhoneFragment extends Fragment {
 
             String fullPhone = "+" + ccp.getSelectedCountryCode() + rawPhone;
 
-            if (!isValidPhoneNumber(fullPhone)) {
+            //Method call
+            if (!ValidationUtils.isValidPhoneNumber(fullPhone)) {
                 phoneEditText.setError(getString(R.string.invalid_phone_number));
                 return;
             }
 
             // Proceed to next fragment (PasswordFragment)
-            Bundle bundle = new Bundle();
-            bundle.putString("email", email);
-            bundle.putString("name", name);
-            bundle.putString("birthdate", birthdate);
-            bundle.putString("phone", fullPhone);
-
-            RegistrationPasswordFragment passwordFragment = new RegistrationPasswordFragment();
-            passwordFragment.setArguments(bundle);
-
-            requireActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.registration_fragment_container, passwordFragment)
-                    .addToBackStack(null)
-                    .commit();
+            RegistrationController.goToPassword(requireActivity(), email, name, birthdate, fullPhone);
         });
 
         return view;
-    }
-
-    private boolean isValidPhoneNumber(String number) {
-        PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
-        try {
-            Phonenumber.PhoneNumber parsedNumber = phoneUtil.parse(number, null);
-            return phoneUtil.isValidNumber(parsedNumber);
-        } catch (NumberParseException e) {
-            return false;
-        }
     }
 }

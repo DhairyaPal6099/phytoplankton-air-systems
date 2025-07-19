@@ -52,6 +52,7 @@ public class RegistrationEmailFragment extends Fragment {
         registrationEmail_continueButton.setOnClickListener(v -> {
             email = registrationEmail_editText.getText().toString().trim();
 
+            //Method call
             if (validate.isEmailEmpty(email)) {
                 registrationEmail_editText.setError(getString(R.string.email_is_required));
                 registrationEmail_editText.requestFocus();
