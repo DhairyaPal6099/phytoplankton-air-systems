@@ -3,6 +3,7 @@ package ca.algaerithms.inc.it.phytoplanktonairsystems;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.net.Uri;
@@ -48,11 +49,11 @@ public class ShareDashboard {
     }
     public static View createShareableDashboardView(Context context, double lifetime_co2_converted, String achievementTitle) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View shareView = inflater.inflate(R.layout.share_dashboard_view, null);
+        View shareView = inflater.inflate(R.layout.share_dashboard_view, null, false);
         TextView lifetimeCO2 = shareView.findViewById(R.id.lifetimeCO2);
         TextView highestAchievement = shareView.findViewById(R.id.highestAchievement);
 
-        lifetimeCO2.setText("Lifetime CO2 converted: " + String.format(Locale.getDefault(), "%.1f g CO₂", lifetime_co2_converted));
+        lifetimeCO2.setText("Lifetime CO2 converted: " + String.format(Locale.getDefault(), "%.1f g", lifetime_co2_converted));
         highestAchievement.setText(achievementTitle);
 
         return shareView;
@@ -60,10 +61,12 @@ public class ShareDashboard {
 
     @SuppressLint("Range")
     private static void shareViewAsImage(Context context, View view) {
+        int width = Resources.getSystem().getDisplayMetrics().widthPixels;
+        int height = 2000;
         // Measure + draw view to bitmap
         view.measure(
-                View.MeasureSpec.makeMeasureSpec(1080, View.MeasureSpec.EXACTLY),
-                View.MeasureSpec.makeMeasureSpec(ViewGroup.LayoutParams.WRAP_CONTENT, View.MeasureSpec.UNSPECIFIED)
+                View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
+                View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.AT_MOST)
         );
         view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
 
