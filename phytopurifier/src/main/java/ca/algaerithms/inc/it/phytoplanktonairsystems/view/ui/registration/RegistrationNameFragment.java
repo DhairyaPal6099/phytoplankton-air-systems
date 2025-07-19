@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.utils.ValidationUtils;
 
 public class RegistrationNameFragment extends Fragment {
 
@@ -38,13 +39,15 @@ public class RegistrationNameFragment extends Fragment {
             String firstName = firstNameEditText.getText().toString().trim();
             String lastName = lastNameEditText.getText().toString().trim();
 
-            if (TextUtils.isEmpty(firstName)) {
-                firstNameEditText.setError("First name is required");
+            if (!ValidationUtils.isValidName(firstName)) {
+                firstNameEditText.setError(getString(R.string.first_name_is_required));
+                firstNameEditText.requestFocus();
                 return;
             }
 
-            if (TextUtils.isEmpty(lastName)) {
-                lastNameEditText.setError("Last name is required");
+            if (!ValidationUtils.isValidName(lastName)) {
+                lastNameEditText.setError(getString(R.string.last_name_is_required));
+                lastNameEditText.requestFocus();
                 return;
             }
 

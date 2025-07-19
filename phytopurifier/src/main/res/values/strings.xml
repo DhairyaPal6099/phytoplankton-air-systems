@@ -301,5 +301,7 @@ If you have any privacy-related concerns or inquiries, please contact us at:
 </string>
     <string name="failed_to_send_verification">Failed to send verification</string>
     <string name="haki_sharifi">Haki Sharifi</string>
+    <string name="first_name_is_required">First name is required</string>
+    <string name="last_name_is_required">Last name is required</string>
 
 </resources>
