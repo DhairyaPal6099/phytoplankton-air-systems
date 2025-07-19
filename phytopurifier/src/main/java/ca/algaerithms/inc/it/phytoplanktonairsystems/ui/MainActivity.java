@@ -22,6 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.FirebaseApp;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.FileProvider;
 import androidx.core.view.GravityCompat;
@@ -51,6 +52,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import ca.algaerithms.inc.it.phytoplanktonairsystems.CO2Updater;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.DailyNotificationWorker;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.ActivityMainBinding;
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
 
-        SharedPreferences prefs = getSharedPreferences(getString(R.string.settings_lowercase), MODE_PRIVATE);
+        prefs = getSharedPreferences(getString(R.string.settings_lowercase), MODE_PRIVATE);
         if (prefs.getBoolean(getString(R.string.lockportrait), false)) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
@@ -112,6 +114,10 @@ public class MainActivity extends AppCompatActivity {
 
         //Schedule the daily notification worker
         scheduleDailyNotificationWorker();
+
+        //Co2 sync from RTDB to Firestore periodic work request
+        PeriodicWorkRequest co2SyncRequest = new PeriodicWorkRequest.Builder(CO2Updater.class, 1, TimeUnit.HOURS).build();
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork("CO2SyncWork", ExistingPeriodicWorkPolicy.KEEP, co2SyncRequest);
 
         //Display the AlertDialog
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
@@ -290,6 +296,7 @@ public class MainActivity extends AppCompatActivity {
                 ? targetTime - currentTime
                 : TimeUnit.DAYS.toMillis(1) - (currentTime - targetTime);
 
+        //Notification periodic work request
         PeriodicWorkRequest dailyRequest =
                 new PeriodicWorkRequest.Builder(DailyNotificationWorker.class, 24, TimeUnit.HOURS)
                         .setInitialDelay(delay, TimeUnit.MILLISECONDS)
@@ -300,5 +307,6 @@ public class MainActivity extends AppCompatActivity {
                 ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE,
                 dailyRequest
         );
+
     }
 }
