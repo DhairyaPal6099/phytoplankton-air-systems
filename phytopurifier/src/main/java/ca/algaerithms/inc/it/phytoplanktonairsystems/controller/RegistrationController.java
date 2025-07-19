@@ -1,7 +1,17 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems.controller;
 
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationBirthdateFragment;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationNameFragment;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationPasswordFragment;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationPhoneFragment;
 
 public class RegistrationController {
 
@@ -36,5 +46,46 @@ public class RegistrationController {
 
     public interface VerificationStatusCallback {
         void onChecked(boolean isVerified);
+    }
+
+    // ====== NAVIGATION HELPERS ======
+
+    public static void goToName(FragmentActivity fragment, String email) {
+        Bundle bundle = new Bundle();
+        bundle.putString("email", email);
+        navigate(fragment, new RegistrationNameFragment(), bundle);
+    }
+
+    public static void goToBirthdate(FragmentActivity fragment, String email, String fullName) {
+        Bundle bundle = new Bundle();
+        bundle.putString("email", email);
+        bundle.putString("name", fullName);
+        navigate(fragment, new RegistrationBirthdateFragment(), bundle);
+    }
+
+    public static void goToPhone(FragmentActivity fragment, String email, String name, String birthdate) {
+        Bundle bundle = new Bundle();
+        bundle.putString("email", email);
+        bundle.putString("name", name);
+        bundle.putString("birthdate", birthdate);
+        navigate(fragment, new RegistrationPhoneFragment(), bundle);
+    }
+
+    public static void goToPassword(FragmentActivity fragment, String email, String name, String birthdate, String phone) {
+        Bundle bundle = new Bundle();
+        bundle.putString("email", email);
+        bundle.putString("name", name);
+        bundle.putString("birthdate", birthdate);
+        bundle.putString("phone", phone);
+        navigate(fragment, new RegistrationPasswordFragment(), bundle);
+    }
+
+    private static void navigate(FragmentActivity activity, Fragment fragment, Bundle bundle) {
+        fragment.setArguments(bundle);
+        activity.getSupportFragmentManager()
+                .beginTransaction()
+                .replace(ca.algaerithms.inc.it.phytoplanktonairsystems.R.id.registration_fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 }

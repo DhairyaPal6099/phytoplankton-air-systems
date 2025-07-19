@@ -15,6 +15,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.RegistrationController;
 
 
 public class RegistrationBirthdateFragment extends Fragment {
@@ -53,36 +54,12 @@ public class RegistrationBirthdateFragment extends Fragment {
             String formattedDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
                     .format(calendar.getTime());
 
-            // Pass email, name, birthdate to next fragment
-            Bundle bundle = new Bundle();
-            bundle.putString("email", email);
-            bundle.putString("name", name);
-            bundle.putString("birthdate", formattedDate);
-
-            RegistrationPhoneFragment phoneFragment = new RegistrationPhoneFragment();
-            phoneFragment.setArguments(bundle);
-
-            requireActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.registration_fragment_container, phoneFragment)
-                    .addToBackStack(null)
-                    .commit();
+            // Navigate using controller
+            RegistrationController.goToPhone(requireActivity(), email, name, formattedDate);
         });
 
-        //Skip button logic
         skipButton.setOnClickListener(v -> {
-            // Pass "N/A" as birthdate
-            Bundle bundle = new Bundle();
-            bundle.putString("email", email);
-            bundle.putString("name", name);
-            bundle.putString("birthdate", "N/A");
-
-            RegistrationPhoneFragment phoneFragment = new RegistrationPhoneFragment();
-            phoneFragment.setArguments(bundle);
-
-            requireActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.registration_fragment_container, phoneFragment)
-                    .addToBackStack(null)
-                    .commit();
+            RegistrationController.goToPhone(requireActivity(), email, name, "N/A");
         });
 
         return view;

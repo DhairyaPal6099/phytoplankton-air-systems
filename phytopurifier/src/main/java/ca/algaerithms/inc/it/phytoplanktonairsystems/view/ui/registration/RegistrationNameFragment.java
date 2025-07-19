@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.RegistrationController;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.utils.ValidationUtils;
 
 public class RegistrationNameFragment extends Fragment {
@@ -54,17 +55,7 @@ public class RegistrationNameFragment extends Fragment {
             String fullName = firstName + " " + lastName;
 
             // Passing email and full name to next fragment
-            Bundle bundle = new Bundle();
-            bundle.putString("email", email);
-            bundle.putString("name", fullName);
-
-            RegistrationBirthdateFragment birthdateFragment = new RegistrationBirthdateFragment();
-            birthdateFragment.setArguments(bundle);
-
-            requireActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.registration_fragment_container, birthdateFragment)
-                    .addToBackStack(null)
-                    .commit();
+            RegistrationController.goToBirthdate(requireActivity(), email, fullName);
         });
 
         return view;

@@ -107,15 +107,6 @@ public class RegistrationEmailFragment extends Fragment {
     }
 
     private void nextFragment() {
-        Bundle bundle = new Bundle();
-        bundle.putString("email", email);
-
-        RegistrationNameFragment nameFragment = new RegistrationNameFragment();
-        nameFragment.setArguments(bundle);
-
-        requireActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.registration_fragment_container, nameFragment)
-                .addToBackStack(null)
-                .commit();
+        RegistrationController.goToName(requireActivity(), email);
     }
 }
