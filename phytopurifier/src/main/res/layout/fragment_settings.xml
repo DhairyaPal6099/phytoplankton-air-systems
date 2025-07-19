@@ -38,13 +38,6 @@
                 android:textSize="18sp"
                 android:layout_toEndOf="@id/profileCircleImageView"
                 android:layout_marginTop="5dp" />
-
-            <ImageView
-                android:id="@+id/profileMoreIcon"
-                style="@style/viewParent"
-                android:src="@drawable/ic_more"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true" />
         </RelativeLayout>
 
         <!-- App Preferences Section -->
