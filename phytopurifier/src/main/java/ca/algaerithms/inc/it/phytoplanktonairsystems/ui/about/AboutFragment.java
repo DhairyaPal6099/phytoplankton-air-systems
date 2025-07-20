@@ -5,55 +5,53 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.Arrays;
+import java.util.List;
+
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentAboutBinding;
 
 public class AboutFragment extends Fragment {
+
+    private FragmentAboutBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        binding = FragmentAboutBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
 
-        // Inflate the layout
-        View view = inflater.inflate(R.layout.fragment_about, container, false);
+        LinearLayout teamScroll = view.findViewById(R.id.team_scroll);
 
-        // Get each clickable card by ID
-        View sanskritiCell = view.findViewById(R.id.card_sanskriti);
-        View dharmikCell   = view.findViewById(R.id.card_dharmik);
-        View dhairyaCell   = view.findViewById(R.id.card_dhairya);
-        View julianCell    = view.findViewById(R.id.card_julian);
-
-        // Set click listeners
-        sanskritiCell.setOnClickListener(v -> showBioDialog(
-                "Sanskriti – The Sun Whisperer",
-                "Wants to open a bakery but accidentally got looped into engineering. Still glowing. Ambivert with a killer reel game and a sense of humor that's 60% dark roast. Brings the light — and the punchlines.")
+        List<TeamMember> members = Arrays.asList(
+                new TeamMember("Sanskriti", "Sun Whisperer. Accidentally an engineer.", R.drawable.ic_sanskriti),
+                new TeamMember("Dharmik", "Quiet coder, louder crew.", R.drawable.ic_dharmik),
+                new TeamMember("Dhairya", "Steady like his strum. Drums and design.", R.drawable.ic_dhairya),
+                new TeamMember("Julian", "Turbidity Titan. Moves fast, lives faster.", R.drawable.ic_julian)
         );
 
-        dharmikCell.setOnClickListener(v -> showBioDialog(
-                "Dharmik – The Denial Field",
-                "Claims to have no friends, yet somehow knows everyone in a 3-building radius. Quiet coder, louder crew.")
-        );
+        LayoutInflater layoutInflater = LayoutInflater.from(getContext());
 
-        dhairyaCell.setOnClickListener(v -> showBioDialog(
-                "Dhairya – The Air Bender",
-                "Leads the team like he plays guitar — steady, composed, and never missing a beat. Fluent in drums, piano, and problem-solving.")
-        );
+        for (TeamMember member : members) {
+            View card = layoutInflater.inflate(R.layout.item_team_member_card, teamScroll, false);
 
-        julianCell.setOnClickListener(v -> showBioDialog(
-                "Julian – The Turbidity Titan",
-                "Volleyball beast. Constantly in motion — from court to class to shift. Filipino finesse, great hair, and a girlfriend hotter than our CPU under load.")
-        );
+            ImageView avatar = card.findViewById(R.id.avatar);
+            TextView name = card.findViewById(R.id.name);
+            TextView bio = card.findViewById(R.id.bio);
+
+            avatar.setImageResource(member.imageRes);
+            name.setText(member.name);
+            bio.setText(member.bio);
+
+            teamScroll.addView(card);
+        }
 
         return view;
-    }
-
-    private void showBioDialog(String title, String message) {
-        new AlertDialog.Builder(getContext())
-                .setTitle(title)
-                .setMessage(message)
-                .setPositiveButton("Close", null)
-                .show();
     }
 }

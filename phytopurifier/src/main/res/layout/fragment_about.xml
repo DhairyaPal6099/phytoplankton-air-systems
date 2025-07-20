@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFCF7">
@@ -11,8 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center_horizontal">
+        android:padding="24dp">
 
         <!-- App Title & Mission -->
         <TextView
@@ -23,7 +21,7 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="#2F3C2F"
-            android:gravity="center" />
+            android:layout_gravity="center_horizontal" />
 
         <TextView
             android:id="@+id/app_mission"
@@ -31,8 +29,8 @@
             android:layout_height="wrap_content"
             android:text="Greener air. Smarter tech. Powered by nature."
             android:textSize="16sp"
-            android:gravity="center"
             android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"
             android:textColor="#4D4D4D" />
 
         <!-- App Story -->
@@ -57,171 +55,21 @@
             android:textColor="#2F3C2F"
             android:layout_marginTop="32dp" />
 
-        <!-- Team Grid -->
-        <GridLayout
-            android:id="@+id/team_grid"
+        <!-- Horizontal Scroll for Cards -->
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:layout_marginTop="16dp"
-            android:rowOrderPreserved="false"
-            android:alignmentMode="alignMargins"
-            android:columnOrderPreserved="false"
-            android:useDefaultMargins="true">
+            android:layout_marginTop="16dp">
 
-            <!-- Sanskriti -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_sanskriti"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:id="@+id/team_scroll"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="@android:color/white">
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:id="@+id/icon_sanskriti"
-                        android:layout_width="96dp"
-                        android:layout_height="96dp"
-                        android:src="@drawable/ic_sanskriti"
-                        android:background="@drawable/circle_mask"
-                        android:scaleType="centerCrop" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sanskriti"
-                        android:textSize="14sp"
-                        android:textColor="#2F3C2F"
-                        android:layout_marginTop="8dp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Dharmik -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_dharmik"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="@android:color/white">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:id="@+id/icon_dharmik"
-                        android:layout_width="96dp"
-                        android:layout_height="96dp"
-                        android:src="@drawable/ic_dharmik"
-                        android:background="@drawable/circle_mask"
-                        android:scaleType="centerCrop" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Dharmik"
-                        android:textSize="14sp"
-                        android:textColor="#2F3C2F"
-                        android:layout_marginTop="8dp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Dhairya -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_dhairya"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="@android:color/white">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:id="@+id/icon_dhairya"
-                        android:layout_width="96dp"
-                        android:layout_height="96dp"
-                        android:src="@drawable/ic_dhairya"
-                        android:background="@drawable/circle_mask"
-                        android:scaleType="centerCrop" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Dhairya"
-                        android:textSize="14sp"
-                        android:textColor="#2F3C2F"
-                        android:layout_marginTop="8dp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Julian -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_julian"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="@android:color/white">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:id="@+id/icon_julian"
-                        android:layout_width="96dp"
-                        android:layout_height="96dp"
-                        android:src="@drawable/ic_julian"
-                        android:background="@drawable/circle_mask"
-                        android:scaleType="centerCrop" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Julian"
-                        android:textSize="14sp"
-                        android:textColor="#2F3C2F"
-                        android:layout_marginTop="8dp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-        </GridLayout>
+                <!-- Cards will be added here programmatically or via layout reuse -->
+            </LinearLayout>
+        </HorizontalScrollView>
 
     </LinearLayout>
 </ScrollView>
