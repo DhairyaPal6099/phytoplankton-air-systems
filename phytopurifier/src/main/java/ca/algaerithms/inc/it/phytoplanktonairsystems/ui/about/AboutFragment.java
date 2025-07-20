@@ -1,5 +1,6 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems.ui.about;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -35,25 +36,33 @@ public class AboutFragment extends Fragment {
                         "Sanskriti",
                         "Scrum Master & Developer",
                         "Not quite an engineer yet—just a crime doc junkie with a reluctant thing for code. Scrum Master by role, surviving by default. Weirdly good at writing bios.",
-                        R.drawable.ic_sanskriti
+                        R.drawable.ic_sanskriti,
+                        "www.linkedin.com/in/sanskriti-mansotra-70a045268",
+                        "https://github.com/SanskritiMansotra3183"
                 ),
                 new TeamMember(
                         "Dharmik",
                         "Main Developer & Database Manager",
                         "The introvert who somehow knows everyone. Constantly reminds us he’s the ‘coding guy’ — which he is… and somehow still weirds us out.",
-                        R.drawable.ic_dharmik
+                        R.drawable.ic_dharmik,
+                        "https://www.linkedin.com/in/dharmik-shah-427261268/",
+                        "https://github.com/DharmikShah1796"
                 ),
                 new TeamMember(
                         "Dhairya",
                         "Team Lead & Developer",
                         "Writes clean code, plays cleaner chords but still panics first after saying ‘don’t panic, guys.’",
-                        R.drawable.ic_dhairya
+                        R.drawable.ic_dhairya,
+                        "https://www.linkedin.com/in/dhairyapal/",
+                        "https://github.com/DhairyaPal6099"
                 ),
                 new TeamMember(
                         "Julian",
                         "Developer & Agile Support",
                         "Moves fast, codes faster. Spams rat stickers like a reflex and roams campus in Crocs like it's a uniform.",
-                        R.drawable.ic_julian
+                        R.drawable.ic_julian,
+                        "https://www.linkedin.com/in/julian-aldrich-imperial-a629b0297/",
+                        "https://github.com/JulianImperial8310"
                 )
         );
 
@@ -66,14 +75,15 @@ public class AboutFragment extends Fragment {
             TextView name = card.findViewById(R.id.nameTextView);
             TextView role = card.findViewById(R.id.roleTextView);
             TextView bio = card.findViewById(R.id.bioTextView);
-            CardView memberCard = card.findViewById(R.id.memberCard); // ✅ Correctly initialized here
+            ImageView linkedinIcon = card.findViewById(R.id.linkedinIcon);
+            ImageView githubIcon = card.findViewById(R.id.githubIcon);
+            CardView memberCard = card.findViewById(R.id.memberCard);
 
             avatar.setImageResource(member.imageRes);
             name.setText(member.name);
             role.setText(member.role);
             bio.setText(member.bio);
 
-            // Set pastel background tint
             int backgroundColor;
             switch (member.name) {
                 case "Sanskriti":
@@ -93,9 +103,21 @@ public class AboutFragment extends Fragment {
             }
 
             memberCard.setCardBackgroundColor(backgroundColor);
+
+            linkedinIcon.setOnClickListener(v -> openUrl(member.linkedInUrl));
+            githubIcon.setOnClickListener(v -> openUrl(member.githubUrl));
+
             teamScroll.addView(card);
         }
 
         return view;
+    }
+
+    private void openUrl(String url) {
+        if (url != null && !url.isEmpty()) {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(android.net.Uri.parse(url));
+            startActivity(intent);
+        }
     }
 }

@@ -58,7 +58,7 @@
             android:id="@+id/team_heading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Meet the Algae Crew 👥"
+            android:text="🧪 Our Team at Algaerithms Inc."
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#2F3C2F"
