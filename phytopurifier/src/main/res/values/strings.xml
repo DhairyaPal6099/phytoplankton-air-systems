@@ -301,5 +301,15 @@ If you have any privacy-related concerns or inquiries, please contact us at:
 </string>
     <string name="failed_to_send_verification">Failed to send verification</string>
     <string name="haki_sharifi">Haki Sharifi</string>
+    <string name="team_member_avatar">Team member avatar</string>
+    <string name="team_member_name">Name</string>
+    <string name="team_member_role">Role</string>
+    <string name="Bio">Bio here...</string>
+    <string name="linkedin_profile">LinkedIn Profile</string>
+    <string name="github_profile">GitHub Profile</string>
+    <string name="phytoplankton_air_systems">Phytoplankton Air Systems 🪸</string>
+    <string name="the_plant_that_powers_your_air">The Plant That Powers Your Air</string>
+    <string name="mission">Air pollution is often invisible — and so are the solutions meant to fix it. We designed one that’s alive, visible, and intelligent. We began as four students tackling a capstone — and ended up building a mission. What started as a classroom project evolved into a shared passion for clean air, sustainable design, and purposeful technology.</string>
+    <string name="team_at_algaerithms_inc">🧪 Team at Algaerithms Inc.</string>
 
 </resources>
