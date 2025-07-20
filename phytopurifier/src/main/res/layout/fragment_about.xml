@@ -1,23 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.about.AboutFragment">
+    android:background="#FFFCF7">
 
-    <TextView
-        android:id="@+id/text_gallery"
+    <LinearLayout
+        android:id="@+id/about_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:text="This is about fragment"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- App Name & Mission -->
+        <TextView
+            android:id="@+id/app_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phytoplankton Air Systems 🌿"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#2F3C2F"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/app_mission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Greener air. Smarter tech. Powered by nature."
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:textColor="#4D4D4D" />
+
+        <!-- How It Started -->
+        <TextView
+            android:id="@+id/app_story"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="We started as four students building a capstone — and ended up building a mission. What began as a class project turned into a passion for clean air, sustainable design, and meaningful technology."
+            android:textSize="15sp"
+            android:textColor="#4D4D4D"
+            android:lineSpacingExtra="4dp" />
+
+        <!-- Meet the Team -->
+        <TextView
+            android:id="@+id/team_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Meet the Algae Crew 👥"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#2F3C2F"
+            android:layout_marginTop="32dp" />
+
+        <!-- Team Grid -->
+        <GridLayout
+            android:id="@+id/team_grid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:layout_marginTop="16dp"
+            android:rowOrderPreserved="false"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
+            android:useDefaultMargins="true">
+
+            <!-- Sanskriti -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_columnWeight="1"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:src="@drawable/ic_sanskriti"
+                    android:background="@drawable/circle_mask"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sanskriti"
+                    android:textSize="14sp"
+                    android:textColor="#2F3C2F"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+
+            <!-- Dharmik -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_columnWeight="1"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:src="@drawable/ic_dharmik"
+                    android:background="@drawable/circle_mask"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dharmik"
+                    android:textSize="14sp"
+                    android:textColor="#2F3C2F"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+
+            <!-- Dhairya -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_columnWeight="1"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:src="@drawable/ic_dhairya"
+                    android:background="@drawable/circle_mask"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dhairya"
+                    android:textSize="14sp"
+                    android:textColor="#2F3C2F"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+
+            <!-- Julian -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_columnWeight="1"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:src="@drawable/ic_julian"
+                    android:background="@drawable/circle_mask"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Julian"
+                    android:textSize="14sp"
+                    android:textColor="#2F3C2F"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+
+        </GridLayout>
+
+    </LinearLayout>
+</ScrollView>
