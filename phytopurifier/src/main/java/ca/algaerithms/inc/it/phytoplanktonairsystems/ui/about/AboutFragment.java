@@ -1,6 +1,5 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems.ui.about;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,10 +29,30 @@ public class AboutFragment extends Fragment {
         LinearLayout teamScroll = view.findViewById(R.id.team_scroll);
 
         List<TeamMember> members = Arrays.asList(
-                new TeamMember("Sanskriti", "Sun Whisperer. Accidentally an engineer.", R.drawable.ic_sanskriti),
-                new TeamMember("Dharmik", "Quiet coder, louder crew.", R.drawable.ic_dharmik),
-                new TeamMember("Dhairya", "Steady like his strum. Drums and design.", R.drawable.ic_dhairya),
-                new TeamMember("Julian", "Turbidity Titan. Moves fast, lives faster.", R.drawable.ic_julian)
+                new TeamMember(
+                        "Sanskriti",
+                        "Scrum Master & Developer",
+                        "Not quite an engineer yet—just a crime doc junkie with a reluctant thing for code. Scrum Master by role, surviving by default. Weirdly good at writing bios.",
+                        R.drawable.ic_sanskriti
+                ),
+                new TeamMember(
+                        "Dharmik",
+                        "Main Developer & Database Manager",
+                        "The introvert who somehow knows everyone. Constantly reminds us he’s the ‘coding guy’ — which he is… and somehow still weirds us out.",
+                        R.drawable.ic_dharmik
+                ),
+                new TeamMember(
+                        "Dhairya",
+                        "Team Lead & Developer",
+                        "Writes clean code, plays cleaner chords but still panics first after saying ‘don’t panic, guys.’",
+                        R.drawable.ic_dhairya
+                ),
+                new TeamMember(
+                        "Julian",
+                        "Developer & Agile Support",
+                        "Moves fast, codes faster. Spams rat stickers like a reflex and roams campus in Crocs like it's a uniform.",
+                        R.drawable.ic_julian
+                )
         );
 
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
@@ -41,12 +60,14 @@ public class AboutFragment extends Fragment {
         for (TeamMember member : members) {
             View card = layoutInflater.inflate(R.layout.item_team_member_card, teamScroll, false);
 
-            ImageView avatar = card.findViewById(R.id.avatar);
-            TextView name = card.findViewById(R.id.name);
-            TextView bio = card.findViewById(R.id.bio);
+            ImageView avatar = card.findViewById(R.id.avatarImageView);
+            TextView name = card.findViewById(R.id.nameTextView);
+            TextView role = card.findViewById(R.id.roleTextView);
+            TextView bio = card.findViewById(R.id.bioTextView);
 
             avatar.setImageResource(member.imageRes);
             name.setText(member.name);
+            role.setText(member.role);
             bio.setText(member.bio);
 
             teamScroll.addView(card);

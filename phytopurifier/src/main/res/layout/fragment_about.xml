@@ -55,21 +55,16 @@
             android:textColor="#2F3C2F"
             android:layout_marginTop="32dp" />
 
-        <!-- Horizontal Scroll for Cards -->
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp">
 
             <LinearLayout
                 android:id="@+id/team_scroll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <!-- Cards will be added here programmatically or via layout reuse -->
             </LinearLayout>
-        </HorizontalScrollView>
+
 
     </LinearLayout>
 </ScrollView>
