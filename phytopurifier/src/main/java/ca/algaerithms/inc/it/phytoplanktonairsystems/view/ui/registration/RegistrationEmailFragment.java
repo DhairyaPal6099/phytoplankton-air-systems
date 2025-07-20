@@ -24,7 +24,6 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.utils.ValidationUtils;
 public class RegistrationEmailFragment extends Fragment {
 
     private RegistrationController controller;
-    private ValidationUtils validate;
 
     private String email;
     private Button registrationEmail_continueButton;
@@ -53,13 +52,13 @@ public class RegistrationEmailFragment extends Fragment {
             email = registrationEmail_editText.getText().toString().trim();
 
             //Method call
-            if (validate.isEmailEmpty(email)) {
+            if (ValidationUtils.isEmailEmpty(email)) {
                 registrationEmail_editText.setError(getString(R.string.email_is_required));
                 registrationEmail_editText.requestFocus();
                 return;
             }
 
-            if (!validate.isEmailFormatValid(email)) {
+            if (!ValidationUtils.isEmailFormatValid(email)) {
                 registrationEmail_editText.setError(getString(R.string.invalid_email_format));
                 registrationEmail_editText.requestFocus();
                 return;

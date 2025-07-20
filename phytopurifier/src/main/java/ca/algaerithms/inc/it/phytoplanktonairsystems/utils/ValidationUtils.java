@@ -30,4 +30,14 @@ public class ValidationUtils {
             return false;
         }
     }
+
+    public static boolean isValidPassword(String password) {
+        return password != null && password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d\\W]).{6,}$");
+    }
+
+    public static boolean isValidConfirmPassword(String password, String confirmPassword) {
+        return password != null && password.equals(confirmPassword);
+    }
+
+
 }

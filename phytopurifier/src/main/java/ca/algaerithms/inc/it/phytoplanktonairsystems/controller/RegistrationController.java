@@ -5,9 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
+import ca.algaerithms.inc.it.phytoplanktonairsystems.model.UserRegistrationManager;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationBirthdateFragment;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationNameFragment;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationPasswordFragment;
@@ -15,37 +13,55 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.Regist
 
 public class RegistrationController {
 
-    private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private final UserRegistrationManager userManager = new UserRegistrationManager();
 
-    public void registerEmail(String email, String tempPassword, RegistrationCallback callback) {
-        firebaseAuth.createUserWithEmailAndPassword(email, tempPassword)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        FirebaseUser user = firebaseAuth.getCurrentUser();
-                        if (user != null) {
-                            user.sendEmailVerification()
-                                    .addOnSuccessListener(unused -> callback.onVerificationEmailSent())
-                                    .addOnFailureListener(e -> callback.onFailure("Failed to send verification email."));
-                        }
-                    } else {
-                        String msg = task.getException() != null ? task.getException().getMessage() : "Registration failed.";
-                        callback.onFailure(msg);
-                    }
-                });
-    }
-
-    public void checkEmailVerification(VerificationStatusCallback callback) {
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-        if (user != null) {
-            user.reload().addOnSuccessListener(unused -> callback.onChecked(user.isEmailVerified()))
-                    .addOnFailureListener(e -> callback.onChecked(false));
-        } else {
-            callback.onChecked(false);
-        }
+    public void deleteTempUser(Runnable onDeleted) {
+        userManager.deleteTempUserIfExists(onDeleted);
     }
 
     public interface VerificationStatusCallback {
         void onChecked(boolean isVerified);
+    }
+
+    // Register user & send verification email by delegating to model
+    public void registerEmail(String email, String tempPassword, RegistrationCallback callback) {
+        userManager.createUserWithEmail(email, tempPassword, new UserRegistrationManager.UserCreationCallback() {
+            @Override
+            public void onSuccess() {
+                callback.onVerificationEmailSent();
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                callback.onFailure(errorMessage);
+            }
+        });
+    }
+
+    // Check email verification status via model
+    public void checkEmailVerification(VerificationStatusCallback callback) {
+        userManager.checkEmailVerification(isVerified -> callback.onChecked(isVerified));
+    }
+
+    public void updatePasswordAndSaveUser(String email,
+                                          String name,
+                                          String birthdate,
+                                          String phone,
+                                          int lifetimeCO2,
+                                          String password,
+                                          UserRegistrationManager.PasswordUpdateCallback callback) {
+        userManager.updatePasswordAndSaveUserData(email, name, birthdate, phone, lifetimeCO2, password,
+                new UserRegistrationManager.PasswordUpdateCallback() {
+                    @Override
+                    public void onSuccess() {
+                        callback.onSuccess();
+                    }
+
+                    @Override
+                    public void onFailure(String message) {
+                        callback.onFailure(message);
+                    }
+                });
     }
 
     // ====== NAVIGATION HELPERS ======

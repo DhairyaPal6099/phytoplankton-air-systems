@@ -27,10 +27,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.RegistrationController;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.model.UserRegistrationManager;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.utils.ValidationUtils;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.MainActivity;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 
 public class RegistrationPasswordFragment extends Fragment {
+
+    private final RegistrationController registrationController = new RegistrationController();
 
     private EditText passwordEditText, confirmPasswordEditText;
     private Button submitButton;
@@ -73,12 +78,12 @@ public class RegistrationPasswordFragment extends Fragment {
             String password = passwordEditText.getText().toString().trim();
             String confirmPassword = confirmPasswordEditText.getText().toString().trim();
 
-            if (!isPasswordValid(password)) {
+            if (!ValidationUtils.isValidPassword(password)) {
                 passwordEditText.setError(getString(R.string.password_must_include_upper_lower_case_and_number_or_special_character));
                 return;
             }
 
-            if (!password.equals(confirmPassword)) {
+            if (!ValidationUtils.isValidConfirmPassword(password, confirmPassword)) {
                 confirmPasswordEditText.setError(getString(R.string.passwords_do_not_match));
                 return;
             }
@@ -88,42 +93,22 @@ public class RegistrationPasswordFragment extends Fragment {
     }
 
 private void saveAuthenticatedUserData(String password) {
-    FirebaseUser user = firebaseAuth.getCurrentUser();
+    // Delegate to controller for password update and user data save
+    registrationController.updatePasswordAndSaveUser(email, name, birthdate, phone, lifetime_co2_converted, password,
+            new UserRegistrationManager.PasswordUpdateCallback() {
+                @Override
+                public void onSuccess() {
+                    Toast.makeText(getContext(), getString(R.string.registration_successful), Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    startActivity(intent);
+                    requireActivity().finish();
+                }
 
-    if (user != null && user.getEmail() != null && user.getEmail().equals(email)) {
-        user.updatePassword(password).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                String uid = user.getUid();
-                List<Map<String, Object>> achievements = new ArrayList<>();
-                List<Map<String, Object>> notifications = new ArrayList<>();
-
-                Map<String, Object> userData = new HashMap<>();
-                userData.put("email", email);
-                userData.put("name", name);
-                userData.put("birthdate", birthdate);
-                userData.put("phone", phone);
-                userData.put("uid", uid);
-                userData.put("achievements", achievements);
-                userData.put("notifications", notifications);
-                userData.put("lifetime_co2_converted", lifetime_co2_converted);
-
-                db.collection("users").document(uid)
-                        .set(userData)
-                        .addOnSuccessListener(aVoid -> {
-                            Toast.makeText(getContext(), getString(R.string.registration_successful), Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(getActivity(), MainActivity.class);
-                            startActivity(intent);
-                            requireActivity().finish();
-                        })
-                        .addOnFailureListener(e ->
-                                Toast.makeText(getContext(), R.string.error_saving_user_data, Toast.LENGTH_SHORT).show());
-            } else {
-                Toast.makeText(getContext(), R.string.failed_to_update_password, Toast.LENGTH_SHORT).show();
-            }
-        });
-    } else {
-        Toast.makeText(getContext(), R.string.user_not_authenticated, Toast.LENGTH_SHORT).show();
-    }
+                @Override
+                public void onFailure(String message) {
+                    Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                }
+            });
 }
 
 @SuppressLint("ClickableViewAccessibility")
@@ -153,10 +138,5 @@ private void setupPasswordToggle(EditText editText, boolean isMainField) {
         }
         return false;
     });
-}
-
-private boolean isPasswordValid(String password) {
-    Pattern pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d\\W]).{6,}$");
-    return pattern.matcher(password).matches();
 }
 }
