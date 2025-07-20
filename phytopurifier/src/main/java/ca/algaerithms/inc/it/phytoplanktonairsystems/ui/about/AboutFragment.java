@@ -87,7 +87,7 @@ public class AboutFragment extends Fragment {
             int backgroundColor;
             switch (member.name) {
                 case "Sanskriti":
-                    backgroundColor = Color.parseColor("#FFF0F6"); // Soft Pink
+                    backgroundColor = Color.parseColor("#F3E5F5"); // Soft Pink
                     break;
                 case "Dharmik":
                     backgroundColor = Color.parseColor("#E6F7FF"); // Light Blue

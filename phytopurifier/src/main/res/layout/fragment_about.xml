@@ -12,57 +12,68 @@
         android:orientation="vertical"
         android:padding="24dp">
 
-        <!-- App Title & Mission -->
-        <TextView
-            android:id="@+id/app_title"
-            android:layout_width="wrap_content"
+        <!-- App Info Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/appInfoCard"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Phytoplankton Air Systems 🌿"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="#2F3C2F"
-            android:layout_gravity="center_horizontal" />
-
-        <TextView
-            android:id="@+id/app_mission"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Greener air. Smarter tech. Powered by nature."
-            android:textSize="16sp"
+            android:layout_marginBottom="16dp"
             android:layout_marginTop="8dp"
-            android:layout_gravity="center_horizontal"
-            android:textColor="#4D4D4D" />
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#ECEE81">
 
-        <!-- App Story -->
-        <TextView
-            android:id="@+id/app_story"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="We started as four students building a capstone — and ended up building a mission. What began as a class project turned into a passion for clean air, sustainable design, and meaningful technology."
-            android:textSize="15sp"
-            android:textColor="#4D4D4D"
-            android:lineSpacingExtra="4dp"
-            android:justificationMode="inter_word" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-        <!-- Divider -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#DDDDDD"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="8dp" />
+                <TextView
+                    android:id="@+id/app_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phytoplankton Air Systems 🪸"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#2F3C2F"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/app_mission"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="The Plant That Powers Your Air"
+                    android:textSize="15sp"
+                    android:textStyle="italic"
+                    android:layout_marginTop="4dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#4D4D4D" />
+
+                <TextView
+                    android:id="@+id/app_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Air pollution is often invisible — and so are the solutions meant to fix it. We designed one that’s alive, visible, and intelligent. We began as four students tackling a capstone — and ended up building a mission. What started as a classroom project evolved into a shared passion for clean air, sustainable design, and purposeful technology."
+                    android:textSize="14sp"
+                    android:textColor="#4D4D4D"
+                    android:lineSpacingExtra="4dp"
+                    android:justificationMode="inter_word" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <!-- Team Header -->
         <TextView
             android:id="@+id/team_heading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="🧪 Our Team at Algaerithms Inc."
+            android:text="🧪 Team at Algaerithms Inc."
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#2F3C2F"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
 
         <!-- Vertical Scroll for Cards -->
         <LinearLayout
@@ -70,9 +81,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="16dp">
-            <!-- Cards will be added here programmatically or via layout reuse -->
-        </LinearLayout>
-
+            android:layout_marginTop="8dp" />
     </LinearLayout>
 </ScrollView>
