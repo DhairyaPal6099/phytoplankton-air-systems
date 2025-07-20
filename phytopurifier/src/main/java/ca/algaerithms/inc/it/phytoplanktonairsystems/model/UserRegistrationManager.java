@@ -75,28 +75,6 @@ public class UserRegistrationManager {
                 });
     }
 
-    public void registerAndSendVerification(@NonNull String email, @NonNull String password, @NonNull EmailCallback callback) {
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        auth.getCurrentUser().sendEmailVerification()
-                                .addOnSuccessListener(unused -> callback.onSuccess())
-                                .addOnFailureListener(e -> callback.onFailure(e.getMessage()));
-                    } else {
-                        callback.onFailure(task.getException().getMessage());
-                        FirebaseUser user = auth.getCurrentUser();
-                        if (user != null) {
-                                    .addOnSuccessListener(unused -> callback.onSuccess())
-                                    .addOnFailureListener(e -> callback.onFailure("Failed to send verification email: " + e.getMessage()));
-                        } else {
-                            callback.onFailure("User registration succeeded, but user is null.");
-                        }
-                    } else {
-                        callback.onFailure("Registration failed: " + task.getException().getMessage());
-                    }
-                });
-    }
-
     // Checks if the currently logged-in user's email is verified
     public void checkEmailVerification(@NonNull VerificationCallback callback) {
         FirebaseUser user = auth.getCurrentUser();
