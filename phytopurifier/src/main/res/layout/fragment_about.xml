@@ -77,11 +77,13 @@
                 android:gravity="center">
 
                 <ImageView
+                    android:id="@+id/icon_sanskriti"
                     android:layout_width="96dp"
                     android:layout_height="96dp"
                     android:src="@drawable/ic_sanskriti"
                     android:background="@drawable/circle_mask"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:contentDescription="Sanskriti" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -101,11 +103,13 @@
                 android:gravity="center">
 
                 <ImageView
+                    android:id="@+id/icon_dharmik"
                     android:layout_width="96dp"
                     android:layout_height="96dp"
                     android:src="@drawable/ic_dharmik"
                     android:background="@drawable/circle_mask"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:contentDescription="Dharmik" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -125,11 +129,13 @@
                 android:gravity="center">
 
                 <ImageView
+                    android:id="@+id/icon_dhairya"
                     android:layout_width="96dp"
                     android:layout_height="96dp"
                     android:src="@drawable/ic_dhairya"
                     android:background="@drawable/circle_mask"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:contentDescription="Dhairya" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -149,11 +155,13 @@
                 android:gravity="center">
 
                 <ImageView
+                    android:id="@+id/icon_julian"
                     android:layout_width="96dp"
                     android:layout_height="96dp"
                     android:src="@drawable/ic_julian"
                     android:background="@drawable/circle_mask"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:contentDescription="Julian" />
 
                 <TextView
                     android:layout_width="wrap_content"
