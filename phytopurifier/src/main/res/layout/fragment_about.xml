@@ -42,7 +42,16 @@
             android:text="We started as four students building a capstone — and ended up building a mission. What began as a class project turned into a passion for clean air, sustainable design, and meaningful technology."
             android:textSize="15sp"
             android:textColor="#4D4D4D"
-            android:lineSpacingExtra="4dp" />
+            android:lineSpacingExtra="4dp"
+            android:justificationMode="inter_word" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp" />
 
         <!-- Team Header -->
         <TextView
@@ -53,18 +62,17 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#2F3C2F"
-            android:layout_marginTop="32dp" />
+            android:layout_marginTop="16dp" />
 
-
-            <LinearLayout
-                android:id="@+id/team_scroll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <!-- Cards will be added here programmatically or via layout reuse -->
-            </LinearLayout>
-
+        <!-- Vertical Scroll for Cards -->
+        <LinearLayout
+            android:id="@+id/team_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
+            <!-- Cards will be added here programmatically or via layout reuse -->
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

@@ -1,5 +1,6 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems.ui.about;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import java.util.Arrays;
@@ -64,12 +66,33 @@ public class AboutFragment extends Fragment {
             TextView name = card.findViewById(R.id.nameTextView);
             TextView role = card.findViewById(R.id.roleTextView);
             TextView bio = card.findViewById(R.id.bioTextView);
+            CardView memberCard = card.findViewById(R.id.memberCard); // ✅ Correctly initialized here
 
             avatar.setImageResource(member.imageRes);
             name.setText(member.name);
             role.setText(member.role);
             bio.setText(member.bio);
 
+            // Set pastel background tint
+            int backgroundColor;
+            switch (member.name) {
+                case "Sanskriti":
+                    backgroundColor = Color.parseColor("#FFF0F6"); // Soft Pink
+                    break;
+                case "Dharmik":
+                    backgroundColor = Color.parseColor("#E6F7FF"); // Light Blue
+                    break;
+                case "Dhairya":
+                    backgroundColor = Color.parseColor("#FFFDE7"); // Pale Yellow
+                    break;
+                case "Julian":
+                    backgroundColor = Color.parseColor("#E8F5E9"); // Soft Green
+                    break;
+                default:
+                    backgroundColor = Color.WHITE;
+            }
+
+            memberCard.setCardBackgroundColor(backgroundColor);
             teamScroll.addView(card);
         }
 
