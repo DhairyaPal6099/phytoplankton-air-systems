@@ -2,7 +2,7 @@
    Dhairya Pal – N01576099
    Sanskriti Mansotra – N01523183
    Dharmik Shah – N01581796 */
-package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.leaderboard;
+package ca.algaerithms.inc.it.phytoplanktonairsystems.view.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,9 +14,11 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.leaderboard.UserStat;
 
 public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.ViewHolder> {
 
@@ -29,13 +31,13 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView nameText, oxygenText;
+        TextView nameText, carbonDioxideText;
         ImageView medalIcon;
 
         public ViewHolder(View itemView) {
             super(itemView);
             nameText = itemView.findViewById(R.id.user_name);
-            oxygenText = itemView.findViewById(R.id.oxygen_amount);
+            carbonDioxideText = itemView.findViewById(R.id.carbondioxide_amount);
             medalIcon = itemView.findViewById(R.id.medal_icon);
         }
     }
@@ -51,7 +53,7 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
     public void onBindViewHolder(LeaderboardAdapter.ViewHolder holder, int position) {
         UserStat user = userStats.get(position);
         holder.nameText.setText(user.name);
-        holder.oxygenText.setText(user.oxygenProducedKg + " kg O₂");
+        holder.carbonDioxideText.setText(user.carbonDioxideConvertedKg + " kg O₂");
 
         if(position == 0){
             holder.medalIcon.setVisibility(View.VISIBLE);
@@ -71,6 +73,12 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
     @Override
     public int getItemCount() {
         return userStats.size();
+    }
+
+    public void updateData(List<UserStat> newList) {
+        this.userStats.clear();
+        this.userStats.addAll(newList);
+        notifyDataSetChanged();
     }
 }
 
