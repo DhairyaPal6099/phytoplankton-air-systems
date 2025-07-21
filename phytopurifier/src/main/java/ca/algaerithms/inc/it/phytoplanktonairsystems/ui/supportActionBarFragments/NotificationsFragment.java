@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.NotificationAdapter;
@@ -61,11 +62,22 @@ public class NotificationsFragment extends Fragment {
         adapter = new NotificationAdapter(notificationModelList);
         recyclerView.setAdapter(adapter);
 
+        // === TEMP: Add dummy notifications for local testing ===
+        //List<NotificationModel> dummyList = new ArrayList<>();
+
+        //long now = System.currentTimeMillis();
+       // dummyList.add(new NotificationModel("EOD Stat", "Algae level: Healthy", new Date(now - 3600_000))); // 1 hour ago
+       // dummyList.add(new NotificationModel("Water Alert", "Water level is low", new Date(now - 7200_000))); // 2 hours ago
+       // dummyList.add(new NotificationModel("Critical Alert", "Algae oxygen production dropping", new Date(now - 10_000))); // just now
+
+        //adapter.updateList(dummyList);
+
+
         NotificationManagerPhytopurifier.getInstance(requireContext()).getAllNotifications(fetchedList -> {
             adapter.updateList(fetchedList);
         });
 
-        Button clearButton = view.findViewById(R.id.clearNotificationsButton);
+        Button clearButton = view.findViewById(R.id.clearAllButton);
         clearButton.setOnClickListener(v -> {
             // 1. Clear from the local list
             notificationModelList.clear();

@@ -1,10 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
     android:background="@android:color/white">
+
+    <!-- Clear All Button -->
+    <Button
+        android:id="@+id/clearAllButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CLEAR ALL"
+        android:layout_gravity="center"
+        android:backgroundTint="#A8CBA1"
+        android:textColor="@android:color/white"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="8dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/rounded_button" />
 
     <TextView
         android:id="@+id/notificationsHeader"
@@ -15,16 +28,6 @@
         android:textStyle="bold"
         android:paddingBottom="8dp"
         android:textColor="@android:color/black" />
-
-    <!-- Clear All Button -->
-    <Button
-        android:id="@+id/clearNotificationsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Clear All"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="#E57373"
-        android:textColor="@android:color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notificationsRecyclerView"
