@@ -307,7 +307,9 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="Bio">Bio</string> <!-- Note: B should match the casing exactly as used -->
     <string name="linkedin_profile">LinkedIn profile</string>
     <string name="github_profile">GitHub profile</string>
-    <string name="update">Update</string> <!-- Also fixes the 'update' warning -->
+    <string name="update">Update</string>
+    <string name="you_must_be_signed_in_to_submit_feedback">You must be signed in to submit feedback.</string>
+    <string name="thank_you_for_your_feedback">Thank you for your feedback!</string> <!-- Also fixes the 'update' warning -->
 
 
 </resources>

@@ -248,4 +248,6 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="support_request">Support Request</string>
     <string name="terms_of_service_text">terms of service text</string>
     <string name="section_header">Section Header</string>
+    <string name="you_must_be_signed_in_to_submit_feedback">You must be signed in to submit feedback.</string>
+    <string name="thank_you_for_your_feedback">Thank you for your feedback!</string>
 </resources>
