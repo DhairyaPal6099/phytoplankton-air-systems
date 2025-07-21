@@ -10,11 +10,6 @@
         android:orientation="vertical"
         android:padding="30dp">
 
-        <!-- Header -->
-        <TextView
-            style="@style/viewParent.headerText"
-            android:text="@string/settings" />
-
         <!-- Profile section -->
         <RelativeLayout
             android:layout_width="match_parent"

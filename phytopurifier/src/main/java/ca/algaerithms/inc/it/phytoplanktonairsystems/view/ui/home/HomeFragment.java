@@ -26,14 +26,11 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentHomeBin
 
 public class HomeFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
-
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        // Use binding instead of findViewById
         BottomNavigationView bottomNav = view.findViewById(R.id.bottom_nav_home);
 
         NavHostFragment navHostFragment =
@@ -49,6 +46,5 @@ public class HomeFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
     }
 }

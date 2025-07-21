@@ -20,8 +20,6 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentInsight
 
 
 public class InsightsFragment extends Fragment {
-
-    private FragmentInsightsBinding binding;
     private Spinner videoSpinner;
     private WebView videoWebView;
 
