@@ -6,7 +6,7 @@
     xmlns:ccp="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/registrationbg"
     android:id="@+id/registration_phone"
-    tools:context=".ui.registration.RegistrationPhoneFragment">
+    tools:context=".view.ui.registration.RegistrationPhoneFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

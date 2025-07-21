@@ -5,7 +5,7 @@
     android:id="@+id/login_activity"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/loginbg"
-    tools:context=".ui.LoginActivity">
+    tools:context=".view.ui.LoginActivity">
 
     <LinearLayout
         android:id="@+id/profile_land"

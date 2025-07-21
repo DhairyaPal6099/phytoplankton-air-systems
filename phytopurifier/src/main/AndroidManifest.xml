@@ -21,26 +21,26 @@
 
         <!-- Login Screen -->
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".view.ui.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar">
         </activity>
 
         <activity
-            android:name=".ui.RegistrationActivity"
+            android:name=".view.ui.RegistrationActivity"
             android:exported="true"
             android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar"/>
 
         <!-- Home Screen (Main) -->
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".view.ui.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar">
         </activity>
 
         <!-- Splash Screen -->
         <activity
-            android:name=".ui.SplashScreenActivity"
+            android:name=".view.ui.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.PhytoplanktonAirSystems.NoActionBar">
             <intent-filter>

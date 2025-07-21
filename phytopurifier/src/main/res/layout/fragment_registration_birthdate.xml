@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/registration_birthdate"
     android:background="@drawable/registrationbg"
-    tools:context=".ui.registration.RegistrationBirthdateFragment">
+    tools:context=".view.ui.registration.RegistrationBirthdateFragment">
 
     <LinearLayout
         android:id="@+id/birthdate_layout"

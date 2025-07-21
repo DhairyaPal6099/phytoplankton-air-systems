@@ -11,7 +11,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="60dp"
         android:textColor="@color/forest_green"
-        android:text="How would you rate your experience?"
+        android:text="@string/how_would_you_rate_your_experience"
         android:textStyle="bold"
         android:textSize="30sp" />
 
@@ -40,6 +40,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corners"
             android:backgroundTint="@color/faded_white"
+            android:inputType="number"
+            android:maxLength="10"
             android:ems="20"
             android:padding="15dp"
             android:layout_marginTop="10dp"/>
@@ -78,15 +80,37 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"/>
 
-        <Button
-            android:id="@+id/btnSubmit"
-            android:text="@string/submit_feedback"
+        <FrameLayout
+            android:id="@+id/btnSubmitContainer"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:text="@string/submit_feedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/btnProgress"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:visibility="gone" />
 
 
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/countdownText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:layout_gravity="center_horizontal"
+            android:text="" />
 
     </LinearLayout>
 
