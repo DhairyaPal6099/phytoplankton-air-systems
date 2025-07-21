@@ -1,0 +1,84 @@
+package ca.algaerithms.inc.it.phytoplanktonairsystems.model;
+
+import java.util.Date;
+
+public class SensorData {
+    private int light;
+    private int turbidity;
+    private double co2Converted;
+    private boolean proximity;
+    private Date lastUpdated;
+
+    private double co2_converted;
+    private double algaeHealth;
+    private long timestamp;
+
+    // No-arg constructor required for Firebase
+    public SensorData() {}
+
+    // Getters
+    public int getTurbidity() {
+        return turbidity;
+    }
+
+    public int getLight() {
+        return light;
+    }
+
+    public double getCo2Converted() {
+        return co2Converted;
+    }
+
+    public boolean isProximity() {
+        return proximity;
+    }
+
+    public Date getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setTurbidity(int turbidity) {
+        this.turbidity = turbidity;
+    }
+
+    public void setLight(int light) {
+        this.light = light;
+    }
+
+    public void setCo2Converted(double co2Converted) {
+        this.co2Converted = co2Converted;
+    }
+
+    public void setProximity(boolean proximity) {
+        this.proximity = proximity;
+    }
+
+    public void setLastUpdated(Date lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
+    public double getCo2_converted() {
+        return co2_converted;
+    }
+
+    public void setCo2_converted(double co2_converted) {
+        this.co2_converted = co2_converted;
+    }
+
+    public void setAlgaeHealth(double algaeHealth) {
+        this.algaeHealth = algaeHealth;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    // TODO: Implement algae health calculation based on sensor values
+    public double getAlgaeHealth() {
+        // Placeholder logic
+        return turbidity > 0 ? Math.min(100, turbidity * 1.0) : 0;
+    }
+}

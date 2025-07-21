@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_dashboard"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.home.dashboard.DashboardFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.dashboard.DashboardFragment"
         android:label="Dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/nav_insights"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.home.insights.InsightsFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.insights.InsightsFragment"
         android:label="Insights"
         tools:layout="@layout/fragment_insights" />
 
     <fragment
         android:id="@+id/nav_leaderboard"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.home.leaderboard.LeaderboardFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.leaderboard.LeaderboardFragment"
         android:label="Leaderboard"
         tools:layout="@layout/fragment_leaderboard" />
 </navigation>
