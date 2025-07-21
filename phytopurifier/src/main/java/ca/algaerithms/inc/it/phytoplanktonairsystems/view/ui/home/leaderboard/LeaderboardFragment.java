@@ -13,11 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.model.LeaderboardManager;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.adapter.LeaderboardAdapter;
 
 
@@ -25,7 +27,7 @@ public class LeaderboardFragment extends Fragment {
 
     private RecyclerView leaderboardRecyclyerView;
     private LeaderboardAdapter adapter;
-    private List<UserStat> userStatList;
+    private List<UserStat> userStatList = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,15 +38,22 @@ public class LeaderboardFragment extends Fragment {
         leaderboardRecyclyerView = view.findViewById(R.id.leaderboardRecyclerView);
         leaderboardRecyclyerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        //Sample Data
-        userStatList = new ArrayList<>();
-        userStatList.add(new UserStat(getString(R.string.scotia_bank), 2000));
-        userStatList.add(new UserStat(getString(R.string.rbc), 1800));
-        userStatList.add(new UserStat(getString(R.string.td), 1500));
+        LeaderboardManager manager = new LeaderboardManager();
 
         adapter = new LeaderboardAdapter(getContext(), userStatList);
         leaderboardRecyclyerView.setAdapter(adapter);
+        manager.fetchTopTen(new LeaderboardManager.OnLeaderboardFetchedListener() {
+            @Override
+            public void onSuccess(List<UserStat> leaderboard) {
+                userStatList = leaderboard;
+                adapter.updateData(leaderboard);
+            }
 
+            @Override
+            public void onFailure(Exception e) {
+                Toast.makeText(getContext(), "Failed to fetch leaderboard from database", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
     }

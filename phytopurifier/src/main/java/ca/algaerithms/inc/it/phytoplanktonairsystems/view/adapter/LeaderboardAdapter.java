@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
@@ -72,6 +73,12 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
     @Override
     public int getItemCount() {
         return userStats.size();
+    }
+
+    public void updateData(List<UserStat> newList) {
+        this.userStats.clear();
+        this.userStats.addAll(newList);
+        notifyDataSetChanged();
     }
 }
 
