@@ -309,7 +309,8 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="github_profile">GitHub profile</string>
     <string name="update">Update</string>
     <string name="you_must_be_signed_in_to_submit_feedback">You must be signed in to submit feedback.</string>
-    <string name="thank_you_for_your_feedback">Thank you for your feedback!</string> <!-- Also fixes the 'update' warning -->
+    <string name="thank_you_for_your_feedback">Thank you for your feedback!</string>
+    <string name="how_would_you_rate_your_experience">How would you rate your experience?</string> <!-- Also fixes the 'update' warning -->
 
 
 </resources>

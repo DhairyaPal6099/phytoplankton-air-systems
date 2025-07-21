@@ -11,7 +11,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="60dp"
         android:textColor="@color/forest_green"
-        android:text="How would you rate your experience?"
+        android:text="@string/how_would_you_rate_your_experience"
         android:textStyle="bold"
         android:textSize="30sp" />
 
