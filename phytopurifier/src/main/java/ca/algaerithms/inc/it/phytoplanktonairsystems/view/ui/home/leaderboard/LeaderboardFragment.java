@@ -27,8 +27,6 @@ public class LeaderboardFragment extends Fragment {
     private LeaderboardAdapter adapter;
     private List<UserStat> userStatList;
 
-    private FragmentLeaderboardBinding binding;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
