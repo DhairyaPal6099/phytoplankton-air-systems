@@ -1,16 +1,23 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,21 +25,20 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FeedbackFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FeedbackFragment extends Fragment {
 
-    EditText etName, etPhone, etEmail, etComment;
-    RatingBar ratingBar;
-    Button btnSubmit;
-    String deviceModel;
+    private EditText etName, etPhone, etEmail, etComment;
+    private RatingBar ratingBar;
+    private Button btnSubmit;
+    private String deviceModel;
+    private ProgressBar btnProgress;
+
+    private SharedPreferences prefs;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,12 +46,16 @@ public class FeedbackFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_feedback, container, false);
 
+        //Shared preferences to store the state of feedback button being gray or clickable
+        prefs = getActivity().getSharedPreferences("FeedbackButtonState", Context.MODE_PRIVATE);
+
         etName = view.findViewById(R.id.etName);
         etPhone = view.findViewById(R.id.etPhone);
         etEmail = view.findViewById(R.id.etEmail);
         etComment = view.findViewById(R.id.etComment);
         ratingBar = view.findViewById(R.id.ratingBar);
         btnSubmit = view.findViewById(R.id.btnSubmit);
+        btnProgress = view.findViewById(R.id.btnProgress);
 
         // Get device model
         deviceModel = android.os.Build.MODEL;
@@ -121,10 +131,16 @@ public class FeedbackFragment extends Fragment {
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser == null) {
-            Toast.makeText(getContext(), "You must be signed in to submit feedback.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.you_must_be_signed_in_to_submit_feedback, Toast.LENGTH_SHORT).show();
             return;
         }
 
+        // Disable button and show spinner inside it
+        btnSubmit.setEnabled(false);
+        btnSubmit.setText("");
+        btnProgress.setVisibility(View.VISIBLE);
+
+        new Handler().postDelayed(() -> {
         Map<String, Object> feedback = new HashMap<>();
         feedback.put("name", name);
         feedback.put("phone", phone);
@@ -137,13 +153,19 @@ public class FeedbackFragment extends Fragment {
         FirebaseFirestore.getInstance().collection("feedback")
                 .add(feedback)
                 .addOnSuccessListener(doc -> {
-                    Toast.makeText(getContext(), getString(R.string.feedback_submitted), Toast.LENGTH_SHORT).show();
                     clearFields();
+                    showConfirmationDialog();
+                    btnProgress.setVisibility(View.GONE);
+                    btnSubmit.setText(getString(R.string.submit_feedback));
+                    prefs.edit().putLong("button_disabled_time", System.currentTimeMillis()).apply();
+                    countdownTimer();
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(getContext(), getString(R.string.error) + e.getMessage(), Toast.LENGTH_LONG).show();
                 });
+        }, 5000); // 5 second delay
     }
+
 
     private void clearFields() {
         etName.setText("");
@@ -151,5 +173,41 @@ public class FeedbackFragment extends Fragment {
         etEmail.setText("");
         etComment.setText("");
         ratingBar.setRating(0);
+    }
+
+    private void showConfirmationDialog() {
+        new AlertDialog.Builder(getContext())
+                .setTitle(getString(R.string.feedback_submitted))
+                .setMessage(R.string.thank_you_for_your_feedback)
+                .setPositiveButton(getString(R.string.ok), null)
+                .show();
+    }
+
+    private void countdownTimer() {
+        TextView countdownText = requireActivity().findViewById(R.id.countdownText);
+
+        long savedTime = prefs.getLong("button_disabled_time", 0);
+        long elapsedTime = System.currentTimeMillis() - savedTime;
+        long remainingMillis = 24 * 60 * 60 * 1000 - elapsedTime;
+        if (remainingMillis > 0) {
+            new CountDownTimer(remainingMillis, 60 * 1000) {
+
+                @Override
+                public void onTick(long l) {
+                    long hours = l / (1000 * 60 * 60);
+                    long minutes = (l / (1000 * 60)) % 60;
+                    countdownText.setText(String.format(Locale.getDefault(), "Available in %02d hrs %02d mins", hours, minutes));
+                }
+
+                @Override
+                public void onFinish() {
+                    btnSubmit.setEnabled(true);
+                    countdownText.setText("");
+                }
+            }.start();
+        } else {
+            btnSubmit.setEnabled(true);
+            countdownText.setText("");
+        }
     }
 }
