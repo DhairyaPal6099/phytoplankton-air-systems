@@ -31,7 +31,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             startActivity(new Intent(this, LoginActivity.class));
             finish();
-        }, 5500);
+        }, 6000);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
