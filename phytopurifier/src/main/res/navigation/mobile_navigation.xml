@@ -7,51 +7,51 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.home.HomeFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_accountInfo"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.accountInfo.AccountInfoFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.accountInfo.AccountInfoFragment"
         android:label="@string/account_info_title"
         tools:layout="@layout/fragment_account_info" />
 
     <fragment
         android:id="@+id/nav_about"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.about.AboutFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.about.AboutFragment"
         android:label="@string/about"
         tools:layout="@layout/fragment_about" />
 
     <fragment
         android:id="@+id/nav_feedback"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.FeedbackFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.FeedbackFragment"
         android:label="@string/feedbackv2"
         tools:layout="@layout/fragment_feedback" />
 
 
     <fragment
         android:id="@+id/nav_settings"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.settings.SettingsFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.settings.SettingsFragment"
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings">
     </fragment>
 
     <fragment
         android:id="@+id/termsOfServiceFragment"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.settings.TermsOfServiceFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.settings.TermsOfServiceFragment"
         android:label="Terms of Service"
         tools:layout="@layout/fragment_terms_of_service" />
 
     <fragment
         android:id="@+id/privacyPolicyFragment"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.settings.PrivacyPolicyFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.settings.PrivacyPolicyFragment"
         android:label="Privacy Policy"
         tools:layout="@layout/fragment_privacy_policy" />
 
     <fragment
         android:id="@+id/deleteAccountFragment"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.settings.DeleteAccountFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.settings.DeleteAccountFragment"
         android:label="Delete Account"
         tools:layout="@layout/fragment_delete_account" />
 
@@ -63,19 +63,19 @@
 
     <fragment
         android:id="@+id/action_notifications"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.supportActionBarFragments.NotificationsFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.supportActionBarFragments.NotificationsFragment"
         android:label="@string/notifications"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
         android:id="@+id/action_achievements"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.supportActionBarFragments.AchievementsFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.supportActionBarFragments.AchievementsFragment"
         android:label="Achievements"
         tools:layout="@layout/fragment_achievements" />
 
     <fragment
         android:id="@+id/action_contact_support"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.supportActionBarFragments.ContactSupportFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.supportActionBarFragments.ContactSupportFragment"
         android:label="Contact Support"
         tools:layout="@layout/fragment_contact_support" />
 
