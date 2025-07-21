@@ -303,5 +303,13 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="haki_sharifi">Haki Sharifi</string>
     <string name="first_name_is_required">First name is required</string>
     <string name="last_name_is_required">Last name is required</string>
+    <string name="team_member_avatar">Team member avatar</string>
+    <string name="team_member_name">Name</string>
+    <string name="team_member_role">Role</string>
+    <string name="Bio">Bio</string> <!-- Note: B should match the casing exactly as used -->
+    <string name="linkedin_profile">LinkedIn profile</string>
+    <string name="github_profile">GitHub profile</string>
+    <string name="update">Update</string> <!-- Also fixes the 'update' warning -->
+
 
 </resources>
