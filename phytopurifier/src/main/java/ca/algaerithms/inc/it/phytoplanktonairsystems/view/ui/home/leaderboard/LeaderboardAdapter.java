@@ -29,13 +29,13 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView nameText, oxygenText;
+        TextView nameText, carbonDioxideText;
         ImageView medalIcon;
 
         public ViewHolder(View itemView) {
             super(itemView);
             nameText = itemView.findViewById(R.id.user_name);
-            oxygenText = itemView.findViewById(R.id.oxygen_amount);
+            carbonDioxideText = itemView.findViewById(R.id.carbondioxide_amount);
             medalIcon = itemView.findViewById(R.id.medal_icon);
         }
     }
@@ -51,7 +51,7 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
     public void onBindViewHolder(LeaderboardAdapter.ViewHolder holder, int position) {
         UserStat user = userStats.get(position);
         holder.nameText.setText(user.name);
-        holder.oxygenText.setText(user.oxygenProducedKg + " kg O₂");
+        holder.carbonDioxideText.setText(user.carbonDioxideConvertedKg + " kg O₂");
 
         if(position == 0){
             holder.medalIcon.setVisibility(View.VISIBLE);

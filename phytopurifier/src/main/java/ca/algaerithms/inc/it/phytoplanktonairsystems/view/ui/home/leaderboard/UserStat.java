@@ -6,10 +6,10 @@ package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.leaderboard;
 
 public class UserStat {
     public String name;
-    public int oxygenProducedKg;
+    public int carbonDioxideConvertedKg;
 
-    public UserStat(String name, int oxygenProducedKg) {
+    public UserStat(String name, int carbonDioxideConvertedKg) {
         this.name = name;
-        this.oxygenProducedKg = oxygenProducedKg;
+        this.carbonDioxideConvertedKg = carbonDioxideConvertedKg;
     }
 }
