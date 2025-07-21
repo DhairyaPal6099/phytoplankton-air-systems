@@ -5,15 +5,20 @@
 
 package ca.algaerithms.inc.it.phytoplanktonairsystems.ui;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.FirebaseApp;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.FileProvider;
 import androidx.core.view.GravityCompat;
@@ -36,13 +42,9 @@ import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
-import androidx.work.WorkRequest;
 
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.widget.Toast;
-import android.widget.TextView;
-
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -75,15 +77,13 @@ public class MainActivity extends AppCompatActivity {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
 
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_about, R.id.nav_accountInfo, R.id.nav_feedback, R.id.nav_settings)
                 .setOpenableLayout(drawer)
@@ -107,13 +107,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Populate navigation drawer header with user info
         populateUserHeader();
 
-        //Schedule the daily notification worker
-        scheduleDailyNotificationWorker();
+        // 🔔 Request notification permission on Android 13+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, 101);
+            }
+        }
 
-        //Display the AlertDialog
+        // ⏰ Schedule the daily notification worker
+        scheduleDailyNotificationWorker();
+        // ✅ TEMP: Trigger manually
+        WorkManager.getInstance(this)
+                .enqueue(new OneTimeWorkRequest.Builder(DailyNotificationWorker.class).build());
+
+        // ↩️ Display the AlertDialog on back
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -128,18 +138,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         MenuItem item = menu.findItem(R.id.action_share);
         View actionView = item.getActionView();
 
         if (actionView != null) {
-            actionView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    shareDashboard();
-                }
-            });
+            actionView.setOnClickListener(view -> shareDashboard());
         }
         return true;
     }
@@ -150,37 +154,24 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.onNavDestinationSelected(item, navController);
     }
 
-    //
     private void populateUserHeader() {
-        // Instance of the currently signed-in user from Firebase
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            String email = user.getEmail(); // Get user's email
-
-            // Access the navigation drawer's header view
+            String email = user.getEmail();
             NavigationView navigationView = binding.navView;
             View headerView = navigationView.getHeaderView(0);
-
-            // Get references to the TextViews in the header
             nameTextView = headerView.findViewById(R.id.nav_header_username);
             emailTextView = headerView.findViewById(R.id.nav_header_userEmail);
-
-            // Display user's email directly (always available)
             emailTextView.setText(email);
 
-            // Retrieve the user's name from Firestore using their UID
             FirebaseFirestore.getInstance().collection("users")
-                    .document(user.getUid()) // Reference the correct user document
+                    .document(user.getUid())
                     .get()
                     .addOnSuccessListener(documentSnapshot -> {
-                        String name = documentSnapshot.getString("name"); // Get "name" field
-                        // Set the name if found, otherwise use "User" as fallback
+                        String name = documentSnapshot.getString("name");
                         nameTextView.setText(name != null ? name : "User");
                     })
-                    .addOnFailureListener(e -> {
-                        // In case of error fetching from Firestore, fallback to "User"
-                        nameTextView.setText("User");
-                    });
+                    .addOnFailureListener(e -> nameTextView.setText("User"));
         }
     }
 
@@ -191,14 +182,11 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    //Logout
     private void logout() {
         new AlertDialog.Builder(MainActivity.this)
                 .setTitle(R.string.logout)
                 .setMessage(R.string.are_you_sure_you_want_to_logout)
                 .setPositiveButton(R.string.yes, (dialog, which) -> {
-
-                    // Sign the user out from Firebase
                     FirebaseAuth.getInstance().signOut();
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -208,46 +196,27 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    //Exits the application
     private void showExit() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setIcon(R.drawable.exit)
                 .setTitle(R.string.app_name)
                 .setMessage(R.string.do_you_want_to_exit_the_app)
-                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id)
-                    {
-                        finishAffinity(); // Closes all activities and exits the app
-                    }
-                })
-                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        // User cancels and nothing happens
-                    }
-                })
+                .setPositiveButton(R.string.yes, (dialog, id) -> finishAffinity())
+                .setNegativeButton(R.string.no, null)
                 .setCancelable(false)
                 .show();
     }
 
     private void shareDashboard() {
         Fragment navHostFragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_content_main);
-
-        if (navHostFragment == null) {
-            return;
-        }
+        if (navHostFragment == null) return;
 
         List<Fragment> fragments = navHostFragment.getChildFragmentManager().getFragments();
-        if (fragments.isEmpty()) {
-            return;
-        }
+        if (fragments.isEmpty()) return;
 
         Fragment visibleFragment = fragments.get(0);
-
         View dashboardView = visibleFragment.getView();
-        if (dashboardView == null) {
-            return;
-        }
+        if (dashboardView == null) return;
 
         dashboardView.post(() -> {
             Bitmap bitmap = Bitmap.createBitmap(dashboardView.getWidth(), dashboardView.getHeight(), Bitmap.Config.ARGB_8888);
@@ -274,7 +243,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Error sharing screenshot", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
     private void scheduleDailyNotificationWorker() {
@@ -300,5 +268,20 @@ public class MainActivity extends AppCompatActivity {
                 ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE,
                 dailyRequest
         );
+    }
+
+
+
+    // 🔁 Handle permission result
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 101) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Notification permission granted", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Notification permission denied", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

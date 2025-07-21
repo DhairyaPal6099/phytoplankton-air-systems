@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -40,6 +41,7 @@ public class NotificationManagerPhytopurifier {
         return instance;
     }
 
+    // 🔹 Fetch all notifications for RecyclerView
     public void getAllNotifications(Consumer<List<NotificationModel>> callback) {
         String uid = FirebaseAuth.getInstance().getUid();
         if (uid == null) return;
@@ -54,6 +56,7 @@ public class NotificationManagerPhytopurifier {
                             String title = (String) notif.get("title");
                             String message = (String) notif.get("message");
                             Timestamp timestamp = (Timestamp) notif.get("timestamp");
+                            // String type = (String) notif.get("type"); // You can use this later
                             if (title != null && message != null && timestamp != null) {
                                 result.add(new NotificationModel(title, message, timestamp.toDate()));
                             }
@@ -65,23 +68,41 @@ public class NotificationManagerPhytopurifier {
                 .addOnFailureListener(e -> Log.e("NotificationManagerPhytopurifier", "Fetch failed: " + e.getMessage()));
     }
 
-    public void sendNotification(String title, String message) {
+    // 🔹 Send a general-purpose notification (used for future types too)
+    public void sendNotification(String title, String message, String type) {
         String uid = FirebaseAuth.getInstance().getUid();
         if (uid == null || title.isEmpty() || message.isEmpty()) return;
-
-        DocumentReference userRef = firestore.collection("users").document(uid);
 
         Map<String, Object> newNotif = new HashMap<>();
         newNotif.put("title", title);
         newNotif.put("message", message);
         newNotif.put("timestamp", new Timestamp(new Date()));
+        newNotif.put("type", type);
 
-        userRef.update("notifications", FieldValue.arrayUnion(newNotif))
+        Map<String, Object> updateMap = new HashMap<>();
+        updateMap.put("notifications", FieldValue.arrayUnion(newNotif));
+
+        firestore.collection("users")
+                .document(uid)
+                .set(updateMap, SetOptions.merge())
                 .addOnFailureListener(e -> Log.e("NotificationManagerPhytopurifier", "Send failed: " + e.getMessage()));
+
+        showSystemNotification(title, message);
     }
 
+    // 🔹 Show a system notification on the user's device
     private void showSystemNotification(String title, String message) {
+        // 🔐 Check runtime permission for Android 13+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (context.checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)
+                    != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                Log.w("NotificationManagerPhytopurifier", "POST_NOTIFICATIONS permission not granted.");
+                return; // Skip showing notification if not permitted
+            }
+        }
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
+                .setSmallIcon(android.R.drawable.ic_dialog_info) // Use your icon
                 .setContentTitle(title)
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
@@ -91,6 +112,7 @@ public class NotificationManagerPhytopurifier {
                 .notify((int) System.currentTimeMillis(), builder.build());
     }
 
+    // 🔹 Send EOD notification with algae health status
     public void sendEndOfDayAlgaeStatus(double algaeHealth, double turbidity) {
         String uid = FirebaseAuth.getInstance().getUid();
         if (uid == null) return;
@@ -109,17 +131,21 @@ public class NotificationManagerPhytopurifier {
         notification.put("title", "Daily Algae Status 🌿");
         notification.put("message", statusMessage);
         notification.put("timestamp", new Timestamp(new Date()));
+        notification.put("type", "EOD");
 
-        FirebaseFirestore.getInstance()
-                .collection("users")
+        Map<String, Object> updateMap = new HashMap<>();
+        updateMap.put("notifications", FieldValue.arrayUnion(notification));
+
+        firestore.collection("users")
                 .document(uid)
-                .update("notifications", FieldValue.arrayUnion(notification))
+                .set(updateMap, SetOptions.merge())
                 .addOnSuccessListener(aVoid -> Log.d("NotificationManagerPhytopurifier", "End-of-day algae status added"))
                 .addOnFailureListener(e -> Log.e("NotificationManagerPhytopurifier", "Failed to add notification", e));
 
         showSystemNotification("Daily algae status", statusMessage);
     }
 
+    // 🔹 Create the required notification channel
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
@@ -129,8 +155,7 @@ public class NotificationManagerPhytopurifier {
             );
             channel.setDescription("Daily algae health and system status notifications");
 
-            android.app.NotificationManager manager =
-                    (android.app.NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             if (manager != null) {
                 manager.createNotificationChannel(channel);
             }
