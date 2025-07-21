@@ -145,7 +145,8 @@ public class FeedbackFragment extends Fragment {
                 .addOnSuccessListener(doc -> {
                     clearFields();
                     showConfirmationDialog();
-                    resetButton();
+                    btnProgress.setVisibility(View.GONE);
+                    btnSubmit.setText(getString(R.string.submit_feedback));
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(getContext(), getString(R.string.error) + e.getMessage(), Toast.LENGTH_LONG).show();
@@ -168,11 +169,5 @@ public class FeedbackFragment extends Fragment {
                 .setMessage(R.string.thank_you_for_your_feedback)
                 .setPositiveButton(getString(R.string.ok), null)
                 .show();
-    }
-
-    private void resetButton() {
-        btnProgress.setVisibility(View.GONE);
-        btnSubmit.setText(getString(R.string.submit_feedback));
-        btnSubmit.setEnabled(true);
     }
 }
