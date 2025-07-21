@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -63,6 +64,21 @@ public class NotificationsFragment extends Fragment {
         NotificationManagerPhytopurifier.getInstance(requireContext()).getAllNotifications(fetchedList -> {
             adapter.updateList(fetchedList);
         });
+
+        Button clearButton = view.findViewById(R.id.clearNotificationsButton);
+        clearButton.setOnClickListener(v -> {
+            // 1. Clear from the local list
+            notificationModelList.clear();
+            adapter.notifyDataSetChanged();
+
+            // 2. Clear system notifications (optional)
+            androidx.core.app.NotificationManagerCompat manager = androidx.core.app.NotificationManagerCompat.from(requireContext());
+            manager.cancelAll();
+
+            // 3. Feedback
+            Toast.makeText(getContext(), "Notifications cleared", Toast.LENGTH_SHORT).show();
+        });
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.POST_NOTIFICATIONS)

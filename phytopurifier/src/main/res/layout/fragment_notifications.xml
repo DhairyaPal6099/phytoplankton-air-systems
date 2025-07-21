@@ -16,6 +16,16 @@
         android:paddingBottom="8dp"
         android:textColor="@android:color/black" />
 
+    <!-- Clear All Button -->
+    <Button
+        android:id="@+id/clearNotificationsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear All"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#E57373"
+        android:textColor="@android:color/white" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notificationsRecyclerView"
         android:layout_width="match_parent"
