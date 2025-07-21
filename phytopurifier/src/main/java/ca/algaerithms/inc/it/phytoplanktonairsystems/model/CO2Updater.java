@@ -1,4 +1,4 @@
-package ca.algaerithms.inc.it.phytoplanktonairsystems;
+package ca.algaerithms.inc.it.phytoplanktonairsystems.model;
 
 import android.content.Context;
 import android.util.Log;

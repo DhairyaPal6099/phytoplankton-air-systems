@@ -5,14 +5,9 @@
 
 package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -24,11 +19,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.FirebaseApp;
 
 import androidx.activity.OnBackPressedCallback;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.FileProvider;
 import androidx.core.view.GravityCompat;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -41,23 +33,15 @@ import androidx.work.WorkManager;
 
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.widget.Toast;
 import android.widget.TextView;
 
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.Calendar;
-import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.DailyNotificationWorker;
-import ca.algaerithms.inc.it.phytoplanktonairsystems.CO2Updater;
-import ca.algaerithms.inc.it.phytoplanktonairsystems.DailyNotificationWorker;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.model.CO2Updater;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
-import ca.algaerithms.inc.it.phytoplanktonairsystems.ShareDashboard;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.ShareDashboard;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
