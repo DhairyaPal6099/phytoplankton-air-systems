@@ -3,146 +3,250 @@
       Sanskriti Mansotra – N01523183
       Dharmik Shah – N01581796 -->
 <resources>
-    <string name="app_name">Systèmes dAir Phytoplancton</string>
-    <string name="app_tagline">Air pur. Avenir durable.</string>
-    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
-    <string name="navigation_drawer_close">Fermer le tiroir de navigation</string>
+    <string name="app_name">Phytoplankton Air Systems</string>
+    <string name="app_tagline">Because trees get all the credit.</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">En-tête de navigation</string>
+    <string name="nav_header_desc">Navigation header</string>
 
-    <string name="menu_home">Accueil</string>
-    <string name="menu_gallery">>Galerie</string>
-    <string name="menu_slideshow">Diaporama</string>
-    <string name="do_you_want_to_exit_the_app">Voulez-vous quitter lapplication ?</string>
-    <string name="yes">OUI</string>
-    <string name="no">NON</string>
-    <string name="replace_with_your_own_action">Remplacez par votre propre action</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="do_you_want_to_exit_the_app">Do you want to exit the app?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="replace_with_your_own_action">Replace with your own action</string>
     <string name="action">Action</string>
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="about">About</string>
     <string name="settings">Settings</string>
     <string name="logout">Logout</string>
 
+
     <string-array name="settings_options">
-        <item>Verrouiller l’écran en mode portrait</item>
-        <item>Activer le mode sombre</item>
-        <item>Informations du compte</item>
-        <item>Conditions d’utilisation</item>
-        <item>Politique de confidentialité</item>
-        <item>Supprimer le compte</item>
+        <item>Lock screen to portrait</item>
+        <item>Enable dark mode</item>
+        <item>Account Info</item>
+        <item>Terms of Service</item>
+        <item>Privacy Policy</item>
+        <item>Delete Account</item>
         <item>Reduce Motion</item>
     </string-array>
 
-    <string name="account_info_username">Nom utilisateur</string>
-    <string name="account_info_email">Courriel</string>
-    <string name="account_info_phone">Numéro de téléphone</string>
-    <string name="account_info_birthday">Date de naissance</string>
-    <string name="account_info_title">Informations du compte</string>
 
-    <string name="reduce_motion">Reduce Motion</string>
-    <string name="reduce_motion_key">reduce_motion</string>
-    <string name="save">Enregistrer</string>
-    <string name="profile_image_desc">Photo de profil</string>
+    <string name="account_info_username">Username</string>
+    <string name="account_info_email">Email</string>
+    <string name="account_info_phone">Phone Number</string>
+    <string name="account_info_birthday">Birthday</string>
+    <string name="account_info_title">Account Info</string>
+
+
+    <string name="save">Save</string>
+    <string name="profile_image_desc">Profile Picture</string>
     <string name="setting_title">Setting Title</string>
-    <string name="enter_10_digit_phone_number">Entrez un numéro à 10 chiffres</string>
-    <string name="yyyy_mm_dd">AAAA-MM-JJ</string>
-    <string name="clear">Effacer</string>
-    <string name="example_domain_com">exemple@domaine.com</string>
-    <string name="enter_your_full_name">Entrez votre nom complet</string>
+    <string name="enter_10_digit_phone_number">Enter 10-digit phone number</string>
+    <string name="yyyy_mm_dd">YYYY-MM-DD</string>
+    <string name="clear">Clear</string>
+    <string name="example_domain_com">example@domain.com</string>
+    <string name="enter_your_full_name">Enter your full name</string>
 
-    <string name="gallery_permission_denied">Autorisation d accès à la galerie refusée.</string>
-    <string name="name_required">Le nom est requis.</string>
-    <string name="email_required">L adresse e-mail est requise.</string>
-    <string name="invalid_email">Format d &amp; e-mail invalide.</string>
-    <string name="phone_required">Le numéro de téléphone est requis.</string>
-    <string name="phone_invalid">Le numéro de téléphone doit comporter au moins 9 chiffres.</string>
-    <string name="birthday_required">La date de naissance est requise.</string>
-    <string name="details_saved">Détails enregistrés avec succès.</string>
-    <string name="fields_cleared">Champs effacés.</string>
-    <string name="leaderboard">Classement</string>
-    <string name="graph_view">Vue graphique</string>
-    <string name="dashboard_view">Vue du tableau de bord</string>
-    <string name="dashboard">Tableau de bord</string>
-    <string name="oxygen">Oxygène</string>
-    <string name="produced">Produit</string>
-    <string name="aqi_number">Indice AQI</string>
-    <string name="notifcation_sample">Exemple de notification</string>
-    <string name="graph_view_2">Vue graphique</string>
-    <string name="insights">Perspectives</string>
-    <string name="did_you_know">Le saviez-vous ?</string>
-    <string name="test_info">Notre purificateur d’air réduit les émissions de CO2 jusqu’à 20 % en milieu urbain.</string>
-    <string name="about_us">À propos de nous</string>
-    <string name="information_about_us">Informations à notre sujet.</string>
-    <string name="scotia_bank">Banque Scotia</string>
+    <string name="gallery_permission_denied">Gallery access permission denied.</string>
+    <string name="name_required">Name is required</string>
+    <string name="email_required">Email is required</string>
+    <string name="invalid_email">Invalid email format</string>
+    <string name="phone_required">Phone number is required</string>
+    <string name="phone_invalid">Phone must be at least 9 digits</string>
+    <string name="birthday_required">Birthday is required</string>
+    <string name="details_saved">Details saved successfully</string>
+    <string name="fields_cleared">Fields cleared</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="graph_view">Graph View</string>
+    <string name="dashboard_view">Dashboard View</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="oxygen">Oxygen</string>
+    <string name="produced">Produced</string>
+    <string name="aqi_number">AQI Number</string>
+    <string name="notifcation_sample">Notifcation Sample</string>
+    <string name="graph_view_2">Graph View</string>
+    <string name="insights">Insights</string>
+    <string name="did_you_know">Did you know?</string>
+    <string name="test_info">Our air purifier reduces CO2 emissions by up to 20% in urban environments.</string>
+    <string name="about_us">About Us</string>
+    <string name="information_about_us">Information About us.</string>
+    <string name="scotia_bank">Scotia Bank</string>
     <string name="rbc">RBC</string>
     <string name="td">TD</string>
 
     <string-array name="video_titles">
-        <item>Qu’est-ce que le phytoplancton ?</item>
-        <item>Comment le phytoplancton aide à purifier l’air</item>
-        <item>Phytoplancton et climat</item>
+        <item>What are Phytoplankton?</item>
+        <item>How Phytoplankton Helps Clean Air</item>
+        <item>Phytoplankton and the Climate</item>
     </string-array>
-
+    <string name="contact_support_phonenumber" translatable="false">tel: 4371234567</string>
     <string name="action_support">Support</string>
-    <string name="action_share">Partager</string>
-    <string name="action_achievements">Réalisations</string>
+    <string name="action_share">Share</string>
+    <string name="action_achievements">Achievements</string>
     <string name="action_notifications">Notifications</string>
-    <string name="contact_support_phonenumber">tel: 4371234567</string>
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string name="are_you_sure_you_want_to_logout">Êtes-vous sûr de vouloir vous déconnecter ?</string>
-    <string name="email">E-mail</string>
-    <string name="password">Mot de passe</string>
-    <string name="login">Connexion</string>
-    <string name="forgot_password">Mot de passe oublié ?</string>
-    <string name="create_an_account">Créer un compte</string>
-    <string name="remember_me">Se souvenir de moi</string>
-    <string name="lockportrait">verrouillerPortrait</string>
+    <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout?</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="create_an_account">Create an Account</string>
+    <string name="remember_me">Remember me</string>
+    <string name="lockportrait">lockPortrait</string>
     <string name="dark_mode">darkMode</string>
     <string name="empty_string" />
-    <string name="phone_must_be_at_least_9_digits">Le téléphone doit comporter au moins 9 chiffres</string>
+    <string name="phone_must_be_at_least_9_digits">Phone must be at least 9 digits</string>
     <string name="image_forwardslash_asterisk">image/*</string>
-    <string name="username">nom d’utilisateur</string>
-    <string name="email_lowercase">e-mail</string>
-    <string name="phone_lowercase">téléphone</string>
-    <string name="birthday_lowercase">anniversaire</string>
-    <string name="sign_in_with_google">Se connecter avec Google</string>
-    <string name="permission_granted">Autorisation accordée</string>
-    <string name="permission_denied_open_settings_to_allow">Autorisation refusée. Ouvrez les paramètres pour autoriser.</string>
-
+    <string name="username">username</string>
+    <string name="email_lowercase">email</string>
+    <string name="phone_lowercase">phone</string>
+    <string name="birthday_lowercase">birthday</string>
+    <string name="birthdate_format" translatable="false">%04d-%02d-%02d</string>
+    <string name="settings_lowercase" translatable="false">settings</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="permission_granted">Permission granted</string>
+    <string name="permission_denied_open_settings_to_allow">Permission denied. Open Settings to allow.</string>
+    <string name="terms_of_service_text">terms of service text</string>
+    <string name="section_header">Section Header</string>
     <string name="notifications">Notifications</string>
+    <string name="mailto_algaerithms_gmail_com">mailto:algaerithms@gmail.com</string>
+    <string name="support_request">Support Request</string>
     <string name="no_email_app_found">No email app found</string>
     <string name="contact_support_title">Something broken? Reach out to us!</string>
+    <string name="company_email">algaerithms@gmail.com</string>
+    <string name="phone">Phone</string>
+    <string name="company_phonenumber">+1 (437)-123-4567</string>
     <string name="registration">Registration</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="terms_of_service">Terms of Service</string>
+    <string name="content">
+Welcome to PhytoplanktonAirSystems\n
+A smart monitoring app developed by Algaerithms‑Inc. These Terms govern your use of the app and its features.\n\n
+
+1. Eligibility\n
+You must be at least 13 years old to use this app. By accessing the app, you agree to abide by these Terms of Service.\n\n
+
+2. Usage Guidelines\n
+You agree to use the app only for lawful, non-commercial purposes. You must not:\n• Misuse or interfere with the app’s functionality\n• Reverse engineer or attempt to access restricted parts of the system\n\n
+
+3. User Responsibilities\n
+You are responsible for the information you provide, including:\n• Profile details\n• System configuration\n
+Do not:\n• Impersonate others\n• Provide false or misleading information\n\n
+
+4. Ownership\n
+All content, features, branding, and code within the app are the intellectual property of Algaerithms‑Inc. They may not be copied, modified, or reused without express permission.\n\n
+
+5. Termination\n
+We may suspend or restrict your access if these terms are violated. You may delete your account and data anytime using the “Delete Account” option in the app settings.\n\n
+
+6. Modifications\n
+We may update these Terms periodically. Continued use of the app after changes means you accept the updated Terms.\n\n
+
+7. Disclaimer\n
+The app is provided “as is”. We do not guarantee:\n• Uninterrupted performance\n• Data accuracy\n• Absence of minor bugs or limitations
+</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="Message_for_confirrmation">Are you sure you want to delete your account?</string>
+    <string name="this_action_is_permanent_and_cannot_be_undone">This action is permanent and cannot be undone.</string>
+    <string name="delete_my_account">Delete My Account</string>
+
+    <!-- Privacy Policy Fragment -->
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="privacy_policy_content">🔐 Privacy Policy
+
+PhytoplanktonAirSystems values your privacy. This policy describes the types of data we collect, how it\'s used, and how it\'s stored.
+
+1. Information We Collect
+• Profile data: name, birthdate, email, phone number
+• App preferences: dark mode, screen lock, accessibility filters
+• Sensor data: CO₂ levels, light exposure, algae status, water level
+• Diagnostic data: crash logs and usage (if enabled)
+
+2. How We Use Your Data
+• To operate and improve app features
+• To notify you of air system conditions and alerts
+• To retain your personalized settings and usage context
+• To monitor performance and resolve technical issues
+
+3. Data Storage and Processing
+• Data is stored locally on your device using secure Android storage mechanisms
+• Some features use Firebase (by Google) for secure authentication, cloud storage, and diagnostics
+
+4. Data Sharing
+We do not sell or share your personal information with third-party companies. Data stored through Firebase is used strictly for app-related functionality.
+
+5. User Control
+You can manage your profile and preferences within the app. You may delete all stored data using the “Delete Account” feature in Settings.
+
+6. Policy Updates
+We may update this Privacy Policy as needed. All changes will be reflected within the app for your review.
+
+7. Contact
+If you have any privacy-related concerns or inquiries, please contact us at:
+
+</string>
+
+    <!-- Registration - Birthdate -->
+    <string name="birthdate">Birthdate</string>
+    <string name="continue_button">Continue</string>
+
+    <!-- Registration - Email -->
+    <string name="email_address">Email Address</string>
+    <string name="abc_gmail_com">abc@gmail.com</string>
+
+    <!-- Registration - Name -->
+    <string name="display_name">Display Name</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+
+    <!-- Registration - Password -->
+    <string name="password_textView">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="submit">Submit</string>
+
+    <!-- Settings -->
+    <string name="edit_personal_details">Edit Personal Details</string>
+    <string name="app_preferences">App Preferences</string>
+
+    <string name="lock_screen_to_portrait">Lock screen to portrait</string>
+    <string name="Dark_mode">Dark Mode</string>
+    <string name="legal">Legal</string>
+    <string name="Privacy_Policy">Privacy Policy</string>
+    <string name="Terms_of_service">Terms of Service</string>
+    <string name="accessibility">Accessibility</string>
+    <string name="Delete_account">Delete Account</string>
+    <string name="app_ver_1_0">App Version 1.0</string>
+    <!--string name="registration">registration</string-->
+
+    <!-- RegistrationEmailFragment -->
     <string name="email_is_required">Email is required</string>
     <string name="invalid_email_format">Invalid email format</string>
-    <string name="verification_email_sent">Verification email sent</string>
     <string name="failed_to_send_verification_email">Failed to send verification email</string>
-    <string name="registration_failed">"Registration failed: "</string>
+
+    <string name="registration_failed">Registration failed</string>
     <string name="email_verified_you_can_continue">Email verified! You can continue.</string>
-    <string name="email_not_verified_yet_please_check_your_inbox">Email not verified yet. Please check your inbox.</string>
-    <string name="abc_gmail_com">abc@gmail.com</string>
-    <string name="check_verification">Check Verification</string>
-    <string name="continue_button">Continue</string>
-    <string name="last_name">Last Name</string>
-    <string name="first_name">First Name</string>
-    <string name="display_name">Display Name:</string>
-    <string name="birthdate">Birthdate:</string>
-    <string name="select_birthdate">Select birthdate</string>
-    <string name="phone_number_is_required">Phone number is required</string>
-    <string name="invalid_phone_number">Invalid phone number</string>
-    <string name="registration_successful">Registration successful!</string>
+
+    <!-- RegistrationPasswordFragment -->
+    <!--string name="password_must_include_upper_lower_case_and_number_or_special_character">
+        Password must include upper case, lower case, and a number or special character
+    </string-->
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="registration_successful">Registration successful</string>
     <string name="error_saving_user_data">Error saving user data</string>
     <string name="failed_to_update_password">Failed to update password</string>
     <string name="user_not_authenticated">User not authenticated</string>
-    <string name="password_must_include_upper_lower_case_and_number_or_special_character"><![CDATA[Password should be at least 6 characters. It must include upper & lower case, and number or special character]]></string>    <string name="passwords_do_not_match">Passwords do not match</string>
+
+    <!-- RegistrationPhoneFragment -->
+    <string name="phone_number_is_required">Phone number is required</string>
+    <string name="invalid_phone_number">Invalid phone number</string>
+    <string name="password_must_include_upper_lower_case_and_number_or_special_character"><![CDATA[Password should be at least 6 characters. It must include upper & lower case, and number or special character]]></string>
     <string name="email_address_is_already_in_use">email address is already in use</string>
     <string name="this_email_is_already_registered_please_use_a_different_email_or_login">This email is already registered. Please use a different email or login.</string>
-    <string name="password_textView">Password:</string>
-    <string name="confirm_password">Confirm password</string>
-    <string name="submit">Submit</string>
-    <string name="email_address">Email Address:</string>
     <string name="verification_link_check_text">A verification link has been sent. Please check your inbox.</string>
     <string name="ok">OK</string>
     <string name="failed_to_reload_user">Failed to reload user</string>
@@ -179,14 +283,25 @@
     <string name="please_enter_a_valid_email">Please enter a valid email.</string>
     <string name="password_reset_link_sent_to">"Password reset link sent to "</string>
     <string name="failed_to_send_reset_link">"Failed to send reset link: "</string>
-    <string name="update">Update</string>
-    <string name="email_verified">Email verified!</string>
-    <string name="failed_to_update">"Failed to update: "</string>
+
+    <string name="check_verification">Check your verification</string>
+    <string name="email_not_verified_yet_please_check_your_inbox">Email not verified yet. Please check your inbox.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="reduce_motion">Reduce Motion</string>
+    <string name="reduce_motion_key">reduce_motion</string>
+    <string name="select_birthdate">Select your birthdate</string>
+    <string name="verification_email_sent">Verification email sent!</string>
+
+    <string name="email_verified">Email verified</string>
+    <string name="failed_to_update">Failed to update</string>
     <string name="failed_to_load_user_data">Failed to load user data</string>
-    <string name="verification_sent_please_log_out_and_log_back_in_to_update_your_email">Verification sent! Please log out and log back in to update your email.</string>
     <string name="log_out">Log out</string>
-    <string name="failed_to_send_verification">"Failed to send verification: "</string>
+    <string name="verification_sent_please_log_out_and_log_back_in_to_update_your_email">
+    Verification sent, please log out and log back in to update your email
+</string>
+    <string name="failed_to_send_verification">Failed to send verification</string>
     <string name="haki_sharifi">Haki Sharifi</string>
     <string name="first_name_is_required">First name is required</string>
     <string name="last_name_is_required">Last name is required</string>
+
 </resources>
