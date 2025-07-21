@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
-import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentLeaderboardBinding;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.adapter.LeaderboardAdapter;
 
 
 public class LeaderboardFragment extends Fragment {

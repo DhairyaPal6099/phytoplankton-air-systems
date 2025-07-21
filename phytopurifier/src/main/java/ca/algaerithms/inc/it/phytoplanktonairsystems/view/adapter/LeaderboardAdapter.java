@@ -2,7 +2,7 @@
    Dhairya Pal – N01576099
    Sanskriti Mansotra – N01523183
    Dharmik Shah – N01581796 */
-package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.leaderboard;
+package ca.algaerithms.inc.it.phytoplanktonairsystems.view.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.leaderboard.UserStat;
 
 public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.ViewHolder> {
 
