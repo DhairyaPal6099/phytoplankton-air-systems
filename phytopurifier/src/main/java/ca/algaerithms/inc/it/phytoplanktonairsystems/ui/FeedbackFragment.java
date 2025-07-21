@@ -1,10 +1,13 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems.ui;
 
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -14,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
@@ -33,11 +38,16 @@ public class FeedbackFragment extends Fragment {
     private String deviceModel;
     private ProgressBar btnProgress;
 
+    private SharedPreferences prefs;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_feedback, container, false);
+
+        //Shared preferences to store the state of feedback button being gray or clickable
+        prefs = getActivity().getSharedPreferences("FeedbackButtonState", Context.MODE_PRIVATE);
 
         etName = view.findViewById(R.id.etName);
         etPhone = view.findViewById(R.id.etPhone);
@@ -147,6 +157,8 @@ public class FeedbackFragment extends Fragment {
                     showConfirmationDialog();
                     btnProgress.setVisibility(View.GONE);
                     btnSubmit.setText(getString(R.string.submit_feedback));
+                    prefs.edit().putLong("button_disabled_time", System.currentTimeMillis()).apply();
+                    countdownTimer();
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(getContext(), getString(R.string.error) + e.getMessage(), Toast.LENGTH_LONG).show();
@@ -169,5 +181,33 @@ public class FeedbackFragment extends Fragment {
                 .setMessage(R.string.thank_you_for_your_feedback)
                 .setPositiveButton(getString(R.string.ok), null)
                 .show();
+    }
+
+    private void countdownTimer() {
+        TextView countdownText = requireActivity().findViewById(R.id.countdownText);
+
+        long savedTime = prefs.getLong("button_disabled_time", 0);
+        long elapsedTime = System.currentTimeMillis() - savedTime;
+        long remainingMillis = 24 * 60 * 60 * 1000 - elapsedTime;
+        if (remainingMillis > 0) {
+            new CountDownTimer(remainingMillis, 60 * 1000) {
+
+                @Override
+                public void onTick(long l) {
+                    long hours = l / (1000 * 60 * 60);
+                    long minutes = (l / (1000 * 60)) % 60;
+                    countdownText.setText(String.format(Locale.getDefault(), "Available in %02d hrs %02d mins", hours, minutes));
+                }
+
+                @Override
+                public void onFinish() {
+                    btnSubmit.setEnabled(true);
+                    countdownText.setText("");
+                }
+            }.start();
+        } else {
+            btnSubmit.setEnabled(true);
+            countdownText.setText("");
+        }
     }
 }

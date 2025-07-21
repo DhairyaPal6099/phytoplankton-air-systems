@@ -100,7 +100,17 @@
                 android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:visibility="gone" />
+
+
         </FrameLayout>
+
+        <TextView
+            android:id="@+id/countdownText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:layout_gravity="center_horizontal"
+            android:text="" />
 
     </LinearLayout>
 
