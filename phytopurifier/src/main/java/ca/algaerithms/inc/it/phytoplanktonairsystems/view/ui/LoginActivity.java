@@ -33,7 +33,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
@@ -220,11 +222,20 @@ public class LoginActivity extends AppCompatActivity {
                             String email = user.getEmail();
                             String phone = user.getPhoneNumber(); // Often null
 
+                            // Initialize empty lists and int
+                            List<Map<String, Object>> achievements = new ArrayList<>();
+                            List<Map<String, Object>> notifications = new ArrayList<>();
+                            int lifetime_co2_converted = 0;
+
                             // Create user info map
                             Map<String, Object> userMap = new HashMap<>();
                             if (name != null) userMap.put("name", name);
                             if (email != null) userMap.put("email", email);
-                            if (phone != null) userMap.put("phone", phone);
+                            userMap.put("birthdate", "N/A");
+                            userMap.put("phone", phone != null ? phone : "N/A"); //checks if birthday is available in Google account
+                            userMap.put("achievements", achievements);
+                            userMap.put("notifications", notifications);
+                            userMap.put("lifetime_co2_converted", lifetime_co2_converted);
 
                             FirebaseFirestore db = FirebaseFirestore.getInstance();
                             db.collection("users")

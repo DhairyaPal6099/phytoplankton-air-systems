@@ -17,6 +17,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.function.Consumer;
 import java.util.ArrayList;
@@ -28,6 +29,14 @@ import java.util.Map;
 public class AchievementManager {
     private static final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private static AchievementManager instance;
+    private static final List<String> ACHIEVEMENT_PRIORITY = List.of(
+            "Phresh Air Master",
+            "Carbon Catcher",
+            "Phytopurifier Pro",
+            "Fresh Air Fan",
+            "Rejuvenation Rookie"
+    );
+
 
     private AchievementManager() {
     }
@@ -66,9 +75,10 @@ public class AchievementManager {
                     newAchievement.put("message", message);
                     newAchievement.put("timestamp", new Timestamp(new Date()));
 
-                    if (!title.isEmpty() && !message.isEmpty()) {
-                        reference.update("achievements", FieldValue.arrayUnion(newAchievement));
-                    }
+                    achievements.add(newAchievement);
+                    List<Map<String, Object>> sortedAchievements = sortAchievementsByPriority(achievements);
+
+                    reference.set(new HashMap<String, Object>() {{put("achievements", sortedAchievements);}}, SetOptions.merge());
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -78,6 +88,25 @@ public class AchievementManager {
             }
         });
     }
+
+    private List<Map<String, Object>> sortAchievementsByPriority(List<Map<String, Object>> achievements) {
+        achievements.sort((a, b) -> {
+            String titleA = (String) a.get("title");
+            String titleB = (String) b.get("title");
+
+            int indexA = ACHIEVEMENT_PRIORITY.indexOf(titleA);
+            int indexB = ACHIEVEMENT_PRIORITY.indexOf(titleB);
+
+            // If not found in priority list, push to bottom
+            if (indexA == -1) indexA = Integer.MAX_VALUE;
+            if (indexB == -1) indexB = Integer.MAX_VALUE;
+
+            return Integer.compare(indexA, indexB);
+        });
+
+        return achievements;
+    }
+
 
     public void getAllAchievements(Consumer<List<AchievementModel>> callback) {
         String uid = FirebaseAuth.getInstance().getUid();
@@ -117,41 +146,51 @@ public class AchievementManager {
         });
     }
 
-    public  void evaluateCo2Achievements() {
-        Log.d("AchievementManager", "Evaluating CO2 achievements...");
+    public void evaluateCo2Achievements() {
         String uid = FirebaseAuth.getInstance().getUid();
         if (uid == null) return;
 
-        DatabaseReference co2Ref = FirebaseDatabase.getInstance().getReference("device_001/co2_converted");
-
-        co2Ref.addListenerForSingleValueEvent(new ValueEventListener() {
+        DocumentReference reference = firestore.collection("users").document(uid);
+        reference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Long co2Long = snapshot.getValue(Long.class);
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Long co2Long = documentSnapshot.getLong("lifetime_co2_converted");
                 if (co2Long == null) return;
 
                 double co2 = co2Long.doubleValue();
-                if (co2 > 10000) {
-                    checkAndAddAchievement("Phresh Air Master", "Converted over 10,000kg of CO₂!");
-                }
-                if (co2 > 5000) {
-                    checkAndAddAchievement("Carbon Catcher", "Converted over 5,000kg of CO₂!");
-                }
-                if (co2 > 1000) {
-                    checkAndAddAchievement("Phytopurifier Pro", "Converted over 1,000kg of CO₂!");
-                }
-                if (co2 > 250) {
-                    checkAndAddAchievement("Fresh Air Fan", "Converted over 250kg of CO₂!");
-                }
-                if (co2 > 25) {
-                    checkAndAddAchievement("Rejuvenation Rookie", "Converted over 25kg of CO₂!");
-                }
-            }
+                List<AchievementModel> earned = new ArrayList<>();
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("Achievements", "Failed to fetch co2_converted", error.toException());
+                if (co2 > 10000) earned.add(new AchievementModel("Phresh Air Master", "Converted over 10,000kg of CO₂!", new Date()));
+                if (co2 > 5000) earned.add(new AchievementModel("Carbon Catcher", "Converted over 5,000kg of CO₂!", new Date()));
+                if (co2 > 1000) earned.add(new AchievementModel("Phytopurifier Pro", "Converted over 1,000kg of CO₂!", new Date()));
+                if (co2 > 250) earned.add(new AchievementModel("Fresh Air Fan", "Converted over 250kg of CO₂!", new Date()));
+                if (co2 > 25) earned.add(new AchievementModel("Rejuvenation Rookie", "Converted over 25kg of CO₂!", new Date()));
+
+                List<Map<String, Object>> existingAchievements = (List<Map<String, Object>>) documentSnapshot.get("achievements");
+                if (existingAchievements == null) existingAchievements = new ArrayList<>();
+
+                addAchievementsBulk(earned, existingAchievements, reference);
             }
         });
     }
+
+    private void addAchievementsBulk(List<AchievementModel> newAchievements, List<Map<String, Object>> existingAchievements, DocumentReference reference) {
+        for (AchievementModel data : newAchievements) {
+            boolean alreadyHas = existingAchievements.stream()
+                    .anyMatch(a -> data.getTitle().equals(a.get("title")));
+            if (!alreadyHas) {
+                Map<String, Object> map = new HashMap<>();
+                map.put("title", data.getTitle());
+                map.put("message", data.getMessage());
+                map.put("timestamp", new Timestamp(new Date()));
+                existingAchievements.add(map);
+            }
+        }
+
+        List<Map<String, Object>> sortedAchievements = sortAchievementsByPriority(existingAchievements);
+        reference.set(new HashMap<String, Object>() {{ put("achievements", sortedAchievements); }}, SetOptions.merge())
+                .addOnSuccessListener(aVoid -> Log.d("AchievementManager", "Bulk update successful"))
+                .addOnFailureListener(e -> Log.e("AchievementManager", "Bulk update failed: " + e));
+    }
+
 }

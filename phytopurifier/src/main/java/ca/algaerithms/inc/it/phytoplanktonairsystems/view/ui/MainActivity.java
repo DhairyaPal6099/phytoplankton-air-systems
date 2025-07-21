@@ -7,9 +7,6 @@ package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,9 +20,7 @@ import com.google.firebase.FirebaseApp;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.FileProvider;
 import androidx.core.view.GravityCompat;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -38,19 +33,15 @@ import androidx.work.WorkManager;
 
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.widget.Toast;
 import android.widget.TextView;
 
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.Calendar;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.DailyNotificationWorker;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.model.CO2Updater;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.ShareDashboard;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
 
-        SharedPreferences prefs = getSharedPreferences(getString(R.string.settings_lowercase), MODE_PRIVATE);
+        prefs = getSharedPreferences(getString(R.string.settings_lowercase), MODE_PRIVATE);
         if (prefs.getBoolean(getString(R.string.lockportrait), false)) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
@@ -111,6 +102,10 @@ public class MainActivity extends AppCompatActivity {
         //Schedule the daily notification worker
         scheduleDailyNotificationWorker();
 
+        //Co2 sync from RTDB to Firestore periodic work request
+        PeriodicWorkRequest co2SyncRequest = new PeriodicWorkRequest.Builder(CO2Updater.class, 1, TimeUnit.HOURS).build();
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork("CO2SyncWork", ExistingPeriodicWorkPolicy.KEEP, co2SyncRequest);
+
         //Display the AlertDialog
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
@@ -135,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
             actionView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    shareDashboard();
+                    ShareDashboard.prepareAndShareDashboard(MainActivity.this);
                 }
             });
         }
@@ -228,53 +223,6 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    private void shareDashboard() {
-        Fragment navHostFragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_content_main);
-
-        if (navHostFragment == null) {
-            return;
-        }
-
-        List<Fragment> fragments = navHostFragment.getChildFragmentManager().getFragments();
-        if (fragments.isEmpty()) {
-            return;
-        }
-
-        Fragment visibleFragment = fragments.get(0);
-
-        View dashboardView = visibleFragment.getView();
-        if (dashboardView == null) {
-            return;
-        }
-
-        dashboardView.post(() -> {
-            Bitmap bitmap = Bitmap.createBitmap(dashboardView.getWidth(), dashboardView.getHeight(), Bitmap.Config.ARGB_8888);
-            Canvas canvas = new Canvas(bitmap);
-            dashboardView.draw(canvas);
-
-            try {
-                File cachePath = new File(getCacheDir(), "images");
-                cachePath.mkdirs();
-                File file = new File(cachePath, "dashboard_screenshot.png");
-                FileOutputStream stream = new FileOutputStream(file);
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                stream.close();
-
-                Uri contentUri = FileProvider.getUriForFile(this, getPackageName() + ".provider", file);
-                if (contentUri != null) {
-                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                    shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
-                    shareIntent.setType("image/png");
-                    shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                    startActivity(Intent.createChooser(shareIntent, "Share dashboard via"));
-                }
-            } catch (IOException e) {
-                Toast.makeText(this, "Error sharing screenshot", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
-
     private void scheduleDailyNotificationWorker() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 23);
@@ -288,6 +236,7 @@ public class MainActivity extends AppCompatActivity {
                 ? targetTime - currentTime
                 : TimeUnit.DAYS.toMillis(1) - (currentTime - targetTime);
 
+        //Notification periodic work request
         PeriodicWorkRequest dailyRequest =
                 new PeriodicWorkRequest.Builder(DailyNotificationWorker.class, 24, TimeUnit.HOURS)
                         .setInitialDelay(delay, TimeUnit.MILLISECONDS)
