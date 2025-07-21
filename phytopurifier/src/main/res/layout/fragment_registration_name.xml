@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/registrationbg"
     android:id="@+id/registration_name"
-    tools:context=".ui.registration.RegistrationNameFragment">
+    tools:context=".view.ui.registration.RegistrationNameFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

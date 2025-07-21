@@ -2,9 +2,12 @@
 agp = "8.7.3"
 ccp = "2.7.3"
 circleimageview = "3.1.0"
+compiler = "4.16.0"
 coreSplashscreen = "1.0.1"
 credentialsVersion = "1.5.0"
 dotlottieAndroid = "0.5.0"
+firebaseStorage = "21.0.2"
+glide = "4.16.0"
 guava = "33.4.8-android"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -35,6 +38,9 @@ circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circ
 core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
 credentials-v121 = { module = "androidx.credentials:credentials", version.ref = "credentialsVersion" }
 dotlottie-android = { module = "com.github.LottieFiles:dotlottie-android", version.ref = "dotlottieAndroid" }
+firebase-storage = { module = "com.google.firebase:firebase-storage", version.ref = "firebaseStorage" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "compiler" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
