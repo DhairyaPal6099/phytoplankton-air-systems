@@ -270,5 +270,8 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="achievement">Achievement</string>
     <string name="phytoplankton_air_systems">Phytoplankton Air Systems</string>
     <string name="app_logo">App logo</string>
+    <string name="dashboard_2">Dashboard</string>
+    <string name="insights_2">Insights</string>
+    <string name="leaderboard_2">Leaderboard</string>
 
 </resources>

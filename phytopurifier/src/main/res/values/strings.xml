@@ -330,7 +330,10 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="CarbonDioxideConverted">CO₂ Converted: -- g</string>
     <string name="achievement">Achievement</string>
     <string name="phytoplankton_air_systems">Phytoplankton Air Systems</string>
-    <string name="app_logo">App logo</string> <!-- Also fixes the 'update' warning -->
+    <string name="app_logo">App logo</string>
+    <string name="dashboard_2">Dashboard</string>
+    <string name="insights_2">Insights</string>
+    <string name="leaderboard_2">Leaderboard</string> <!-- Also fixes the 'update' warning -->
 
 
 </resources>
