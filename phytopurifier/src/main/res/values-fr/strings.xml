@@ -253,5 +253,22 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="how_would_you_rate_your_experience">How would you rate your experience?</string>
     <string name="first_name_is_required">First name is required</string>
     <string name="last_name_is_required">Last name is required</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="full_name">Full Name</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="email_address_2">Email Address</string>
+    <string name="enter_your_email_2">Enter your email</string>
+    <string name="phone_number_2">Phone Number</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="birthday">Birthday</string>
+    <string name="yyyy_mm_dd_2">YYYY-MM-DD</string>
+    <string name="update_2">Update</string>
+    <string name="skip">Skip</string>
+    <string name="aqi">100 kg O₂</string>
+    <string name="share">Share</string>
+    <string name="CarbonDioxideConverted">CO₂ Converted: -- g</string>
+    <string name="achievement">Achievement</string>
+    <string name="phytoplankton_air_systems">Phytoplankton Air Systems</string>
+    <string name="app_logo">App logo</string>
 
 </resources>
