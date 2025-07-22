@@ -18,7 +18,7 @@
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Share"
+        android:text="@string/share"
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:layout_marginStart="6dp" />

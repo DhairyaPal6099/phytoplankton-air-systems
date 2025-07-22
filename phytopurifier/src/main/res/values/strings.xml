@@ -312,7 +312,28 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="update">Update</string>
     <string name="you_must_be_signed_in_to_submit_feedback">You must be signed in to submit feedback.</string>
     <string name="thank_you_for_your_feedback">Thank you for your feedback!</string>
-    <string name="how_would_you_rate_your_experience">How would you rate your experience?</string> <!-- Also fixes the 'update' warning -->
+    <string name="how_would_you_rate_your_experience">How would you rate your experience?</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="full_name">Full Name</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="email_address_2">Email Address</string>
+    <string name="enter_your_email_2">Enter your email</string>
+    <string name="phone_number_2">Phone Number</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="birthday">Birthday</string>
+    <string name="yyyy_mm_dd_2">YYYY-MM-DD</string>
+    <string name="update_2">Update</string>
+    <string name="skip">Skip</string>
+    <string name="user_name_2">User Name</string>
+    <string name="aqi">100 kg O₂</string>
+    <string name="share">Share</string>
+    <string name="CarbonDioxideConverted">CO₂ Converted: -- g</string>
+    <string name="achievement">Achievement</string>
+    <string name="phytoplankton_air_systems">Phytoplankton Air Systems</string>
+    <string name="app_logo">App logo</string>
+    <string name="dashboard_2">Dashboard</string>
+    <string name="insights_2">Insights</string>
+    <string name="leaderboard_2">Leaderboard</string> <!-- Also fixes the 'update' warning -->
 
 
 </resources>

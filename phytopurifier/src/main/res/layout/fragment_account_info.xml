@@ -34,7 +34,7 @@
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
                         android:src="@drawable/profile"
-                        android:contentDescription="Profile Picture" />
+                        android:contentDescription="@string/profile_picture" />
                 </androidx.cardview.widget.CardView>
             </FrameLayout>
 
@@ -57,7 +57,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Full Name"
+                    android:text="@string/full_name"
                     android:textStyle="bold"
                     android:textColor="#444"
                     android:textSize="14sp"
@@ -72,7 +72,7 @@
                     android:paddingHorizontal="12dp"
                     android:inputType="textPersonName"
                     android:textColor="#000"
-                    android:hint="Enter your name" />
+                    android:hint="@string/enter_your_name" />
             </LinearLayout>
 
             <!-- Email Address -->
@@ -85,7 +85,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Email Address"
+                    android:text="@string/email_address_2"
                     android:textStyle="bold"
                     android:textColor="#444"
                     android:textSize="14sp"
@@ -99,7 +99,7 @@
                     android:backgroundTint="@color/faded_white"
                     android:paddingHorizontal="12dp"
                     android:inputType="textEmailAddress"
-                    android:hint="Enter your email" />
+                    android:hint="@string/enter_your_email_2" />
             </LinearLayout>
 
             <!-- Phone Number -->
@@ -112,7 +112,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Phone Number"
+                    android:text="@string/phone_number_2"
                     android:textStyle="bold"
                     android:textColor="#444"
                     android:textSize="14sp"
@@ -128,7 +128,7 @@
                     android:inputType="phone"
                     android:maxLength="10"
                     android:textColor="#000"
-                    android:hint="Enter phone number" />
+                    android:hint="@string/enter_phone_number" />
             </LinearLayout>
 
             <!-- Birthday -->
@@ -141,7 +141,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Birthday"
+                    android:text="@string/birthday"
                     android:textStyle="bold"
                     android:textColor="#444"
                     android:textSize="14sp"
@@ -158,7 +158,7 @@
                     android:clickable="true"
                     android:inputType="none"
                     android:textColor="#000"
-                    android:hint="YYYY-MM-DD" />
+                    android:hint="@string/yyyy_mm_dd_2" />
             </LinearLayout>
 
             <!-- Update Button -->
@@ -166,7 +166,7 @@
                 android:id="@+id/update_button"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="Update"
+                android:text="@string/update_2"
                 android:textColor="@android:color/white"
                 android:background="@drawable/rounded_corners"
                 android:layout_marginTop="24dp" />

@@ -15,7 +15,7 @@
         android:id="@+id/lifetimeCO2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CO₂ Converted: -- g"
+        android:text="@string/CarbonDioxideConverted"
         android:textColor="#222222"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -25,7 +25,7 @@
         android:id="@+id/highestAchievement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Achievement"
+        android:text="@string/achievement"
         android:textColor="#444444"
         android:textSize="20sp"
         android:textStyle="bold|italic"
@@ -43,7 +43,7 @@
             android:id="@+id/appWatermark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phytoplankton Air Systems"
+            android:text="@string/phytoplankton_air_systems"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/purple_700"
@@ -53,7 +53,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/algaerithms"
-            android:contentDescription="App logo" />
+            android:contentDescription="@string/app_logo" />
     </LinearLayout>
 
 </LinearLayout>
