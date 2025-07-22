@@ -112,166 +112,175 @@
     <string name="permission_denied_open_settings_to_allow">Autorisation refusée. Ouvrez les paramètres pour autoriser.</string>
 
     <string name="notifications">Notifications</string>
-    <string name="no_email_app_found">No email app found</string>
-    <string name="contact_support_title">Something broken? Reach out to us!</string>
-    <string name="registration">Registration</string>
-    <string name="email_is_required">Email is required</string>
-    <string name="invalid_email_format">Invalid email format</string>
-    <string name="verification_email_sent">Verification email sent</string>
-    <string name="failed_to_send_verification_email">Failed to send verification email</string>
-    <string name="registration_failed">"Registration failed: "</string>
-    <string name="email_verified_you_can_continue">Email verified! You can continue.</string>
-    <string name="email_not_verified_yet_please_check_your_inbox">Email not verified yet. Please check your inbox.</string>
+    <string name="no_email_app_found">Aucune application de messagerie trouvée</string>
+    <string name="contact_support_title">Un problème ? Contactez-nous !</string>
+    <string name="registration">Inscription</string>
+    <string name="email_is_required">Le-mail est requis</string>
+    <string name="invalid_email_format">Format de-mail invalide</string>
+    <string name="verification_email_sent">E-mail de vérification envoyé</string>
+    <string name="failed_to_send_verification_email">Échec de lenvoi de le-mail de vérification</string>
+    <string name="registration_failed">"L'inscription a échoue:"</string>
+    <string name="email_verified_you_can_continue">Adresse e-mail vérifiée! Vous pouvez continuer.</string>
+    <string name="email_not_verified_yet_please_check_your_inbox">Adresse e-mail non vérifiée. Veuillez consulter votre boîte de réception.</string>
     <string name="abc_gmail_com">abc@gmail.com</string>
-    <string name="check_verification">Check Verification</string>
-    <string name="continue_button">Continue</string>
-    <string name="last_name">Last Name</string>
-    <string name="first_name">First Name</string>
-    <string name="display_name">Display Name:</string>
-    <string name="birthdate">Birthdate:</string>
-    <string name="select_birthdate">Select birthdate</string>
-    <string name="phone_number_is_required">Phone number is required</string>
-    <string name="invalid_phone_number">Invalid phone number</string>
-    <string name="registration_successful">Registration successful!</string>
-    <string name="error_saving_user_data">Error saving user data</string>
-    <string name="failed_to_update_password">Failed to update password</string>
-    <string name="user_not_authenticated">User not authenticated</string>
-    <string name="password_must_include_upper_lower_case_and_number_or_special_character"><![CDATA[Password must include upper & lower case, and number or special character]]></string>
-    <string name="passwords_do_not_match">Passwords do not match</string>
-    <string name="email_address_is_already_in_use">email address is already in use</string>
-    <string name="this_email_is_already_registered_please_use_a_different_email_or_login">This email is already registered. Please use a different email or login.</string>
-    <string name="password_textView">Password:</string>
-    <string name="confirm_password">Confirm password</string>
-    <string name="submit">Submit</string>
-    <string name="email_address">Email Address:</string>
-    <string name="verification_link_check_text">A verification link has been sent. Please check your inbox.</string>
-    <string name="ok">OK</string>
-    <string name="failed_to_reload_user">Failed to reload user</string>
-    <string name="your_comment">Your Comment</string>
-    <string name="emailv2">Email</string>
-    <string name="phone_number">Phone Number</string>
-    <string name="name">Name</string>
-    <string name="submit_feedback">Submit Feedback</string>
-    <string name="feedback">Feedback</string>
-    <string name="feedbackv2">Feedback</string>
-    <string name="name_is_required">Name is required</string>
-    <string name="enter_a_valid_10_digit_phone_number">Enter a valid 10-digit phone number</string>
-    <string name="invalid_email_address">Invalid email address</string>
-    <string name="comment_is_required">Comment is required</string>
-    <string name="please_select_a_rating">Please select a rating.</string>
-    <string name="feedback_submitted">Feedback submitted!</string>
-    <string name="error">"Error: "</string>
-    <string name="password_is_required">Password is required</string>
-    <string name="invalid_email_or_password">" Invalid email or password"</string>
-    <string name="login_failed_please_try_again">" Login failed. Please try again."</string>
+    <string name="check_verification">Vérifier la vérification</string>
+    <string name="continue_button">Continuer</string>
+    <string name="last_name">Nom de famille</string>
+    <string name="first_name">Prenom</string>
+    <string name="display_name">Nom daffichage:</string>
+    <string name="birthdate">Date de naissance:</string>
+    <string name="select_birthdate">Sélectionnez la date de naissance</string>
+    <string name="phone_number_is_required">Le numéro de téléphone est requis</string>
+    <string name="invalid_phone_number">Le numéro de téléphone est requis</string>
+    <string name="registration_successful">Inscription réussie!</string>
+    <string name="error_saving_user_data">Erreur lors de lenregistrement des données utilisateur</string>
+    <string name="failed_to_update_password">Échec de la mise à jour du mot de passe</string>
+    <string name="user_not_authenticated">Utilisateur non authentifié</string>
+    <string name="password_must_include_upper_lower_case_and_number_or_special_character"><![CDATA[Mot de passe doit contenir des lettres majuscules et minuscules, ainsi qu’un chiffre ou un caractère spécial.]]></string>
+    <string name="passwords_do_not_match">Les mots de passe ne correspondent pas</string>
+    <string name="email_address_is_already_in_use">ladresse e-mail est déjà utilisée</string>
+    <string name="this_email_is_already_registered_please_use_a_different_email_or_login">Cette adresse e-mail est déjà enregistrée. Veuillez utiliser une autre adresse e-mail ou vous connecter.</string>
+    <string name="password_textView">Mot de Passe:</string>
+    <string name="confirm_password">Confirmez le mot de passe</string>
+    <string name="submit">Soumettre</string>
+    <string name="email_address">Adresse email:</string>
+    <string name="verification_link_check_text">Un lien de vérification a été envoyé. Veuillez consulter votre boîte de réception.</string>
+    <string name="ok">OUI</string>
+    <string name="failed_to_reload_user">Échec du rechargement de lutilisateur</string>
+    <string name="your_comment">Votre commentaire</string>
+    <string name="emailv2">Adresse email</string>
+    <string name="phone_number">Numéro de téléphone</string>
+    <string name="name">Nom</string>
+    <string name="submit_feedback">Envoyer des commentaires</string>
+    <string name="feedback">retour</string>
+    <string name="feedbackv2">Retour</string>
+    <string name="name_is_required">Le nom est requis</string>
+    <string name="enter_a_valid_10_digit_phone_number">Entrez un numéro de téléphone valide à 10 chiffres</string>
+    <string name="invalid_email_address">Adresse e-mail invalide</string>
+    <string name="comment_is_required">Un commentaire est requis</string>
+    <string name="please_select_a_rating">Veuillez sélectionner une note.</string>
+    <string name="feedback_submitted">Commentaires soumis!</string>
+    <string name="error">"Erreur: "</string>
+    <string name="password_is_required">Le mot de passe est requis</string>
+    <string name="invalid_email_or_password">" E-mail ou mot de passe invalide"</string>
+    <string name="login_failed_please_try_again">" Échec de la connexion. Veuillez réessayer."</string>
     <string name="web_client_id">861565060606-3gvutn5pq32ru6ucpemb2hputd9195vn.apps.googleusercontent.com</string>
-    <string name="google_sign_in_failed">Google sign-in failed</string>
-    <string name="google_sign_in_cancelled">Google sign-in cancelled</string>
-    <string name="firebase_auth_failed">"Firebase auth failed: "</string>
-    <string name="welcome">"Welcome "</string>
-    <string name="failed_to_save_user_info">"Failed to save user info: "</string>
-    <string name="phone_number_colon">Phone Number:</string>
+    <string name="google_sign_in_failed">Échec de la connexion à Google</string>
+    <string name="google_sign_in_cancelled">Connexion Google annulée</string>
+    <string name="firebase_auth_failed">"Échec de l'authentification Firebase:"</string>
+    <string name="welcome">"Bienvenue "</string>
+    <string name="failed_to_save_user_info">"Échec de l'enregistrement des informations utilisateur:"</string>
+    <string name="phone_number_colon">Numéro de téléphone:</string>
     <string name="phoneNumber_hint">(XXX) XXX-XXXX</string>
-    <string name="enter_your_email">Enter your email</string>
-    <string name="enter_your_registered_email_to_receive_a_reset_link">Enter your registered email to receive a reset link.</string>
-    <string name="send">Send</string>
-    <string name="email_cannot_be_empty">Email cannot be empty.</string>
-    <string name="cancel">Cancel</string>
-    <string name="please_enter_a_valid_email">Please enter a valid email.</string>
-    <string name="password_reset_link_sent_to">"Password reset link sent to "</string>
-    <string name="failed_to_send_reset_link">"Failed to send reset link: "</string>
-    <string name="update">Update</string>
-    <string name="email_verified">Email verified!</string>
-    <string name="failed_to_update">"Failed to update: "</string>
-    <string name="failed_to_load_user_data">Failed to load user data</string>
-    <string name="verification_sent_please_log_out_and_log_back_in_to_update_your_email">Verification sent! Please log out and log back in to update your email.</string>
-    <string name="log_out">Log out</string>
-    <string name="failed_to_send_verification">"Failed to send verification: "</string>
+    <string name="enter_your_email">Entrez votre email</string>
+    <string name="enter_your_registered_email_to_receive_a_reset_link">Entrez votre email enregistré pour recevoir un lien de réinitialisation.</string>
+    <string name="send">envoyer</string>
+    <string name="email_cannot_be_empty">Le-mail ne peut pas être vide.</string>
+    <string name="cancel">Annuler</string>
+    <string name="please_enter_a_valid_email">Veuillez entrer une adresse email valide.</string>
+    <string name="password_reset_link_sent_to">"Lien de réinitialisation du mot de passe envoyé à"</string>
+    <string name="failed_to_send_reset_link">"Échec de l'envoi du lien de réinitialisation: "</string>
+    <string name="update">Mise à jour</string>
+    <string name="email_verified">E-mail vérifié!</string>
+    <string name="failed_to_update">"Échec de la mise à jour:"</string>
+    <string name="failed_to_load_user_data">Échec du chargement des données utilisateur</string>
+    <string name="verification_sent_please_log_out_and_log_back_in_to_update_your_email">Vérification envoyée! Veuillez vous déconnecter et vous reconnecter pour mettre à jour votre adresse e-mail.</string>
+    <string name="log_out">Se déconnecter</string>
+    <string name="failed_to_send_verification">"Échec de l'envoi de la vérification :"</string>
     <string name="haki_sharifi">Haki Sharifi</string>
-    <string name="team_member_avatar">Team member avatar</string>
-    <string name="team_member_name">Name</string>
-    <string name="team_member_role">Role</string>
-    <string name="Bio">Bio</string> <!-- Note: B should match the casing exactly as used -->
-    <string name="linkedin_profile">LinkedIn profile</string>
-    <string name="github_profile">GitHub profile</string>
-    <string name="edit_personal_details">Edit Personal Details</string>
-    <string name="app_preferences">App Preferences</string>
+    <string name="team_member_avatar">Avatar du membre de léquipe</string>
+    <string name="team_member_name">Nom</string>
+    <string name="team_member_role">Rôle</string>
+    <string name="Bio">Biographie</string> <!-- Note: B should match the casing exactly as used -->
+    <string name="linkedin_profile">Profil LinkedIn</string>
+    <string name="github_profile">Profil GitHub</string>
+    <string name="edit_personal_details">Modifier les détails personnels</string>
+    <string name="app_preferences">Préférences de lapplication</string>
 
-    <string name="lock_screen_to_portrait">Lock screen to portrait</string>
-    <string name="Dark_mode">Dark Mode</string>
-    <string name="legal">Legal</string>
-    <string name="Privacy_Policy">Privacy Policy</string>
-    <string name="Terms_of_service">Terms of Service</string>
-    <string name="accessibility">Accessibility</string>
-    <string name="Delete_account">Delete Account</string>
-    <string name="app_ver_1_0">App Version 1.0</string>
-    <string name="delete_account">Delete Account</string>
-    <string name="Message_for_confirrmation">Are you sure you want to delete your account?</string>
-    <string name="this_action_is_permanent_and_cannot_be_undone">This action is permanent and cannot be undone.</string>
-    <string name="delete_my_account">Delete My Account</string>
+    <string name="lock_screen_to_portrait">Verrouiller lécran en mode portrait</string>
+    <string name="Dark_mode">Mode sombre</string>
+    <string name="legal">légal</string>
+    <string name="Privacy_Policy">Politique de confidentialité</string>
+    <string name="Terms_of_service">Conditions dutilisation</string>
+    <string name="accessibility">Accessibilité</string>
+    <string name="Delete_account">Supprimer le compte</string>
+    <string name="app_ver_1_0">Version de lapplication 1.0</string>
+    <string name="delete_account">Supprimer le compte</string>
+    <string name="Message_for_confirrmation">Êtes-vous sûr de vouloir supprimer votre compte ?</string>
+    <string name="this_action_is_permanent_and_cannot_be_undone">Cette action est permanente et ne peut pas être annulée.</string>
+    <string name="delete_my_account">Supprimer mon compte</string>
 
     <!-- Privacy Policy Fragment -->
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="privacy_policy_content">🔐 Privacy Policy</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="privacy_policy_content">🔐 Politique de confidentialité</string>
 
-    <string name="terms_of_service">Terms of Service</string>
+    <string name="terms_of_service">Conditions dutilisation</string>
     <string name="content">
-Welcome to PhytoplanktonAirSystems\n
-A smart monitoring app developed by Algaerithms‑Inc. These Terms govern your use of the app and its features.\n\n
+Bienvenue sur PhytoplanktonAirSystems
+Une application de surveillance intelligente développée par Algaerithms‑Inc. Ces Conditions régissent votre utilisation de l’application et de ses fonctionnalités.
 
-1. Eligibility\n
-You must be at least 13 years old to use this app. By accessing the app, you agree to abide by these Terms of Service.\n\n
+1. Admissibilité
+Vous devez avoir au moins 13 ans pour utiliser cette application. En accédant à l’application, vous acceptez de respecter ces Conditions d’utilisation.
 
-2. Usage Guidelines\n
-You agree to use the app only for lawful, non-commercial purposes. You must not:\n• Misuse or interfere with the app’s functionality\n• Reverse engineer or attempt to access restricted parts of the system\n\n
+2. Règles d’utilisation
+Vous acceptez d’utiliser l’application uniquement à des fins légales et non commerciales. Il est interdit de :
+• Détourner ou perturber le bon fonctionnement de l’application
+• Faire de l’ingénierie inverse ou tenter d’accéder à des parties restreintes du système
 
-3. User Responsibilities\n
-You are responsible for the information you provide, including:\n• Profile details\n• System configuration\n
-Do not:\n• Impersonate others\n• Provide false or misleading information\n\n
+3. Responsabilités de l’utilisateur
+Vous êtes responsable des informations que vous fournissez, notamment:
+• Les détails de votre profil
+• La configuration du système
+Il est interdit de:
+• Usurper l’identité d’autrui
+• Fournir des informations fausses ou trompeuses
 
-4. Ownership\n
-All content, features, branding, and code within the app are the intellectual property of Algaerithms‑Inc. They may not be copied, modified, or reused without express permission.\n\n
+4. Propriété
+Tout le contenu, les fonctionnalités, l’image de marque et le code de l’application sont la propriété intellectuelle d’Algaerithms‑Inc. Ils ne peuvent être copiés, modifiés ou réutilisés sans autorisation expresse.
 
-5. Termination\n
-We may suspend or restrict your access if these terms are violated. You may delete your account and data anytime using the “Delete Account” option in the app settings.\n\n
+5. Résiliation
+Nous pouvons suspendre ou restreindre votre accès en cas de violation de ces conditions. Vous pouvez supprimer votre compte et vos données à tout moment via l’option « Supprimer le compte » dans les paramètres de l’application.
 
-6. Modifications\n
-We may update these Terms periodically. Continued use of the app after changes means you accept the updated Terms.\n\n
+6. Modifications
+Nous pouvons mettre à jour ces Conditions périodiquement. Le fait de continuer à utiliser l’application après des modifications signifie que vous acceptez les Conditions mises à jour.
 
-7. Disclaimer\n
-The app is provided “as is”. We do not guarantee:\n• Uninterrupted performance\n• Data accuracy\n• Absence of minor bugs or limitations
+7. Avertissement
+L’application est fournie «telle quelle». Nous ne garantissons pas:
+• Un fonctionnement ininterrompu
+• L’exactitude des données
+• L’absence de bugs mineurs ou de limitations
 </string>
     <string name="company_email">algaerithms@gmail.com</string>
-    <string name="phone">Phone</string>
+    <string name="phone">Téléphone</string>
     <string name="company_phonenumber">+1 (437)–123–4567</string>
-    <string name="mailto_algaerithms_gmail_com">mailto:algaerithms@gmail.com</string>
-    <string name="support_request">Support Request</string>
-    <string name="terms_of_service_text">terms of service text</string>
-    <string name="section_header">Section Header</string>
-    <string name="you_must_be_signed_in_to_submit_feedback">You must be signed in to submit feedback.</string>
-    <string name="thank_you_for_your_feedback">Thank you for your feedback!</string>
-    <string name="how_would_you_rate_your_experience">How would you rate your experience?</string>
-    <string name="first_name_is_required">First name is required</string>
-    <string name="last_name_is_required">Last name is required</string>
-    <string name="profile_picture">Profile Picture</string>
-    <string name="full_name">Full Name</string>
-    <string name="enter_your_name">Enter your name</string>
-    <string name="email_address_2">Email Address</string>
-    <string name="enter_your_email_2">Enter your email</string>
-    <string name="phone_number_2">Phone Number</string>
-    <string name="enter_phone_number">Enter phone number</string>
-    <string name="birthday">Birthday</string>
+    <string name="mailto_algaerithms_gmail_com">mail à:algaerithms@gmail.com</string>
+    <string name="support_request">Demande dassistance</string>
+    <string name="terms_of_service_text">texte des conditions dutilisation</string>
+    <string name="section_header">En-tête de section</string>
+    <string name="you_must_be_signed_in_to_submit_feedback">Vous devez être connecté pour soumettre vos commentaires.</string>
+    <string name="thank_you_for_your_feedback">Merci pour votre retour !</string>
+    <string name="how_would_you_rate_your_experience">Comment évalueriez-vous votre expérience ?</string>
+    <string name="first_name_is_required">Le prénom est obligatoire</string>
+    <string name="last_name_is_required">Le nom de famille est obligatoire</string>
+    <string name="profile_picture">Photo de profil</string>
+    <string name="full_name">Nom et prénom</string>
+    <string name="enter_your_name">Entrez votre nom</string>
+    <string name="email_address_2">Adresse email</string>
+    <string name="enter_your_email_2">Entrez votre email</string>
+    <string name="phone_number_2">Numéro de téléphone</string>
+    <string name="enter_phone_number">Entrez le numéro de téléphone</string>
+    <string name="birthday">Anniversaire</string>
     <string name="yyyy_mm_dd_2">YYYY-MM-DD</string>
-    <string name="update_2">Update</string>
-    <string name="skip">Skip</string>
+    <string name="update_2">Mise à jour</string>
+    <string name="skip">Sauter</string>
     <string name="aqi">100 kg O₂</string>
-    <string name="share">Share</string>
-    <string name="CarbonDioxideConverted">CO₂ Converted: -- g</string>
-    <string name="achievement">Achievement</string>
-    <string name="phytoplankton_air_systems">Phytoplankton Air Systems</string>
-    <string name="app_logo">App logo</string>
-    <string name="dashboard_2">Dashboard</string>
-    <string name="insights_2">Insights</string>
-    <string name="leaderboard_2">Leaderboard</string>
+    <string name="share">Partager</string>
+    <string name="CarbonDioxideConverted">CO₂ Convertie: -- g</string>
+    <string name="achievement">Réalisation</string>
+    <string name="phytoplankton_air_systems">Systèmes dAir Phytoplancton</string>
+    <string name="app_logo">Logo de lapplication</string>
+    <string name="dashboard_2">Tableau de bord</string>
+    <string name="insights_2">Connaissances</string>
+    <string name="leaderboard_2">Classement</string>
 
 </resources>
