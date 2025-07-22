@@ -121,8 +121,8 @@ public class MainActivity extends AppCompatActivity {
         scheduleDailyNotificationWorker();
 
         //  TEMP: Trigger manually
-        //WorkManager.getInstance(this)
-                //.enqueue(new OneTimeWorkRequest.Builder(DailyNotificationWorker.class).build());
+        WorkManager.getInstance(this)
+                .enqueue(new OneTimeWorkRequest.Builder(DailyNotificationWorker.class).build());
 
         // ↩️ Display the AlertDialog on back
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
