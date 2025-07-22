@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,7 +19,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.NotificationAdapter;
@@ -54,7 +54,6 @@ public class NotificationsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_notifications, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.notificationsRecyclerView);
@@ -62,36 +61,29 @@ public class NotificationsFragment extends Fragment {
         adapter = new NotificationAdapter(notificationModelList);
         recyclerView.setAdapter(adapter);
 
-        // === TEMP: Add dummy notifications for local testing ===
-        //List<NotificationModel> dummyList = new ArrayList<>();
-
-        //long now = System.currentTimeMillis();
-       // dummyList.add(new NotificationModel("EOD Stat", "Algae level: Healthy", new Date(now - 3600_000))); // 1 hour ago
-       // dummyList.add(new NotificationModel("Water Alert", "Water level is low", new Date(now - 7200_000))); // 2 hours ago
-       // dummyList.add(new NotificationModel("Critical Alert", "Algae oxygen production dropping", new Date(now - 10_000))); // just now
-
-        //adapter.updateList(dummyList);
-
-
+        // Fetch notifications from Firebase and populate RecyclerView
         NotificationManagerPhytopurifier.getInstance(requireContext()).getAllNotifications(fetchedList -> {
-            adapter.updateList(fetchedList);
+            notificationModelList.clear();
+            notificationModelList.addAll(fetchedList);
+            adapter.notifyDataSetChanged();
         });
 
         Button clearButton = view.findViewById(R.id.clearAllButton);
         clearButton.setOnClickListener(v -> {
-            // 1. Clear from the local list
-            notificationModelList.clear();
-            adapter.notifyDataSetChanged();
+            NotificationManagerPhytopurifier.getInstance(requireContext()).clearAllNotifications(success -> {
+                if (success) {
+                    notificationModelList.clear();
+                    adapter.notifyDataSetChanged();
 
-            // 2. Clear system notifications (optional)
-            androidx.core.app.NotificationManagerCompat manager = androidx.core.app.NotificationManagerCompat.from(requireContext());
-            manager.cancelAll();
-
-            // 3. Feedback
-            Toast.makeText(getContext(), "Notifications cleared", Toast.LENGTH_SHORT).show();
+                    NotificationManagerCompat.from(requireContext()).cancelAll();
+                    Toast.makeText(getContext(), "All notifications cleared!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "Failed to clear notifications", Toast.LENGTH_SHORT).show();
+                }
+            });
         });
 
-
+        // Check runtime permission for Android 13+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.POST_NOTIFICATIONS)
                     != PackageManager.PERMISSION_GRANTED) {

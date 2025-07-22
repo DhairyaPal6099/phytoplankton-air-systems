@@ -11,7 +11,6 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
@@ -41,7 +40,6 @@ public class NotificationManagerPhytopurifier {
         return instance;
     }
 
-    // 🔹 Fetch all notifications for RecyclerView
     public void getAllNotifications(Consumer<List<NotificationModel>> callback) {
         String uid = FirebaseAuth.getInstance().getUid();
         if (uid == null) return;
@@ -56,7 +54,6 @@ public class NotificationManagerPhytopurifier {
                             String title = (String) notif.get("title");
                             String message = (String) notif.get("message");
                             Timestamp timestamp = (Timestamp) notif.get("timestamp");
-                            // String type = (String) notif.get("type"); // You can use this later
                             if (title != null && message != null && timestamp != null) {
                                 result.add(new NotificationModel(title, message, timestamp.toDate()));
                             }
@@ -68,7 +65,6 @@ public class NotificationManagerPhytopurifier {
                 .addOnFailureListener(e -> Log.e("NotificationManagerPhytopurifier", "Fetch failed: " + e.getMessage()));
     }
 
-    // 🔹 Send a general-purpose notification (used for future types too)
     public void sendNotification(String title, String message, String type) {
         String uid = FirebaseAuth.getInstance().getUid();
         if (uid == null || title.isEmpty() || message.isEmpty()) return;
@@ -90,19 +86,17 @@ public class NotificationManagerPhytopurifier {
         showSystemNotification(title, message);
     }
 
-    // 🔹 Show a system notification on the user's device
     private void showSystemNotification(String title, String message) {
-        // 🔐 Check runtime permission for Android 13+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (context.checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)
                     != android.content.pm.PackageManager.PERMISSION_GRANTED) {
                 Log.w("NotificationManagerPhytopurifier", "POST_NOTIFICATIONS permission not granted.");
-                return; // Skip showing notification if not permitted
+                return;
             }
         }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
-                .setSmallIcon(android.R.drawable.ic_dialog_info) // Use your icon
+                .setSmallIcon(android.R.drawable.ic_dialog_info)
                 .setContentTitle(title)
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
@@ -112,7 +106,6 @@ public class NotificationManagerPhytopurifier {
                 .notify((int) System.currentTimeMillis(), builder.build());
     }
 
-    // 🔹 Send EOD notification with algae health status
     public void sendEndOfDayAlgaeStatus(double algaeHealth, double turbidity) {
         String uid = FirebaseAuth.getInstance().getUid();
         if (uid == null) return;
@@ -145,7 +138,26 @@ public class NotificationManagerPhytopurifier {
         showSystemNotification("Daily algae status", statusMessage);
     }
 
-    // 🔹 Create the required notification channel
+    // 🔴 NEW: Clear all notifications from Firebase
+    public void clearAllNotifications(Consumer<Boolean> callback) {
+        String uid = FirebaseAuth.getInstance().getUid();
+        if (uid == null) {
+            callback.accept(false);
+            return;
+        }
+
+        Map<String, Object> clearMap = new HashMap<>();
+        clearMap.put("notifications", new ArrayList<>()); // Empty list
+
+        firestore.collection("users").document(uid)
+                .update(clearMap)
+                .addOnSuccessListener(unused -> callback.accept(true))
+                .addOnFailureListener(e -> {
+                    Log.e("NotificationManagerPhytopurifier", "Failed to clear notifications", e);
+                    callback.accept(false);
+                });
+    }
+
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
