@@ -1,3 +1,4 @@
+
 package ca.algaerithms.inc.it.phytoplanktonairsystems;
 
 import android.app.NotificationChannel;
@@ -106,39 +107,6 @@ public class NotificationManagerPhytopurifier {
                 .notify((int) System.currentTimeMillis(), builder.build());
     }
 
-    public void sendEndOfDayAlgaeStatus(double algaeHealth, double turbidity) {
-        String uid = FirebaseAuth.getInstance().getUid();
-        if (uid == null) return;
-
-        String statusMessage;
-
-        if (algaeHealth >= 85.0 && turbidity <= 150.0) {
-            statusMessage = "Your algae is thriving today! Keep it up. 🌱";
-        } else if (algaeHealth >= 60.0) {
-            statusMessage = "Your algae is doing okay, but could use some attention.";
-        } else {
-            statusMessage = "Your algae's condition is deteriorating. Please check light and water levels!";
-        }
-
-        Map<String, Object> notification = new HashMap<>();
-        notification.put("title", "Daily Algae Status 🌿");
-        notification.put("message", statusMessage);
-        notification.put("timestamp", new Timestamp(new Date()));
-        notification.put("type", "EOD");
-
-        Map<String, Object> updateMap = new HashMap<>();
-        updateMap.put("notifications", FieldValue.arrayUnion(notification));
-
-        firestore.collection("users")
-                .document(uid)
-                .set(updateMap, SetOptions.merge())
-                .addOnSuccessListener(aVoid -> Log.d("NotificationManagerPhytopurifier", "End-of-day algae status added"))
-                .addOnFailureListener(e -> Log.e("NotificationManagerPhytopurifier", "Failed to add notification", e));
-
-        showSystemNotification("Daily algae status", statusMessage);
-    }
-
-    // 🔴 NEW: Clear all notifications from Firebase
     public void clearAllNotifications(Consumer<Boolean> callback) {
         String uid = FirebaseAuth.getInstance().getUid();
         if (uid == null) {
@@ -147,7 +115,7 @@ public class NotificationManagerPhytopurifier {
         }
 
         Map<String, Object> clearMap = new HashMap<>();
-        clearMap.put("notifications", new ArrayList<>()); // Empty list
+        clearMap.put("notifications", new ArrayList<>());
 
         firestore.collection("users").document(uid)
                 .update(clearMap)

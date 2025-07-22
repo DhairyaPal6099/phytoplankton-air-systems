@@ -1,3 +1,4 @@
+
 package ca.algaerithms.inc.it.phytoplanktonairsystems;
 
 import android.content.Context;
@@ -57,7 +58,15 @@ public class DailyNotificationWorker extends ListenableWorker {
                         }
 
                         // 🌿 EOD Status - Always sent
-                        notifier.sendEndOfDayAlgaeStatus(data.getAlgaeHealth(), data.getTurbidity());
+                        notifier.sendNotification(
+                                "Daily Algae Status 🌿",
+                                (data.getAlgaeHealth() >= 85.0 && data.getTurbidity() <= 150.0)
+                                        ? "Your algae is thriving today! Keep it up. 🌱"
+                                        : (data.getAlgaeHealth() >= 60.0)
+                                        ? "Your algae is doing okay, but could use some attention."
+                                        : "Your algae's condition is deteriorating. Please check light and water levels!",
+                                "EOD"
+                        );
 
                         // 📊 Weekly Stats (only on Sundays)
                         Calendar cal = Calendar.getInstance();
