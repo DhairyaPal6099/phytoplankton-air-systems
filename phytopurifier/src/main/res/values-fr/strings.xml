@@ -265,5 +265,6 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="reauthentication_failed">Reauthentication failed</string>
     <string name="account_deleted">Account deleted</string>
     <string name="failed_to_delete_account">Failed to delete account</string>
+    <string name="failed_to_load_user_info">Failed to load user info.</string>
 
 </resources>

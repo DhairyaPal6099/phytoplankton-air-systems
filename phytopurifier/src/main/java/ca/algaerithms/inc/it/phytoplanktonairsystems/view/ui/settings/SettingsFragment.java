@@ -41,6 +41,7 @@ public class SettingsFragment extends Fragment {
         String uid = auth.getCurrentUser().getUid();
 
         TextView usernameTextView = view.findViewById(R.id.usernameTextView);
+        TextView emailTextView = view.findViewById(R.id.emailTextView);
 
         SharedPreferences prefs = requireContext().getSharedPreferences(getString(R.string.settings_lowercase), Context.MODE_PRIVATE);
 
@@ -48,14 +49,20 @@ public class SettingsFragment extends Fragment {
         db.collection("users").document(uid).get()
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists()) {
-                        String username = documentSnapshot.getString("name"); // Adjust field name if different
+                        String username = documentSnapshot.getString("name"); // or "username"
+                        String email = documentSnapshot.getString("email");
+
                         if (username != null && !username.isEmpty()) {
                             usernameTextView.setText(username);
+                        }
+
+                        if (email != null && !email.isEmpty()) {
+                            emailTextView.setText(email);
                         }
                     }
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(getContext(), "Failed to load user info.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.failed_to_load_user_info, Toast.LENGTH_SHORT).show();
                 });
 
         // Lock screen to portrait
