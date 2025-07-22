@@ -16,7 +16,7 @@ public class SensorData {
 
     private double co2_converted;
     private double algaeHealth;
-    private long timestamp;
+    private String timestamp;
 
     // No-arg constructor required for Firebase
     public SensorData() {}
@@ -73,15 +73,14 @@ public class SensorData {
         this.algaeHealth = algaeHealth;
     }
 
-    public long getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(long timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 
-    // TODO: Implement algae health calculation based on sensor values
     public double getAlgaeHealth() {
         // Placeholder logic
         return turbidity > 0 ? Math.min(100, turbidity * 1.0) : 0;
