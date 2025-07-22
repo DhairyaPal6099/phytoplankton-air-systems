@@ -326,6 +326,26 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="account_deleted">Account deleted</string>
     <string name="failed_to_delete_account">Failed to delete account</string>
     <string name="failed_to_load_user_info">Failed to load user info.</string> <!-- Also fixes the 'update' warning -->
+    <string name="profile_picture">Profile Picture</string>
+    <string name="full_name">Full Name</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="email_address_2">Email Address</string>
+    <string name="enter_your_email_2">Enter your email</string>
+    <string name="phone_number_2">Phone Number</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="birthday">Birthday</string>
+    <string name="yyyy_mm_dd_2">YYYY-MM-DD</string>
+    <string name="update_2">Update</string>
+    <string name="skip">Skip</string>
+    <string name="aqi">100 kg O₂</string>
+    <string name="share">Share</string>
+    <string name="CarbonDioxideConverted">CO₂ Converted: -- g</string>
+    <string name="achievement">Achievement</string>
+    <string name="phytoplankton_air_systems">Phytoplankton Air Systems</string>
+    <string name="app_logo">App logo</string>
+    <string name="dashboard_2">Dashboard</string>
+    <string name="insights_2">Insights</string>
+    <string name="leaderboard_2">Leaderboard</string> <!-- Also fixes the 'update' warning -->
 
 
 </resources>
