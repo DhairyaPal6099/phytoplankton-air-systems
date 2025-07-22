@@ -20,6 +20,9 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentSettingsBinding;
 
@@ -33,7 +36,27 @@ public class SettingsFragment extends Fragment {
         binding = FragmentSettingsBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        String uid = auth.getCurrentUser().getUid();
+
+        TextView usernameTextView = view.findViewById(R.id.usernameTextView);
+
         SharedPreferences prefs = requireContext().getSharedPreferences(getString(R.string.settings_lowercase), Context.MODE_PRIVATE);
+
+        // Fetch user document from Firestore
+        db.collection("users").document(uid).get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        String username = documentSnapshot.getString("name"); // Adjust field name if different
+                        if (username != null && !username.isEmpty()) {
+                            usernameTextView.setText(username);
+                        }
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(getContext(), "Failed to load user info.", Toast.LENGTH_SHORT).show();
+                });
 
         // Lock screen to portrait
         Switch lockScreenSwitch = view.findViewById(R.id.lockScreenModeSwitch);
