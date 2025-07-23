@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        //  TEMP: Trigger manually
+        //  Trigger manually
        // WorkManager.getInstance(this)
                // .enqueue(new OneTimeWorkRequest.Builder(DailyNotificationWorker.class).build());
 
@@ -265,9 +265,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void scheduleDailyNotificationWorker() {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 7);
-        calendar.set(Calendar.MINUTE, 29);
-        calendar.set(Calendar.SECOND, 50);
+        calendar.set(Calendar.HOUR_OF_DAY, 22);
+        calendar.set(Calendar.MINUTE, 00);
+        calendar.set(Calendar.SECOND, 00);
 
         long currentTime = System.currentTimeMillis();
         long targetTime = calendar.getTimeInMillis();
@@ -276,7 +276,7 @@ public class MainActivity extends AppCompatActivity {
                 ? targetTime - currentTime
                 : TimeUnit.DAYS.toMillis(1) - (currentTime - targetTime);
 
-        // 🔁 Pass weekly_only = true
+        //  Pass weekly_only = true
         Data inputData = new Data.Builder()
                 .putBoolean("weekly_only", true)
                 .build();
@@ -296,7 +296,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    // 🔁 Handle permission result
+    //  Handle permission result
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
