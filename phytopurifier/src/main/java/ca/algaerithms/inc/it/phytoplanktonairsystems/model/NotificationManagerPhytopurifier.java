@@ -4,7 +4,6 @@
    Dharmik Shah – N01581796 */
 
 package ca.algaerithms.inc.it.phytoplanktonairsystems.model;
-
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -16,9 +15,9 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -70,23 +69,38 @@ public class NotificationManagerPhytopurifier {
                 .addOnFailureListener(e -> Log.e("NotificationManagerPhytopurifier", "Fetch failed: " + e.getMessage()));
     }
 
-    public void sendNotification(String title, String message) {
+    public void sendNotification(String title, String message, String type) {
         String uid = FirebaseAuth.getInstance().getUid();
         if (uid == null || title.isEmpty() || message.isEmpty()) return;
-
-        DocumentReference userRef = firestore.collection("users").document(uid);
 
         Map<String, Object> newNotif = new HashMap<>();
         newNotif.put("title", title);
         newNotif.put("message", message);
         newNotif.put("timestamp", new Timestamp(new Date()));
+        newNotif.put("type", type);
 
-        userRef.update("notifications", FieldValue.arrayUnion(newNotif))
+        Map<String, Object> updateMap = new HashMap<>();
+        updateMap.put("notifications", FieldValue.arrayUnion(newNotif));
+
+        firestore.collection("users")
+                .document(uid)
+                .set(updateMap, SetOptions.merge())
                 .addOnFailureListener(e -> Log.e("NotificationManagerPhytopurifier", "Send failed: " + e.getMessage()));
+
+        showSystemNotification(title, message);
     }
 
     private void showSystemNotification(String title, String message) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (context.checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)
+                    != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                Log.w("NotificationManagerPhytopurifier", "POST_NOTIFICATIONS permission not granted.");
+                return;
+            }
+        }
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
+                .setSmallIcon(android.R.drawable.ic_dialog_info)
                 .setContentTitle(title)
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
@@ -96,33 +110,23 @@ public class NotificationManagerPhytopurifier {
                 .notify((int) System.currentTimeMillis(), builder.build());
     }
 
-    public void sendEndOfDayAlgaeStatus(double algaeHealth, double turbidity) {
+    public void clearAllNotifications(Consumer<Boolean> callback) {
         String uid = FirebaseAuth.getInstance().getUid();
-        if (uid == null) return;
-
-        String statusMessage;
-
-        if (algaeHealth >= 85.0 && turbidity <= 150.0) {
-            statusMessage = "Your algae is thriving today! Keep it up. 🌱";
-        } else if (algaeHealth >= 60.0) {
-            statusMessage = "Your algae is doing okay, but could use some attention.";
-        } else {
-            statusMessage = "Your algae's condition is deteriorating. Please check light and water levels!";
+        if (uid == null) {
+            callback.accept(false);
+            return;
         }
 
-        Map<String, Object> notification = new HashMap<>();
-        notification.put("title", "Daily Algae Status 🌿");
-        notification.put("message", statusMessage);
-        notification.put("timestamp", new Timestamp(new Date()));
+        Map<String, Object> clearMap = new HashMap<>();
+        clearMap.put("notifications", new ArrayList<>());
 
-        FirebaseFirestore.getInstance()
-                .collection("users")
-                .document(uid)
-                .update("notifications", FieldValue.arrayUnion(notification))
-                .addOnSuccessListener(aVoid -> Log.d("NotificationManagerPhytopurifier", "End-of-day algae status added"))
-                .addOnFailureListener(e -> Log.e("NotificationManagerPhytopurifier", "Failed to add notification", e));
-
-        showSystemNotification("Daily algae status", statusMessage);
+        firestore.collection("users").document(uid)
+                .update(clearMap)
+                .addOnSuccessListener(unused -> callback.accept(true))
+                .addOnFailureListener(e -> {
+                    Log.e("NotificationManagerPhytopurifier", "Failed to clear notifications", e);
+                    callback.accept(false);
+                });
     }
 
     private void createNotificationChannel() {
@@ -134,8 +138,7 @@ public class NotificationManagerPhytopurifier {
             );
             channel.setDescription("Daily algae health and system status notifications");
 
-            android.app.NotificationManager manager =
-                    (android.app.NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             if (manager != null) {
                 manager.createNotificationChannel(channel);
             }
