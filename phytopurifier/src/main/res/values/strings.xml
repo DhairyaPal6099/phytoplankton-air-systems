@@ -51,7 +51,7 @@
     <string name="clear">Clear</string>
     <string name="example_domain_com">example@domain.com</string>
     <string name="enter_your_full_name">Enter your full name</string>
-    <string name="profile_picture">Profile Picture</string>
+
 
     <string name="gallery_permission_denied">Gallery access permission denied.</string>
     <string name="name_required">Name is required</string>
@@ -302,13 +302,18 @@ If you have any privacy-related concerns or inquiries, please contact us at:
 </string>
     <string name="failed_to_send_verification">Failed to send verification</string>
     <string name="haki_sharifi">Haki Sharifi</string>
+    <string name="the_plant_that_powers_your_air">The Plant That Powers Your Air</string>
+    <string name="mission">Air pollution is often invisible — and so are the solutions meant to fix it. We designed one that’s alive, visible, and intelligent. We began as four students tackling a capstone — and ended up building a mission. What started as a classroom project evolved into a shared passion for clean air, sustainable design, and purposeful technology.</string>
+    <string name="team_at_algaerithms_inc">🧪 Team at Algaerithms Inc.</string>
+    <string name="first_name_is_required">First name is required</string>
+    <string name="last_name_is_required">Last name is required</string>
+
     <string name="team_member_avatar">Team member avatar</string>
     <string name="team_member_name">Name</string>
     <string name="team_member_role">Role</string>
-    <string name="Bio">Bio</string> <!-- Note: B should match the casing exactly as used -->
+    <string name="Bio">Bio</string>
     <string name="linkedin_profile">LinkedIn profile</string>
     <string name="github_profile">GitHub profile</string>
-
 
     <string name="notification_message_content_goes_here">Notification message content goes here.</string>
     <string name="notification_title">Notification Title</string>
@@ -331,6 +336,8 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="account_deleted">Account deleted</string>
     <string name="failed_to_delete_account">Failed to delete account</string>
     <string name="failed_to_load_user_info">Failed to load user info.</string>
+    <string name="profile_picture">Profile Picture</string>
+
     <string name="full_name">Full Name</string>
     <string name="enter_your_name">Enter your name</string>
     <string name="email_address_2">Email Address</string>
@@ -350,8 +357,6 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="dashboard_2">Dashboard</string>
     <string name="insights_2">Insights</string>
     <string name="leaderboard_2">Leaderboard</string>
-    <string name="first_name_is_required">First name is required</string>
-    <string name="last_name_is_required">Last name is required</string>
 
 
 </resources>

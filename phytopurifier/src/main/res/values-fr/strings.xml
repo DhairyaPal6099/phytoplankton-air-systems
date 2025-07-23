@@ -188,14 +188,21 @@
     <string name="log_out">Log out</string>
     <string name="failed_to_send_verification">"Failed to send verification: "</string>
     <string name="haki_sharifi">Haki Sharifi</string>
-    <string name="team_member_avatar">Team member avatar</string>
-    <string name="team_member_name">Name</string>
-    <string name="team_member_role">Role</string>
-    <string name="Bio">Bio</string> <!-- Note: B should match the casing exactly as used -->
-    <string name="linkedin_profile">LinkedIn profile</string>
-    <string name="github_profile">GitHub profile</string>
-    <string name="edit_personal_details">Edit Personal Details</string>
-    <string name="app_preferences">App Preferences</string>
+
+
+    <string name="the_plant_that_powers_your_air">The Plant That Powers Your Air</string>
+    <string name="mission">Air pollution is often invisible — and so are the solutions meant to fix it. We designed one that’s alive, visible, and intelligent. We began as four students tackling a capstone — and ended up building a mission. What started as a classroom project evolved into a shared passion for clean air, sustainable design, and purposeful technology.</string>
+    <string name="team_at_algaerithms_inc">🧪 Team at Algaerithms Inc.</string>
+
+    <string name="team_member_avatar">Avatar du membre de léquipe</string>
+    <string name="team_member_name">Nom</string>
+    <string name="team_member_role">Rôle</string>
+    <string name="Bio">Biographie</string> <!-- Note: B should match the casing exactly as used -->
+    <string name="linkedin_profile">Profil LinkedIn</string>
+    <string name="github_profile">Profil GitHub</string>
+    <string name="edit_personal_details">Modifier les détails personnels</string>
+    <string name="app_preferences">Préférences de lapplication</string>
+
 
     <string name="lock_screen_to_portrait">Lock screen to portrait</string>
     <string name="Dark_mode">Dark Mode</string>
@@ -295,5 +302,7 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="failed_to_load_user_info">Failed to load user info.</string>
     <string name="first_name_is_required">First name is required</string>
     <string name="last_name_is_required">Last name is required</string>
+
+
 
 </resources>

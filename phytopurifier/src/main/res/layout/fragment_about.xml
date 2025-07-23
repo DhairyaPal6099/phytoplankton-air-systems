@@ -1,23 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FFFCF7"
     tools:context=".view.ui.about.AboutFragment">
 
-    <TextView
-        android:id="@+id/text_gallery"
+    <LinearLayout
+        android:id="@+id/about_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:text="This is about fragment"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- App Info Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/appInfoCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#ECEE81">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/app_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phytoplankton_air_systems"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#2F3C2F"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/app_mission"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/the_plant_that_powers_your_air"
+                    android:textSize="15sp"
+                    android:textStyle="italic"
+                    android:layout_marginTop="4dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#4D4D4D" />
+
+                <TextView
+                    android:id="@+id/app_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/mission"
+                    android:textSize="14sp"
+                    android:textColor="#4D4D4D"
+                    android:lineSpacingExtra="4dp"
+                    android:justificationMode="inter_word" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Team Header -->
+        <TextView
+            android:id="@+id/team_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/team_at_algaerithms_inc"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#2F3C2F"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Vertical Scroll for Cards -->
+        <LinearLayout
+            android:id="@+id/team_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+</ScrollView>
