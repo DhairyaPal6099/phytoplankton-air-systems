@@ -10,6 +10,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.os.CountDownTimer;
@@ -70,6 +72,12 @@ public class FeedbackFragment extends Fragment {
         btnSubmit.setOnClickListener(v -> submitFeedback());
 
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        countdownTimer();
     }
 
     private void prefillUserData() {
@@ -189,12 +197,13 @@ public class FeedbackFragment extends Fragment {
     }
 
     private void countdownTimer() {
-        TextView countdownText = requireActivity().findViewById(R.id.countdownText);
+        TextView countdownText = requireView().findViewById(R.id.countdownText);
 
         long savedTime = prefs.getLong("button_disabled_time", 0);
         long elapsedTime = System.currentTimeMillis() - savedTime;
         long remainingMillis = 24 * 60 * 60 * 1000 - elapsedTime;
         if (remainingMillis > 0) {
+            btnSubmit.setEnabled(false);
             new CountDownTimer(remainingMillis, 60 * 1000) {
 
                 @Override
