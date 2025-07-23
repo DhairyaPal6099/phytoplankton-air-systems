@@ -5,6 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import java.time.LocalDate;
+
 public class AccountInfoLogicTest {
     private boolean isValidEmail(String email) {
         return email != null && email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$");
@@ -12,6 +14,27 @@ public class AccountInfoLogicTest {
 
     private boolean isValidPhone(String phone) {
         return phone != null && phone.length() >= 9;
+    }
+
+
+    private boolean isValidName(String name) {
+        return name != null && !name.trim().isEmpty();
+    }
+
+    private boolean isValidBirthdayFormat(String birthday) {
+        try {
+            LocalDate.parse(birthday); // expects yyyy-MM-dd format
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private boolean isValidInput(String name, String email, String phone, String birthday) {
+        return isValidName(name) &&
+                isValidEmail(email) &&
+                isValidPhone(phone) &&
+                isValidBirthdayFormat(birthday);
     }
 
     @Test
@@ -35,7 +58,7 @@ public class AccountInfoLogicTest {
 
     @Test
     public void testValidEmailFormat() {
-        String email = "user@example.com";
+        String email = "abc@xyz.com";
         assertTrue(isValidEmail(email));
     }
 
@@ -61,5 +84,15 @@ public class AccountInfoLogicTest {
     public void testEmptyBirthday() {
         String birthday = "";
         assertTrue(birthday.isEmpty());
+    }
+
+    @Test
+    public void testInvalidBirthdayFormat() {
+        assertFalse(isValidBirthdayFormat("12-31-2020")); // wrong format
+    }
+
+    @Test
+    public void testInvalidWhenNameEmpty() {
+        assertFalse(isValidInput("", "user@example.com", "1234567890", "2020-12-31"));
     }
 }
