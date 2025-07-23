@@ -37,7 +37,7 @@ public class AboutFragment extends Fragment {
                         "Scrum Master & Developer",
                         "Not quite an engineer yet—just a crime doc junkie with a reluctant thing for code. Scrum Master by role, surviving by default. Weirdly good at writing bios.",
                         R.drawable.ic_sanskriti,
-                        "www.linkedin.com/in/sanskriti-mansotra-70a045268",
+                        "https://www.linkedin.com/in/sanskriti-mansotra-70a045268/",
                         "https://github.com/SanskritiMansotra3183"
                 ),
                 new TeamMember(
