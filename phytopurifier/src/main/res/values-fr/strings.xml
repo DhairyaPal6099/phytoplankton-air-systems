@@ -70,8 +70,7 @@
     <string name="graph_view_2">Vue graphique</string>
     <string name="insights">Perspectives</string>
     <string name="did_you_know">Le saviez-vous ?</string>
-    <string name="test_info">Notre purificateur d’air réduit les émissions de CO2 jusqu’à 20 % en milieu urbain.</string>
-    <string name="about_us">À propos de nous</string>
+    <string name="test_info">Le phytoplancton est peut-être minuscule, mais ce sont les héros méconnus de la Terre ! Ces algues microscopiques flottent près de la surface de l’océan, absorbant la lumière du soleil et produisant plus de la moitié de l’oxygène que nous respirons. Non seulement elles contribuent à la lutte contre le changement climatique en absorbant le dioxyde de carbone, mais certaines peuvent même briller dans le noir ! De la purification de l’air à l’alimentation de la chaîne alimentaire, ces petites merveilles vertes font tout, naturellement.</string>    <string name="about_us">À propos de nous</string>
     <string name="information_about_us">Informations à notre sujet.</string>
     <string name="scotia_bank">Banque Scotia</string>
     <string name="rbc">RBC</string>
@@ -308,7 +307,4 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="failed_to_load_user_info">Failed to load user info.</string>
     <string name="first_name_is_required">First name is required</string>
     <string name="last_name_is_required">Last name is required</string>
-
-
-
 </resources>
