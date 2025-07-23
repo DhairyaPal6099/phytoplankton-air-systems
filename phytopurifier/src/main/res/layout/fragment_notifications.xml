@@ -10,7 +10,7 @@
         android:id="@+id/clearAllButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CLEAR ALL"
+        android:text="@string/clear_all"
         android:layout_gravity="center"
              android:textColor="@android:color/white"
         android:paddingHorizontal="24dp"

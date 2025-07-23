@@ -307,7 +307,11 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="Bio">Bio</string> <!-- Note: B should match the casing exactly as used -->
     <string name="linkedin_profile">LinkedIn profile</string>
     <string name="github_profile">GitHub profile</string>
-    <string name="update">Update</string> <!-- Also fixes the 'update' warning -->
+    <string name="update">Update</string>
+    <string name="notification_message_content_goes_here">Notification message content goes here.</string>
+    <string name="notification_title">Notification Title</string>
+    <string name="jul_06_2025_10_30_am">Jul 06, 2025 - 10:30 AM</string>
+    <string name="clear_all">CLEAR ALL</string> <!-- Also fixes the 'update' warning -->
 
 
 </resources>

@@ -248,4 +248,8 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="support_request">Support Request</string>
     <string name="terms_of_service_text">terms of service text</string>
     <string name="section_header">Section Header</string>
+    <string name="notification_message_content_goes_here">Notification message content goes here.</string>
+    <string name="notification_title">Notification Title</string>
+    <string name="jul_06_2025_10_30_am">Jul 06, 2025 - 10:30 AM</string>
+    <string name="clear_all">CLEAR ALL</string>
 </resources>
