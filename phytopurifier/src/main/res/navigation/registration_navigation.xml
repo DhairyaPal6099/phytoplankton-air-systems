@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/nav_registration_email"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.registration.RegistrationEmailFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationEmailFragment"
         android:label="Dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/nav_registration_name"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.registration.RegistrationNameFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationNameFragment"
         android:label="Insights"
         tools:layout="@layout/fragment_insights" />
 
     <fragment
         android:id="@+id/nav_registration_phone"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.registration.RegistrationPhoneFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationPhoneFragment"
         android:label="Leaderboard"
         tools:layout="@layout/fragment_leaderboard" />
 
     <fragment
         android:id="@+id/nav_registration_birthdate"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.registration.RegistrationBirthdateFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationBirthdateFragment"
         android:label="Dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/nav_registration_password"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.ui.registration.RegistrationPasswordFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationPasswordFragment"
         android:label="Insights"
         tools:layout="@layout/fragment_insights" />
 

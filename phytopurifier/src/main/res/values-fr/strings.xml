@@ -245,11 +245,55 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="phone">Phone</string>
     <string name="company_phonenumber">+1 (437)–123–4567</string>
     <string name="mailto_algaerithms_gmail_com">mailto:algaerithms@gmail.com</string>
-    <string name="support_request">Support Request</string>
-    <string name="terms_of_service_text">terms of service text</string>
-    <string name="section_header">Section Header</string>
+
+    <string name="support_request">Demande d’assistance</string>
+
+    <string name="terms_of_service_text">texte des conditions d’utilisation</string>
+
+    <string name="section_header">En-tête de section</string>
+
     <string name="notification_message_content_goes_here">Notification message content goes here.</string>
     <string name="notification_title">Notification Title</string>
     <string name="jul_06_2025_10_30_am">Jul 06, 2025 - 10:30 AM</string>
     <string name="clear_all">CLEAR ALL</string>
+
+    <string name="you_must_be_signed_in_to_submit_feedback">Vous devez être connecté pour soumettre vos commentaires.</string>
+    <string name="thank_you_for_your_feedback">Merci pour votre retour !</string>
+    <string name="how_would_you_rate_your_experience">Comment évalueriez-vous votre expérience ?</string>
+    <string name="profile_picture">Photo de profil</string>
+    <string name="full_name">Nom et prénom</string>
+    <string name="enter_your_name">Entrez votre nom</string>
+    <string name="email_address_2">Adresse email</string>
+    <string name="enter_your_email_2">Entrez votre email</string>
+    <string name="phone_number_2">Numéro de téléphone</string>
+    <string name="enter_phone_number">Entrez le numéro de téléphone</string>
+    <string name="birthday">Anniversaire</string>
+    <string name="yyyy_mm_dd_2">YYYY-MM-DD</string>
+    <string name="update_2">Mise à jour</string>
+    <string name="skip">Sauter</string>
+    <string name="aqi">100 kg O₂</string>
+    <string name="share">Partager</string>
+    <string name="CarbonDioxideConverted">CO₂ Convertie: -- g</string>
+    <string name="achievement">Réalisation</string>
+    <string name="phytoplankton_air_systems">Systèmes d’Air Phytoplancton</string>
+    <string name="app_logo">Logo de l’application</string>
+    <string name="dashboard_2">Tableau de bord</string>
+    <string name="insights_2">Connaissances</string>
+    <string name="leaderboard_2">Classement</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="are_you_sure_you_want_to_permanently_delete_your_account">Are you sure you want to permanently delete your account?</string>
+    <string name="confirm_deletion">Confirm Deletion</string>
+    <string name="no_user_is_logged_in">No user is logged in</string>
+    <string name="re_authenticate">Re-authenticate</string>
+    <string name="please_enter_your_password_to_delete_your_account">Please enter your password to delete your account.</string>
+    <string name="confirm">Confirm</string>
+    <string name="password_required">Password required</string>
+    <string name="email_not_found">Email not found</string>
+    <string name="reauthentication_failed">Reauthentication failed</string>
+    <string name="account_deleted">Account deleted</string>
+    <string name="failed_to_delete_account">Failed to delete account</string>
+    <string name="failed_to_load_user_info">Failed to load user info.</string>
+    <string name="first_name_is_required">First name is required</string>
+    <string name="last_name_is_required">Last name is required</string>
+
 </resources>

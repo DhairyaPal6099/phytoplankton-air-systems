@@ -1,0 +1,147 @@
+/* Julian Imperial – N01638310
+   Dhairya Pal – N01576099
+   Sanskriti Mansotra – N01523183
+   Dharmik Shah – N01581796 */
+
+package ca.algaerithms.inc.it.phytoplanktonairsystems.model;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
+import android.util.Log;
+
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
+import com.google.firebase.Timestamp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Consumer;
+
+public class NotificationManagerPhytopurifier {
+    private static final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    private static NotificationManagerPhytopurifier instance;
+    private final Context context;
+    private static final String CHANNEL_ID = "eod_channel";
+
+    private NotificationManagerPhytopurifier(Context context) {
+        this.context = context.getApplicationContext();
+        createNotificationChannel();
+    }
+
+    public static NotificationManagerPhytopurifier getInstance(Context context) {
+        if (instance == null) {
+            instance = new NotificationManagerPhytopurifier(context);
+        }
+        return instance;
+    }
+
+    public void getAllNotifications(Consumer<List<NotificationModel>> callback) {
+        String uid = FirebaseAuth.getInstance().getUid();
+        if (uid == null) return;
+
+        firestore.collection("users").document(uid).get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    List<Map<String, Object>> notifList = (List<Map<String, Object>>) documentSnapshot.get("notifications");
+                    List<NotificationModel> result = new ArrayList<>();
+
+                    if (notifList != null) {
+                        for (Map<String, Object> notif : notifList) {
+                            String title = (String) notif.get("title");
+                            String message = (String) notif.get("message");
+                            Timestamp timestamp = (Timestamp) notif.get("timestamp");
+                            if (title != null && message != null && timestamp != null) {
+                                result.add(new NotificationModel(title, message, timestamp.toDate()));
+                            }
+                        }
+                    }
+
+                    callback.accept(result);
+                })
+                .addOnFailureListener(e -> Log.e("NotificationManagerPhytopurifier", "Fetch failed: " + e.getMessage()));
+    }
+
+    public void sendNotification(String title, String message, String type) {
+        String uid = FirebaseAuth.getInstance().getUid();
+        if (uid == null || title.isEmpty() || message.isEmpty()) return;
+
+        Map<String, Object> newNotif = new HashMap<>();
+        newNotif.put("title", title);
+        newNotif.put("message", message);
+        newNotif.put("timestamp", new Timestamp(new Date()));
+        newNotif.put("type", type);
+
+        Map<String, Object> updateMap = new HashMap<>();
+        updateMap.put("notifications", FieldValue.arrayUnion(newNotif));
+
+        firestore.collection("users")
+                .document(uid)
+                .set(updateMap, SetOptions.merge())
+                .addOnFailureListener(e -> Log.e("NotificationManagerPhytopurifier", "Send failed: " + e.getMessage()));
+
+        showSystemNotification(title, message);
+    }
+
+    private void showSystemNotification(String title, String message) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (context.checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)
+                    != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                Log.w("NotificationManagerPhytopurifier", "POST_NOTIFICATIONS permission not granted.");
+                return;
+            }
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
+                .setSmallIcon(android.R.drawable.ic_dialog_info)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setAutoCancel(true);
+
+        NotificationManagerCompat.from(context)
+                .notify((int) System.currentTimeMillis(), builder.build());
+    }
+
+    public void clearAllNotifications(Consumer<Boolean> callback) {
+        String uid = FirebaseAuth.getInstance().getUid();
+        if (uid == null) {
+            callback.accept(false);
+            return;
+        }
+
+        Map<String, Object> clearMap = new HashMap<>();
+        clearMap.put("notifications", new ArrayList<>());
+
+        firestore.collection("users").document(uid)
+                .update(clearMap)
+                .addOnSuccessListener(unused -> callback.accept(true))
+                .addOnFailureListener(e -> {
+                    Log.e("NotificationManagerPhytopurifier", "Failed to clear notifications", e);
+                    callback.accept(false);
+                });
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    CHANNEL_ID,
+                    "Phytopurifier Notifications",
+                    NotificationManager.IMPORTANCE_DEFAULT
+            );
+            channel.setDescription("Daily algae health and system status notifications");
+
+            NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            if (manager != null) {
+                manager.createNotificationChannel(channel);
+            }
+        }
+    }
+}

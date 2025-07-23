@@ -51,6 +51,7 @@
     <string name="clear">Clear</string>
     <string name="example_domain_com">example@domain.com</string>
     <string name="enter_your_full_name">Enter your full name</string>
+    <string name="profile_picture">Profile Picture</string>
 
     <string name="gallery_permission_denied">Gallery access permission denied.</string>
     <string name="name_required">Name is required</string>
@@ -307,11 +308,50 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="Bio">Bio</string> <!-- Note: B should match the casing exactly as used -->
     <string name="linkedin_profile">LinkedIn profile</string>
     <string name="github_profile">GitHub profile</string>
-    <string name="update">Update</string>
+
+
     <string name="notification_message_content_goes_here">Notification message content goes here.</string>
     <string name="notification_title">Notification Title</string>
     <string name="jul_06_2025_10_30_am">Jul 06, 2025 - 10:30 AM</string>
-    <string name="clear_all">CLEAR ALL</string> <!-- Also fixes the 'update' warning -->
+    <string name="clear_all">CLEAR ALL</string>
+    <string name="update">Update</string>
+    <string name="you_must_be_signed_in_to_submit_feedback">You must be signed in to submit feedback.</string>
+    <string name="thank_you_for_your_feedback">Thank you for your feedback!</string>
+    <string name="how_would_you_rate_your_experience">How would you rate your experience?</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="are_you_sure_you_want_to_permanently_delete_your_account">Are you sure you want to permanently delete your account?</string>
+    <string name="confirm_deletion">Confirm Deletion</string>
+    <string name="no_user_is_logged_in">No user is logged in</string>
+    <string name="re_authenticate">Re-authenticate</string>
+    <string name="please_enter_your_password_to_delete_your_account">Please enter your password to delete your account.</string>
+    <string name="confirm">Confirm</string>
+    <string name="password_required">Password required</string>
+    <string name="email_not_found">Email not found</string>
+    <string name="reauthentication_failed">Reauthentication failed</string>
+    <string name="account_deleted">Account deleted</string>
+    <string name="failed_to_delete_account">Failed to delete account</string>
+    <string name="failed_to_load_user_info">Failed to load user info.</string>
+    <string name="full_name">Full Name</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="email_address_2">Email Address</string>
+    <string name="enter_your_email_2">Enter your email</string>
+    <string name="phone_number_2">Phone Number</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="birthday">Birthday</string>
+    <string name="yyyy_mm_dd_2">YYYY-MM-DD</string>
+    <string name="update_2">Update</string>
+    <string name="skip">Skip</string>
+    <string name="aqi">100 kg O₂</string>
+    <string name="share">Share</string>
+    <string name="CarbonDioxideConverted">CO₂ Converted: -- g</string>
+    <string name="achievement">Achievement</string>
+    <string name="phytoplankton_air_systems">Phytoplankton Air Systems</string>
+    <string name="app_logo">App logo</string>
+    <string name="dashboard_2">Dashboard</string>
+    <string name="insights_2">Insights</string>
+    <string name="leaderboard_2">Leaderboard</string>
+    <string name="first_name_is_required">First name is required</string>
+    <string name="last_name_is_required">Last name is required</string>
 
 
 </resources>

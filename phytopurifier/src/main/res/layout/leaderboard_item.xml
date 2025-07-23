@@ -26,15 +26,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/quicksand_bold"
-            android:text="User Name"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/oxygen_amount"
+            android:id="@+id/carbondioxide_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand_bold"
-            android:text="100 kg O₂"
             android:textColor="@color/dark_green" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
