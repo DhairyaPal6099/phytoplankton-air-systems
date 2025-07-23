@@ -6,16 +6,6 @@
     android:padding="16dp"
     android:background="@android:color/white">
 
-    <TextView
-        android:id="@+id/notificationsHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Your Notifications"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:paddingBottom="8dp"
-        android:textColor="@android:color/black" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notificationsRecyclerView"
         android:layout_width="match_parent"
