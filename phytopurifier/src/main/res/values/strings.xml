@@ -73,7 +73,7 @@
     <string name="graph_view_2">Graph View</string>
     <string name="insights">Insights</string>
     <string name="did_you_know">Did you know?</string>
-    <string name="test_info">Our air purifier reduces CO2 emissions by up to 20% in urban environments.</string>
+    <string name="test_info">Phytoplankton might be tiny, but they’re Earth’s unsung heroes! These microscopic algae float near the ocean’s surface, soaking up sunlight and producing over half of the oxygen we breathe. Not only do they help fight climate change by absorbing carbon dioxide, but some can even glow in the dark! From cleaning the air to powering the food chain, these little green wonders do it all — naturally.</string>
     <string name="about_us">About Us</string>
     <string name="information_about_us">Information About us.</string>
     <string name="scotia_bank">Scotia Bank</string>
@@ -85,6 +85,13 @@
         <item>How Phytoplankton Helps Clean Air</item>
         <item>Phytoplankton and the Climate</item>
     </string-array>
+
+    <string-array name="video_urls">
+        <item>https://www.youtube.com/embed/9s-PlsJD8CE?si=XV-svCkIEBthmlhR</item>
+        <item>https://www.youtube.com/embed/fe1x6crXZW4?si=lh2dycuGBQ3nSKn3</item>
+        <item>https://www.youtube.com/embed/2C8Ah_Mie9c?si=t3mT9gVCoS31alw4</item>
+    </string-array>
+
     <string name="contact_support_phonenumber" translatable="false">tel: 4371234567</string>
     <string name="action_support">Support</string>
     <string name="action_share">Share</string>
