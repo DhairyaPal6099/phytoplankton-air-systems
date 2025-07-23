@@ -34,6 +34,10 @@
     <color name="colorPrimary">#11CFC5</color>
     <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#FF402D</color>
+    <color name="backgroundLight">#FFFCF7</color>
+    <color name="textPrimary">#2F3C2F</color>
+    <color name="textSecondary">#4D4D4D</color>
+
 
 
 

@@ -61,6 +61,8 @@ dependencies {
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
     implementation libs.circleimageview
+    implementation 'androidx.concurrent:concurrent-futures:1.3.0'
+
 
 
 }

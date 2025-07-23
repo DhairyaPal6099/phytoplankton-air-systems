@@ -26,7 +26,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/quicksand_bold"
-            android:text="@string/user_name_2"
             android:textStyle="bold" />
 
         <TextView
@@ -34,7 +33,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand_bold"
-            android:text="@string/aqi"
             android:textColor="@color/dark_green" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

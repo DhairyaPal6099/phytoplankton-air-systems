@@ -12,11 +12,13 @@ public class SensorData {
     private int turbidity;
     private double co2Converted;
     private boolean proximity;
+    private double waterLevel;  // percentage (0–100)
+
     private Date lastUpdated;
 
     private double co2_converted;
     private double algaeHealth;
-    private long timestamp;
+    private String timestamp;
 
     // No-arg constructor required for Firebase
     public SensorData() {}
@@ -73,15 +75,21 @@ public class SensorData {
         this.algaeHealth = algaeHealth;
     }
 
-    public long getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(long timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
+    public double getWaterLevel() {
+        return waterLevel;
+    }
 
-    // TODO: Implement algae health calculation based on sensor values
+    public void setWaterLevel(double waterLevel) {
+        this.waterLevel = waterLevel;
+    }
+
     public double getAlgaeHealth() {
         // Placeholder logic
         return turbidity > 0 ? Math.min(100, turbidity * 1.0) : 0;

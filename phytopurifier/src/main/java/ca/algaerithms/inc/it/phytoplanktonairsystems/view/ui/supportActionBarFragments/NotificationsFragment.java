@@ -11,6 +11,7 @@ import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -57,7 +59,6 @@ public class NotificationsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_notifications, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.notificationsRecyclerView);
@@ -65,10 +66,29 @@ public class NotificationsFragment extends Fragment {
         adapter = new NotificationAdapter(notificationModelList);
         recyclerView.setAdapter(adapter);
 
+        // Fetch notifications from Firebase and populate RecyclerView
         NotificationManagerPhytopurifier.getInstance(requireContext()).getAllNotifications(fetchedList -> {
-            adapter.updateList(fetchedList);
+            notificationModelList.clear();
+            notificationModelList.addAll(fetchedList);
+            adapter.notifyDataSetChanged();
         });
 
+        Button clearButton = view.findViewById(R.id.clearAllButton);
+        clearButton.setOnClickListener(v -> {
+            NotificationManagerPhytopurifier.getInstance(requireContext()).clearAllNotifications(success -> {
+                if (success) {
+                    notificationModelList.clear();
+                    adapter.notifyDataSetChanged();
+
+                    NotificationManagerCompat.from(requireContext()).cancelAll();
+                    Toast.makeText(getContext(), "All notifications cleared!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "Failed to clear notifications", Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
+
+        // Check runtime permission for Android 13+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.POST_NOTIFICATIONS)
                     != PackageManager.PERMISSION_GRANTED) {

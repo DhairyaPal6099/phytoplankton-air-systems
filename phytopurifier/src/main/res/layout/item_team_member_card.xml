@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/memberCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:layout_gravity="center_horizontal"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Avatar CardView with border and shadow -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="center_vertical"
+            app:cardCornerRadius="36dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@android:color/transparent">
+
+            <ImageView
+                android:id="@+id/avatarImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="@drawable/avatar_border"
+                android:padding="4dp"
+                android:contentDescription="@string/team_member_avatar"
+                android:src="@drawable/ic_sanskriti" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Name, Role, Bio, and Links -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/team_member_name"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#2F3C2F" />
+
+            <TextView
+                android:id="@+id/roleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/team_member_role"
+                android:textColor="#6A6A6A"
+                android:textSize="14sp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/bioTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Bio"
+                android:textColor="#4D4D4D"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp"
+                android:maxLines="6"
+                android:ellipsize="end" />
+
+            <!-- LinkedIn & GitHub Icons -->
+            <LinearLayout
+                android:id="@+id/socialLinks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:id="@+id/linkedinIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="12dp"
+                    android:contentDescription="@string/linkedin_profile"
+                    android:src="@drawable/ic_linkedin"
+                   />
+
+                <ImageView
+                    android:id="@+id/githubIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/github_profile"
+                    android:src="@drawable/ic_github"
+                    app:tint="#000000" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
