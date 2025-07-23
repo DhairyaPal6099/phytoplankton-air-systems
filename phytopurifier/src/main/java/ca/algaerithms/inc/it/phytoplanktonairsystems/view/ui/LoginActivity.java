@@ -7,7 +7,6 @@ package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.MotionEvent;
@@ -26,39 +25,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.Authentication;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
-    private GoogleSignInClient googleSignInClient;
+    private Authentication authentication;
 
     private TextView errorTextView;
     private EditText emailEditText, passwordEditText;
     private CheckBox rememberMeCheckBox;
     private Button loginSubmitButton, forgotPasswordButton, createAccountButton;
     private SignInButton googleSignInButton;
-
-    private SharedPreferences prefs;
-    private static final String PREFS_NAME = "app_prefs";
-    private static final String KEY_REMEMBER_ME = "rememberMe";
 
     // Launcher for Google Sign-In Intent result
     private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
@@ -67,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (result.getResultCode() == RESULT_OK && result.getData() != null) {
                     GoogleSignInAccount account = GoogleSignIn.getSignedInAccountFromIntent(result.getData()).getResult();
                     if (account != null && account.getIdToken() != null) {
-                        firebaseAuthWithGoogle(account.getIdToken());
+                        signInWithGoogleToken(account.getIdToken());
                     } else {
                         Toast.makeText(this, R.string.google_sign_in_failed, Toast.LENGTH_SHORT).show();
                     }
@@ -84,11 +67,7 @@ public class LoginActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
 
-        // SharedPreferences init
-        prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-
-        // Firebase Auth instance
-        mAuth = FirebaseAuth.getInstance();
+        authentication = new Authentication(this);
 
         // UI elements
         errorTextView = findViewById(R.id.login_errorTextView);
@@ -124,17 +103,14 @@ public class LoginActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
 
-        googleSignInClient = GoogleSignIn.getClient(this, gso);
-
         googleSignInButton.setOnClickListener(v -> {
             // Sign out first to trigger account chooser
-            googleSignInClient.signOut().addOnCompleteListener(task -> {
-                Intent signInIntent = googleSignInClient.getSignInIntent();
+            authentication.getGoogleSignInClient().signOut().addOnCompleteListener(task -> {
+                Intent signInIntent = authentication.getGoogleSignInClient().getSignInIntent();
                 signInLauncher.launch(signInIntent);
             });
         });
 
-        // Optional: Remove text if you just want the "G" icon
         for (int i = 0; i < googleSignInButton.getChildCount(); i++) {
             View v = googleSignInButton.getChildAt(i);
             if (v instanceof TextView) {
@@ -147,19 +123,16 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-
-        if (currentUser != null) {
-            boolean rememberMe = prefs.getBoolean(KEY_REMEMBER_ME, false);
-            boolean isGoogleUser = GoogleSignIn.getLastSignedInAccount(this) != null;
-
-            if (isGoogleUser || rememberMe) {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                finish();
-            } else {
-                mAuth.signOut(); // Sign out email/password users who didn't check Remember Me
-            }
+        if (authentication.shouldAutoLogin()) {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            finish();
+        } else {
+            authentication.signOutIfNeeded();
         }
+    }
+
+    private void signInWithGoogleToken(String idToken) {
+        authentication.handleGoogleSignIn(idToken, this);
     }
 
     // Forgot password button login
@@ -184,82 +157,16 @@ public class LoginActivity extends AppCompatActivity {
             Button sendButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
             sendButton.setOnClickListener(v -> {
                 String email = emailInput.getText().toString().trim();
-
-                if (email.isEmpty()) {
-                    emailInput.setError(getString(R.string.email_cannot_be_empty));
-                    return;
-                }
-
-                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    emailInput.setError(getString(R.string.please_enter_a_valid_email));
-                    return;
-                }
-
-                // Directly send reset email
-                mAuth.sendPasswordResetEmail(email)
-                        .addOnSuccessListener(unused -> {
-                            Snackbar.make(findViewById(android.R.id.content),
-                                    getString(R.string.password_reset_link_sent_to) + email,
-                                    Snackbar.LENGTH_LONG).show();
-                            dialog.dismiss();
-                        })
-                        .addOnFailureListener(e -> {
-                            // For example: invalid-email format or network failure
-                            emailInput.setError(getString(R.string.failed_to_send_reset_link) + e.getMessage());
-                        });
+                authentication.sendPasswordReset(email, sentEmail -> {
+                    Snackbar.make(findViewById(android.R.id.content),
+                            getString(R.string.password_reset_link_sent_to) + email,
+                            Snackbar.LENGTH_LONG).show();
+                    dialog.dismiss();
+                }, emailInput::setError);
             });
         });
 
         dialog.show();
-    }
-
-
-    private void firebaseAuthWithGoogle(String idToken) {
-        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
-                        FirebaseUser user = mAuth.getCurrentUser();
-
-                        if (user != null) {
-                            String uid = user.getUid();
-                            String name = user.getDisplayName();
-                            String email = user.getEmail();
-                            String phone = user.getPhoneNumber(); // Often null
-
-                            // Initialize empty lists and int
-                            List<Map<String, Object>> achievements = new ArrayList<>();
-                            List<Map<String, Object>> notifications = new ArrayList<>();
-                            int lifetime_co2_converted = 0;
-
-                            // Create user info map
-                            Map<String, Object> userMap = new HashMap<>();
-                            if (name != null) userMap.put("name", name);
-                            if (email != null) userMap.put("email", email);
-                            userMap.put("birthdate", "N/A");
-                            userMap.put("phone", phone != null ? phone : "N/A"); //checks if birthday is available in Google account
-                            userMap.put("achievements", achievements);
-                            userMap.put("notifications", notifications);
-                            userMap.put("lifetime_co2_converted", lifetime_co2_converted);
-
-                            FirebaseFirestore db = FirebaseFirestore.getInstance();
-                            db.collection("users")
-                                    .document(uid)
-                                    .set(userMap)
-                                    .addOnSuccessListener(unused -> {
-                                        Toast.makeText(this, getString(R.string.welcome) + name, Toast.LENGTH_SHORT).show();
-                                        // Navigate to MainActivity after saving
-                                        startActivity(new Intent(this, MainActivity.class));
-                                        finish();
-                                    })
-                                    .addOnFailureListener(e -> {
-                                        Toast.makeText(this, getString(R.string.failed_to_save_user_info) + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                    });
-                        }
-                    } else {
-                        Toast.makeText(this, getString(R.string.firebase_auth_failed) + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
     }
 
     private void loginButtonClick() {
@@ -273,36 +180,20 @@ public class LoginActivity extends AppCompatActivity {
             emailEditText.setError(null);
             passwordEditText.setError(null);
 
-            if (email.isEmpty()) {
-                emailEditText.setError(getString(R.string.email_is_required));
-                return;
-            }
-
-            if (password.isEmpty()) {
-                passwordEditText.setError(getString(R.string.password_is_required));
-                return;
-            }
-
-            mAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            // Save Remember Me choice
-                            prefs.edit().putBoolean(KEY_REMEMBER_ME, rememberMeCheckBox.isChecked()).apply();
-
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            finish();
-                        } else {
-                            Exception exception = task.getException();
-                            if (exception instanceof FirebaseAuthInvalidCredentialsException ||
-                                    exception instanceof FirebaseAuthInvalidUserException) {
-                                errorTextView.setText(R.string.invalid_email_or_password);
-                                errorTextView.setVisibility(View.VISIBLE);
-                            } else {
-                                errorTextView.setText(R.string.login_failed_please_try_again);
-                                errorTextView.setVisibility(View.VISIBLE);
-                            }
-                        }
-                    });
+            FirebaseUser user = authentication.getCurrentUser();
+            authentication.signInWithEmailPassword(email, password, rememberMeCheckBox.isChecked(), this, success -> {
+                if (success) {
+                    if (user != null && user.getDisplayName() != null) {
+                        Toast.makeText(this, getString(R.string.welcome) + user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                    }
+                    startActivity(new Intent(this, MainActivity.class));
+                    finish();
+                }
+            }, errorMsg -> {
+                errorTextView.setText(errorMsg);
+                errorTextView.setVisibility(View.VISIBLE);
+            });
+            });
 
             View.OnFocusChangeListener clearErrorOnFocus = (v, hasFocus) -> {
                 if (hasFocus && errorTextView.getVisibility() == View.VISIBLE) {
@@ -312,8 +203,6 @@ public class LoginActivity extends AppCompatActivity {
 
             emailEditText.setOnFocusChangeListener(clearErrorOnFocus);
             passwordEditText.setOnFocusChangeListener(clearErrorOnFocus);
-
-        });
     }
 
     @SuppressLint("ClickableViewAccessibility")

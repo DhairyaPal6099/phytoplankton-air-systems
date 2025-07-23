@@ -19,13 +19,11 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.RegistrationController;
 
 public class RegistrationActivity extends AppCompatActivity {
-
     private final RegistrationController registrationController = new RegistrationController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //EdgeToEdge.enable(this);
         setContentView(R.layout.activity_registration);
 
         Toolbar toolbar = findViewById(R.id.registration_toolbar);
@@ -38,7 +36,7 @@ public class RegistrationActivity extends AppCompatActivity {
         NavController navController = navHostFragment.getNavController();
 
         // Add back pressed callback once here
-        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+        getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
                 registrationController.deleteTempUser(() -> {
@@ -53,7 +51,7 @@ public class RegistrationActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) { // Handle the back arrow click
-            onBackPressed(); // Calls default, which triggers OnBackPressedDispatcher
+            getOnBackPressedDispatcher().onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);

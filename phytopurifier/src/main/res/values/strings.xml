@@ -114,6 +114,7 @@
     <string name="terms_of_service_text">terms of service text</string>
     <string name="section_header">Section Header</string>
     <string name="notifications">Notifications</string>
+    <string name="notifications_smallcase">notifications</string>
     <string name="mailto_algaerithms_gmail_com">mailto:algaerithms@gmail.com</string>
     <string name="support_request">Support Request</string>
     <string name="no_email_app_found">No email app found</string>
@@ -122,9 +123,9 @@
     <string name="phone">Phone</string>
     <string name="company_phonenumber">+1 (437)-123-4567</string>
     <string name="registration">Registration</string>
-    <!-- TODO: Remove or change this placeholder text -->
-
+    <string name="lifetime_co2_converted">lifetime_co2_converted</string>
     <string name="terms_of_service">Terms of Service</string>
+    <string name="n_a">N/A</string>
     <string name="content">
 Welcome to PhytoplanktonAirSystems\n
 A smart monitoring app developed by Algaerithms‑Inc. These Terms govern your use of the app and its features.\n\n
@@ -357,6 +358,7 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="dashboard_2">Dashboard</string>
     <string name="insights_2">Insights</string>
     <string name="leaderboard_2">Leaderboard</string>
+  <string name="achievements" translatable="false">achievements</string>
 
 
 </resources>
