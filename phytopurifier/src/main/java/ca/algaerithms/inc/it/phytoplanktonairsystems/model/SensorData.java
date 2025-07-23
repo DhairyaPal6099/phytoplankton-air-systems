@@ -12,6 +12,8 @@ public class SensorData {
     private int turbidity;
     private double co2Converted;
     private boolean proximity;
+    private double waterLevel;  // percentage (0–100)
+
     private Date lastUpdated;
 
     private double co2_converted;
@@ -79,6 +81,13 @@ public class SensorData {
 
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
+    }
+    public double getWaterLevel() {
+        return waterLevel;
+    }
+
+    public void setWaterLevel(double waterLevel) {
+        this.waterLevel = waterLevel;
     }
 
     public double getAlgaeHealth() {
