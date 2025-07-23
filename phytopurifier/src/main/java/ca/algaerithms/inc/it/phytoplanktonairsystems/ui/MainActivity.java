@@ -38,6 +38,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.work.Data;
 import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.PeriodicWorkRequest;
@@ -117,14 +118,26 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        // ⏰ Schedule the daily notification worker
+        // Schedule the daily notification worker
         scheduleDailyNotificationWorker();
 
-        //  TEMP: Trigger manually
-        WorkManager.getInstance(this)
-                .enqueue(new OneTimeWorkRequest.Builder(DailyNotificationWorker.class).build());
+        // Run DailyNotificationWorker manually once (only if not triggered yet)
+        SharedPreferences triggerPrefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        boolean alreadyTriggered = triggerPrefs.getBoolean("triggered_worker", false);
 
-        // ↩️ Display the AlertDialog on back
+        if (!alreadyTriggered) {
+            WorkManager.getInstance(this)
+                    .enqueue(new OneTimeWorkRequest.Builder(DailyNotificationWorker.class).build());
+
+            triggerPrefs.edit().putBoolean("triggered_worker", true).apply();
+        }
+
+
+        //  TEMP: Trigger manually
+       // WorkManager.getInstance(this)
+               // .enqueue(new OneTimeWorkRequest.Builder(DailyNotificationWorker.class).build());
+
+        //  Display the AlertDialog on back
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -184,6 +197,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void logout() {
+        //Reset trigger flag on logout so next user run triggers fresh notification
+        getSharedPreferences("AppPrefs", MODE_PRIVATE);
+                prefs.edit().remove("triggered_worker").apply();
+
         new AlertDialog.Builder(MainActivity.this)
                 .setTitle(R.string.logout)
                 .setMessage(R.string.are_you_sure_you_want_to_logout)
@@ -248,9 +265,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void scheduleDailyNotificationWorker() {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 23);
-        calendar.set(Calendar.MINUTE, 59);
-        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.HOUR_OF_DAY, 7);
+        calendar.set(Calendar.MINUTE, 29);
+        calendar.set(Calendar.SECOND, 50);
 
         long currentTime = System.currentTimeMillis();
         long targetTime = calendar.getTimeInMillis();
@@ -259,8 +276,14 @@ public class MainActivity extends AppCompatActivity {
                 ? targetTime - currentTime
                 : TimeUnit.DAYS.toMillis(1) - (currentTime - targetTime);
 
+        // 🔁 Pass weekly_only = true
+        Data inputData = new Data.Builder()
+                .putBoolean("weekly_only", true)
+                .build();
+
         PeriodicWorkRequest dailyRequest =
                 new PeriodicWorkRequest.Builder(DailyNotificationWorker.class, 24, TimeUnit.HOURS)
+                        .setInputData(inputData)
                         .setInitialDelay(delay, TimeUnit.MILLISECONDS)
                         .build();
 

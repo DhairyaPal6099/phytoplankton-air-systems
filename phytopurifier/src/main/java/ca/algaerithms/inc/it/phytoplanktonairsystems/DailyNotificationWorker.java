@@ -24,75 +24,62 @@ public class DailyNotificationWorker extends ListenableWorker {
     @Override
     public ListenableFuture<Result> startWork() {
         return CallbackToFutureAdapter.getFuture(completer -> {
-            Log.d("DailyWorker", "Running daily notification check...");
+            boolean onlyWeeklyStat = getInputData().getBoolean("weekly_only", false);
 
             SensorDataManager.getInstance().getSensorLatestData(new SensorDataManager.SensorDataCallback() {
                 @Override
                 public void onDataFetched(SensorData data) {
                     if (data != null) {
-                        Log.d("DailyWorker", "Fetched Sensor Data:");
-                        Log.d("DailyWorker", "AlgaeHealth = " + data.getAlgaeHealth());
-                        Log.d("DailyWorker", "Turbidity = " + data.getTurbidity());
-                        Log.d("DailyWorker", "CO2 = " + data.getCo2_converted());
-                        Log.d("DailyWorker", "Light = " + data.getLight());
-                        Log.d("DailyWorker", "Water Level = " + data.getWaterLevel());
-
                         NotificationManagerPhytopurifier notifier = NotificationManagerPhytopurifier.getInstance(getApplicationContext());
 
-                        // 🔴 Algae Health Critical
+                        // Only send Weekly Stats if flag is true
+                        if (onlyWeeklyStat) {
+                            Calendar cal = Calendar.getInstance();
+                            if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.WEDNESDAY) {
+                                notifier.sendNotification(
+                                        "Weekly Stats 📊",
+                                        "Check your weekly algae performance summary in the app.",
+                                        "WEEKLY"
+                                );
+                            }
+                            completer.set(Result.success());
+                            return;
+                        }
+
+                        // Realtime notifications
                         if (data.getAlgaeHealth() < 60 || data.getLight() < 3 || data.getCo2_converted() > 800) {
-                            notifier.sendNotification(
-                                    "Algae Health Critical ⚠️",
+                            notifier.sendNotification("Algae Health Critical ⚠️",
                                     "Algae health is deteriorating. Check light, CO₂, and tank clarity.",
-                                    "ALERT"
-                            );
+                                    "ALERT");
                         }
 
-                        // 🟠 Water Refill Notification
                         if (data.getWaterLevel() < 30) {
-                            notifier.sendNotification(
-                                    "Water Refill Needed 💧",
+                            notifier.sendNotification("Water Refill Needed 💧",
                                     "Water level is below 30%. Please refill the tank.",
-                                    "WATER"
-                            );
+                                    "WATER");
                         }
 
-                        // 🌿 EOD Status - Always sent
-                        notifier.sendNotification(
-                                "Daily Algae Status 🌿",
+                        notifier.sendNotification("Daily Algae Status 🌿",
                                 (data.getAlgaeHealth() >= 85.0 && data.getTurbidity() <= 150.0)
                                         ? "Your algae is thriving today! Keep it up. 🌱"
                                         : (data.getAlgaeHealth() >= 60.0)
                                         ? "Your algae is doing okay, but could use some attention."
                                         : "Your algae's condition is deteriorating. Please check light and water levels!",
-                                "EOD"
-                        );
-
-                        // 📊 Weekly Stats (only on Sundays)
-                        Calendar cal = Calendar.getInstance();
-                        if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
-                            notifier.sendNotification(
-                                    "Weekly Stats 📊",
-                                    "Check your weekly algae performance summary in the app.",
-                                    "WEEKLY"
-                            );
-                        }
+                                "EOD");
 
                         completer.set(Result.success());
                     } else {
-                        Log.e("DailyWorker", "Sensor data is null.");
                         completer.set(Result.failure());
                     }
                 }
 
                 @Override
                 public void onError(DatabaseError error) {
-                    Log.e("DailyWorker", "Sensor fetch failed: " + error.getMessage());
                     completer.set(Result.failure());
                 }
             });
 
-            return "SensorDataFetch"; // For debugging and tracing
+            return "SensorDataFetch";
         });
     }
 }
