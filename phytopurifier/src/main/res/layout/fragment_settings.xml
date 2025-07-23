@@ -31,6 +31,7 @@
                 style="@style/viewParent.headerText"
                 android:text="@string/haki_sharifi"
                 android:textSize="18sp"
+                android:textColor="@color/grey"
                 android:layout_toEndOf="@id/profileCircleImageView"
                 android:layout_marginTop="5dp" />
 
