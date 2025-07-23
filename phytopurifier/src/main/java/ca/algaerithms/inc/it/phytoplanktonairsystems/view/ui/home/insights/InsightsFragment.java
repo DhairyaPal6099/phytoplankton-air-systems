@@ -31,11 +31,32 @@ public class InsightsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_insights, container, false);
 
         videoSpinner = view.findViewById(R.id.video_spinner);
+        videoWebView = view.findViewById(R.id.video_webview);
 
         String[] videoTitles = getResources().getStringArray(R.array.video_titles);
+        String[] videoUrls = getResources().getStringArray(R.array.video_urls);
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(),
                 android.R.layout.simple_spinner_item, videoTitles);
         videoSpinner.setAdapter(adapter);
+
+        videoWebView.getSettings().setJavaScriptEnabled(true);
+
+        videoSpinner.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(android.widget.AdapterView<?> parent, View view, int position, long id) {
+                String videoUrl = videoUrls[position];
+                String html = "<html><body style='margin:0'><iframe width=\"100%\" height=\"100%\" src=\"" +
+                        videoUrl + "\" frameborder=\"0\" allowfullscreen></iframe></body></html>";
+                videoWebView.loadData(html, "text/html", "utf-8");
+            }
+
+            @Override
+            public void onNothingSelected(android.widget.AdapterView<?> parent) {
+                // Do nothing
+            }
+        });
+
 
         return view;
     }

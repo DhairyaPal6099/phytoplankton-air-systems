@@ -85,6 +85,13 @@
         <item>How Phytoplankton Helps Clean Air</item>
         <item>Phytoplankton and the Climate</item>
     </string-array>
+
+    <string-array name="video_urls">
+        <item>https://www.youtube.com/embed/9s-PlsJD8CE?si=XV-svCkIEBthmlhR</item>
+        <item>https://www.youtube.com/embed/fe1x6crXZW4?si=lh2dycuGBQ3nSKn3</item>
+        <item>https://www.youtube.com/embed/2C8Ah_Mie9c?si=t3mT9gVCoS31alw4</item>
+    </string-array>
+
     <string name="contact_support_phonenumber" translatable="false">tel: 4371234567</string>
     <string name="action_support">Support</string>
     <string name="action_share">Share</string>
