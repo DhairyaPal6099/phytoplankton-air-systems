@@ -309,4 +309,5 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="last_name_is_required">Last name is required</string>
     <string name="authentication_failed">Authentication failed.</string>
     <string name="firestore_error">"Firestore error: "</string>
+    <string name="error_sharing_screenshot">Error sharing screenshot</string>
 </resources>

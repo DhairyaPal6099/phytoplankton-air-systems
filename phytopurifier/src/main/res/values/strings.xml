@@ -368,6 +368,7 @@ If you have any privacy-related concerns or inquiries, please contact us at:
   <string name="achievements" translatable="false">achievements</string>
     <string name="authentication_failed">Authentication failed.</string>
     <string name="firestore_error">"Firestore error: "</string>
+    <string name="error_sharing_screenshot">Error sharing screenshot</string>
 
 
 </resources>
