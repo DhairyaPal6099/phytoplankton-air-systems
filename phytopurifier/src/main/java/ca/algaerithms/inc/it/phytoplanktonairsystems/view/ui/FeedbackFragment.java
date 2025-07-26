@@ -45,16 +45,11 @@ public class FeedbackFragment extends Fragment {
     private String deviceModel;
     private ProgressBar btnProgress;
 
-    private SharedPreferences prefs;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_feedback, container, false);
-
-        //Shared preferences to store the state of feedback button being gray or clickable
-        prefs = getActivity().getSharedPreferences("FeedbackButtonState", Context.MODE_PRIVATE);
 
         etName = view.findViewById(R.id.etName);
         etPhone = view.findViewById(R.id.etPhone);
@@ -170,7 +165,7 @@ public class FeedbackFragment extends Fragment {
                     showConfirmationDialog();
                     btnProgress.setVisibility(View.GONE);
                     btnSubmit.setText(getString(R.string.submit_feedback));
-                    prefs.edit().putLong("button_disabled_time", System.currentTimeMillis()).apply();
+                    //TODO:Store the timestamp in firestore
                     countdownTimer();
                 })
                 .addOnFailureListener(e -> {
@@ -199,7 +194,8 @@ public class FeedbackFragment extends Fragment {
     private void countdownTimer() {
         TextView countdownText = requireView().findViewById(R.id.countdownText);
 
-        long savedTime = prefs.getLong("button_disabled_time", 0);
+        long savedTime = 0;
+        //TODO: long savedTime = fetch from firestore
         long elapsedTime = System.currentTimeMillis() - savedTime;
         long remainingMillis = 24 * 60 * 60 * 1000 - elapsedTime;
         if (remainingMillis > 0) {
