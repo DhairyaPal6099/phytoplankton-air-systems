@@ -54,6 +54,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.ShareDashboard;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.CO2Updater;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.DailyNotificationWorker;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.ActivityMainBinding;
@@ -144,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
         MenuItem item = menu.findItem(R.id.action_share);
         View actionView = item.getActionView();
         if (actionView != null) {
-            actionView.setOnClickListener(view -> shareDashboard());
+            actionView.setOnClickListener(view -> ShareDashboard.prepareAndShareDashboard(this));
         }
         return true;
     }
@@ -207,45 +208,6 @@ public class MainActivity extends AppCompatActivity {
                 .setCancelable(false)
                 .show();
     }
-
-    private void shareDashboard() {
-        Fragment navHostFragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_content_main);
-        if (navHostFragment == null) return;
-
-        List<Fragment> fragments = navHostFragment.getChildFragmentManager().getFragments();
-        if (fragments.isEmpty()) return;
-
-        Fragment visibleFragment = fragments.get(0);
-        View dashboardView = visibleFragment.getView();
-        if (dashboardView == null) return;
-
-        dashboardView.post(() -> {
-            Bitmap bitmap = Bitmap.createBitmap(dashboardView.getWidth(), dashboardView.getHeight(), Bitmap.Config.ARGB_8888);
-            Canvas canvas = new Canvas(bitmap);
-            dashboardView.draw(canvas);
-
-            try {
-                File cachePath = new File(getCacheDir(), "images");
-                cachePath.mkdirs();
-                File file = new File(cachePath, "dashboard_screenshot.png");
-                FileOutputStream stream = new FileOutputStream(file);
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                stream.close();
-
-                Uri contentUri = FileProvider.getUriForFile(this, getPackageName() + ".provider", file);
-                if (contentUri != null) {
-                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                    shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
-                    shareIntent.setType("image/png");
-                    shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                    startActivity(Intent.createChooser(shareIntent, "Share dashboard via"));
-                }
-            } catch (IOException e) {
-                Toast.makeText(this, "Error sharing screenshot", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
     private void scheduleDailyNotificationWorker() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 22);
