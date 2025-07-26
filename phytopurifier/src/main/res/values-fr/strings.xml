@@ -307,4 +307,6 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="failed_to_load_user_info">Failed to load user info.</string>
     <string name="first_name_is_required">First name is required</string>
     <string name="last_name_is_required">Last name is required</string>
+    <string name="authentication_failed">Authentication failed.</string>
+    <string name="firestore_error">"Firestore error: "</string>
 </resources>
