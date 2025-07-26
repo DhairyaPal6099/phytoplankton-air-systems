@@ -369,6 +369,8 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="authentication_failed">Authentication failed.</string>
     <string name="firestore_error">"Firestore error: "</string>
     <string name="error_sharing_screenshot">Error sharing screenshot</string>
+    <string name="notification_permission_granted">Notification permission granted</string>
+    <string name="notification_permission_denied">Notification permission denied</string>
 
 
 </resources>
