@@ -111,7 +111,7 @@ public class UserRegistrationManager {
                     // Default empty lists for achievements and notifications
                     List<Map<String, Object>> achievements = new ArrayList<>();
                     List<Map<String, Object>> notifications = new ArrayList<>();
-                    Timestamp feedbackDisabledTime = null;
+                    long feedbackDisabledTime = -1;
 
                     Map<String, Object> userData = new HashMap<>();
                     userData.put("email", email);

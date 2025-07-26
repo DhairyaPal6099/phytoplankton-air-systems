@@ -92,7 +92,7 @@ public class Authentication {
                             List<Map<String, Object>> achievements = new ArrayList<>();
                             List<Map<String, Object>> notifications = new ArrayList<>();
                             int lifetime_co2_converted = 0;
-                            Timestamp feedbackDisabledTime = null;
+                            long feedbackDisabledTime = -1;
 
                             // Create user info map
                             Map<String, Object> userMap = new HashMap<>();

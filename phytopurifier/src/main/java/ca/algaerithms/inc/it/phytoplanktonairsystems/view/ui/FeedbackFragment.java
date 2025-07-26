@@ -5,6 +5,8 @@
 
 package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui;
 
+import static java.util.Objects.isNull;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -27,10 +29,15 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -165,7 +172,7 @@ public class FeedbackFragment extends Fragment {
                     showConfirmationDialog();
                     btnProgress.setVisibility(View.GONE);
                     btnSubmit.setText(getString(R.string.submit_feedback));
-                    //TODO:Store the timestamp in firestore
+                    FirebaseFirestore.getInstance().collection("users").document(currentUser.getUid()).update(Map.of("feedback_disabled_time", System.currentTimeMillis()));
                     countdownTimer();
                 })
                 .addOnFailureListener(e -> {
@@ -193,31 +200,41 @@ public class FeedbackFragment extends Fragment {
 
     private void countdownTimer() {
         TextView countdownText = requireView().findViewById(R.id.countdownText);
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        long savedTime = 0;
-        //TODO: long savedTime = fetch from firestore
-        long elapsedTime = System.currentTimeMillis() - savedTime;
-        long remainingMillis = 24 * 60 * 60 * 1000 - elapsedTime;
-        if (remainingMillis > 0) {
-            btnSubmit.setEnabled(false);
-            new CountDownTimer(remainingMillis, 60 * 1000) {
+        FirebaseFirestore.getInstance().collection("users").document(currentUser.getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.exists()) {
+                    long savedTime = documentSnapshot.getLong("feedback_disabled_time");
+                    if (!isNull(savedTime) && savedTime != -1) {
+                        long elapsedTime = System.currentTimeMillis() - savedTime;
+                        long remainingMillis = 24 * 60 * 60 * 1000 - elapsedTime;
+                        if (remainingMillis > 0) {
+                            btnSubmit.setEnabled(false);
+                            new CountDownTimer(remainingMillis, 60 * 1000) {
 
-                @Override
-                public void onTick(long l) {
-                    long hours = l / (1000 * 60 * 60);
-                    long minutes = (l / (1000 * 60)) % 60;
-                    countdownText.setText(String.format(Locale.getDefault(), "Available in %02d hrs %02d mins", hours, minutes));
+                                @Override
+                                public void onTick(long l) {
+                                    long hours = l / (1000 * 60 * 60);
+                                    long minutes = (l / (1000 * 60)) % 60;
+                                    countdownText.setText(String.format(Locale.getDefault(), "Available in %02d hrs %02d mins", hours, minutes));
+                                }
+
+                                @Override
+                                public void onFinish() {
+                                    btnSubmit.setEnabled(true);
+                                    countdownText.setText("");
+                                }
+                            }.start();
+                        } else {
+                            btnSubmit.setEnabled(true);
+                            countdownText.setText("");
+                        }
+                    }
                 }
+            }
+        });
 
-                @Override
-                public void onFinish() {
-                    btnSubmit.setEnabled(true);
-                    countdownText.setText("");
-                }
-            }.start();
-        } else {
-            btnSubmit.setEnabled(true);
-            countdownText.setText("");
-        }
     }
 }
