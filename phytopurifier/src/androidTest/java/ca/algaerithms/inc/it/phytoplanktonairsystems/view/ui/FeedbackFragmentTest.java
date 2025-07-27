@@ -129,4 +129,11 @@ public class FeedbackFragmentTest {
             }
         };
     }
+
+    private void submitFeedback() {
+        onView(withId(R.id.etPhone)).perform(typeText("4378182727"));
+        onView(withId(R.id.etComment)).perform(typeText("Mediocre application"));
+        onView(withId(R.id.ratingBar)).perform(setRating(4.0f));
+        onView(withId(R.id.btnSubmit)).perform(click());
+    }
 }
