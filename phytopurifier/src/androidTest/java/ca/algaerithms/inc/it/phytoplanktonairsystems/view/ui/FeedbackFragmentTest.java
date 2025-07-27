@@ -117,7 +117,17 @@ public class FeedbackFragmentTest {
         onView(withId(R.id.btnSubmit)).check(matches(not(isEnabled())));
     }
 
-    //Check if a textView appeared showing a countdown timer
+    @Test
+    public void testTextViewAppearsAfterSubmitting() throws InterruptedException {
+        loginToApp();
+        openFeedbackFragment();
+        submitFeedback();
+
+        Thread.sleep(5000);
+        onView(withText("OK")).perform(click());
+
+        onView(withId(R.id.countdownText)).check(matches(withText("Available in 23 hrs 59 mins")));
+    }
 
     private void loginToApp() {
         onView(withId(R.id.login_username)).perform(replaceText("brucershall@gmail.com"), closeSoftKeyboard());
