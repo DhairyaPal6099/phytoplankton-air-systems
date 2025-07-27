@@ -86,11 +86,7 @@ public class FeedbackFragmentTest {
     public void testProgressBarAppearedOnSubmit() throws InterruptedException {
         loginToApp();
         openFeedbackFragment();
-
-        onView(withId(R.id.etPhone)).perform(typeText("4378182727"));
-        onView(withId(R.id.etComment)).perform(typeText("Mediocre application"));
-        onView(withId(R.id.ratingBar)).perform(setRating(4.0f));
-        onView(withId(R.id.btnSubmit)).perform(click());
+        submitFeedback();
 
         Thread.sleep(1000);
         onView(withId(R.id.progressBar)).check(matches(isDisplayed()));
