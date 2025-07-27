@@ -196,7 +196,7 @@ public class FeedbackFragmentTest {
 
         onView(withId(R.id.etPhone)).perform(typeText("4378182727"));
         onView(withId(R.id.etComment)).perform(typeText("Mediocre application"));
-        //Todo: set rating
+        onView(withId(R.id.ratingBar)).perform(setRating(4.0f));
         onView(withId(R.id.btnSubmit)).perform(click());
 
         Thread.sleep(1000);
