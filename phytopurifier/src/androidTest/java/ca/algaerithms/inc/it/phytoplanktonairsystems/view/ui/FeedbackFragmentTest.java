@@ -179,4 +179,9 @@ public class FeedbackFragmentTest {
         onView(withId(R.id.login_Password)).perform(replaceText("Malaika1"), closeSoftKeyboard());
         onView(withId(R.id.login_button)).perform(click());
     }
+
+    private void openFeedbackFragment() {
+        onView(withContentDescription("Open navigation drawer")).perform(click());
+        onView(withId(R.id.nav_feedback)).perform(click());
+    }
 }
