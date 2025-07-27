@@ -10,33 +10,34 @@ import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
 
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.RatingBar;
 
 import androidx.test.espresso.UiController;
 import androidx.test.espresso.ViewAction;
-import androidx.test.espresso.ViewInteraction;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.GrantPermissionRule;
 
-import org.hamcrest.Description;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 
@@ -53,124 +54,16 @@ public class FeedbackFragmentTest {
             GrantPermissionRule.grant(
                     "android.permission.POST_NOTIFICATIONS");
 
-    @Test
-    public void feedbackFragmentTest() {
-        ViewInteraction appCompatEditText = onView(
-                allOf(withId(R.id.login_username),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.login_activity),
-                                        0),
-                                1),
-                        isDisplayed()));
-        appCompatEditText.perform(replaceText("brucershall@gmail.com"), closeSoftKeyboard());
+    @Before
+    public void resetFeedbackSubmitTimer() {
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        Task<Void> task = firestore.collection("users").document("oZTwImIjG0adKZPwJk6GCcbA19I3").update(Map.of("feedback_disabled_time", -1));
 
-        ViewInteraction appCompatEditText2 = onView(
-                allOf(withId(R.id.login_Password),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.login_activity),
-                                        0),
-                                2),
-                        isDisplayed()));
-        appCompatEditText2.perform(replaceText("Malaika1"), closeSoftKeyboard());
-
-        ViewInteraction materialButton = onView(
-                allOf(withId(R.id.login_button), withText("Login"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.login_activity),
-                                        0),
-                                5),
-                        isDisplayed()));
-        materialButton.perform(click());
-
-        ViewInteraction appCompatImageButton = onView(
-                allOf(withContentDescription("Open navigation drawer"),
-                        childAtPosition(
-                                allOf(withId(R.id.toolbar),
-                                        childAtPosition(
-                                                withClassName(is("com.google.android.material.appbar.AppBarLayout")),
-                                                0)),
-                                1),
-                        isDisplayed()));
-        appCompatImageButton.perform(click());
-
-        ViewInteraction navigationMenuItemView = onView(
-                allOf(withId(R.id.nav_feedback),
-                        childAtPosition(
-                                allOf(withId(com.google.android.material.R.id.design_navigation_view),
-                                        childAtPosition(
-                                                withId(R.id.nav_view),
-                                                0)),
-                                4),
-                        isDisplayed()));
-        navigationMenuItemView.perform(click());
-
-        ViewInteraction appCompatEditText5 = onView(
-                allOf(withId(R.id.etPhone), withText("5551234567"),
-                        childAtPosition(
-                                allOf(withId(R.id.feedback_layout),
-                                        childAtPosition(
-                                                withId(R.id.nav_feedback),
-                                                1)),
-                                1),
-                        isDisplayed()));
-        appCompatEditText5.perform(click());
-
-        ViewInteraction appCompatEditText11 = onView(
-                allOf(withId(R.id.etComment),
-                        childAtPosition(
-                                allOf(withId(R.id.feedback_layout),
-                                        childAtPosition(
-                                                withId(R.id.nav_feedback),
-                                                1)),
-                                3),
-                        isDisplayed()));
-        appCompatEditText11.perform(replaceText("Good application, I like it!"), closeSoftKeyboard());
-
-        ViewInteraction materialButton2 = onView(
-                allOf(withId(R.id.btnSubmit), withText("Submit Feedback"),
-                        childAtPosition(
-                                allOf(withId(R.id.btnSubmitContainer),
-                                        childAtPosition(
-                                                withId(R.id.feedback_layout),
-                                                5)),
-                                0),
-                        isDisplayed()));
-        materialButton2.perform(click());
-
-        ViewInteraction materialButton3 = onView(
-                allOf(withId(android.R.id.button1), withText("OK"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.widget.ScrollView")),
-                                        0),
-                                3)));
-        materialButton3.perform(scrollTo(), click());
-
-        //Check if a textView appeared showing a countdown timer
-
-        //Check if the R.id.btnSubmit is grayed out (disabled)
-    }
-
-    private static Matcher<View> childAtPosition(
-            final Matcher<View> parentMatcher, final int position) {
-
-        return new TypeSafeMatcher<View>() {
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("Child at position " + position + " in parent ");
-                parentMatcher.describeTo(description);
-            }
-
-            @Override
-            public boolean matchesSafely(View view) {
-                ViewParent parent = view.getParent();
-                return parent instanceof ViewGroup && parentMatcher.matches(parent)
-                        && view.equals(((ViewGroup) parent).getChildAt(position));
-            }
-        };
+        try {
+            Tasks.await(task);
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -202,6 +95,10 @@ public class FeedbackFragmentTest {
         Thread.sleep(1000);
         onView(withId(R.id.progressBar)).check(matches(isDisplayed()));
     }
+
+    //Check if the submit button is grayed out
+
+    //Check if a textView appeared showing a countdown timer
 
     private void loginToApp() {
         onView(withId(R.id.login_username)).perform(replaceText("brucershall@gmail.com"), closeSoftKeyboard());
