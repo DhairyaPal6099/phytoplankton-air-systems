@@ -21,6 +21,7 @@ import android.widget.RatingBar;
 
 import androidx.test.espresso.UiController;
 import androidx.test.espresso.ViewAction;
+import androidx.test.espresso.matcher.RootMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
@@ -90,6 +91,16 @@ public class FeedbackFragmentTest {
 
         Thread.sleep(1000);
         onView(withId(R.id.progressBar)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void alertDialogBoxAppearsAfterSubmitting() throws InterruptedException {
+        loginToApp();
+        openFeedbackFragment();
+        submitFeedback();
+
+        Thread.sleep(5000);
+        onView(withText("OK")).inRoot(RootMatchers.isDialog()).check(matches(isDisplayed()));
     }
 
     //Check if the submit button is grayed out
