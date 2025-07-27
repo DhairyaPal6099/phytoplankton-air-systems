@@ -173,4 +173,10 @@ public class FeedbackFragmentTest {
             }
         };
     }
+
+    private void loginToApp() {
+        onView(withId(R.id.login_username)).perform(replaceText("brucershall@gmail.com"), closeSoftKeyboard());
+        onView(withId(R.id.login_Password)).perform(replaceText("Malaika1"), closeSoftKeyboard());
+        onView(withId(R.id.login_button)).perform(click());
+    }
 }
