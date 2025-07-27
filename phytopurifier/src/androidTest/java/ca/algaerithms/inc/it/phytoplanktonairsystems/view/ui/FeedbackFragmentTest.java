@@ -8,6 +8,7 @@ import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
@@ -22,6 +23,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.RatingBar;
 
+import androidx.test.espresso.UiController;
 import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
@@ -210,5 +212,24 @@ public class FeedbackFragmentTest {
     private void openFeedbackFragment() {
         onView(withContentDescription("Open navigation drawer")).perform(click());
         onView(withId(R.id.nav_feedback)).perform(click());
+    }
+
+    public static ViewAction setRating(final float rating) {
+        return new ViewAction() {
+            @Override
+            public Matcher<View> getConstraints() {
+                return isAssignableFrom(RatingBar.class);
+            }
+
+            @Override
+            public String getDescription() {
+                return "Set rating on RatingBar";
+            }
+
+            @Override
+            public void perform(UiController uiController, View view) {
+                ((RatingBar) view).setRating(rating);
+            }
+        };
     }
 }
