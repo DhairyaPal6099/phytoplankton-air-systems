@@ -10,11 +10,13 @@ import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 
 import android.view.View;
 import android.widget.RatingBar;
@@ -94,7 +96,7 @@ public class FeedbackFragmentTest {
     }
 
     @Test
-    public void alertDialogBoxAppearsAfterSubmitting() throws InterruptedException {
+    public void testAlertDialogBoxAppearsAfterSubmitting() throws InterruptedException {
         loginToApp();
         openFeedbackFragment();
         submitFeedback();
@@ -103,7 +105,17 @@ public class FeedbackFragmentTest {
         onView(withText("OK")).inRoot(RootMatchers.isDialog()).check(matches(isDisplayed()));
     }
 
-    //Check if the submit button is grayed out
+    @Test
+    public void testSubmitButtonGrayedOutAfterSubmitting() throws InterruptedException {
+        loginToApp();
+        openFeedbackFragment();
+        submitFeedback();
+
+        Thread.sleep(5000);
+        onView(withText("OK")).perform(click());
+
+        onView(withId(R.id.btnSubmit)).check(matches(not(isEnabled())));
+    }
 
     //Check if a textView appeared showing a countdown timer
 
