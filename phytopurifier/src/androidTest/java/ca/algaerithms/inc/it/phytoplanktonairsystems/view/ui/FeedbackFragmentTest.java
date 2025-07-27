@@ -6,6 +6,7 @@ import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.scrollTo;
+import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
@@ -19,7 +20,9 @@ import static org.hamcrest.Matchers.is;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.widget.RatingBar;
 
+import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -102,10 +105,6 @@ public class FeedbackFragmentTest {
                         isDisplayed()));
         navigationMenuItemView.perform(click());
 
-        //Check if the email field was prepopulated
-
-        //Check if the name field was prepopulated
-
         ViewInteraction appCompatEditText5 = onView(
                 allOf(withId(R.id.etPhone), withText("5551234567"),
                         childAtPosition(
@@ -138,8 +137,6 @@ public class FeedbackFragmentTest {
                                 0),
                         isDisplayed()));
         materialButton2.perform(click());
-
-        //Check if there was an indefinite progress bar appearing for at least one second before the dialog box appeared
 
         ViewInteraction materialButton3 = onView(
                 allOf(withId(android.R.id.button1), withText("OK"),
@@ -188,6 +185,20 @@ public class FeedbackFragmentTest {
         openFeedbackFragment();
 
         onView(withId(R.id.etName)).check(matches(isDisplayed())).check(matches(withText("Bruce Marshall")));
+    }
+
+    @Test
+    public void testProgressBarAppearedOnSubmit() throws InterruptedException {
+        loginToApp();
+        openFeedbackFragment();
+
+        onView(withId(R.id.etPhone)).perform(typeText("4378182727"));
+        onView(withId(R.id.etComment)).perform(typeText("Mediocre application"));
+        //Todo: set rating
+        onView(withId(R.id.btnSubmit)).perform(click());
+
+        Thread.sleep(1000);
+        onView(withId(R.id.progressBar)).check(matches(isDisplayed()));
     }
 
     private void loginToApp() {
