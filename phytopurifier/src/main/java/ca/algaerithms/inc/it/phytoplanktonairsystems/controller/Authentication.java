@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -91,6 +92,7 @@ public class Authentication {
                             List<Map<String, Object>> achievements = new ArrayList<>();
                             List<Map<String, Object>> notifications = new ArrayList<>();
                             int lifetime_co2_converted = 0;
+                            long feedbackDisabledTime = -1;
 
                             // Create user info map
                             Map<String, Object> userMap = new HashMap<>();
@@ -101,6 +103,7 @@ public class Authentication {
                             userMap.put(activity.getString(R.string.achievements), achievements);
                             userMap.put(activity.getString(R.string.notifications_smallcase), notifications);
                             userMap.put(activity.getString(R.string.lifetime_co2_converted), lifetime_co2_converted);
+                            userMap.put(activity.getString(R.string.feedback_disabled_time), feedbackDisabledTime);
 
                             FirebaseFirestore db = FirebaseFirestore.getInstance();
                             db.collection("users")
