@@ -49,8 +49,8 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 public class FeedbackFragmentTest {
 
     @Rule
-    public ActivityScenarioRule<SplashScreenActivity> mActivityScenarioRule =
-            new ActivityScenarioRule<>(SplashScreenActivity.class);
+    public ActivityScenarioRule<LoginActivity> mActivityScenarioRule =
+            new ActivityScenarioRule<>(LoginActivity.class);
 
     @Rule
     public GrantPermissionRule mGrantPermissionRule =
@@ -58,7 +58,8 @@ public class FeedbackFragmentTest {
                     "android.permission.POST_NOTIFICATIONS");
 
     @Before
-    public void resetFeedbackSubmitTimer() {
+    public void resetFeedbackSubmitTimer() throws InterruptedException {
+        Thread.sleep(3000);
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         Task<Void> task = firestore.collection("users").document("oZTwImIjG0adKZPwJk6GCcbA19I3").update(Map.of("feedback_disabled_time", -1));
 
@@ -70,7 +71,7 @@ public class FeedbackFragmentTest {
     }
 
     @Test
-    public void testEmailIdPrefilled() {
+    public void testEmailIdPrefilled() throws InterruptedException {
         loginToApp();
         openFeedbackFragment();
 
@@ -78,7 +79,7 @@ public class FeedbackFragmentTest {
     }
 
     @Test
-    public void testNamePrefilled() {
+    public void testNamePrefilled() throws InterruptedException {
         loginToApp();
         openFeedbackFragment();
 
@@ -92,7 +93,7 @@ public class FeedbackFragmentTest {
         submitFeedback();
 
         Thread.sleep(1000);
-        onView(withId(R.id.progressBar)).check(matches(isDisplayed()));
+        onView(withId(R.id.btnProgress)).check(matches(isDisplayed()));
     }
 
     @Test
@@ -101,7 +102,7 @@ public class FeedbackFragmentTest {
         openFeedbackFragment();
         submitFeedback();
 
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         onView(withText("OK")).inRoot(RootMatchers.isDialog()).check(matches(isDisplayed()));
     }
 
@@ -111,7 +112,7 @@ public class FeedbackFragmentTest {
         openFeedbackFragment();
         submitFeedback();
 
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         onView(withText("OK")).perform(click());
 
         onView(withId(R.id.btnSubmit)).check(matches(not(isEnabled())));
@@ -123,19 +124,22 @@ public class FeedbackFragmentTest {
         openFeedbackFragment();
         submitFeedback();
 
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         onView(withText("OK")).perform(click());
 
         onView(withId(R.id.countdownText)).check(matches(withText("Available in 23 hrs 59 mins")));
     }
 
-    private void loginToApp() {
+    private void loginToApp() throws InterruptedException {
+        Thread.sleep(2000);
         onView(withId(R.id.login_username)).perform(replaceText("brucershall@gmail.com"), closeSoftKeyboard());
         onView(withId(R.id.login_Password)).perform(replaceText("Malaika1"), closeSoftKeyboard());
         onView(withId(R.id.login_button)).perform(click());
+        Thread.sleep(2000);
     }
 
-    private void openFeedbackFragment() {
+    private void openFeedbackFragment() throws InterruptedException {
+        Thread.sleep(3000);
         onView(withContentDescription("Open navigation drawer")).perform(click());
         onView(withId(R.id.nav_feedback)).perform(click());
     }
@@ -159,10 +163,11 @@ public class FeedbackFragmentTest {
         };
     }
 
-    private void submitFeedback() {
-        onView(withId(R.id.etPhone)).perform(typeText("4378182727"));
-        onView(withId(R.id.etComment)).perform(typeText("Mediocre application"));
-        onView(withId(R.id.ratingBar)).perform(setRating(4.0f));
+    private void submitFeedback() throws InterruptedException {
+        Thread.sleep(2000);
+        onView(withId(R.id.etPhone)).perform(typeText("4378182727"), closeSoftKeyboard());
+        onView(withId(R.id.etComment)).perform(typeText("Mediocre application"), closeSoftKeyboard());
+        onView(withId(R.id.ratingBar)).perform(setRating(4.0f), closeSoftKeyboard());
         onView(withId(R.id.btnSubmit)).perform(click());
     }
 }
