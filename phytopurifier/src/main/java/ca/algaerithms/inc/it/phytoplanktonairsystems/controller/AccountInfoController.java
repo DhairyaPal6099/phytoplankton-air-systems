@@ -105,7 +105,7 @@ public class AccountInfoController {
         if (phone.isEmpty()) {
             binding.phoneInput.setError(context.getString(R.string.phone_required));
             hasError = true;
-        } else if (phone.length() != 10) {
+        } else if (phone.length() < 9) {
             binding.phoneInput.setError(context.getString(R.string.phone_must_be_at_least_10_digits));
             hasError = true;
         }
