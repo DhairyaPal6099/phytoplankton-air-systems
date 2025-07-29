@@ -106,7 +106,7 @@
     <string name="lockportrait">verrouillerPortrait</string>
     <string name="dark_mode">darkMode</string>
     <string name="empty_string" />
-    <string name="phone_must_be_at_least_9_digits">Le téléphone doit comporter au moins 9 chiffres</string>
+    <string name="phone_must_be_at_least_10_digits">Phone must be at least 10 digits</string>
     <string name="image_forwardslash_asterisk">image/*</string>
     <string name="username">nom d’utilisateur</string>
     <string name="email_lowercase">e-mail</string>
@@ -312,4 +312,5 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="error_sharing_screenshot">Error sharing screenshot</string>
     <string name="notification_permission_granted">Notification permission granted</string>
     <string name="notification_permission_denied">Notification permission denied</string>
+    <string name="user_not_found">User not found</string>
 </resources>

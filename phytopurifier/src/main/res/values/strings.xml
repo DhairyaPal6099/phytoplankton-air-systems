@@ -107,7 +107,7 @@
     <string name="lockportrait">lockPortrait</string>
     <string name="dark_mode">darkMode</string>
     <string name="empty_string" />
-    <string name="phone_must_be_at_least_9_digits">Phone must be at least 9 digits</string>
+    <string name="phone_must_be_at_least_10_digits">Phone must be at least 10 digits</string>
     <string name="image_forwardslash_asterisk">image/*</string>
     <string name="username">username</string>
     <string name="email_lowercase">email</string>
@@ -371,6 +371,7 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="error_sharing_screenshot">Error sharing screenshot</string>
     <string name="notification_permission_granted">Notification permission granted</string>
     <string name="notification_permission_denied">Notification permission denied</string>
+    <string name="user_not_found">User not found</string>
 
 
 </resources>
