@@ -6,15 +6,13 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.settings;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +23,9 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
@@ -41,34 +41,38 @@ public class SettingsFragment extends Fragment {
         binding = FragmentSettingsBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
+        FirebaseApp.initializeApp(requireContext());
+
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        String uid = auth.getCurrentUser().getUid();
+        FirebaseUser currentUser = auth.getCurrentUser();
+        if (currentUser != null) {
+            String uid = auth.getCurrentUser().getUid();
+            TextView usernameTextView = view.findViewById(R.id.usernameTextView);
+            TextView emailTextView = view.findViewById(R.id.emailTextView);
 
-        TextView usernameTextView = view.findViewById(R.id.usernameTextView);
-        TextView emailTextView = view.findViewById(R.id.emailTextView);
+            // Fetch user document from Firestore
+            db.collection("users").document(uid).get()
+                    .addOnSuccessListener(documentSnapshot -> {
+                        if (documentSnapshot.exists()) {
+                            String username = documentSnapshot.getString("name"); // or "username"
+                            String email = documentSnapshot.getString("email");
+
+                            if (username != null && !username.isEmpty()) {
+                                usernameTextView.setText(username);
+                            }
+
+                            if (email != null && !email.isEmpty()) {
+                                emailTextView.setText(email);
+                            }
+                        }
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(getContext(), R.string.failed_to_load_user_info, Toast.LENGTH_SHORT).show();
+                    });
+        }
 
         SharedPreferences prefs = requireContext().getSharedPreferences(getString(R.string.settings_lowercase), Context.MODE_PRIVATE);
-
-        // Fetch user document from Firestore
-        db.collection("users").document(uid).get()
-                .addOnSuccessListener(documentSnapshot -> {
-                    if (documentSnapshot.exists()) {
-                        String username = documentSnapshot.getString("name"); // or "username"
-                        String email = documentSnapshot.getString("email");
-
-                        if (username != null && !username.isEmpty()) {
-                            usernameTextView.setText(username);
-                        }
-
-                        if (email != null && !email.isEmpty()) {
-                            emailTextView.setText(email);
-                        }
-                    }
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(getContext(), R.string.failed_to_load_user_info, Toast.LENGTH_SHORT).show();
-                });
 
         // Lock screen to portrait
         Switch lockScreenSwitch = view.findViewById(R.id.lockScreenModeSwitch);
@@ -103,14 +107,22 @@ public class SettingsFragment extends Fragment {
 
         TextView privacyPolicy = view.findViewById(R.id.privacyPolicyText);
         privacyPolicy.setOnClickListener(v -> {
-            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
-            navController.navigate(R.id.privacyPolicyFragment);
+            try {
+                NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+                navController.navigate(R.id.privacyPolicyFragment);
+            } catch (IllegalArgumentException e) {
+                //Ignored
+            }
         });
 
         TextView termsText = view.findViewById(R.id.termsOfServiceText);
         termsText.setOnClickListener(v -> {
-            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
-            navController.navigate(R.id.termsOfServiceFragment);
+            try {
+                NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+                navController.navigate(R.id.termsOfServiceFragment);
+            } catch (IllegalArgumentException e) {
+                //Ignored
+            }
         });
 
         TextView deleteAccount = view.findViewById(R.id.logoutText);
