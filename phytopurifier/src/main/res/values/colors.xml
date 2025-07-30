@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Earth colors-->
+    <color name="algae_green">#7BAE7F</color>
+    <color name="deep_moss">#4C6C4C</color>
+    <color name="sea_mist">#A4C3B2</color>
+    <color name="driftwood_beige">#D2C7BA</color>
+    <color name="dew_veil">#DCE2DC</color>
+    <color name="lagoon_blue">#84B1B7</color>
+    <color name="sandstone">#B6A78C</color>
+    <color name="sprout_white">#E9F5DB</color>
+    <color name="river_rock">#64766B</color>
+    <color name="fog_sage">#C9D6CF</color>
+    <color name="eucalyptus">#8DAA9D</color>
+    <color name="clay_wash">#F1E4D7</color>
+    <color name="pond_reflection">#739892</color>
+    <color name="marsh_depth">#566963</color>
+    <color name="birch_cream">#E4DED0</color>
+
+    <!--Old colors-->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -37,10 +55,6 @@
     <color name="backgroundLight">#FFFCF7</color>
     <color name="textPrimary">#2F3C2F</color>
     <color name="textSecondary">#4D4D4D</color>
-
-
-
-
     <color name="error_message">#cc0000</color>
     <color name="cyan">#00FFFF</color>
     <color name="teal">#008080</color>
