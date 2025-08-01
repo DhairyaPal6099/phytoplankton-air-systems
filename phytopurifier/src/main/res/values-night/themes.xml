@@ -2,11 +2,11 @@
 
     <!-- Base application theme (dark) -->
     <style name="Theme.PhytoplanktonAirSystems" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:windowSplashScreenBackground" tools:targetApi="31">@color/teal</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="31">@color/algae_green</item>
         <!-- Primary brand color -->
-        <item name="colorPrimary">@color/deep_moss</item>
+        <item name="colorPrimary">@color/midnight_moss</item>
         <item name="colorPrimaryVariant">@color/marsh_depth</item>
-        <item name="colorOnPrimary">@color/clay_wash</item>
+        <item name="colorOnPrimary">@color/fog_sage</item>
 
         <!-- Secondary brand color -->
         <item name="colorSecondary">@color/pond_reflection</item>

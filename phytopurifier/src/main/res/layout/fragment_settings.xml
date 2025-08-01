@@ -42,7 +42,6 @@
                 android:layout_width="match_parent"
                 android:id="@+id/emailTextView"
                 android:text=""
-                android:textColor="@color/faded_black"
                 android:textSize="15sp"
                 android:layout_toEndOf="@id/profileCircleImageView"
                 android:layout_marginTop="30dp" />

@@ -8,7 +8,6 @@ package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.settings;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

@@ -112,7 +112,7 @@
                         android:layout_width="234dp"
                         android:layout_height="219dp"
                         android:indeterminate="false"
-                        android:indeterminateTint="@color/dark_green"
+                        android:indeterminateTint="@color/deep_moss"
                         android:max="100"
                         android:progress="75"
                         android:visibility="visible"

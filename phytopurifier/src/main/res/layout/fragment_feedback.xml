@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbg"
+    android:background="@color/lagoon_blue"
     android:id="@+id/nav_feedback">
 
     <TextView
@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="60dp"
-        android:textColor="@color/forest_green"
+        android:textColor="@color/midnight_moss"
         android:text="@string/how_would_you_rate_your_experience"
         android:textStyle="bold"
         android:textSize="30sp" />
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corners"
-            android:backgroundTint="@color/faded_white"
+            android:backgroundTint="@color/driftwood_beige"
             android:ems="20"
             android:padding="15dp"
             android:hint="@string/name" />
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corners"
-            android:backgroundTint="@color/faded_white"
+            android:backgroundTint="@color/driftwood_beige"
             android:inputType="number"
             android:maxLength="10"
             android:ems="20"
@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corners"
-            android:backgroundTint="@color/faded_white"
+            android:backgroundTint="@color/driftwood_beige"
             android:ems="20"
             android:padding="15dp"
             android:layout_marginTop="10dp" />
@@ -66,7 +66,7 @@
             android:minLines="4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/faded_white"
+            android:backgroundTint="@color/driftwood_beige"
             android:ems="20"
             android:padding="15dp"
             android:layout_marginTop="10dp" />

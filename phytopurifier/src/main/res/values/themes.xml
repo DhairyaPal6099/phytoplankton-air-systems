@@ -2,7 +2,7 @@
 
     <!-- Base application theme (light) -->
     <style name="Theme.PhytoplanktonAirSystems" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:windowSplashScreenBackground" tools:targetApi="31">@color/teal</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="31">@color/algae_green</item>
         <!-- Primary brand color -->
         <item name="colorPrimary">@color/deep_moss</item>
         <item name="colorPrimaryVariant">@color/marsh_depth</item>
