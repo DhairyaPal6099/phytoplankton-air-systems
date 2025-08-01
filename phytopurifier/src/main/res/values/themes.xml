@@ -22,10 +22,8 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <!-- Optional: Use in AndroidManifest if needed -->
     <style name="Theme.PhytoplanktonAirSystems.NoActionBar" parent="Theme.PhytoplanktonAirSystems" />
 
-    <!-- Toolbar overlays (optional) -->
     <style name="Theme.PhytoplanktonAirSystems.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.PhytoplanktonAirSystems.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
 
