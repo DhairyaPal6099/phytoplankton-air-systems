@@ -38,6 +38,7 @@ import java.util.concurrent.TimeUnit;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.MainController;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.ShareDashboard;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.CO2Updater;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.DailyNotificationWorker;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.ActivityMainBinding;
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         MenuItem item = menu.findItem(R.id.action_share);
         View actionView = item.getActionView();
         if (actionView != null) {
-            actionView.setOnClickListener(v -> controller.shareDashboard(getSupportFragmentManager()));
+            actionView.setOnClickListener(v -> ShareDashboard.prepareAndShareDashboard(this));
         }
         return true;
     }
