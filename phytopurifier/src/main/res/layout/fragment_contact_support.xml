@@ -13,7 +13,7 @@
         android:layout_marginTop="100dp"
         android:text="@string/contact_support_title"
         android:textColor="@color/signupBackground"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold" />
 
     <Button
