@@ -20,9 +20,6 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentDashboa
 public class DashboardFragment extends Fragment {
 
     private View dashboardView;
-    private View graphView;
-    private ToggleButton toggleButton;
-
     private FragmentDashboardBinding binding;
 
     @Override
@@ -32,18 +29,6 @@ public class DashboardFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
         dashboardView = view.findViewById(R.id.dashboard_view);
-        graphView = view.findViewById(R.id.graph_view);
-        toggleButton = view.findViewById(R.id.toggle_view_button);
-
-        toggleButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if(isChecked){
-                dashboardView.setVisibility(View.GONE);
-                graphView.setVisibility(View.VISIBLE);
-            } else {
-                dashboardView.setVisibility(View.VISIBLE);
-                graphView.setVisibility(View.GONE);
-            }
-        });
 
         return view;
     }
