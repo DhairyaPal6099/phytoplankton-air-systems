@@ -373,6 +373,7 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="notification_permission_denied">Notification permission denied</string>
     <string name="user_not_found">User not found</string>
     <string name="delete">Delete</string>
+    <string name="feedback_disabled_time">feedback_disabled_time</string>
 
 
 </resources>

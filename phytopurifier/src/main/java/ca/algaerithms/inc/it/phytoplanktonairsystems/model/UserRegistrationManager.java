@@ -7,6 +7,7 @@ package ca.algaerithms.inc.it.phytoplanktonairsystems.model;
 
 import androidx.annotation.NonNull;
 
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -110,6 +111,7 @@ public class UserRegistrationManager {
                     // Default empty lists for achievements and notifications
                     List<Map<String, Object>> achievements = new ArrayList<>();
                     List<Map<String, Object>> notifications = new ArrayList<>();
+                    long feedbackDisabledTime = -1;
 
                     Map<String, Object> userData = new HashMap<>();
                     userData.put("email", email);
@@ -120,6 +122,7 @@ public class UserRegistrationManager {
                     userData.put("achievements", achievements);
                     userData.put("notifications", notifications);
                     userData.put("lifetime_co2_converted", lifetime_co2_converted);
+                    userData.put("feedback_disabled_time", feedbackDisabledTime);
 
                     db.collection("users").document(uid)
                             .set(userData)
