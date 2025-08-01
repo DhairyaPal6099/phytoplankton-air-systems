@@ -30,6 +30,9 @@ android {
     buildFeatures {
         viewBinding true
     }
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
 }
 
 dependencies {
@@ -56,10 +59,14 @@ dependencies {
     implementation libs.work.runtime
     implementation libs.guava
     implementation libs.glide
+    implementation libs.fragment.testing
+    androidTestImplementation libs.rules
     annotationProcessor libs.glide.compiler
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    testImplementation libs.robolectric
+    testImplementation libs.navigation.testing
     implementation libs.circleimageview
     implementation 'androidx.concurrent:concurrent-futures:1.3.0'
 
