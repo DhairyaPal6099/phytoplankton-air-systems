@@ -6,12 +6,12 @@
         <!-- Primary brand color -->
         <item name="colorPrimary">@color/deep_moss</item>
         <item name="colorPrimaryVariant">@color/marsh_depth</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/clay_wash</item>
 
         <!-- Secondary brand color -->
         <item name="colorSecondary">@color/pond_reflection</item>
         <item name="colorSecondaryVariant">@color/eucalyptus</item>
-        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorOnSecondary">@color/sprout_white</item>
 
         <!-- Status bar -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
