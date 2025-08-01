@@ -7,18 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".view.ui.home.dashboard.DashboardFragment">
 
-    <ToggleButton
-        android:id="@+id/toggle_view_button"
-        android:layout_width="129dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="264dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/quicksand_bold"
-        android:textOff="@string/graph_view"
-        android:textOn="@string/dashboard_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <!--DashBoard View -->
     <LinearLayout
         android:id="@+id/dashboard_view"
