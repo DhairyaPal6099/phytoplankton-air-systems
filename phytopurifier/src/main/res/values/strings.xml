@@ -374,6 +374,9 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="user_not_found">User not found</string>
     <string name="delete">Delete</string>
     <string name="feedback_disabled_time">feedback_disabled_time</string>
+    <string name="feedback_submitted_successfully">Feedback submitted successfully!</string>
+    <string name="you_can_submit_feedback_only_once_every_24_hours">You can submit feedback only once every 24 hours.</string>
+    <string name="error_submitting_feedback">"Error submitting feedback: "</string>
 
 
 </resources>
