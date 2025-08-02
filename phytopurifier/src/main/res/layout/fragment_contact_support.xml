@@ -19,7 +19,7 @@
             android:id="@+id/contactHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Support made simple."
+            android:text="@string/support_made_simple"
             android:textColor="@color/signupBackground"
             android:textSize="26sp"
             android:textStyle="bold"
@@ -30,7 +30,7 @@
             android:id="@+id/contactSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="We're here to help — reach out any time!"
+            android:text="@string/we_re_here_to_help_reach_out_any_time"
             android:textColor="@color/signupBackground"
             android:textSize="17sp"
             android:layout_marginBottom="24dp" />
@@ -79,12 +79,12 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:src="@drawable/ic_call"
-                        android:contentDescription="Phone Icon" />
+                        android:contentDescription="@string/phone_icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Call Us"
+                        android:text="@string/call_us"
                         android:textStyle="bold"
                         android:textSize="16sp"
                         android:layout_marginTop="8dp" />
@@ -115,12 +115,12 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:src="@drawable/ic_mail"
-                        android:contentDescription="Email Icon" />
+                        android:contentDescription="@string/email_icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Email Us"
+                        android:text="@string/email_us"
                         android:textStyle="bold"
                         android:textSize="16sp"
                         android:layout_marginTop="8dp" />
@@ -132,7 +132,7 @@
             android:id="@+id/footerCompany"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="© Algaerithms Inc."
+            android:text="@string/algaerithms_inc"
             android:textColor="#888888"
             android:textSize="14sp"
             android:layout_marginBottom="16dp"
