@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/turquoise"
+    android:background="@color/nav_drawer_background"
     android:fillViewport="true">
 
     <LinearLayout
@@ -13,13 +13,11 @@
         android:orientation="vertical"
         android:clipChildren="false">
 
-            <!-- Header with background and profile image -->
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:background="@drawable/account_info_header_bg">
 
-                <!-- Profile Picture -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="120dp"
                     android:layout_height="120dp"
@@ -47,7 +45,6 @@
             android:gravity="center_horizontal"
             android:layout_marginTop="60dp">
 
-            <!-- Full Name -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/full_name"
                     android:textStyle="bold"
-                    android:textColor="#444"
+                    android:textColor="@color/on_nav_drawer_background_subheading"
                     android:textSize="14sp"
                     android:layout_marginBottom="4dp" />
 
@@ -68,14 +65,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/semirounded_corners"
-                    android:backgroundTint="@color/faded_white"
+                    android:backgroundTint="@color/edit_text_fields"
+                    android:textColor="@color/on_edit_text_fields_text"
                     android:paddingHorizontal="12dp"
                     android:inputType="textPersonName"
-                    android:textColor="#000"
-                    android:hint="@string/enter_your_name" />
+                    android:hint="@string/enter_your_name"
+                    android:textColorHint="@color/on_edit_text_fields_hint" />
             </LinearLayout>
 
-            <!-- Email Address -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/email_address_2"
                     android:textStyle="bold"
-                    android:textColor="#444"
+                    android:textColor="@color/on_nav_drawer_background_subheading"
                     android:textSize="14sp"
                     android:layout_marginBottom="4dp" />
 
@@ -96,13 +93,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/semirounded_corners"
-                    android:backgroundTint="@color/faded_white"
+                    android:backgroundTint="@color/edit_text_fields"
+                    android:textColor="@color/on_edit_text_fields_text"
                     android:paddingHorizontal="12dp"
                     android:inputType="textEmailAddress"
-                    android:hint="@string/enter_your_email_2" />
+                    android:hint="@string/enter_your_email_2"
+                    android:textColorHint="@color/on_edit_text_fields_hint" />
             </LinearLayout>
 
-            <!-- Phone Number -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/phone_number_2"
                     android:textStyle="bold"
-                    android:textColor="#444"
+                    android:textColor="@color/on_nav_drawer_background_subheading"
                     android:textSize="14sp"
                     android:layout_marginBottom="4dp" />
 
@@ -123,15 +121,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/semirounded_corners"
-                    android:backgroundTint="@color/faded_white"
+                    android:backgroundTint="@color/edit_text_fields"
+                    android:textColor="@color/on_edit_text_fields_text"
                     android:paddingHorizontal="12dp"
                     android:inputType="phone"
                     android:maxLength="12"
-                    android:textColor="#000"
-                    android:hint="@string/enter_phone_number" />
+                    android:hint="@string/enter_phone_number"
+                    android:textColorHint="@color/on_edit_text_fields_hint" />
             </LinearLayout>
 
-            <!-- Birthday -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -143,7 +141,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/birthday"
                     android:textStyle="bold"
-                    android:textColor="#444"
+                    android:textColor="@color/on_nav_drawer_background_subheading"
                     android:textSize="14sp"
                     android:layout_marginBottom="4dp" />
 
@@ -152,16 +150,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/semirounded_corners"
-                    android:backgroundTint="@color/faded_white"
+                    android:backgroundTint="@color/edit_text_fields"
+                    android:textColor="@color/on_edit_text_fields_text"
                     android:paddingHorizontal="12dp"
                     android:focusable="false"
                     android:clickable="true"
                     android:inputType="none"
-                    android:textColor="#000"
-                    android:hint="@string/yyyy_mm_dd_2" />
+                    android:hint="@string/yyyy_mm_dd_2"
+                    android:textColorHint="@color/on_edit_text_fields_hint" />
             </LinearLayout>
 
-            <!-- Update Button -->
             <Button
                 android:id="@+id/update_button"
                 android:layout_width="match_parent"
