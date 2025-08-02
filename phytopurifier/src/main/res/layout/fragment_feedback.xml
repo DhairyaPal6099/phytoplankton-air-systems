@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lagoon_blue"
+    android:background="@color/nav_drawer_background"
     android:id="@+id/nav_feedback">
 
     <TextView
@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="60dp"
-        android:textColor="@color/midnight_moss"
         android:text="@string/how_would_you_rate_your_experience"
+        android:textColor="@color/on_nav_drawer_background_subheading"
         android:textStyle="bold"
         android:textSize="30sp" />
 
@@ -28,10 +28,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corners"
-            android:backgroundTint="@color/driftwood_beige"
+            android:backgroundTint="@color/edit_text_fields"
+            android:textColor="@color/midnight_moss"
             android:ems="20"
             android:padding="15dp"
-            android:hint="@string/name" />
+            android:hint="@string/name"
+            android:textColorHint="@color/on_edit_text_fields_hint" />
 
         <EditText
             android:id="@+id/etPhone"
@@ -39,12 +41,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corners"
-            android:backgroundTint="@color/driftwood_beige"
+            android:backgroundTint="@color/edit_text_fields"
+            android:textColor="@color/midnight_moss"
             android:inputType="number"
             android:maxLength="10"
             android:ems="20"
             android:padding="15dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/on_edit_text_fields_hint" />
 
         <EditText
             android:id="@+id/etEmail"
@@ -53,10 +57,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corners"
-            android:backgroundTint="@color/driftwood_beige"
+            android:backgroundTint="@color/edit_text_fields"
+            android:textColor="@color/midnight_moss"
             android:ems="20"
             android:padding="15dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/on_edit_text_fields_hint" />
 
         <EditText
             android:id="@+id/etComment"
@@ -66,10 +72,12 @@
             android:minLines="4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/driftwood_beige"
+            android:backgroundTint="@color/edit_text_fields"
+            android:textColor="@color/midnight_moss"
             android:ems="20"
             android:padding="15dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/on_edit_text_fields_hint" />
 
         <RatingBar
             android:id="@+id/ratingBar"
@@ -78,6 +86,8 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:outlineSpotShadowColor="@color/midnight_moss"
+
             android:layout_marginTop="10dp"/>
 
         <FrameLayout
@@ -96,6 +106,8 @@
             <ProgressBar
                 android:id="@+id/btnProgress"
                 style="?android:attr/progressBarStyleSmall"
+                android:progressTint="@color/on_nav_drawer_background"
+                android:progressBackgroundTint="@color/on_nav_drawer_background"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"

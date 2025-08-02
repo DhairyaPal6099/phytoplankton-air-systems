@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/lagoon_blue"
+    android:background="@color/nav_drawer_background"
     tools:context=".view.ui.about.AboutFragment">
 
     <LinearLayout
@@ -73,7 +73,7 @@
             android:text="@string/team_at_algaerithms_inc"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#2F3C2F"
+            android:textColor="@color/on_nav_drawer_background_subheading"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp" />
 

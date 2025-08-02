@@ -2,6 +2,7 @@
     android:id="@+id/fragment_settings_scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/nav_drawer_background"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
@@ -32,6 +33,7 @@
                 android:layout_width="match_parent"
                 android:id="@+id/usernameTextView"
                 style="@style/viewParent.headerText"
+                android:textColor="@color/on_nav_drawer_background_subheading"
                 android:text=""
                 android:textSize="22sp"
                 android:layout_toEndOf="@id/profileCircleImageView"
@@ -41,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/emailTextView"
+                android:textColor="@color/on_nav_drawer_background"
                 android:text=""
                 android:textSize="15sp"
                 android:layout_toEndOf="@id/profileCircleImageView"
@@ -50,6 +53,7 @@
         <!-- App Preferences Section -->
         <TextView
             style="@style/viewParent.headerText.settingsMiniTitle"
+            android:textColor="@color/on_nav_drawer_background_subheading"
             android:text="@string/app_preferences" />
 
         <Switch
@@ -57,6 +61,9 @@
             style="@style/settingsText"
             android:layout_width="349dp"
             android:drawableLeft="@drawable/ic_potrait"
+            android:thumbTint="@color/switch_thumb_color"
+            android:trackTint="@color/switch_track_color"
+            android:textColor="@color/on_nav_drawer_background"
             android:text="@string/lock_screen_to_portrait" />
 
         <Switch
@@ -64,7 +71,10 @@
             style="@style/settingsText"
             android:layout_width="349dp"
             android:layout_height="51dp"
+            android:thumbTint="@color/switch_thumb_color"
+            android:trackTint="@color/switch_track_color"
             android:drawableLeft="@drawable/ic_dark_mode"
+            android:textColor="@color/on_nav_drawer_background"
             android:text="@string/Dark_mode" />
 
         <!-- Notifications Placeholder (non-functional currently) -->
@@ -72,12 +82,14 @@
         <!-- Legal Section -->
         <TextView
             style="@style/viewParent.headerText.settingsMiniTitle"
+            android:textColor="@color/on_nav_drawer_background_subheading"
             android:text="@string/legal" />
 
         <TextView
             android:id="@+id/privacyPolicyText"
             style="@style/viewParent.headerText.settingsTextIcon"
             android:drawableLeft="@drawable/ic_privacypolicy"
+            android:textColor="@color/on_nav_drawer_background"
             android:text="@string/Privacy_Policy" />
 
         <TextView
@@ -86,17 +98,22 @@
             android:layout_width="331dp"
             android:layout_height="51dp"
             android:drawableLeft="@drawable/ic_terms"
+            android:textColor="@color/on_nav_drawer_background"
             android:text="@string/Terms_of_service" />
 
         <!-- Accessibility Section -->
         <TextView
             style="@style/viewParent.headerText.settingsMiniTitle"
+            android:textColor="@color/on_nav_drawer_background_subheading"
             android:text="@string/accessibility" />
 
         <Switch
             android:id="@+id/reduceMotion"
             style="@style/settingsText"
             android:drawableLeft="@drawable/ic_motion"
+            android:textColor="@color/on_nav_drawer_background"
+            android:thumbTint="@color/switch_thumb_color"
+            android:trackTint="@color/switch_track_color"
             android:text="@string/reduce_motion" />
 
         <!-- Delete / Logout Section -->
@@ -104,12 +121,14 @@
             android:id="@+id/logoutText"
             style="@style/viewParent.headerText.settingsTextIcon"
             android:drawableLeft="@drawable/ic_delete"
+            android:textColor="@color/on_nav_drawer_background"
             android:text="@string/Delete_account" />
 
         <!-- App Version -->
         <TextView
             style="@style/viewParent.headerText.settingsMiniTitle"
             android:text="@string/app_ver_1_0"
+            android:textColor="@color/on_nav_drawer_background_subheading"
             android:textAlignment="center"
             android:paddingTop="16dp" />
     </LinearLayout>

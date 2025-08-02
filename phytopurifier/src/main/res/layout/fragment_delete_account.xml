@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/nav_drawer_background"
     android:padding="24dp">
 
     <LinearLayout
@@ -14,6 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/delete_account"
+            android:textColor="@color/on_nav_drawer_background_subheading"
             android:textSize="24sp"
             android:textStyle="bold"
             android:paddingBottom="12dp" />
@@ -23,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Message_for_confirrmation"
+            android:textColor="@color/on_nav_drawer_background"
             android:textSize="16sp"
             android:paddingBottom="16dp" />
 
@@ -31,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/this_action_is_permanent_and_cannot_be_undone"
-            android:textColor="#B00020"
+            android:textColor="@color/on_nav_drawer_background"
             android:textStyle="italic"
             android:paddingBottom="24dp" />
 

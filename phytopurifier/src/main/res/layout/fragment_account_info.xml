@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/lagoon_blue"
+    android:background="@color/nav_drawer_background"
     android:fillViewport="true">
 
     <LinearLayout
@@ -56,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/full_name"
                     android:textStyle="bold"
-                    android:textColor="@color/midnight_moss"
+                    android:textColor="@color/on_nav_drawer_background_subheading"
                     android:textSize="14sp"
                     android:layout_marginBottom="4dp" />
 
@@ -65,11 +65,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/semirounded_corners"
-                    android:backgroundTint="@color/driftwood_beige"
+                    android:backgroundTint="@color/edit_text_fields"
+                    android:textColor="@color/on_edit_text_fields_text"
                     android:paddingHorizontal="12dp"
                     android:inputType="textPersonName"
-                    android:textColor="#000"
-                    android:hint="@string/enter_your_name" />
+                    android:hint="@string/enter_your_name"
+                    android:textColorHint="@color/on_edit_text_fields_hint" />
             </LinearLayout>
 
             <LinearLayout
@@ -83,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/email_address_2"
                     android:textStyle="bold"
-                    android:textColor="@color/midnight_moss"
+                    android:textColor="@color/on_nav_drawer_background_subheading"
                     android:textSize="14sp"
                     android:layout_marginBottom="4dp" />
 
@@ -92,10 +93,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/semirounded_corners"
-                    android:backgroundTint="@color/driftwood_beige"
+                    android:backgroundTint="@color/edit_text_fields"
+                    android:textColor="@color/on_edit_text_fields_text"
                     android:paddingHorizontal="12dp"
                     android:inputType="textEmailAddress"
-                    android:hint="@string/enter_your_email_2" />
+                    android:hint="@string/enter_your_email_2"
+                    android:textColorHint="@color/on_edit_text_fields_hint" />
             </LinearLayout>
 
             <LinearLayout
@@ -109,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/phone_number_2"
                     android:textStyle="bold"
-                    android:textColor="@color/midnight_moss"
+                    android:textColor="@color/on_nav_drawer_background_subheading"
                     android:textSize="14sp"
                     android:layout_marginBottom="4dp" />
 
@@ -118,12 +121,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/semirounded_corners"
-                    android:backgroundTint="@color/driftwood_beige"
+                    android:backgroundTint="@color/edit_text_fields"
+                    android:textColor="@color/on_edit_text_fields_text"
                     android:paddingHorizontal="12dp"
                     android:inputType="phone"
                     android:maxLength="12"
-                    android:textColor="#000"
-                    android:hint="@string/enter_phone_number" />
+                    android:hint="@string/enter_phone_number"
+                    android:textColorHint="@color/on_edit_text_fields_hint" />
             </LinearLayout>
 
             <LinearLayout
@@ -137,7 +141,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/birthday"
                     android:textStyle="bold"
-                    android:textColor="@color/midnight_moss"
+                    android:textColor="@color/on_nav_drawer_background_subheading"
                     android:textSize="14sp"
                     android:layout_marginBottom="4dp" />
 
@@ -146,13 +150,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/semirounded_corners"
-                    android:backgroundTint="@color/driftwood_beige"
+                    android:backgroundTint="@color/edit_text_fields"
+                    android:textColor="@color/on_edit_text_fields_text"
                     android:paddingHorizontal="12dp"
                     android:focusable="false"
                     android:clickable="true"
                     android:inputType="none"
-                    android:textColor="#000"
-                    android:hint="@string/yyyy_mm_dd_2" />
+                    android:hint="@string/yyyy_mm_dd_2"
+                    android:textColorHint="@color/on_edit_text_fields_hint" />
             </LinearLayout>
 
             <Button
