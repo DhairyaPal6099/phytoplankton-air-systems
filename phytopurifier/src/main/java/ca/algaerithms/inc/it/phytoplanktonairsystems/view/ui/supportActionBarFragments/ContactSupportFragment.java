@@ -42,7 +42,9 @@ public class ContactSupportFragment extends Fragment {
         Button phoneButton = binding.phoneButton;
 
         ImageView gifImageView = binding.gifImageView;
-        Glide.with(this).asGif().load(R.drawable.gif_contactsupport).into(gifImageView);
+        gifImageView.setImageResource(R.drawable.ic_contact);
+
+        //Glide.with(this).asGif().load(R.drawable.gif_contactsupport).into(gifImageView);
 
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
