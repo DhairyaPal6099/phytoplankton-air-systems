@@ -367,6 +367,13 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="leaderboard_2">Leaderboard</string>
   <string name="achievements" translatable="false">achievements</string>
     <string name="feedback_disabled_time">feedback_disabled_time</string>
+    <string name="support_made_simple">Support made simple.</string>
+    <string name="we_re_here_to_help_reach_out_any_time">We\'re here to help — reach out any time!</string>
+    <string name="phone_icon">Phone Icon</string>
+    <string name="call_us">Call Us</string>
+    <string name="email_icon">Email Icon</string>
+    <string name="email_us">Email Us</string>
+    <string name="algaerithms_inc">© Algaerithms Inc.</string>
 
 
 </resources>
