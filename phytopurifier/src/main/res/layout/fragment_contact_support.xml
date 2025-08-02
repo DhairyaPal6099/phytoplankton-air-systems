@@ -1,93 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
     tools:context=".view.ui.supportActionBarFragments.ContactSupportFragment">
 
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center_horizontal"-->
-<!--        android:layout_marginTop="100dp"-->
-<!--        android:text="@string/contact_support_title"-->
-<!--        android:textColor="@color/signupBackground"-->
-<!--        android:textSize="22sp"-->
-<!--        android:textStyle="bold" />-->
-
-    <TextView
-        android:id="@+id/contactHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
-        android:text="Let's get in touch!"
-        android:textColor="@color/signupBackground"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <!-- New Subtitle -->
-    <TextView
-        android:id="@+id/contactSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="70dp"
-        android:text="We're here to help — reach out any time!"
-        android:textColor="@color/signupBackground"
-        android:textSize="16sp" />
-
-
-    <ImageView
-        android:id="@+id/gifImageView"
-        android:layout_width="174dp"
-        android:layout_height="213dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="90dp" />
-
-    <Button
-        android:id="@+id/emailButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="220dp"
-        android:layout_marginStart="-75dp"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/email" />
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="230dp"
-        android:layout_marginStart="130dp"
-        android:textColor="@color/signupBackground"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/company_email" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
 
-    <Button
-        android:id="@+id/phoneButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="270dp"
-        android:layout_marginStart="-74dp"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/phone" />
+        <!-- Header -->
+        <TextView
+            android:id="@+id/contactHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Let's get in touch!"
+            android:textColor="@color/signupBackground"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="280dp"
-        android:layout_marginStart="130dp"
-        android:textStyle="bold"
-        android:textColor="@color/signupBackground"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/company_phonenumber" />
+        <TextView
+            android:id="@+id/contactSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We're here to help — reach out any time!"
+            android:textColor="@color/signupBackground"
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp" />
 
+        <!-- Custom Image -->
+        <ImageView
+            android:id="@+id/gifImageView"
+            android:layout_width="174dp"
+            android:layout_height="213dp"
+            android:layout_marginBottom="32dp"
+            />
 
+        <!-- Contact Cards Row -->
+        <LinearLayout
+            android:id="@+id/contactOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="2">
 
-</FrameLayout>
+            <!-- Call Us Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardCall"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_call"
+                        android:contentDescription="Phone Icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Call Us"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+1 (437)-123-4567"
+                        android:textSize="14sp"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Email Us Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_email"
+                        android:contentDescription="Email Icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email Us"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="algaerithms@gmail.com"
+                        android:textSize="14sp"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
