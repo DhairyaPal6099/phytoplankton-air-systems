@@ -19,7 +19,6 @@
     <string name="no">NO</string>
     <string name="replace_with_your_own_action">Replace with your own action</string>
     <string name="action">Action</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="about">About</string>
     <string name="settings">Settings</string>
     <string name="logout">Logout</string>
@@ -108,6 +107,7 @@
     <string name="dark_mode">darkMode</string>
     <string name="empty_string" />
     <string name="phone_must_be_at_least_9_digits">Phone must be at least 9 digits</string>
+    <string name="phone_must_be_at_least_10_digits">Phone must be at least 10 digits</string>
     <string name="image_forwardslash_asterisk">image/*</string>
     <string name="username">username</string>
     <string name="email_lowercase">email</string>
@@ -366,7 +366,17 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="insights_2">Insights</string>
     <string name="leaderboard_2">Leaderboard</string>
   <string name="achievements" translatable="false">achievements</string>
+    <string name="authentication_failed">Authentication failed.</string>
+    <string name="firestore_error">"Firestore error: "</string>
+    <string name="error_sharing_screenshot">Error sharing screenshot</string>
+    <string name="notification_permission_granted">Notification permission granted</string>
+    <string name="notification_permission_denied">Notification permission denied</string>
+    <string name="user_not_found">User not found</string>
+    <string name="delete">Delete</string>
     <string name="feedback_disabled_time">feedback_disabled_time</string>
+    <string name="feedback_submitted_successfully">Feedback submitted successfully!</string>
+    <string name="you_can_submit_feedback_only_once_every_24_hours">You can submit feedback only once every 24 hours.</string>
+    <string name="error_submitting_feedback">"Error submitting feedback: "</string>
     <string name="support_made_simple">Support made simple.</string>
     <string name="we_re_here_to_help_reach_out_any_time">We\'re here to help — reach out any time!</string>
     <string name="phone_icon">Phone Icon</string>
