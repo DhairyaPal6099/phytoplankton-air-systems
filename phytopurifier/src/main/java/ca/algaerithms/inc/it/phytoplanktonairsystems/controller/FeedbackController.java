@@ -96,22 +96,7 @@ public class FeedbackController {
         feedbackData.put("comment", comment);
         feedbackData.put("rating", rating);
         feedbackData.put("deviceModel", model.getDeviceModel());
-
-        model.getLastFeedbackTime(task -> {
-            if (!task.isSuccessful() || !task.getResult().exists()) {
-                submitAndUpdate(feedbackData);
-                return;
-            }
-            Long lastTime = task.getResult().getLong("feedback_disabled_time");
-            long now = System.currentTimeMillis();
-            if (lastTime != null && now - lastTime < COOLDOWN_MILLIS) {
-                view.showProgressBar(false);
-                view.showToast(context.getString(R.string.you_can_submit_feedback_only_once_every_24_hours));
-                startCountdownTimer(COOLDOWN_MILLIS - (now - lastTime));
-                return;
-            }
-            submitAndUpdate(feedbackData);
-        });
+        submitAndUpdate(feedbackData);
     }
 
     private void submitAndUpdate(Map<String, Object> feedbackData) {
@@ -121,9 +106,9 @@ public class FeedbackController {
                 view.showProgressBar(false);
                 if (task.isSuccessful()) {
                     view.clearFields();
-                    long now = System.currentTimeMillis();
                     startCountdownTimer(COOLDOWN_MILLIS);
                     view.showConfirmationDialog();
+                    view.setSubmitButtonEnabled(false);
                 } else {
                     view.showToast(context.getString(R.string.error_submitting_feedback) + task.getException().getMessage());
                 }
