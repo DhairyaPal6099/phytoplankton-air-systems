@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/turquoise"
+    android:background="@color/white"
     android:fillViewport="true">
 
     <LinearLayout
@@ -13,30 +13,30 @@
         android:orientation="vertical"
         android:clipChildren="false">
 
-            <!-- Header with background and profile image -->
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@drawable/account_info_header_bg">
+        <!-- Header with background and profile image -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/green_primary">
 
-                <!-- Profile Picture -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="-60dp"
-                    app:cardCornerRadius="60dp"
-                    app:cardElevation="6dp">
+            <!-- Profile Picture -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="-60dp"
+                app:cardCornerRadius="60dp"
+                app:cardElevation="6dp">
 
-                    <ImageView
-                        android:id="@+id/profile_image"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/profile"
-                        android:contentDescription="@string/profile_picture" />
-                </androidx.cardview.widget.CardView>
-            </FrameLayout>
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profile"
+                    android:contentDescription="@string/profile_picture" />
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
 
         <!-- Form Section -->
         <LinearLayout
@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/full_name"
                     android:textStyle="bold"
-                    android:textColor="#444"
+                    android:textColor="@color/text_primary"
                     android:textSize="14sp"
                     android:layout_marginBottom="4dp" />
 
@@ -71,7 +71,7 @@
                     android:backgroundTint="@color/faded_white"
                     android:paddingHorizontal="12dp"
                     android:inputType="textPersonName"
-                    android:textColor="#000"
+                    android:textColor="@color/text_dark"
                     android:hint="@string/enter_your_name" />
             </LinearLayout>
 
@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/email_address_2"
                     android:textStyle="bold"
-                    android:textColor="#444"
+                    android:textColor="@color/text_primary"
                     android:textSize="14sp"
                     android:layout_marginBottom="4dp" />
 
@@ -99,6 +99,7 @@
                     android:backgroundTint="@color/faded_white"
                     android:paddingHorizontal="12dp"
                     android:inputType="textEmailAddress"
+                    android:textColor="@color/text_dark"
                     android:hint="@string/enter_your_email_2" />
             </LinearLayout>
 
@@ -114,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/phone_number_2"
                     android:textStyle="bold"
-                    android:textColor="#444"
+                    android:textColor="@color/text_primary"
                     android:textSize="14sp"
                     android:layout_marginBottom="4dp" />
 
@@ -127,7 +128,7 @@
                     android:paddingHorizontal="12dp"
                     android:inputType="phone"
                     android:maxLength="10"
-                    android:textColor="#000"
+                    android:textColor="@color/text_dark"
                     android:hint="@string/enter_phone_number" />
             </LinearLayout>
 
@@ -143,7 +144,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/birthday"
                     android:textStyle="bold"
-                    android:textColor="#444"
+                    android:textColor="@color/text_primary"
                     android:textSize="14sp"
                     android:layout_marginBottom="4dp" />
 
@@ -157,7 +158,7 @@
                     android:focusable="false"
                     android:clickable="true"
                     android:inputType="none"
-                    android:textColor="#000"
+                    android:textColor="@color/text_dark"
                     android:hint="@string/yyyy_mm_dd_2" />
             </LinearLayout>
 
@@ -168,7 +169,7 @@
                 android:layout_height="48dp"
                 android:text="@string/update_2"
                 android:textColor="@android:color/white"
-                android:background="@drawable/rounded_corners"
+                android:background="@drawable/rounded_corners_green"
                 android:layout_marginTop="24dp" />
         </LinearLayout>
     </LinearLayout>
