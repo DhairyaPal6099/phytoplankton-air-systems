@@ -377,6 +377,9 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="feedback_submitted_successfully">Feedback submitted successfully!</string>
     <string name="you_can_submit_feedback_only_once_every_24_hours">You can submit feedback only once every 24 hours.</string>
     <string name="error_submitting_feedback">"Error submitting feedback: "</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="back_online">Back online</string>
+    <string name="no_internet_connection">No internet connection</string>
 
 
 </resources>

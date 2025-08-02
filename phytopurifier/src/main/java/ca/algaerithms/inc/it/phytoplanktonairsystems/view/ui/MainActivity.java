@@ -6,8 +6,16 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
+import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -31,6 +39,7 @@ import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.FirebaseApp;
 
 import java.util.Calendar;
@@ -48,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private ActivityMainBinding binding;
     private MainController controller;
+    private Snackbar connectivitySnackbar;
+    private ConnectivityManager.NetworkCallback networkCallback;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +106,8 @@ public class MainActivity extends AppCompatActivity {
         requestNotificationPermissionIfNeeded();
         scheduleDailyNotificationWorkerOnce();
         scheduleRecurringCO2Worker();
+        registerNetworkCallback();
+
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
@@ -177,6 +191,58 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    private void registerNetworkCallback() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkRequest request = new NetworkRequest.Builder()
+                .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+                .build();
+
+        networkCallback = new ConnectivityManager.NetworkCallback() {
+            @Override
+            public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities networkCapabilities) {
+                boolean hasInternet = networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
+
+                runOnUiThread(() -> {
+                    if (hasInternet) {
+                        showOnlineSnackbar();
+                    } else {
+                        showOfflineSnackbar();
+                    }
+                });
+            }
+
+            @Override
+            public void onLost(@NonNull Network network) {
+                runOnUiThread(() -> showOfflineSnackbar());
+            }
+        };
+
+        connectivityManager.registerNetworkCallback(request, networkCallback);
+        boolean isConnected = false;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Network activeNetwork = connectivityManager.getActiveNetwork();
+            if (activeNetwork != null) {
+                NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(activeNetwork);
+                isConnected = capabilities != null && capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
+            }
+        } else {
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            isConnected = activeNetworkInfo != null && activeNetworkInfo.isConnected();
+        }
+
+        if (!isConnected) {
+            runOnUiThread(this::showOfflineSnackbar);
+        }
+    }
+
+    private void unregisterNetworkCallback() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (networkCallback != null) {
+            connectivityManager.unregisterNetworkCallback(networkCallback);
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -186,5 +252,40 @@ public class MainActivity extends AppCompatActivity {
                     : getString(R.string.notification_permission_denied);
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void showOfflineSnackbar() {
+        if (connectivitySnackbar == null || !connectivitySnackbar.isShownOrQueued()) {
+            connectivitySnackbar = Snackbar.make(
+                    getWindow().getDecorView().findViewById(android.R.id.content),
+                    R.string.no_internet_connection,
+                    Snackbar.LENGTH_INDEFINITE
+            );
+            connectivitySnackbar.setBackgroundTint(getColor(R.color.deep_red));
+            connectivitySnackbar.setTextColor(getColor(R.color.white));
+            connectivitySnackbar.setAction(R.string.dismiss, v -> connectivitySnackbar.dismiss());
+            connectivitySnackbar.show();
+        }
+    }
+
+    private void showOnlineSnackbar() {
+        if (connectivitySnackbar != null && connectivitySnackbar.isShown()) {
+            connectivitySnackbar.dismiss();
+        }
+
+        Snackbar onlineSnackbar = Snackbar.make(
+                getWindow().getDecorView().findViewById(android.R.id.content),
+                R.string.back_online,
+                Snackbar.LENGTH_SHORT
+        );
+        onlineSnackbar.setBackgroundTint(getColor(R.color.success_green));
+        onlineSnackbar.setTextColor(getColor(R.color.white));
+        onlineSnackbar.show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterNetworkCallback();
     }
 }
