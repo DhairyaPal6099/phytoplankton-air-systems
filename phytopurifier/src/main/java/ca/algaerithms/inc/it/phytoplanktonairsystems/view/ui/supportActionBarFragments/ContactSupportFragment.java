@@ -26,7 +26,6 @@ public class ContactSupportFragment extends Fragment {
     private FragmentContactSupportBinding binding;
 
     public ContactSupportFragment() {
-        // Required empty public constructor
     }
 
     @Override
