@@ -307,4 +307,15 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="failed_to_load_user_info">Failed to load user info.</string>
     <string name="first_name_is_required">First name is required</string>
     <string name="last_name_is_required">Last name is required</string>
+    <string name="support_made_simple">Support made simple.</string>
+    <string name="we_re_here_to_help_reach_out_any_time">We\'re here to help — reach out any time!</string>
+    <string name="phone_icon">Phone Icon</string>
+    <string name="call_us">Call Us</string>
+    <string name="email_icon">Email Icon</string>
+    <string name="email_us">Email Us</string>
+    <string name="algaerithms_inc">© Algaerithms Inc.</string>
+    <string name="notifications_smallcase">notifications</string>
+    <string name="lifetime_co2_converted">lifetime_co2_converted</string>
+    <string name="n_a">N/A</string>
+    <string name="feedback_disabled_time">feedback_disabled_time</string>
 </resources>
