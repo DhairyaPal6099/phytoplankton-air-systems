@@ -39,6 +39,8 @@
     <color name="textSecondary">#4D4D4D</color>
 
 
+    <color name="field_background">#E6F4EA</color>
+
 
     <color name="green_primary">#4CAF50</color>
     <color name="green_dark">#388E3C</color>
