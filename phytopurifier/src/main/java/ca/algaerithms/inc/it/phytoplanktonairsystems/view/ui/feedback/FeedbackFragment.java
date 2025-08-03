@@ -25,6 +25,8 @@ import android.widget.Toast;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.FeedbackController;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.FeedbackModel;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.utils.NetworkUtils;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.MainActivity;
 
 public class FeedbackFragment extends Fragment implements FeedbackView  {
 
@@ -67,6 +69,11 @@ public class FeedbackFragment extends Fragment implements FeedbackView  {
         }
 
         btnSubmit.setOnClickListener(v -> {
+            if (!NetworkUtils.isConnected(requireContext())) {
+                ((MainActivity) requireActivity()).showOfflineSnackbar();
+                return; // stop here if no internet
+            }
+
             controller.handleSubmitFeedback(
                     etName.getText().toString().trim(),
                     etPhone.getText().toString().trim(),

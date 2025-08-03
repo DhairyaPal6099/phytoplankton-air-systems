@@ -18,6 +18,7 @@ import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -57,8 +58,11 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private ActivityMainBinding binding;
     private MainController controller;
+
     private Snackbar connectivitySnackbar;
     private ConnectivityManager.NetworkCallback networkCallback;
+    private boolean wasConnected = false;
+    private boolean isFirstNetworkCheck = true;
 
 
     @Override
@@ -204,9 +208,18 @@ public class MainActivity extends AppCompatActivity {
                 boolean hasInternet = networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
 
                 runOnUiThread(() -> {
-                    if (hasInternet) {
+                    if (isFirstNetworkCheck) {
+                        wasConnected = hasInternet;
+                        isFirstNetworkCheck = false;
+                        // Don't show any snackbar on first check
+                        return;
+                    }
+
+                    if (hasInternet && !wasConnected) {
+                        wasConnected = true;
                         showOnlineSnackbar();
-                    } else {
+                    } else if (!hasInternet && wasConnected) {
+                        wasConnected = false;
                         showOfflineSnackbar();
                     }
                 });
@@ -214,26 +227,36 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onLost(@NonNull Network network) {
-                runOnUiThread(() -> showOfflineSnackbar());
+                runOnUiThread(() -> {
+                    if (isFirstNetworkCheck) {
+                        wasConnected = false;
+                        isFirstNetworkCheck = false;
+                        // No snackbar on first lost event either
+                        return;
+                    }
+
+                    if (wasConnected) {
+                        wasConnected = false;
+                        showOfflineSnackbar();
+                    }
+                });
             }
         };
 
         connectivityManager.registerNetworkCallback(request, networkCallback);
-        boolean isConnected = false;
+
+        // Set initial wasConnected state based on current network
+        boolean isConnected;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Network activeNetwork = connectivityManager.getActiveNetwork();
-            if (activeNetwork != null) {
-                NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(activeNetwork);
-                isConnected = capabilities != null && capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
-            }
+            NetworkCapabilities capabilities = activeNetwork == null ? null : connectivityManager.getNetworkCapabilities(activeNetwork);
+            isConnected = capabilities != null && capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
         } else {
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
             isConnected = activeNetworkInfo != null && activeNetworkInfo.isConnected();
         }
-
-        if (!isConnected) {
-            runOnUiThread(this::showOfflineSnackbar);
-        }
+        wasConnected = isConnected;
+        isFirstNetworkCheck = false;
     }
 
     private void unregisterNetworkCallback() {
@@ -254,7 +277,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void showOfflineSnackbar() {
+    public void showOfflineSnackbar() {
         if (connectivitySnackbar == null || !connectivitySnackbar.isShownOrQueued()) {
             connectivitySnackbar = Snackbar.make(
                     getWindow().getDecorView().findViewById(android.R.id.content),
@@ -268,7 +291,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void showOnlineSnackbar() {
+    public void showOnlineSnackbar() {
         if (connectivitySnackbar != null && connectivitySnackbar.isShown()) {
             connectivitySnackbar.dismiss();
         }
