@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/floatingVideoContainer"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:visibility="gone"
+        android:background="@drawable/rounded_corners"
+        android:elevation="10dp"
+        android:layout_margin="16dp"
+        android:layout_gravity="top|end">
+
+        <WebView
+            android:id="@+id/floatingWebView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/closeFloatingWebView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_close"
+            android:layout_gravity="top|end"
+            android:padding="4dp" />
+    </FrameLayout>
+
+
+</RelativeLayout>

@@ -22,10 +22,23 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHolder> {
     private Context context;
     private List<VideoItem> videoList;
+    private OnVideoClickListener listener;
 
-    public VideoAdapter(Context context, List<VideoItem> videoList) {
+    // Interface for click callback
+    public interface OnVideoClickListener {
+        void onVideoClick(String videoId);
+    }
+
+    // Constructor
+    public VideoAdapter(Context context, List<VideoItem> videoList, OnVideoClickListener listener) {
         this.context = context;
         this.videoList = videoList;
+        this.listener = listener;
+    }
+
+    // Convenience constructor to preserve existing usage without listener
+    public VideoAdapter(Context context, List<VideoItem> videoList) {
+        this(context, videoList, null);
     }
 
     @NonNull
@@ -43,8 +56,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
         Glide.with(context).load(item.getThumbnailUrl()).into(holder.thumbnail);
 
         holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(item.getVideoUrl()));
-            context.startActivity(intent);
+            if (listener != null) {
+                listener.onVideoClick(item.getVideoId());  // Pass the videoId to the listener
+            }
         });
     }
 

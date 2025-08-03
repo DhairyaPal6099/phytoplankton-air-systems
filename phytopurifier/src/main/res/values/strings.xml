@@ -82,24 +82,32 @@
     <!-- Insights -->
     <!-- Basics -->
     <string-array name="basic_titles">
-        <item>How Phytoplankton Started Complex Life On Earth?</item>
-        <item>Phytoplankton | The Invisible Force Behind Life on Earth 🌎</item>
+        <item>The Insanely Important World of Phytoplankton</item>
+        <item>Phytoplankton Facts!</item>
+        <item>Climate change and phytoplankton</item>
         <item>Algae and algal blooms – the role of phytoplankton in our ecosystem</item>
+        <item>Why Are Plankton the Most Vital Organisms on Earth?</item>
     </string-array>
     <string-array name="basic_ids">
-        <item>9s-PlsJD8CE&amp;t=25s</item>
-        <item>B4d9ZGL2oz8</item>
+        <item>1xl5Z1d3wcQ</item>
+        <item>EssQFIDadaM</item>
+        <item>2C8Ah_Mie9c</item>
         <item>LHwJTHbzD0w</item>
+        <item>UjnYJVKysfo</item>
     </string-array>
 
     <!-- Intermediate -->
     <string-array name="intermediate_titles">
-        <item>Bruh Moment Explained</item>
-        <item>Algae that Slaps</item>
+        <item>Microworlds: Plankton 101</item>
+        <item>The Secret Life of Plankton</item>
+        <item>Phytoplankton | The Invisible Force Behind Life on Earth 🌎</item>
+
+
     </string-array>
     <string-array name="intermediate_ids">
-        <item>def98765432</item>
-        <item>ghi12345678</item>
+        <item>yS1Rk4CMpSE</item>
+        <item>xFQ_fO2D7f0</item>
+        <item>zTgWer5fvyg</item>
     </string-array>
 
     <!-- Advanced -->
