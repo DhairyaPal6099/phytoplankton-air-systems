@@ -58,4 +58,5 @@
     <color name="textPrimary">#2F3C2F</color>
     <color name="textSecondary">#4D4D4D</color>
     <color name="error_message">#cc0000</color>
+    <color name="forest_green">#06402B</color>
 </resources>

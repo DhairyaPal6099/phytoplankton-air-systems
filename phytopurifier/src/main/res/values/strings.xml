@@ -79,16 +79,37 @@
     <string name="rbc">RBC</string>
     <string name="td">TD</string>
 
-    <string-array name="video_titles">
-        <item>What are Phytoplankton?</item>
-        <item>How Phytoplankton Helps Clean Air</item>
-        <item>Phytoplankton and the Climate</item>
+    <!-- Insights -->
+    <!-- Basics -->
+    <string-array name="basic_titles">
+        <item>How Phytoplankton Started Complex Life On Earth?</item>
+        <item>Phytoplankton | The Invisible Force Behind Life on Earth 🌎</item>
+        <item>Algae and algal blooms – the role of phytoplankton in our ecosystem</item>
+    </string-array>
+    <string-array name="basic_ids">
+        <item>9s-PlsJD8CE&amp;t=25s</item>
+        <item>B4d9ZGL2oz8</item>
+        <item>LHwJTHbzD0w</item>
     </string-array>
 
-    <string-array name="video_urls">
-        <item>https://www.youtube.com/embed/9s-PlsJD8CE?si=XV-svCkIEBthmlhR</item>
-        <item>https://www.youtube.com/embed/fe1x6crXZW4?si=lh2dycuGBQ3nSKn3</item>
-        <item>https://www.youtube.com/embed/2C8Ah_Mie9c?si=t3mT9gVCoS31alw4</item>
+    <!-- Intermediate -->
+    <string-array name="intermediate_titles">
+        <item>Bruh Moment Explained</item>
+        <item>Algae that Slaps</item>
+    </string-array>
+    <string-array name="intermediate_ids">
+        <item>def98765432</item>
+        <item>ghi12345678</item>
+    </string-array>
+
+    <!-- Advanced -->
+    <string-array name="advanced_titles">
+        <item>When Algae Takes Over</item>
+        <item>Real Footage of Bloom</item>
+    </string-array>
+    <string-array name="advanced_ids">
+        <item>jkl54321098</item>
+        <item>mno87654321</item>
     </string-array>
 
     <string name="contact_support_phonenumber" translatable="false">tel: 4371234567</string>
