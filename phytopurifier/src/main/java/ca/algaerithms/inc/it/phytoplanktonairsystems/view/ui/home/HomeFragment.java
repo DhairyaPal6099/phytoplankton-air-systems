@@ -31,20 +31,31 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         BottomNavigationView bottomNav = view.findViewById(R.id.bottom_nav_home);
 
         NavHostFragment navHostFragment =
                 (NavHostFragment) getChildFragmentManager().findFragmentById(R.id.home_nav_host_fragment);
 
-        NavController navController = navHostFragment.getNavController();
-        NavigationUI.setupWithNavController(bottomNav, navController);
-
-        return view;
+        if (navHostFragment != null) {
+            NavController navController = navHostFragment.getNavController();
+            NavigationUI.setupWithNavController(bottomNav, navController);
+        }
     }
 
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        Fragment fragment = getChildFragmentManager().findFragmentById(R.id.home_nav_host_fragment);
+        if (fragment != null) {
+            getChildFragmentManager().beginTransaction().remove(fragment).commitAllowingStateLoss();
+        }
     }
 }

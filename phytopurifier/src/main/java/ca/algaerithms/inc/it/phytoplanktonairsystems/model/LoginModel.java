@@ -132,13 +132,13 @@ public class LoginModel {
         int lifetime_co2_converted = 0;
 
         Map<String, Object> userMap = new HashMap<>();
-        userMap.put("Name", name);
-        userMap.put("Email", email);
-        userMap.put("Phone", phone != null ? phone : "N/A");
-        userMap.put("Birthdate", "N/A");
-        userMap.put("Achievements", achievements);
+        userMap.put("name", name);
+        userMap.put("email", email);
+        userMap.put("phone", phone != null ? phone : "N/A");
+        userMap.put("birthdate", "N/A");
+        userMap.put("achievements", achievements);
         userMap.put("notifications", notifications);
-        userMap.put("lifetimeCO2Converted", lifetime_co2_converted);
+        userMap.put("lifetime_co2_converted", lifetime_co2_converted);
 
         db.collection("users")
                 .document(uid)

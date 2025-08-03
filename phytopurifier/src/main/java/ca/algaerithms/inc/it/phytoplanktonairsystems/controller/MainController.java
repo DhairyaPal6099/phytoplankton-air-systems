@@ -2,17 +2,12 @@ package ca.algaerithms.inc.it.phytoplanktonairsystems.controller;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.List;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.MainModel;
@@ -57,28 +52,6 @@ public class MainController {
                 })
                 .setNegativeButton(R.string.no, null)
                 .show();
-    }
-
-    public void shareDashboard(FragmentManager fm) {
-        Fragment navHost = fm.findFragmentById(R.id.nav_host_fragment_content_main);
-        if (navHost == null) return;
-
-        List<Fragment> children = navHost.getChildFragmentManager().getFragments();
-        if (children.isEmpty()) return;
-
-        View dashboardView = children.get(0).getView();
-        if (dashboardView == null) return;
-
-        dashboardView.post(() -> {
-            Uri uri = model.captureAndSaveDashboard(dashboardView);
-            if (uri == null) return;
-
-            Intent shareIntent = new Intent(Intent.ACTION_SEND);
-            shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
-            shareIntent.setType("image/png");
-            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            view.startActivity(Intent.createChooser(shareIntent, "Share dashboard via"));
-        });
     }
 
     public void showExitDialog() {

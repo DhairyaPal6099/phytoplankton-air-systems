@@ -44,7 +44,7 @@ public class FeedbackModel {
     public void getLastFeedbackTime(OnCompleteListener<DocumentSnapshot> listener) {
         FirebaseUser user = auth.getCurrentUser();
         if (user != null) {
-            db.collection("feedbacks").document(user.getUid()).get().addOnCompleteListener(listener);
+            db.collection("users").document(user.getUid()).get().addOnCompleteListener(listener);
         }
     }
 
@@ -55,6 +55,7 @@ public class FeedbackModel {
             db.collection("feedbacks").document(user.getUid())
                     .set(data, SetOptions.merge())
                     .addOnCompleteListener(listener);
+            db.collection("users").document(user.getUid()).update(Map.of("feedback_disabled_time", System.currentTimeMillis()));
         }
     }
 
