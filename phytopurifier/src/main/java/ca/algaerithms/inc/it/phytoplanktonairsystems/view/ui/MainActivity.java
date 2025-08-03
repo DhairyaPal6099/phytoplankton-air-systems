@@ -258,6 +258,11 @@ public class MainActivity extends AppCompatActivity {
         }
         wasConnected = isConnected;
         isFirstNetworkCheck = false;
+
+        if (!isConnected) {
+            // Immediately show red snackbar on launch if offline
+            runOnUiThread(this::showOfflineSnackbar);
+        }
     }
 
     private void unregisterNetworkCallback() {
