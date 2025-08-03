@@ -386,6 +386,7 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="email_icon">Email Icon</string>
     <string name="email_us">Email Us</string>
     <string name="algaerithms_inc">© Algaerithms Inc.</string>
+    <string name="please_sign_in_to_submit_feedback">Please sign in to submit feedback.</string>
 
 
 </resources>

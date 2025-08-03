@@ -61,7 +61,7 @@ public class FeedbackFragment extends Fragment implements FeedbackView  {
         controller = new FeedbackController(this, requireContext());
 
         if (!controller.isUserSignedIn()) {
-            showToast("Please sign in to submit feedback.");
+            showToast(getString(R.string.please_sign_in_to_submit_feedback));
             btnSubmit.setEnabled(false);
         } else {
             controller.prefillUserData();
