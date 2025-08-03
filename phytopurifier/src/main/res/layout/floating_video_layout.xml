@@ -18,7 +18,7 @@
             android:id="@+id/dragHandle"
             android:layout_width="match_parent"
             android:layout_height="24dp"
-            android:background="#55000000"
+            android:background="@color/faded_black"
             android:layout_gravity="top" />
 
         <!-- Close button at top right, above drag handle -->

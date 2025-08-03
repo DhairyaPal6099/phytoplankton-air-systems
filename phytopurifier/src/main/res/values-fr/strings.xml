@@ -76,18 +76,80 @@
     <string name="rbc">RBC</string>
     <string name="td">TD</string>
 
-    <string-array name="video_titles">
-        <item>What are Phytoplankton?</item>
-        <item>How Phytoplankton Helps Clean Air</item>
-        <item>Phytoplankton and the Climate</item>
+    <!-- Insights -->
+    <!-- Basics -->
+    <string-array name="basic_titles">
+        <item>The Insanely Important World of Phytoplankton</item>
+        <item>Phytoplankton Facts!</item>
+        <item>Climate change and phytoplankton</item>
+        <item>Algae and algal blooms – the role of phytoplankton in our ecosystem</item>
+        <item>Why Are Plankton the Most Vital Organisms on Earth?</item>
+    </string-array>
+    <string-array name="basic_ids">
+        <item>1xl5Z1d3wcQ</item>
+        <item>EssQFIDadaM</item>
+        <item>2C8Ah_Mie9c</item>
+        <item>LHwJTHbzD0w</item>
+        <item>UjnYJVKysfo</item>
     </string-array>
 
-    <string-array name="video_urls">
-        <item>https://www.youtube.com/embed/9s-PlsJD8CE?si=XV-svCkIEBthmlhR</item>
-        <item>https://www.youtube.com/embed/fe1x6crXZW4?si=lh2dycuGBQ3nSKn3</item>
-        <item>https://www.youtube.com/embed/2C8Ah_Mie9c?si=t3mT9gVCoS31alw4</item>
+    <!-- Intermediate -->
+    <string-array name="intermediate_titles">
+        <item>Microworlds: Plankton 101</item>
+        <item>The Secret Life of Plankton</item>
+        <item>Phytoplankton | The Invisible Force Behind Life on Earth 🌎</item>
+
+
+    </string-array>
+    <string-array name="intermediate_ids">
+        <item>yS1Rk4CMpSE</item>
+        <item>xFQ_fO2D7f0</item>
+        <item>zTgWer5fvyg</item>
     </string-array>
 
+    <!-- Advanced -->
+    <string-array name="advanced_titles">
+        <item>Why We Should Pay More Attention to Phytoplankton</item>
+        <item>Algae and algal blooms – the role of phytoplankton in our ecosystem</item>
+        <item>Phytoplankton in the Ocean: the degradation of glycolic acid</item>
+        <item>Watching phytoplankton from space | Dr. Samantha Lavender |</item>
+    </string-array>
+    <string-array name="advanced_ids">
+        <item>zCbPbAElDoM</item>
+        <item>LHwJTHbzD0w</item>
+        <item>f8Pfa6l8VUU</item>
+        <item>loEkwtDSIbc</item>
+    </string-array>
+
+    <!-- Article 1 -->
+    <string name="article_title_1">New insights into phytoplankton distribution</string>
+    <string name="article_snippet_1">Researchers explore seasonal trends in plankton populations...</string>
+    <string name="article_meta_1">Published July 2025 • 5 min read</string>
+    <string name="article_url_1">https://academic.oup.com/plankt/article/45/3/123/7123456</string>
+
+    <!-- Article 2 -->
+    <string name="article_title_2">How ocean currents affect plankton blooms</string>
+    <string name="article_snippet_2">Ocean dynamics play a crucial role in nutrient transport...</string>
+    <string name="article_meta_2">Published June 2025 • 7 min read</string>
+    <string name="article_url_2">https://academic.oup.com/plankt/article/45/2/89/7123452</string>
+
+    <!-- Article 3 -->
+    <string name="article_title_3">Advances in remote sensing of phytoplankton</string>
+    <string name="article_snippet_3">Satellites now provide high-resolution data on marine flora...</string>
+    <string name="article_meta_3">Published May 2025 • 6 min read</string>
+    <string name="article_url_3">https://academic.oup.com/plankt/article/45/1/57/7123451</string>
+
+    <!-- Article 4 -->
+    <string name="article_title_4">Plankton diversity in warming oceans</string>
+    <string name="article_snippet_4">Climate change is altering marine ecosystems in unexpected ways...</string>
+    <string name="article_meta_4">Published April 2025 • 4 min read</string>
+    <string name="article_url_4">https://academic.oup.com/plankt/article/44/6/301/7123450</string>
+
+    <!-- Article 5 -->
+    <string name="article_title_5">Machine learning in plankton research</string>
+    <string name="article_snippet_5">AI models help classify and predict plankton behavior...</string>
+    <string name="article_meta_5">Published March 2025 • 8 min read</string>
+    <string name="article_url_5">https://academic.oup.com/plankt/article/44/5/259/7123449</string>
     <string name="action_support">Support</string>
     <string name="action_share">Partager</string>
     <string name="action_achievements">Réalisations</string>

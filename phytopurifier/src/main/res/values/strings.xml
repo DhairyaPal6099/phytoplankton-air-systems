@@ -112,13 +112,47 @@
 
     <!-- Advanced -->
     <string-array name="advanced_titles">
-        <item>When Algae Takes Over</item>
-        <item>Real Footage of Bloom</item>
+        <item>Why We Should Pay More Attention to Phytoplankton</item>
+        <item>Algae and algal blooms – the role of phytoplankton in our ecosystem</item>
+        <item>Phytoplankton in the Ocean: the degradation of glycolic acid</item>
+        <item>Watching phytoplankton from space | Dr. Samantha Lavender |</item>
     </string-array>
     <string-array name="advanced_ids">
-        <item></item>
-        <item></item>
+        <item>zCbPbAElDoM</item>
+        <item>LHwJTHbzD0w</item>
+        <item>f8Pfa6l8VUU</item>
+        <item>loEkwtDSIbc</item>
     </string-array>
+
+    <!-- Article 1 -->
+    <string name="article_title_1">New insights into phytoplankton distribution</string>
+    <string name="article_snippet_1">Researchers explore seasonal trends in plankton populations...</string>
+    <string name="article_meta_1">Published July 2025 • 5 min read</string>
+    <string name="article_url_1">https://academic.oup.com/plankt/article/45/3/123/7123456</string>
+
+    <!-- Article 2 -->
+    <string name="article_title_2">How ocean currents affect plankton blooms</string>
+    <string name="article_snippet_2">Ocean dynamics play a crucial role in nutrient transport...</string>
+    <string name="article_meta_2">Published June 2025 • 7 min read</string>
+    <string name="article_url_2">https://academic.oup.com/plankt/article/45/2/89/7123452</string>
+
+    <!-- Article 3 -->
+    <string name="article_title_3">Advances in remote sensing of phytoplankton</string>
+    <string name="article_snippet_3">Satellites now provide high-resolution data on marine flora...</string>
+    <string name="article_meta_3">Published May 2025 • 6 min read</string>
+    <string name="article_url_3">https://academic.oup.com/plankt/article/45/1/57/7123451</string>
+
+    <!-- Article 4 -->
+    <string name="article_title_4">Plankton diversity in warming oceans</string>
+    <string name="article_snippet_4">Climate change is altering marine ecosystems in unexpected ways...</string>
+    <string name="article_meta_4">Published April 2025 • 4 min read</string>
+    <string name="article_url_4">https://academic.oup.com/plankt/article/44/6/301/7123450</string>
+
+    <!-- Article 5 -->
+    <string name="article_title_5">Absence of phylogenetic conservatism in thermal traits of phytoplankton</string>
+    <string name="article_snippet_5">Understanding the evolutionary and ecological processes that drive thermal trait evolution in phytoplankton...</string>
+    <string name="article_meta_5">Published 21 June 2025 • 8 min read</string>
+    <string name="article_url_5">https://academic.oup.com/plankt/article/47/4/fbaf026/8171321?searchresult=1</string>
 
     <string name="contact_support_phonenumber" translatable="false">tel: 4371234567</string>
     <string name="action_support">Support</string>

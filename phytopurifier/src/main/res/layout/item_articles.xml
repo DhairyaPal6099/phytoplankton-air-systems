@@ -1,49 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:id="@+id/articleContainer"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp">
 
-    <ImageView
-        android:id="@+id/articleImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/algaerithms_padded" />
-
+    <!-- Compact summary (thumbnail + text) -->
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_marginStart="8dp"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+        android:id="@+id/articleSummary"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:id="@+id/articleTitle"
-            android:text="Title of the Article"
-            android:textStyle="bold"
-            android:textSize="16sp"/>
+        <ImageView
+            android:id="@+id/articleImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/algaerithms_padded" />
 
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:id="@+id/articleSnippet"
-            android:text="Some overview of what the Article would be containing"
-            android:maxLines="3"
-            android:ellipsize="end"
-            android:textSize="14sp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginStart="8dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:id="@+id/articleMeta"
-            android:text="Keywords: baba, block • Date"
-            android:textSize="12sp"
-            android:textColor="#888888"
-            android:layout_marginTop="4dp"/>
+            <TextView
+                android:id="@+id/articleTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title of the Article"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/articleSnippet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Some overview of what the Article would be containing"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/articleMeta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Keywords: baba, block • Date"
+                android:textSize="12sp"
+                android:textColor="#888888"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
     </LinearLayout>
+
+    <!-- Hidden WebView that expands on tap -->
+    <WebView
+        android:id="@+id/articleWebView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
 </LinearLayout>

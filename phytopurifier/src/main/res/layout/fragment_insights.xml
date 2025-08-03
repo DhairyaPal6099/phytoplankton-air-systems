@@ -144,8 +144,8 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_marginStart="150dp"
-                android:text="View All"
+                android:layout_marginStart="125dp"
+                android:text="Slide for more"
                 android:textColor="@color/dark_grey"/>
         </LinearLayout>
 
@@ -177,8 +177,8 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_marginStart="220dp"
-                android:text="View All"
+                android:layout_marginStart="195dp"
+                android:text="Slide for more"
                 android:textColor="@color/dark_grey"/>
         </LinearLayout>
 
@@ -207,8 +207,8 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_marginStart="250dp"
-                android:text="View All"
+                android:layout_marginStart="215dp"
+                android:text="Slide for more"
                 android:textColor="@color/dark_grey"/>
         </LinearLayout>
 

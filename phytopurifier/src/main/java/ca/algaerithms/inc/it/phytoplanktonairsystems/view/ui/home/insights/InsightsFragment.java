@@ -29,17 +29,16 @@ import java.util.List;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 
 
-public class InsightsFragment extends Fragment {
-    private RecyclerView basicInsights, intermediateInsights, advancedInsights;
+public class InsightsFragment extends Fragment implements ArticleAdapter.OnArticleClickListener {
+
+    private RecyclerView articlesRecyclerView;
+    private RecyclerView basicInsights, intermediateInsights, advancedInsights, articlesInsights;
     private ImageView closeButton;
     private FrameLayout floatingContainer;
     private WebView floatingWebView;
     private ViewGroup rootView;
     private View dragHandle;
-
-    // Variables for dragging
-    private float dX, dY;
-    private int lastAction;
+    private ScrollView scrollView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,6 +49,9 @@ public class InsightsFragment extends Fragment {
         basicInsights = view.findViewById(R.id.basicInsightsRecycler);
         intermediateInsights = view.findViewById(R.id.intermediateInsightsRecycler);
         advancedInsights = view.findViewById(R.id.advancedInsightsRecycler);
+        articlesInsights = view.findViewById(R.id.articlesRecycler);
+        articlesInsights.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+
 
         setupVideoRecyclerViews();
 
@@ -69,10 +71,13 @@ public class InsightsFragment extends Fragment {
         rootView.addView(floatingVideoView);
 
         // Access elements inside the floating layout
+        //scrollView = view.findViewById(R.id.scrollLayout);
         floatingContainer = floatingVideoView.findViewById(R.id.floatingVideoContainer);
         floatingWebView = floatingVideoView.findViewById(R.id.floatingWebView);
         closeButton = floatingVideoView.findViewById(R.id.closeFloatingWebView);
         dragHandle = floatingVideoView.findViewById(R.id.dragHandle);
+
+        articleView();
 
         // Configure WebView
         floatingWebView.getSettings().setJavaScriptEnabled(true);
@@ -81,6 +86,28 @@ public class InsightsFragment extends Fragment {
         closeButton.setOnClickListener(v -> floatingContainer.setVisibility(View.GONE));// stop video
 
         dragFucntion();
+    }
+
+    public void articleView() {
+        List<ArticleItem> articles = new ArrayList<>();
+        for (int i = 1; i <= 5; i++) {
+            String title = getString(getResources().getIdentifier("article_title_" + i, "string", getContext().getPackageName()));
+            String snippet = getString(getResources().getIdentifier("article_snippet_" + i, "string", getContext().getPackageName()));
+            String meta = getString(getResources().getIdentifier("article_meta_" + i, "string", getContext().getPackageName()));
+            int imageId = R.drawable.algaerithms_padded;
+            String url = getString(getResources().getIdentifier("article_url_" + i, "string", getContext().getPackageName()));
+            articles.add(new ArticleItem(title, snippet, meta, imageId, url));
+        }
+
+        ArticleAdapter adapter = new ArticleAdapter(getContext(), articles, this);
+        articlesInsights.setAdapter(adapter);
+    }
+
+    @Override
+    public void onArticleClick(ArticleItem article) {
+        floatingWebView.loadUrl(article.getUrl());
+        floatingContainer.setVisibility(View.VISIBLE);
+        //scrollView.scrollTo(0, 0); // optional: scroll to top when WebView appears
     }
 
     @SuppressLint("ClickableViewAccessibility")
