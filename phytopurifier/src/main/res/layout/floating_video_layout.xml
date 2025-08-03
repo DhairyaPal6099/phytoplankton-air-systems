@@ -13,19 +13,35 @@
         android:layout_margin="16dp"
         android:layout_gravity="top|end">
 
-        <WebView
-            android:id="@+id/floatingWebView"
+        <!-- Drag handle at the top -->
+        <View
+            android:id="@+id/dragHandle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="24dp"
+            android:background="#55000000"
+            android:layout_gravity="top" />
 
+        <!-- Close button at top right, above drag handle -->
         <ImageView
             android:id="@+id/closeFloatingWebView"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_close"
             android:layout_gravity="top|end"
-            android:padding="4dp" />
+            android:padding="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="Close" />
+
+        <!-- WebView fills the container but below dragHandle and close button -->
+        <WebView
+            android:id="@+id/floatingWebView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp" />
+
     </FrameLayout>
+
 
 
 </RelativeLayout>

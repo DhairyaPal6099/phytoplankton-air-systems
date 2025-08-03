@@ -116,8 +116,8 @@
         <item>Real Footage of Bloom</item>
     </string-array>
     <string-array name="advanced_ids">
-        <item>jkl54321098</item>
-        <item>mno87654321</item>
+        <item></item>
+        <item></item>
     </string-array>
 
     <string name="contact_support_phonenumber" translatable="false">tel: 4371234567</string>

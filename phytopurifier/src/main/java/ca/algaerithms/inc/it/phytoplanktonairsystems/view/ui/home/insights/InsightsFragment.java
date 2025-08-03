@@ -4,6 +4,7 @@
    Dharmik Shah – N01581796 */
 package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.insights;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -32,7 +34,12 @@ public class InsightsFragment extends Fragment {
     private ImageView closeButton;
     private FrameLayout floatingContainer;
     private WebView floatingWebView;
+    private ViewGroup rootView;
+    private View dragHandle;
 
+    // Variables for dragging
+    private float dX, dY;
+    private int lastAction;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,20 +65,61 @@ public class InsightsFragment extends Fragment {
         View floatingVideoView = inflater.inflate(R.layout.floating_video_layout, null);
 
         // Add it to root of fragment
-        ViewGroup rootView = (ViewGroup) requireActivity().findViewById(android.R.id.content);
+        rootView = (ViewGroup) requireActivity().findViewById(android.R.id.content);
         rootView.addView(floatingVideoView);
 
         // Access elements inside the floating layout
         floatingContainer = floatingVideoView.findViewById(R.id.floatingVideoContainer);
         floatingWebView = floatingVideoView.findViewById(R.id.floatingWebView);
         closeButton = floatingVideoView.findViewById(R.id.closeFloatingWebView);
+        dragHandle = floatingVideoView.findViewById(R.id.dragHandle);
 
         // Configure WebView
         floatingWebView.getSettings().setJavaScriptEnabled(true);
 
         // Close button logic
-        closeButton.setOnClickListener(v -> {
-            floatingContainer.setVisibility(View.GONE);// stop video
+        closeButton.setOnClickListener(v -> floatingContainer.setVisibility(View.GONE));// stop video
+
+        dragFucntion();
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private void dragFucntion() {
+        dragHandle.setOnTouchListener(new View.OnTouchListener() {
+            float dX = 0f, dY = 0f;
+            boolean isDragging = false;
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // Record the difference between touch point and container corner
+                        dX = floatingContainer.getX() - event.getRawX();
+                        dY = floatingContainer.getY() - event.getRawY();
+                        isDragging = false;
+                        return true;
+
+                    case MotionEvent.ACTION_MOVE:
+                        // Set dragging flag to true and update position
+                        isDragging = true;
+                        float newX = event.getRawX() + dX;
+                        float newY = event.getRawY() + dY;
+
+                        // Constrain inside parent bounds
+                        ViewGroup parent = (ViewGroup) floatingContainer.getParent();
+                        newX = Math.max(0, Math.min(newX, parent.getWidth() - floatingContainer.getWidth()));
+                        newY = Math.max(0, Math.min(newY, parent.getHeight() - floatingContainer.getHeight()));
+
+                        floatingContainer.setX(newX);
+                        floatingContainer.setY(newY);
+                        return true;
+
+                    case MotionEvent.ACTION_UP:
+                        // Let other views handle it if it wasn’t a drag
+                        return isDragging;
+                }
+                return false;
+            }
         });
     }
 
