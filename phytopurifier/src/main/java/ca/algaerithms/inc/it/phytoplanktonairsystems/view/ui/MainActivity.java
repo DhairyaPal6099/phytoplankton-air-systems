@@ -213,7 +213,6 @@ public class MainActivity extends AppCompatActivity {
                     if (isFirstNetworkCheck) {
                         wasConnected = hasInternet;
                         isFirstNetworkCheck = false;
-                        // Don't show any snackbar on first check
                         return;
                     }
 
@@ -233,7 +232,6 @@ public class MainActivity extends AppCompatActivity {
                     if (isFirstNetworkCheck) {
                         wasConnected = false;
                         isFirstNetworkCheck = false;
-                        // No snackbar on first lost event either
                         return;
                     }
 
@@ -247,22 +245,26 @@ public class MainActivity extends AppCompatActivity {
 
         connectivityManager.registerNetworkCallback(request, networkCallback);
 
-        // Set initial wasConnected state based on current network
-        boolean isConnected;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            Network activeNetwork = connectivityManager.getActiveNetwork();
-            NetworkCapabilities capabilities = activeNetwork == null ? null : connectivityManager.getNetworkCapabilities(activeNetwork);
-            isConnected = capabilities != null && capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
-        } else {
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            isConnected = activeNetworkInfo != null && activeNetworkInfo.isConnected();
-        }
+        boolean isConnected = isCurrentlyConnected();
         wasConnected = isConnected;
         isFirstNetworkCheck = false;
 
         if (!isConnected) {
             // Immediately show red snackbar on launch if offline
             runOnUiThread(this::showOfflineSnackbar);
+        }
+    }
+
+    private boolean isCurrentlyConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Network activeNetwork = cm.getActiveNetwork();
+            if (activeNetwork == null) return false;
+            NetworkCapabilities caps = cm.getNetworkCapabilities(activeNetwork);
+            return caps != null && caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
+        } else {
+            NetworkInfo info = cm.getActiveNetworkInfo();
+            return info != null && info.isConnected();
         }
     }
 
@@ -299,7 +301,7 @@ public class MainActivity extends AppCompatActivity {
                     message,
                     Snackbar.LENGTH_INDEFINITE
             );
-            connectivitySnackbar.setBackgroundTint(getColor(R.color.deep_red));
+            connectivitySnackbar.setBackgroundTint(getColor(R.color.faded_red));
             connectivitySnackbar.setTextColor(getColor(R.color.white));
             connectivitySnackbar.setAction(R.string.dismiss, v -> connectivitySnackbar.dismiss());
             connectivitySnackbar.show();
@@ -316,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
                 R.string.back_online,
                 Snackbar.LENGTH_SHORT
         );
-        onlineSnackbar.setBackgroundTint(getColor(R.color.success_green));
+        onlineSnackbar.setBackgroundTint(getColor(R.color.faded_green));
         onlineSnackbar.setTextColor(getColor(R.color.white));
         onlineSnackbar.show();
     }
