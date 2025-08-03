@@ -81,6 +81,7 @@ public class AccountInfoFragment extends Fragment {
         });
 
         binding.updateButton.setOnClickListener(v -> {
+            // Network check
             if (!NetworkUtils.isConnected(requireContext())) {
                 ((MainActivity) requireActivity()).showOfflineSnackbar();
                 return; // stop here if no internet

@@ -69,6 +69,7 @@ public class FeedbackFragment extends Fragment implements FeedbackView  {
         }
 
         btnSubmit.setOnClickListener(v -> {
+            // Network check
             if (!NetworkUtils.isConnected(requireContext())) {
                 ((MainActivity) requireActivity()).showOfflineSnackbar();
                 return; // stop here if no internet
