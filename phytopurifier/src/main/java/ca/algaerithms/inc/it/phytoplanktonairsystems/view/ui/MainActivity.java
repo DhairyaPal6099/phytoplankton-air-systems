@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean wasConnected = false;
     private boolean isFirstNetworkCheck = true;
 
+    private boolean isLeaderboardScreen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -283,11 +284,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void setLeaderboardScreen(boolean isVisible) {
+        isLeaderboardScreen = isVisible;
+    }
+
     public void showOfflineSnackbar() {
         if (connectivitySnackbar == null || !connectivitySnackbar.isShownOrQueued()) {
+            String message = isLeaderboardScreen
+                    ? getString(R.string.unable_to_refresh_leaderboard_try_again_later)
+                    : getString(R.string.no_internet_connection);
+
             connectivitySnackbar = Snackbar.make(
-                    getWindow().getDecorView().findViewById(android.R.id.content),
-                    R.string.no_internet_connection,
+                    findViewById(R.id.nav_host_fragment_content_main),
+                    message,
                     Snackbar.LENGTH_INDEFINITE
             );
             connectivitySnackbar.setBackgroundTint(getColor(R.color.deep_red));
