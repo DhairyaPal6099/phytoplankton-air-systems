@@ -5,14 +5,15 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/beige"
+    android:background="@color/green"
+    android:fillViewport="true"
     tools:context=".view.ui.home.insights.InsightsFragment">
 
     <LinearLayout
         android:orientation="vertical"
+        android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -36,61 +37,204 @@
 
         </LinearLayout>
 
+        <!-- Search bar -->
+        <EditText
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Search..."
+            android:background="@drawable/rounded_corners"
+            android:padding="10dp"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:layout_marginBottom="16dp"/>
 
-        <!-- Sample Card -->
-        <androidx.cardview.widget.CardView
+        <!-- Cards row (3 cards) -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardBackgroundColor="@color/lagoon_blue"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="3">
 
             <LinearLayout
-                android:padding="16dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
                 android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="105dp"
-                    android:layout_height="98dp"
-                    android:layout_gravity="left"
-                    android:src="@drawable/algaerithms" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/did_you_know"
-                    android:fontFamily="@font/quicksand_bold"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:layout_marginTop="12dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/quicksand_bold"
-                    android:textSize="12sp"
-                    android:text="@string/test_info"
-                    android:layout_marginTop="4dp" />
+                android:gravity="center"
+                android:background="#EAF9E4"
+                android:layout_margin="4dp">
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-        <!-- Add more cards or sections -->
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="#EAF9E4"
+                android:layout_margin="4dp">
 
-        <Spinner
-            android:id="@+id/video_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            </LinearLayout>
 
-        <WebView
-            android:id="@+id/video_webview"
-            android:layout_width="match_parent"
-            android:layout_height="234dp"
-            android:layout_weight="1"
-            tools:ignore="WebViewLayout" />
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="#EAF9E4"
+                android:layout_margin="4dp">
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+
+            android:text="Add a subheading    " />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+
+            android:text="Add a subheading     " />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+
+            android:text="Add a subheading" />
+
     </LinearLayout>
 
+        <!-- Section: Videos -->
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Videos"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="24dp"/>
+
+        <!-- Subsection: What is Phytoplankton -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="fill_horizontal"
+            android:layout_marginTop="8dp">
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="What is Phytoplankton"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="150dp"
+                android:text="View All"
+                android:textColor="@color/dark_grey"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/phytoplanktonVideosRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:overScrollMode="never"
+            android:nestedScrollingEnabled="false"
+            android:scrollbars="none"
+            android:orientation="horizontal"/>
+
+        <!-- Subsection: Intermediate -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="fill_horizontal"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Intermediate"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="220dp"
+
+                android:text="View All"
+                android:textColor="@color/dark_grey"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/bruhVideosRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:orientation="horizontal"/>
+
+        <!-- Subsection: Advanced -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="fill_horizontal"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Advanced"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="230dp"
+                android:text="View All"
+                android:textColor="@color/dark_grey"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/omgVideosRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:orientation="horizontal"/>
+
+        <!-- Articles -->
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Articles"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="24dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/articlesRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:nestedScrollingEnabled="false"/>
+
+    </LinearLayout>
 </ScrollView>
