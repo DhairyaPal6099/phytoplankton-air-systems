@@ -62,6 +62,7 @@
     <color name="textSecondary">#4D4D4D</color>
     <color name="faded_red">#D3494E</color>
     <color name="faded_green">#4E941B</color>
+    <color name="light_grey">#D3D3D3</color>
 
     <color name="deep_red">#D32F2F</color> <!-- Material Red 700 -->
     <color name="success_green">#388E3C</color> <!-- Material Green 700 -->

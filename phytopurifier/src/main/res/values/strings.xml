@@ -388,6 +388,7 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="algaerithms_inc">© Algaerithms Inc.</string>
     <string name="please_sign_in_to_submit_feedback">Please sign in to submit feedback.</string>
     <string name="unable_to_refresh_leaderboard_try_again_later">Unable to refresh leaderboard. Try again later.</string>
+    <string name="connect_to_internet_for_real_time_sensor_data">Connect to internet for real time sensor data</string>
 
 
 </resources>

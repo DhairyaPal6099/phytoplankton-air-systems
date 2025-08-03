@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean wasConnected = false;
     private boolean isFirstNetworkCheck = true;
 
+    private Snackbar sensorDataSnackbar;
     private boolean isLeaderboardScreen = false;
 
     @Override
@@ -303,6 +304,7 @@ public class MainActivity extends AppCompatActivity {
             );
             connectivitySnackbar.setBackgroundTint(getColor(R.color.faded_red));
             connectivitySnackbar.setTextColor(getColor(R.color.white));
+            connectivitySnackbar.setActionTextColor(getColor(R.color.light_blue));
             connectivitySnackbar.setAction(R.string.dismiss, v -> connectivitySnackbar.dismiss());
             connectivitySnackbar.show();
         }
@@ -321,6 +323,27 @@ public class MainActivity extends AppCompatActivity {
         onlineSnackbar.setBackgroundTint(getColor(R.color.faded_green));
         onlineSnackbar.setTextColor(getColor(R.color.white));
         onlineSnackbar.show();
+    }
+
+    public void showSensorDataSnackbar() {
+        if (sensorDataSnackbar == null || !sensorDataSnackbar.isShownOrQueued()) {
+            sensorDataSnackbar = Snackbar.make(
+                    findViewById(R.id.nav_host_fragment_content_main),
+                    R.string.connect_to_internet_for_real_time_sensor_data,
+                    Snackbar.LENGTH_INDEFINITE
+            );
+            sensorDataSnackbar.setBackgroundTint(getColor(R.color.faded_red));
+            sensorDataSnackbar.setTextColor(getColor(R.color.white));
+            sensorDataSnackbar.setActionTextColor(getColor(R.color.light_blue));
+            sensorDataSnackbar.setAction(R.string.dismiss, v -> sensorDataSnackbar.dismiss());
+            sensorDataSnackbar.show();
+        }
+    }
+
+    public void dismissSensorDataSnackbar() {
+        if (sensorDataSnackbar != null && sensorDataSnackbar.isShown()) {
+            sensorDataSnackbar.dismiss();
+        }
     }
 
     @Override
