@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.test.core.app.ApplicationProvider;
 
@@ -41,6 +40,20 @@ public class LeaderboardFragmentTest {
         adapter.updateData(newList);
 
         assertEquals(1, adapter.getItemCount());
+    }
+
+    @Test
+    public void viewholder_binds_user_name_correctly() {
+        UserStat user = new UserStat("Alice", 7.3);
+        LeaderboardAdapter adapter = new LeaderboardAdapter(context, List.of(user));
+
+        View view = LayoutInflater.from(context).inflate(R.layout.leaderboard_item, null, false);
+        LeaderboardAdapter.ViewHolder holder = new LeaderboardAdapter.ViewHolder(view);
+
+        adapter.onBindViewHolder(holder, 0);
+
+        TextView nameText = view.findViewById(R.id.user_name);
+        assertEquals("Alice", nameText.getText().toString());
     }
 
     @Test
