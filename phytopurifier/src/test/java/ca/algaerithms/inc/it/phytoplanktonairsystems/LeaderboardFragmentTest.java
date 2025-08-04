@@ -84,8 +84,20 @@ public class LeaderboardFragmentTest {
 
         ImageView medal = view.findViewById(R.id.medal_icon);
         assertEquals(View.VISIBLE, medal.getVisibility());
-        // You can also assert resource id or tag if needed
     }
 
+    @Test
+    public void position_1_shows_silver_medal() {
+        UserStat user = new UserStat("Silver", 15.0);
+        LeaderboardAdapter adapter = new LeaderboardAdapter(context, List.of(user));
+
+        View view = LayoutInflater.from(context).inflate(R.layout.leaderboard_item, null, false);
+        LeaderboardAdapter.ViewHolder holder = new LeaderboardAdapter.ViewHolder(view);
+
+        adapter.onBindViewHolder(holder, 1);
+
+        ImageView medal = view.findViewById(R.id.medal_icon);
+        assertEquals(View.VISIBLE, medal.getVisibility());
+    }
 
 }
