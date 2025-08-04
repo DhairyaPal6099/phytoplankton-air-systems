@@ -68,10 +68,10 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.appBarMain.toolbar);
 
-//        binding.appBarMain.requestServiceFab.setOnClickListener(v -> {
-//            RequestServiceBottomSheet bottomSheet = new RequestServiceBottomSheet();
-//            bottomSheet.show(getSupportFragmentManager(), "RequestServiceBottomSheet");
-//        });
+        binding.appBarMain.requestServiceFab.setOnClickListener(v -> {
+            RequestServiceBottomSheet bottomSheet = new RequestServiceBottomSheet();
+            bottomSheet.show(getSupportFragmentManager(), "RequestServiceBottomSheet");
+        });
 
 
         DrawerLayout drawer = binding.drawerLayout;
