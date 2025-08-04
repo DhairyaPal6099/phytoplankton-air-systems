@@ -108,10 +108,30 @@ public class LeaderboardFragmentTest {
         View view = LayoutInflater.from(context).inflate(R.layout.leaderboard_item, null, false);
         LeaderboardAdapter.ViewHolder holder = new LeaderboardAdapter.ViewHolder(view);
 
-        adapter.onBindViewHolder(holder, 1);
+        adapter.onBindViewHolder(holder, 2);
 
         ImageView medal = view.findViewById(R.id.medal_icon);
         assertEquals(View.VISIBLE, medal.getVisibility());
     }
+
+    @Test
+    public void position_3_has_no_medal() {
+        List<UserStat> users = Arrays.asList(
+                new UserStat("A", 5.0),
+                new UserStat("B", 4.0),
+                new UserStat("C", 3.0),
+                new UserStat("D", 2.0) // index 3
+        );
+        LeaderboardAdapter adapter = new LeaderboardAdapter(context, users);
+
+        View view = LayoutInflater.from(context).inflate(R.layout.leaderboard_item, null, false);
+        LeaderboardAdapter.ViewHolder holder = new LeaderboardAdapter.ViewHolder(view);
+
+        adapter.onBindViewHolder(holder, 3);
+        ImageView medal = view.findViewById(R.id.medal_icon);
+
+        assertEquals(View.GONE, medal.getVisibility());
+    }
+
 
 }
