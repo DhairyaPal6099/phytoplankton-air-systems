@@ -23,6 +23,8 @@ import java.util.Calendar;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.AccountInfoController;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentAccountInfoBinding;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.utils.NetworkUtils;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.MainActivity;
 
 public class AccountInfoFragment extends Fragment {
 
@@ -78,7 +80,15 @@ public class AccountInfoFragment extends Fragment {
             });
         });
 
-        binding.updateButton.setOnClickListener(v -> controller.saveUserInfo());
+        binding.updateButton.setOnClickListener(v -> {
+            // Network check
+            if (!NetworkUtils.isConnected(requireContext())) {
+                ((MainActivity) requireActivity()).showOfflineSnackbar();
+                return; // stop here if no internet
+            }
+
+            controller.saveUserInfo();
+        });
         binding.profileImage.setOnClickListener(v -> controller.requestGalleryPermission());
     }
 

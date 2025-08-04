@@ -33,7 +33,6 @@ public class SettingsFragment extends Fragment implements SettingsController.Vie
         View view = binding.getRoot();
 
         controller = new SettingsController(requireContext(), this);
-        controller.loadUserInfo();
 
         binding.lockScreenModeSwitch.setChecked(controller.getLockPortrait());
         binding.darkModeSwitch.setChecked(controller.getDarkMode());
@@ -48,6 +47,12 @@ public class SettingsFragment extends Fragment implements SettingsController.Vie
         binding.logoutText.setOnClickListener(v -> controller.handleNavigation(R.id.deleteAccountFragment));
 
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        controller.loadUserInfo();
     }
 
     @Override

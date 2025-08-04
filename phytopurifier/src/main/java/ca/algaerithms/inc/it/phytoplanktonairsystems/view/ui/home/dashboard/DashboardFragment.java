@@ -15,6 +15,8 @@ import android.widget.ToggleButton;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentDashboardBinding;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.utils.NetworkUtils;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.MainActivity;
 
 
 public class DashboardFragment extends Fragment {
@@ -31,5 +33,19 @@ public class DashboardFragment extends Fragment {
         dashboardView = view.findViewById(R.id.dashboard_view);
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (!NetworkUtils.isConnected(requireContext())) {
+            ((MainActivity) requireActivity()).showSensorDataSnackbar();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        ((MainActivity) requireActivity()).dismissSensorDataSnackbar();
     }
 }

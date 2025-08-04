@@ -107,6 +107,7 @@
     <string name="dark_mode">darkMode</string>
     <string name="empty_string" />
     <string name="phone_must_be_at_least_9_digits">Le téléphone doit comporter au moins 9 chiffres</string>
+    <string name="phone_must_be_at_least_10_digits">Le téléphone doit comporter au moins 10 chiffres</string>
     <string name="image_forwardslash_asterisk">image/*</string>
     <string name="username">nom d’utilisateur</string>
     <string name="email_lowercase">e-mail</string>
@@ -328,5 +329,10 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="lifetime_co2_converted">lifetime_co2_converted</string>
     <string name="n_a">N/A</string>
     <string name="feedback_disabled_time">feedback_disabled_time</string>
-
+    <string name="dismiss">Dismiss</string>
+    <string name="back_online">Back online</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="please_sign_in_to_submit_feedback">Please sign in to submit feedback.</string>
+    <string name="unable_to_refresh_leaderboard_try_again_later">Unable to refresh leaderboard. Try again later.</string>
+    <string name="connect_to_internet_for_real_time_sensor_data">Connect to internet for real time sensor data</string>
 </resources>
