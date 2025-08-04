@@ -166,7 +166,7 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
 
     <!-- Privacy Policy Fragment -->
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="privacy_policy_content">🔐 Privacy Policy\n\n
+    <string name="privacy_policy_content">
 PhytoplanktonAirSystems values your privacy. This policy describes the types of data we collect, how it\'s used, and how it\'s stored.\n\n
 1. Information We Collect\n
 • Profile data: name, birthdate, email, phone number\n
