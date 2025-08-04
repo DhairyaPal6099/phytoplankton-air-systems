@@ -133,5 +133,12 @@ public class LeaderboardFragmentTest {
         assertEquals(View.GONE, medal.getVisibility());
     }
 
+    @Test
+    public void adapter_handles_empty_list() {
+        LeaderboardAdapter adapter = new LeaderboardAdapter(context, new ArrayList<>());
+        assertEquals(0, adapter.getItemCount());
+    }
+
+
 
 }
