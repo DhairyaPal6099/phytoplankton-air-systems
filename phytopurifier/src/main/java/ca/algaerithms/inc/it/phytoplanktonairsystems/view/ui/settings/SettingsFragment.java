@@ -57,8 +57,10 @@ public class SettingsFragment extends Fragment implements SettingsController.Vie
 
     @Override
     public void updateUserInfo(String name, String email) {
-        binding.usernameTextView.setText(name);
-        binding.emailTextView.setText(email);
+        if (binding != null) {
+            binding.usernameTextView.setText(name);
+            binding.emailTextView.setText(email);
+        }
     }
 
     @Override
