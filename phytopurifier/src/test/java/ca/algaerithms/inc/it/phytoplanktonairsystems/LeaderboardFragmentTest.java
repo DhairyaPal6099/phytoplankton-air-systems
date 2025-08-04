@@ -11,6 +11,7 @@ import androidx.test.core.app.ApplicationProvider;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,6 +27,18 @@ public class LeaderboardFragmentTest {
     public void adapter_initializes_with_given_user_stats() {
         List<UserStat> mockList = Arrays.asList(new UserStat("Julian", 12.5));
         LeaderboardAdapter adapter = new LeaderboardAdapter(context, mockList);
+        assertEquals(1, adapter.getItemCount());
+    }
+
+    @Test
+    public void adapter_updates_data_correctly() {
+        List<UserStat> oldList = new ArrayList<>();
+        oldList.add(new UserStat("Old", 5.0));
+        LeaderboardAdapter adapter = new LeaderboardAdapter(context, oldList);
+
+        List<UserStat> newList = Arrays.asList(new UserStat("New", 10.0));
+        adapter.updateData(newList);
+
         assertEquals(1, adapter.getItemCount());
     }
 
