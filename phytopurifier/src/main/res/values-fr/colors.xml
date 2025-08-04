@@ -4,11 +4,5 @@
     <color name="cyan">#00FFFF</color>
     <color name="teal">#008080</color>
     <color name="turquoise">#40E0D0</color>
-<!--    <color name="green_primary">#4CAF50</color>-->
-<!--    <color name="green_dark">#388E3C</color>-->
 
-<!--    &lt;!&ndash; UI-specific colors &ndash;&gt;-->
-<!--    <color name="text_primary">#222222</color>-->
-<!--    <color name="text_dark">#111111</color>-->
-<!--    <color name="background">#FFFFFF</color>-->
 </resources>

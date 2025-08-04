@@ -83,11 +83,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/semirounded_corners"
-                    android:backgroundTint="@color/green"
-                    android:paddingHorizontal="12dp"
+                    android:backgroundTint="@color/edit_text_fields"
+                    android:textColor="@color/on_edit_text_fields_text"
+                    android:hint="@string/enter_your_name"
+                    android:textColorHint="@color/on_edit_text_fields_hint"
                     android:inputType="textPersonName"
-                    android:textColor="@color/contentTextColor"
-                    android:hint="@string/enter_your_name" />
+                    android:paddingHorizontal="12dp" />
             </LinearLayout>
 
             <!-- Email -->
@@ -111,11 +112,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/semirounded_corners"
-                    android:backgroundTint="@color/green"
-                    android:paddingHorizontal="12dp"
+                    android:backgroundTint="@color/edit_text_fields"
+                    android:textColor="@color/on_edit_text_fields_text"
+                    android:hint="@string/enter_your_email_2"
+                    android:textColorHint="@color/on_edit_text_fields_hint"
                     android:inputType="textEmailAddress"
-                    android:textColor="@color/contentTextColor"
-                    android:hint="@string/enter_your_email_2" />
+                    android:paddingHorizontal="12dp" />
             </LinearLayout>
 
             <!-- Phone -->
@@ -139,12 +141,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/semirounded_corners"
-                    android:backgroundTint="@color/green"
-                    android:paddingHorizontal="12dp"
+                    android:backgroundTint="@color/edit_text_fields"
+                    android:textColor="@color/on_edit_text_fields_text"
+                    android:hint="@string/enter_phone_number"
+                    android:textColorHint="@color/on_edit_text_fields_hint"
                     android:inputType="phone"
                     android:maxLength="10"
-                    android:textColor="@color/contentTextColor"
-                    android:hint="@string/enter_phone_number" />
+                    android:paddingHorizontal="12dp" />
             </LinearLayout>
 
             <!-- Birthday -->
@@ -168,13 +171,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/semirounded_corners"
-                    android:backgroundTint="@color/green"
-                    android:paddingHorizontal="12dp"
+                    android:backgroundTint="@color/edit_text_fields"
+                    android:textColor="@color/on_edit_text_fields_text"
+                    android:hint="@string/yyyy_mm_dd_2"
+                    android:textColorHint="@color/on_edit_text_fields_hint"
                     android:focusable="false"
                     android:clickable="true"
                     android:inputType="none"
-                    android:textColor="@color/contentTextColor"
-                    android:hint="@string/yyyy_mm_dd_2" />
+                    android:paddingHorizontal="12dp" />
             </LinearLayout>
 
             <!-- Update Button -->
@@ -183,7 +187,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/update_2" />
-
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

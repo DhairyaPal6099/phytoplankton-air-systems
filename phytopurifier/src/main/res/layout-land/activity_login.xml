@@ -43,7 +43,7 @@
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:padding="15dp"
-            android:textColor="@color/forest_green"
+            android:textColor="@color/deep_moss"
             android:textColorHint="@color/fade"
             android:textSize="20sp" />
 
@@ -56,12 +56,12 @@
             android:background="@drawable/rounded_corners"
             android:backgroundTint="@color/faded_white"
             android:drawableEnd="@drawable/visibility_on"
-            android:drawableTint="@color/forest_green"
+            android:drawableTint="@color/deep_moss"
             android:ems="15"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="15dp"
-            android:textColor="@color/forest_green"
+            android:textColor="@color/deep_moss"
             android:textColorHint="@color/fade"
             android:textSize="20sp" />
 

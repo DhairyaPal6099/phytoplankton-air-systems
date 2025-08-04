@@ -19,7 +19,7 @@
             android:layout_height="59dp"
             android:background="@drawable/registrationbg"
             android:minHeight="?attr/actionBarSize"
-            app:titleTextColor="@color/forest_green"
+            app:titleTextColor="@color/deep_moss"
             tools:layout_editor_absoluteX="1dp" />
 
         <androidx.fragment.app.FragmentContainerView

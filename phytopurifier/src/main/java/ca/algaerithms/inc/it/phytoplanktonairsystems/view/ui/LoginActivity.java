@@ -28,14 +28,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.FirebaseUser;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
-import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.Authentication;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.LoginController;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Authentication authentication;
+    private LoginController loginController;
 
     private TextView errorTextView;
     private EditText emailEditText, passwordEditText;
@@ -67,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
 
-        authentication = new Authentication(this);
+        loginController = new LoginController(this);
 
         // UI elements
         errorTextView = findViewById(R.id.login_errorTextView);
@@ -105,8 +104,8 @@ public class LoginActivity extends AppCompatActivity {
 
         googleSignInButton.setOnClickListener(v -> {
             // Sign out first to trigger account chooser
-            authentication.getGoogleSignInClient().signOut().addOnCompleteListener(task -> {
-                Intent signInIntent = authentication.getGoogleSignInClient().getSignInIntent();
+            loginController.getGoogleSignInClient().signOut().addOnCompleteListener(task -> {
+                Intent signInIntent = loginController.getGoogleSignInClient().getSignInIntent();
                 signInLauncher.launch(signInIntent);
             });
         });
@@ -123,16 +122,27 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        if (authentication.shouldAutoLogin()) {
+        if (loginController.shouldAutoLogin()) {
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         } else {
-            authentication.signOutIfNeeded();
+            loginController.signOutIfNeeded();
         }
     }
 
     private void signInWithGoogleToken(String idToken) {
-        authentication.handleGoogleSignIn(idToken, this);
+        loginController.handleGoogleSignIn(
+                idToken,
+                this,
+                () -> {
+                    // On success, navigate to main screen
+                    navigateToMain();
+                },
+                error -> {
+                    // On error, show a toast
+                    Toast.makeText(this, getString(R.string.google_sign_in_failed) + ": " + error, Toast.LENGTH_LONG).show();
+                }
+        );
     }
 
     // Forgot password button login
@@ -157,7 +167,7 @@ public class LoginActivity extends AppCompatActivity {
             Button sendButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
             sendButton.setOnClickListener(v -> {
                 String email = emailInput.getText().toString().trim();
-                authentication.sendPasswordReset(email, sentEmail -> {
+                loginController.sendPasswordReset(email, sentEmail -> {
                     Snackbar.make(findViewById(android.R.id.content),
                             getString(R.string.password_reset_link_sent_to) + email,
                             Snackbar.LENGTH_LONG).show();
@@ -170,8 +180,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginButtonClick() {
-
-        // Login button click
         loginSubmitButton.setOnClickListener(view -> {
             String email = emailEditText.getText().toString().trim();
             String password = passwordEditText.getText().toString().trim();
@@ -180,30 +188,29 @@ public class LoginActivity extends AppCompatActivity {
             emailEditText.setError(null);
             passwordEditText.setError(null);
 
-            FirebaseUser user = authentication.getCurrentUser();
-            authentication.signInWithEmailPassword(email, password, rememberMeCheckBox.isChecked(), this, success -> {
-                if (success) {
-                    if (user != null && user.getDisplayName() != null) {
-                        Toast.makeText(this, getString(R.string.welcome) + user.getDisplayName(), Toast.LENGTH_SHORT).show();
-                    }
-                    startActivity(new Intent(this, MainActivity.class));
-                    finish();
-                }
-            }, errorMsg -> {
-                errorTextView.setText(errorMsg);
-                errorTextView.setVisibility(View.VISIBLE);
-            });
-            });
+            loginController.signInWithEmail(email, password, rememberMeCheckBox.isChecked(),
+                    this,
+                    userName -> {
+                        Toast.makeText(this, getString(R.string.welcome) + ", " + userName + "!", Toast.LENGTH_SHORT).show();
+                        navigateToMain();
+                    },
+                    error -> {
+                        errorTextView.setText(error);
+                        errorTextView.setVisibility(View.VISIBLE);
+                    });
 
-            View.OnFocusChangeListener clearErrorOnFocus = (v, hasFocus) -> {
-                if (hasFocus && errorTextView.getVisibility() == View.VISIBLE) {
-                    errorTextView.setVisibility(View.GONE);
-                }
-            };
+        });
 
-            emailEditText.setOnFocusChangeListener(clearErrorOnFocus);
-            passwordEditText.setOnFocusChangeListener(clearErrorOnFocus);
+        View.OnFocusChangeListener clearErrorOnFocus = (v, hasFocus) -> {
+            if (hasFocus && errorTextView.getVisibility() == View.VISIBLE) {
+                errorTextView.setVisibility(View.GONE);
+            }
+        };
+
+        emailEditText.setOnFocusChangeListener(clearErrorOnFocus);
+        passwordEditText.setOnFocusChangeListener(clearErrorOnFocus);
     }
+
 
     @SuppressLint("ClickableViewAccessibility")
     private void setupPasswordToggle() {
@@ -236,5 +243,10 @@ public class LoginActivity extends AppCompatActivity {
             passwordEditText.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.visibility_off, 0);
         }
         passwordEditText.setSelection(passwordEditText.getText().length());
+    }
+
+    private void navigateToMain() {
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 }

@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textColor="@color/forest_green"
+            android:textColor="@color/deep_moss"
             android:textStyle="bold"
             android:layout_marginLeft="5dp"
             android:text="@string/display_name"
@@ -33,7 +33,7 @@
             android:ems="15"
             android:hint="@string/first_name"
             android:textColorHint="@color/grey"
-            android:textColor="@color/forest_green"
+            android:textColor="@color/deep_moss"
             android:inputType="text"
             android:textSize="20sp" />
 
@@ -49,7 +49,7 @@
             android:hint="@string/last_name"
             android:inputType="text"
             android:textColorHint="@color/grey"
-            android:textColor="@color/forest_green"
+            android:textColor="@color/deep_moss"
             android:textSize="20sp" />
 
         <Button

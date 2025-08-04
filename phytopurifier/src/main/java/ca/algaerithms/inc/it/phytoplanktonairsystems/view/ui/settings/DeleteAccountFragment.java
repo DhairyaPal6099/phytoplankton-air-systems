@@ -23,56 +23,46 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.EmailAuthProvider;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.FirebaseFirestore;
 
+import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.DeleteAccountController;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.LoginActivity;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 
-public class DeleteAccountFragment extends Fragment {
+public class DeleteAccountFragment extends Fragment implements DeleteAccountController.DeleteAccountView {
+
+    private DeleteAccountController controller;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_delete_account, container, false);
+        controller = new DeleteAccountController(this);
 
         Button deleteButton = view.findViewById(R.id.btn_delete_account);
-        deleteButton.setOnClickListener(v -> confirmAndDeleteAccount());
+        deleteButton.setOnClickListener(v -> showConfirmDialog());
 
         return view;
     }
 
-    private void confirmAndDeleteAccount() {
+    private void showConfirmDialog() {
         new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.confirm_deletion)
                 .setMessage(R.string.are_you_sure_you_want_to_permanently_delete_your_account)
-                .setPositiveButton("Delete", (dialog, which) -> {
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    if (user != null) {
-                        if (user.getProviderData().get(1).getProviderId().equals("google.com")) {
-                            deleteAccount(user); // Google user – skip re-auth
-                        } else {
-                            showReauthDialog(user); // Email/password user
-                        }
-                    } else {
-                        Toast.makeText(getContext(), R.string.no_user_is_logged_in, Toast.LENGTH_SHORT).show();
-                    }
-                })
+                .setPositiveButton(getString(R.string.delete), (dialog, which) ->
+                        controller.onDeleteRequested(requireContext()))
                 .setNegativeButton(getString(R.string.cancel), null)
                 .show();
     }
 
-    private void showReauthDialog(FirebaseUser user) {
+    @Override
+    public void showPasswordDialog(FirebaseUser user) {
         EditText passwordInput = new EditText(requireContext());
         passwordInput.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         passwordInput.setHint(R.string.enter_your_password);
         passwordInput.setPadding(40, 40, 40, 40);
-        passwordInput.setBackgroundResource(R.drawable.semirounded_corners); // Optional custom style
+        passwordInput.setBackgroundResource(R.drawable.semirounded_corners);
 
         ImageView toggleIcon = new ImageView(requireContext());
         toggleIcon.setImageResource(R.drawable.visibility_off);
@@ -101,47 +91,24 @@ public class DeleteAccountFragment extends Fragment {
                 .setPositiveButton(R.string.confirm, (dialog, which) -> {
                     String password = passwordInput.getText().toString().trim();
                     if (password.isEmpty()) {
-                        Toast.makeText(getContext(), R.string.password_required, Toast.LENGTH_SHORT).show();
+                        showMessage(getString(R.string.password_required));
                     } else {
-                        reauthenticateAndDelete(user, password);
+                        controller.reauthenticateAndDelete(user, password);
                     }
                 })
                 .setNegativeButton(getString(R.string.cancel), null)
                 .show();
     }
 
-    private void reauthenticateAndDelete(FirebaseUser user, String password) {
-        String email = user.getEmail();
-        if (email == null) {
-            Toast.makeText(getContext(), R.string.email_not_found, Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        AuthCredential credential = EmailAuthProvider.getCredential(email, password);
-        user.reauthenticate(credential)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        deleteAccount(user);
-                    } else {
-                        Toast.makeText(getContext(), getString(R.string.reauthentication_failed), Toast.LENGTH_SHORT).show();
-                    }
-                });
+    @Override
+    public void showLoginScreen() {
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
-    private void deleteAccount(FirebaseUser user) {
-        String uid = user.getUid();
-
-        FirebaseFirestore.getInstance().collection("users").document(uid).delete()
-                .addOnCompleteListener(task1 -> FirebaseDatabase.getInstance().getReference("sensor_readings").child(uid).removeValue()
-                        .addOnCompleteListener(task2 -> user.delete().addOnCompleteListener(task3 -> {
-                            if (task3.isSuccessful()) {
-                                Toast.makeText(getContext(), getString(R.string.account_deleted), Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(intent);
-                            } else {
-                                Toast.makeText(getContext(), getString(R.string.failed_to_delete_account), Toast.LENGTH_SHORT).show();
-                            }
-                        })));
+    @Override
+    public void showMessage(String msg) {
+        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
     }
 }
