@@ -385,5 +385,11 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="email_us">Email Us</string>
     <string name="algaerithms_inc">© Algaerithms Inc.</string>
 
+    <string-array name="request_types">
+        <item>Order Algae Pod</item>
+        <item>Request Maintenance</item>
+        <item>Tank Cleaning</item>
+    </string-array>
+
 
 </resources>
