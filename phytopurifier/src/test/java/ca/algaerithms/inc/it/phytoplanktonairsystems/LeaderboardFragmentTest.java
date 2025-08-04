@@ -139,6 +139,12 @@ public class LeaderboardFragmentTest {
         assertEquals(0, adapter.getItemCount());
     }
 
+    @Test
+    public void adapter_updateData_does_not_crash_with_empty_list() {
+        LeaderboardAdapter adapter = new LeaderboardAdapter(context, new ArrayList<>());
+        adapter.updateData(new ArrayList<>());
+        assertEquals(0, adapter.getItemCount());
+    }
 
 
 }
