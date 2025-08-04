@@ -26,10 +26,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.algaerithms.inc.it.phytoplanktonairsystems.utils.NetworkUtils;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.adapter.NotificationAdapter;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.NotificationManagerPhytopurifier;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.NotificationModel;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.MainActivity;
 
 public class NotificationsFragment extends Fragment {
 
@@ -75,6 +77,12 @@ public class NotificationsFragment extends Fragment {
 
         Button clearButton = view.findViewById(R.id.clearAllButton);
         clearButton.setOnClickListener(v -> {
+            // Network check
+            if (!NetworkUtils.isConnected(requireContext())) {
+                ((MainActivity) requireActivity()).showOfflineSnackbar();
+                return; // stop here if no internet
+            }
+
             NotificationManagerPhytopurifier.getInstance(requireContext()).clearAllNotifications(success -> {
                 if (success) {
                     notificationModelList.clear();

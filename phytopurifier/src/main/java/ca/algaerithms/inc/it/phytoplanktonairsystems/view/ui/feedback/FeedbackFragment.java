@@ -25,6 +25,8 @@ import android.widget.Toast;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.FeedbackController;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.FeedbackModel;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.utils.NetworkUtils;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.MainActivity;
 
 public class FeedbackFragment extends Fragment implements FeedbackView  {
 
@@ -59,7 +61,7 @@ public class FeedbackFragment extends Fragment implements FeedbackView  {
         controller = new FeedbackController(this, requireContext());
 
         if (!controller.isUserSignedIn()) {
-            showToast("Please sign in to submit feedback.");
+            showToast(getString(R.string.please_sign_in_to_submit_feedback));
             btnSubmit.setEnabled(false);
         } else {
             controller.prefillUserData();
@@ -67,6 +69,12 @@ public class FeedbackFragment extends Fragment implements FeedbackView  {
         }
 
         btnSubmit.setOnClickListener(v -> {
+            // Network check
+            if (!NetworkUtils.isConnected(requireContext())) {
+                ((MainActivity) requireActivity()).showOfflineSnackbar();
+                return; // stop here if no internet
+            }
+
             controller.handleSubmitFeedback(
                     etName.getText().toString().trim(),
                     etPhone.getText().toString().trim(),

@@ -6,10 +6,19 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
+import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,6 +40,7 @@ import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.FirebaseApp;
 
 import java.util.Calendar;
@@ -49,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private ActivityMainBinding binding;
     private MainController controller;
+
+    private Snackbar connectivitySnackbar;
+    private ConnectivityManager.NetworkCallback networkCallback;
+    private boolean wasConnected = false;
+    private boolean isFirstNetworkCheck = true;
+
+    private Snackbar sensorDataSnackbar;
+    private boolean isLeaderboardScreen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
         requestNotificationPermissionIfNeeded();
         scheduleDailyNotificationWorkerOnce();
         scheduleRecurringCO2Worker();
+        registerNetworkCallback();
+
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
@@ -178,6 +198,84 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    private void registerNetworkCallback() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkRequest request = new NetworkRequest.Builder()
+                .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+                .build();
+
+        networkCallback = new ConnectivityManager.NetworkCallback() {
+            @Override
+            public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities networkCapabilities) {
+                boolean hasInternet = networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
+
+                runOnUiThread(() -> {
+                    if (isFirstNetworkCheck) {
+                        wasConnected = hasInternet;
+                        isFirstNetworkCheck = false;
+                        return;
+                    }
+
+                    if (hasInternet && !wasConnected) {
+                        wasConnected = true;
+                        showOnlineSnackbar();
+                    } else if (!hasInternet && wasConnected) {
+                        wasConnected = false;
+                        showOfflineSnackbar();
+                    }
+                });
+            }
+
+            @Override
+            public void onLost(@NonNull Network network) {
+                runOnUiThread(() -> {
+                    if (isFirstNetworkCheck) {
+                        wasConnected = false;
+                        isFirstNetworkCheck = false;
+                        return;
+                    }
+
+                    if (wasConnected) {
+                        wasConnected = false;
+                        showOfflineSnackbar();
+                    }
+                });
+            }
+        };
+
+        connectivityManager.registerNetworkCallback(request, networkCallback);
+
+        boolean isConnected = isCurrentlyConnected();
+        wasConnected = isConnected;
+        isFirstNetworkCheck = false;
+
+        if (!isConnected) {
+            // Immediately show red snackbar on launch if offline
+            runOnUiThread(this::showOfflineSnackbar);
+        }
+    }
+
+    private boolean isCurrentlyConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Network activeNetwork = cm.getActiveNetwork();
+            if (activeNetwork == null) return false;
+            NetworkCapabilities caps = cm.getNetworkCapabilities(activeNetwork);
+            return caps != null && caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
+        } else {
+            NetworkInfo info = cm.getActiveNetworkInfo();
+            return info != null && info.isConnected();
+        }
+    }
+
+    private void unregisterNetworkCallback() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (networkCallback != null) {
+            connectivityManager.unregisterNetworkCallback(networkCallback);
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -187,5 +285,70 @@ public class MainActivity extends AppCompatActivity {
                     : getString(R.string.notification_permission_denied);
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void setLeaderboardScreen(boolean isVisible) {
+        isLeaderboardScreen = isVisible;
+    }
+
+    public void showOfflineSnackbar() {
+        if (connectivitySnackbar == null || !connectivitySnackbar.isShownOrQueued()) {
+            String message = isLeaderboardScreen
+                    ? getString(R.string.unable_to_refresh_leaderboard_try_again_later)
+                    : getString(R.string.no_internet_connection);
+
+            connectivitySnackbar = Snackbar.make(
+                    findViewById(R.id.nav_host_fragment_content_main),
+                    message,
+                    Snackbar.LENGTH_INDEFINITE
+            );
+            connectivitySnackbar.setBackgroundTint(getColor(R.color.faded_red));
+            connectivitySnackbar.setTextColor(getColor(R.color.white));
+            connectivitySnackbar.setActionTextColor(getColor(R.color.light_blue));
+            connectivitySnackbar.setAction(R.string.dismiss, v -> connectivitySnackbar.dismiss());
+            connectivitySnackbar.show();
+        }
+    }
+
+    public void showOnlineSnackbar() {
+        if (connectivitySnackbar != null && connectivitySnackbar.isShown()) {
+            connectivitySnackbar.dismiss();
+        }
+
+        Snackbar onlineSnackbar = Snackbar.make(
+                getWindow().getDecorView().findViewById(android.R.id.content),
+                R.string.back_online,
+                Snackbar.LENGTH_SHORT
+        );
+        onlineSnackbar.setBackgroundTint(getColor(R.color.faded_green));
+        onlineSnackbar.setTextColor(getColor(R.color.white));
+        onlineSnackbar.show();
+    }
+
+    public void showSensorDataSnackbar() {
+        if (sensorDataSnackbar == null || !sensorDataSnackbar.isShownOrQueued()) {
+            sensorDataSnackbar = Snackbar.make(
+                    findViewById(R.id.nav_host_fragment_content_main),
+                    R.string.connect_to_internet_for_real_time_sensor_data,
+                    Snackbar.LENGTH_INDEFINITE
+            );
+            sensorDataSnackbar.setBackgroundTint(getColor(R.color.faded_red));
+            sensorDataSnackbar.setTextColor(getColor(R.color.white));
+            sensorDataSnackbar.setActionTextColor(getColor(R.color.light_blue));
+            sensorDataSnackbar.setAction(R.string.dismiss, v -> sensorDataSnackbar.dismiss());
+            sensorDataSnackbar.show();
+        }
+    }
+
+    public void dismissSensorDataSnackbar() {
+        if (sensorDataSnackbar != null && sensorDataSnackbar.isShown()) {
+            sensorDataSnackbar.dismiss();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterNetworkCallback();
     }
 }

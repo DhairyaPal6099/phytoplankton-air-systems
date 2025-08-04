@@ -106,7 +106,6 @@
     <string name="lockportrait">lockPortrait</string>
     <string name="dark_mode">darkMode</string>
     <string name="empty_string" />
-    <string name="phone_must_be_at_least_9_digits">Phone must be at least 9 digits</string>
     <string name="phone_must_be_at_least_10_digits">Phone must be at least 10 digits</string>
     <string name="image_forwardslash_asterisk">image/*</string>
     <string name="username">username</string>
@@ -377,6 +376,9 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="feedback_submitted_successfully">Feedback submitted successfully!</string>
     <string name="you_can_submit_feedback_only_once_every_24_hours">You can submit feedback only once every 24 hours.</string>
     <string name="error_submitting_feedback">"Error submitting feedback: "</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="back_online">Back online</string>
+    <string name="no_internet_connection">No internet connection</string>
     <string name="support_made_simple">Support made simple.</string>
     <string name="we_re_here_to_help_reach_out_any_time">We\'re here to help — reach out any time!</string>
     <string name="phone_icon">Phone Icon</string>
@@ -384,6 +386,9 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="email_icon">Email Icon</string>
     <string name="email_us">Email Us</string>
     <string name="algaerithms_inc">© Algaerithms Inc.</string>
+    <string name="please_sign_in_to_submit_feedback">Please sign in to submit feedback.</string>
+    <string name="unable_to_refresh_leaderboard_try_again_later">Unable to refresh leaderboard. Try again later.</string>
+    <string name="connect_to_internet_for_real_time_sensor_data">Connect to internet for real time sensor data</string>
 
 
 </resources>
