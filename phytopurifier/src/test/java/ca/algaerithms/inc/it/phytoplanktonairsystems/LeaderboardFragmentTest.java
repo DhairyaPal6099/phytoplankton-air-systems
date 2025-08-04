@@ -57,5 +57,20 @@ public class LeaderboardFragmentTest {
         assertEquals("Alice", nameText.getText().toString());
     }
 
+    @Test
+    public void viewholder_sets_carbon_dioxide_text() {
+        UserStat user = new UserStat("Bob", 8.6);
+        LeaderboardAdapter adapter = new LeaderboardAdapter(context, List.of(user));
+
+        View view = LayoutInflater.from(context).inflate(R.layout.leaderboard_item, null, false);
+        LeaderboardAdapter.ViewHolder holder = new LeaderboardAdapter.ViewHolder(view);
+
+        adapter.onBindViewHolder(holder, 0);
+
+        TextView co2Text = view.findViewById(R.id.carbondioxide_amount);
+        assertEquals("8.6 kg O₂", co2Text.getText().toString());
+    }
+
+
 
 }
