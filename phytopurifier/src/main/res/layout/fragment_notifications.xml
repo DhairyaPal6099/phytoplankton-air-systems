@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/nav_drawer_background"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -11,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="@string/clear_all"
         android:layout_gravity="center"
-             android:textColor="@android:color/white"
+        android:textColor="@color/clay_wash"
         android:paddingHorizontal="24dp"
         android:paddingVertical="8dp"
         android:layout_marginBottom="12dp"

@@ -18,12 +18,14 @@
     <color name="birch_cream">#E4DED0</color>
     <color name="midnight_moss">#1E2E24</color>
 
-    <!-- Navigation drawer background color -->
+    <!-- Colors that switch between light mode and dark mode made out of actual colors in this file -->
     <color name="nav_drawer_background">@color/midnight_moss</color>
     <color name="on_nav_drawer_background">@color/clay_wash</color>
     <color name="on_nav_drawer_background_subheading">@color/sprout_white</color>
     <color name="switch_thumb_color">@color/clay_wash</color>
     <color name="switch_track_color">@color/birch_cream</color>
+    <color name="card_view_color">@color/river_rock</color>
+    <color name="on_card_view_color">@color/birch_cream</color>
 
     <!--Old colors-->
     <color name="black">#FF000000</color>

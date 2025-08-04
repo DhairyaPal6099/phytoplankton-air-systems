@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/beige"
+    android:background="@color/nav_drawer_background"
     tools:context=".view.ui.home.insights.InsightsFragment">
 
     <LinearLayout
@@ -24,7 +24,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/insights"
-                android:fontFamily="@font/quicksand_bold"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="12dp" />
@@ -62,7 +61,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/did_you_know"
-                    android:fontFamily="@font/quicksand_bold"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:layout_marginTop="12dp" />
@@ -70,7 +68,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/quicksand_bold"
                     android:textSize="12sp"
                     android:text="@string/test_info"
                     android:layout_marginTop="4dp" />

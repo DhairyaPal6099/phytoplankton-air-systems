@@ -18,7 +18,7 @@
     <color name="birch_cream">#E4DED0</color>
     <color name="midnight_moss">#1E2E24</color>
 
-    <!-- Navigation drawer background color -->
+    <!-- Colors that switch between light mode and dark mode made out of actual colors in this file -->
     <color name="nav_drawer_background">@color/eucalyptus</color>
     <color name="on_nav_drawer_background">@color/midnight_moss</color>
     <color name="on_nav_drawer_background_subheading">@color/black</color>
@@ -27,6 +27,8 @@
     <color name="on_edit_text_fields_hint">@color/deep_moss</color>
     <color name="switch_thumb_color">@color/black</color>
     <color name="switch_track_color">@color/midnight_moss</color>
+    <color name="card_view_color">@color/sea_mist</color>
+    <color name="on_card_view_color">@color/marsh_depth</color>
 
     <!--Old colors-->
     <color name="black">#FF000000</color>

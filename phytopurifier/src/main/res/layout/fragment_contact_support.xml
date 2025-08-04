@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/nav_drawer_background"
     tools:context=".view.ui.supportActionBarFragments.ContactSupportFragment">
 
     <LinearLayout
@@ -19,6 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/support_made_simple"
+            android:textColor="@color/on_nav_drawer_background_subheading"
             android:textSize="26sp"
             android:textStyle="bold"
             android:layout_marginTop="24dp"
@@ -29,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/we_re_here_to_help_reach_out_any_time"
+            android:textColor="@color/on_nav_drawer_background_subheading"
             android:textSize="17sp"
             android:layout_marginBottom="24dp" />
 
@@ -82,6 +85,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/call_us"
+                        android:textColor="@color/on_nav_drawer_background"
                         android:textStyle="bold"
                         android:textSize="16sp"
                         android:layout_marginTop="8dp" />
@@ -118,6 +122,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/email_us"
+                        android:textColor="@color/on_nav_drawer_background"
                         android:textStyle="bold"
                         android:textSize="16sp"
                         android:layout_marginTop="8dp" />
