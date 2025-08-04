@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.test.core.app.ApplicationProvider;
@@ -71,6 +72,20 @@ public class LeaderboardFragmentTest {
         assertEquals("8.6 kg O₂", co2Text.getText().toString());
     }
 
+    @Test
+    public void position_0_shows_gold_medal() {
+        UserStat user = new UserStat("Gold", 20.0);
+        LeaderboardAdapter adapter = new LeaderboardAdapter(context, List.of(user));
+
+        View view = LayoutInflater.from(context).inflate(R.layout.leaderboard_item, null, false);
+        LeaderboardAdapter.ViewHolder holder = new LeaderboardAdapter.ViewHolder(view);
+
+        adapter.onBindViewHolder(holder, 0);
+
+        ImageView medal = view.findViewById(R.id.medal_icon);
+        assertEquals(View.VISIBLE, medal.getVisibility());
+        // You can also assert resource id or tag if needed
+    }
 
 
 }
