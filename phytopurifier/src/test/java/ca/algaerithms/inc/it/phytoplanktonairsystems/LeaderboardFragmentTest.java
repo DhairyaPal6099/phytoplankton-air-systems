@@ -100,4 +100,18 @@ public class LeaderboardFragmentTest {
         assertEquals(View.VISIBLE, medal.getVisibility());
     }
 
+    @Test
+    public void position_2_shows_bronze_medal() {
+        UserStat user = new UserStat("Bronze", 10.0);
+        LeaderboardAdapter adapter = new LeaderboardAdapter(context, List.of(user));
+
+        View view = LayoutInflater.from(context).inflate(R.layout.leaderboard_item, null, false);
+        LeaderboardAdapter.ViewHolder holder = new LeaderboardAdapter.ViewHolder(view);
+
+        adapter.onBindViewHolder(holder, 1);
+
+        ImageView medal = view.findViewById(R.id.medal_icon);
+        assertEquals(View.VISIBLE, medal.getVisibility());
+    }
+
 }
