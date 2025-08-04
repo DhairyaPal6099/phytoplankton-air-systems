@@ -27,6 +27,7 @@ import android.widget.Toast;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
@@ -48,6 +49,7 @@ import java.util.concurrent.TimeUnit;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.MainController;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.SettingsController;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.ShareDashboard;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.CO2Updater;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.DailyNotificationWorker;
@@ -80,6 +82,13 @@ public class MainActivity extends AppCompatActivity {
                 .getBoolean(getString(R.string.lockportrait), false)) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
+
+        //Dark mode apply based on user preference
+        boolean darkMode = getSharedPreferences(getString(R.string.settings_lowercase), MODE_PRIVATE)
+                .getBoolean(getString(R.string.dark_mode), false);
+        AppCompatDelegate.setDefaultNightMode(
+                darkMode ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO
+        );
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
