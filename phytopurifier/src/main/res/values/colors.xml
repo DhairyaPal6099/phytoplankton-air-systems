@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <!--Earth colors-->
+    <color name="algae_green">#7BAE7F</color>
+    <color name="deep_moss">#4C6C4C</color>
+    <color name="sea_mist">#A4C3B2</color>
+    <color name="driftwood_beige">#D2C7BA</color>
+    <color name="dew_veil">#DCE2DC</color>
+    <color name="lagoon_blue">#84B1B7</color>
+    <color name="sandstone">#B6A78C</color>
+    <color name="sprout_white">#E9F5DB</color>
+    <color name="river_rock">#64766B</color>
+    <color name="fog_sage">#C9D6CF</color>
+    <color name="eucalyptus">#8DAA9D</color>
+    <color name="clay_wash">#F1E4D7</color>
+    <color name="pond_reflection">#739892</color>
+    <color name="marsh_depth">#566963</color>
+    <color name="birch_cream">#E4DED0</color>
+    <color name="midnight_moss">#1E2E24</color>
+
+    <!-- Navigation drawer background color -->
+    <color name="nav_drawer_background">@color/eucalyptus</color>
+    <color name="on_nav_drawer_background">@color/midnight_moss</color>
+    <color name="on_nav_drawer_background_subheading">@color/black</color>
+    <color name="edit_text_fields">@color/driftwood_beige</color>
+    <color name="on_edit_text_fields_text">@color/midnight_moss</color>
+    <color name="on_edit_text_fields_hint">@color/deep_moss</color>
+    <color name="switch_thumb_color">@color/black</color>
+    <color name="switch_track_color">@color/midnight_moss</color>
+
+    <!--Old colors-->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="dark_grey">#738290</color>
@@ -31,21 +55,19 @@
     <color name="contentTextColor">#020000</color>
     <color name="imageBorderColor">#E01E7A</color>
     <color name="miniTitle">#2A2E43</color>
-    <color name="colorPrimary">#11CFC5</color>
     <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#FF402D</color>
     <color name="backgroundLight">#FFFCF7</color>
     <color name="textPrimary">#2F3C2F</color>
     <color name="textSecondary">#4D4D4D</color>
+    <color name="faded_red">#D3494E</color>
+    <color name="faded_green">#4E941B</color>
+    <color name="light_grey">#D3D3D3</color>
 
-
-
-
+    <color name="deep_red">#D32F2F</color> <!-- Material Red 700 -->
+    <color name="success_green">#388E3C</color> <!-- Material Green 700 -->
 
 
 
     <color name="error_message">#cc0000</color>
-    <color name="cyan">#00FFFF</color>
-    <color name="teal">#008080</color>
-    <color name="turquoise">#40E0D0</color>
 </resources>
