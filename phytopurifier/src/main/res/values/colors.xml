@@ -39,16 +39,16 @@
     <color name="textSecondary">#4D4D4D</color>
 
 
-    <color name="field_background">#E6F4EA</color>
+<!--    <color name="field_background">#E6F4EA</color>-->
 
 
-    <color name="green_primary">#4CAF50</color>
-    <color name="green_dark">#388E3C</color>
+<!--    <color name="green_primary">#4CAF50</color>-->
+<!--    <color name="green_dark">#388E3C</color>-->
 
-    <!-- UI-specific colors -->
-    <color name="text_primary">#222222</color>
-    <color name="text_dark">#111111</color>
-    <color name="background">#FFFFFF</color>
+<!--    &lt;!&ndash; UI-specific colors &ndash;&gt;-->
+<!--    <color name="text_primary">#222222</color>-->
+<!--    <color name="text_dark">#111111</color>-->
+<!--    <color name="background">#FFFFFF</color>-->
 
 
 
