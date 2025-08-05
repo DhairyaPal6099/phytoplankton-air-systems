@@ -1,41 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:padding="24dp">
 
-    <!-- Close Button -->
-    <ImageButton
-        android:id="@+id/close_button"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_alignParentEnd="true"
-        android:background="@android:color/transparent"
-        android:src="@drawable/ic_close"
-        android:contentDescription="Close" />
-
-    <!-- Header Title -->
-    <TextView
-        android:id="@+id/header_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit Service Request"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp" />
-
     <LinearLayout
-        android:id="@+id/form_container"
-        android:layout_below="@id/header_text"
-        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Full Name (disabled) -->
+        <!-- Header Title -->
+        <TextView
+            android:id="@+id/header_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit Service Request"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Full Name -->
         <EditText
             android:id="@+id/full_name"
             android:layout_width="match_parent"
@@ -46,7 +33,7 @@
             android:padding="12dp"
             android:textColor="@color/black" />
 
-        <!-- Email (disabled) -->
+        <!-- Email -->
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
@@ -58,30 +45,32 @@
             android:layout_marginTop="12dp"
             android:textColor="@color/black" />
 
-        <!-- Request Type -->
+        <!-- Request Type Label -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Request Type"
             android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp" />
 
+        <!-- Request Type Spinner -->
         <Spinner
             android:id="@+id/request_type_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp" />
 
-        <!-- Notes -->
+        <!-- Notes Label -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Describe your issue"
             android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp" />
 
+        <!-- Notes Input -->
         <EditText
             android:id="@+id/notes"
             android:layout_width="match_parent"
@@ -92,19 +81,16 @@
             android:padding="12dp"
             android:inputType="textMultiLine"
             android:textColor="@color/black" />
-    </LinearLayout>
 
-    <!-- Submit Button -->
-    <Button
-        android:id="@+id/submit_request_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/form_container"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="12dp"
-        android:text="SUBMIT"
-        android:textAllCaps="true"
-        android:textColor="@android:color/white"
-        android:backgroundTint="@color/green"
-        android:background="@drawable/bg_rounded_button"/>
-</RelativeLayout>
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/submit_request_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="SUBMIT"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:background="@drawable/bg_rounded_button" />
+    </LinearLayout>
+</ScrollView>
