@@ -30,7 +30,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginBottom="80dp"
         android:layout_marginEnd="16dp"
-        android:contentDescription="Request Service"
+        android:contentDescription="@string/request_service"
         android:src="@drawable/ic_fab"
                  />
 
