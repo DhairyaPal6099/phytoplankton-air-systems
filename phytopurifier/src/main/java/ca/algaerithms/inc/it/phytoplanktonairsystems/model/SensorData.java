@@ -20,6 +20,8 @@ public class SensorData {
     private double algaeHealth;
     private String timestamp;
 
+    private int aqi;
+
     // No-arg constructor required for Firebase
     public SensorData() {}
 
