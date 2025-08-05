@@ -376,9 +376,24 @@ We may update this Privacy Policy as needed. All changes will be reflected withi
     <string name="email_icon">Email Icon</string>
     <string name="email_us">Email Us</string>
     <string name="algaerithms_inc">© Algaerithms Inc.</string>
+    <string name="submit_service_request">Submit Service Request</string>
+    <string name="user_full_name">Full Name</string>
+    <string name="email_fab">Email</string>
+    <string name="request_type">Request Type</string>
+    <string name="describe_your_issue">Describe your issue</string>
+    <string name="enter_any_notes_or_special_instructions">Enter any notes or special instructions...</string>
+    <string name="submit_fab">SUBMIT</string>
+    <string name="request_service">Request Service</string>
+
+    <string-array name="request_types">
+        <item>Order Algae Pod</item>
+        <item>Request Maintenance</item>
+        <item>Tank Cleaning</item>
+    </string-array>
     <string name="please_sign_in_to_submit_feedback">Please sign in to submit feedback.</string>
     <string name="unable_to_refresh_leaderboard_try_again_later">Unable to refresh leaderboard. Try again later.</string>
     <string name="connect_to_internet_for_real_time_sensor_data">Connect to internet for real time sensor data</string>
+
 
 
 </resources>

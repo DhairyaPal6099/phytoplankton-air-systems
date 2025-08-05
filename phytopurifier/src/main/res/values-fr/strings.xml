@@ -329,10 +329,26 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="lifetime_co2_converted">lifetime_co2_converted</string>
     <string name="n_a">N/A</string>
     <string name="feedback_disabled_time">feedback_disabled_time</string>
+    <string name="submit_service_request">Submit Service Request</string>
+    <string name="user_full_name">Full Name</string>
+    <string name="email_fab">Email</string>
+    <string name="request_type">Request Type</string>
+    <string name="describe_your_issue">Describe your issue</string>
+    <string name="enter_any_notes_or_special_instructions">Enter any notes or special instructions...</string>
+    <string name="submit_fab">SUBMIT</string>
+    <string name="request_service">Request Service</string>
+
+    <string-array name="request_types">
+        <item>Order Algae Pod</item>
+        <item>Request Maintenance</item>
+        <item>Tank Cleaning</item>
+    </string-array>
+
     <string name="dismiss">Dismiss</string>
     <string name="back_online">Back online</string>
     <string name="no_internet_connection">No internet connection</string>
     <string name="please_sign_in_to_submit_feedback">Please sign in to submit feedback.</string>
     <string name="unable_to_refresh_leaderboard_try_again_later">Unable to refresh leaderboard. Try again later.</string>
     <string name="connect_to_internet_for_real_time_sensor_data">Connect to internet for real time sensor data</string>
+
 </resources>
