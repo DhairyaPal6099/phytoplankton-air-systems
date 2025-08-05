@@ -60,6 +60,7 @@ dependencies {
     implementation libs.guava
     implementation libs.glide
     implementation libs.fragment.testing
+    testImplementation libs.ext.junit
     androidTestImplementation libs.rules
     annotationProcessor libs.glide.compiler
     testImplementation libs.junit
