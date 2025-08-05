@@ -20,7 +20,9 @@ import java.util.List;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.LeaderboardManager;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.utils.NetworkUtils;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.adapter.LeaderboardAdapter;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.MainActivity;
 
 
 public class LeaderboardFragment extends Fragment {
@@ -56,5 +58,21 @@ public class LeaderboardFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) requireActivity()).setLeaderboardScreen(true);
+
+        if (!NetworkUtils.isConnected(requireContext())) {
+            ((MainActivity) requireActivity()).showOfflineSnackbar();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        ((MainActivity) requireActivity()).setLeaderboardScreen(false);
     }
 }

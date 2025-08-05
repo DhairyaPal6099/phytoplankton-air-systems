@@ -26,8 +26,10 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseUser;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.DeleteAccountController;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.utils.NetworkUtils;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.LoginActivity;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.MainActivity;
 
 public class DeleteAccountFragment extends Fragment implements DeleteAccountController.DeleteAccountView {
 
@@ -41,7 +43,15 @@ public class DeleteAccountFragment extends Fragment implements DeleteAccountCont
         controller = new DeleteAccountController(this);
 
         Button deleteButton = view.findViewById(R.id.btn_delete_account);
-        deleteButton.setOnClickListener(v -> showConfirmDialog());
+        deleteButton.setOnClickListener(v -> {
+            // Network check
+            if (!NetworkUtils.isConnected(requireContext())) {
+                ((MainActivity) requireActivity()).showOfflineSnackbar();
+                return; // stop here if no internet
+            }
+
+            showConfirmDialog();
+        });
 
         return view;
     }

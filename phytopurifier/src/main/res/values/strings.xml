@@ -175,7 +175,6 @@
     <string name="lockportrait">lockPortrait</string>
     <string name="dark_mode">darkMode</string>
     <string name="empty_string" />
-    <string name="phone_must_be_at_least_9_digits">Phone must be at least 9 digits</string>
     <string name="phone_must_be_at_least_10_digits">Phone must be at least 10 digits</string>
     <string name="image_forwardslash_asterisk">image/*</string>
     <string name="username">username</string>
@@ -235,37 +234,27 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
 
     <!-- Privacy Policy Fragment -->
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="privacy_policy_content">🔐 Privacy Policy
-
-PhytoplanktonAirSystems values your privacy. This policy describes the types of data we collect, how it\'s used, and how it\'s stored.
-
-1. Information We Collect
-• Profile data: name, birthdate, email, phone number
-• App preferences: dark mode, screen lock, accessibility filters
-• Sensor data: CO₂ levels, light exposure, algae status, water level
-• Diagnostic data: crash logs and usage (if enabled)
-
-2. How We Use Your Data
-• To operate and improve app features
-• To notify you of air system conditions and alerts
-• To retain your personalized settings and usage context
-• To monitor performance and resolve technical issues
-
-3. Data Storage and Processing
-• Data is stored locally on your device using secure Android storage mechanisms
-• Some features use Firebase (by Google) for secure authentication, cloud storage, and diagnostics
-
-4. Data Sharing
-We do not sell or share your personal information with third-party companies. Data stored through Firebase is used strictly for app-related functionality.
-
-5. User Control
-You can manage your profile and preferences within the app. You may delete all stored data using the “Delete Account” feature in Settings.
-
-6. Policy Updates
-We may update this Privacy Policy as needed. All changes will be reflected within the app for your review.
-
-7. Contact
-If you have any privacy-related concerns or inquiries, please contact us at:
+    <string name="privacy_policy_content">
+PhytoplanktonAirSystems values your privacy. This policy describes the types of data we collect, how it\'s used, and how it\'s stored.\n\n
+1. Information We Collect\n
+• Profile data: name, birthdate, email, phone number\n
+• App preferences: dark mode, screen lock, accessibility filters\n
+• Sensor data: CO₂ levels, light exposure, algae status, water level\n
+• Diagnostic data: crash logs and usage (if enabled)\n\n
+2. How We Use Your Data\n
+• To operate and improve app features\n
+• To notify you of air system conditions and alerts\n
+• To retain your personalized settings and usage context\n
+• To monitor performance and resolve technical issues\n\n
+3. Data Storage and Processing\n
+• Data is stored locally on your device using secure Android storage mechanisms\n
+• Some features use Firebase (by Google) for secure authentication, cloud storage, and diagnostics\n\n
+4. Data Sharing\n
+We do not sell or share your personal information with third-party companies. Data stored through Firebase is used strictly for app-related functionality.\n\n
+5. User Control\n
+You can manage your profile and preferences within the app. You may delete all stored data using the “Delete Account” feature in Settings.\n\n
+6. Policy Updates\n
+We may update this Privacy Policy as needed. All changes will be reflected within the app for your review.\n\n
 
 </string>
 
@@ -446,6 +435,9 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="feedback_submitted_successfully">Feedback submitted successfully!</string>
     <string name="you_can_submit_feedback_only_once_every_24_hours">You can submit feedback only once every 24 hours.</string>
     <string name="error_submitting_feedback">"Error submitting feedback: "</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="back_online">Back online</string>
+    <string name="no_internet_connection">No internet connection</string>
     <string name="support_made_simple">Support made simple.</string>
     <string name="we_re_here_to_help_reach_out_any_time">We\'re here to help — reach out any time!</string>
     <string name="phone_icon">Phone Icon</string>
@@ -456,6 +448,24 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="what_is_phytoplankton">What is Phytoplankton?</string>
     <string name="slide_for_more">Slide for more</string>
     <string name="articles">Articles</string>
+    <string name="submit_service_request">Submit Service Request</string>
+    <string name="user_full_name">Full Name</string>
+    <string name="email_fab">Email</string>
+    <string name="request_type">Request Type</string>
+    <string name="describe_your_issue">Describe your issue</string>
+    <string name="enter_any_notes_or_special_instructions">Enter any notes or special instructions...</string>
+    <string name="submit_fab">SUBMIT</string>
+    <string name="request_service">Request Service</string>
+
+    <string-array name="request_types">
+        <item>Order Algae Pod</item>
+        <item>Request Maintenance</item>
+        <item>Tank Cleaning</item>
+    </string-array>
+    <string name="please_sign_in_to_submit_feedback">Please sign in to submit feedback.</string>
+    <string name="unable_to_refresh_leaderboard_try_again_later">Unable to refresh leaderboard. Try again later.</string>
+    <string name="connect_to_internet_for_real_time_sensor_data">Connect to internet for real time sensor data</string>
+
 
 
 </resources>

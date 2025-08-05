@@ -59,15 +59,12 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
         if(position == 0){
             holder.medalIcon.setVisibility(View.VISIBLE);
             holder.medalIcon.setImageResource(R.drawable.medal1st);
-            holder.nameText.setTextColor(ContextCompat.getColor(context, R.color.gold));
         } else if(position == 1){
             holder.medalIcon.setVisibility(View.VISIBLE);
             holder.medalIcon.setImageResource(R.drawable.medal2nd);
-            holder.nameText.setTextColor(ContextCompat.getColor(context, R.color.silver));
         } else if(position == 2){
             holder.medalIcon.setVisibility(View.VISIBLE);
             holder.medalIcon.setImageResource(R.drawable.medal3rd);
-            holder.nameText.setTextColor(ContextCompat.getColor(context, R.color.bronze));
         }
     }
 

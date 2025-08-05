@@ -33,10 +33,10 @@ public class SettingsFragment extends Fragment implements SettingsController.Vie
         View view = binding.getRoot();
 
         controller = new SettingsController(requireContext(), this);
-        controller.loadUserInfo();
 
         binding.lockScreenModeSwitch.setChecked(controller.getLockPortrait());
         binding.darkModeSwitch.setChecked(controller.getDarkMode());
+        applyDarkMode(controller.getDarkMode());
         binding.reduceMotion.setChecked(controller.getReduceMotion());
 
         binding.lockScreenModeSwitch.setOnCheckedChangeListener((b, checked) -> controller.toggleLockPortrait(checked));
@@ -51,9 +51,17 @@ public class SettingsFragment extends Fragment implements SettingsController.Vie
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        controller.loadUserInfo();
+    }
+
+    @Override
     public void updateUserInfo(String name, String email) {
-        binding.usernameTextView.setText(name);
-        binding.emailTextView.setText(email);
+        if (binding != null) {
+            binding.usernameTextView.setText(name);
+            binding.emailTextView.setText(email);
+        }
     }
 
     @Override
