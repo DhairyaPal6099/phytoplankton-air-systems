@@ -5,10 +5,6 @@
 
 package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui;
 
-
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +19,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.google.firebase.Timestamp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.model.ServiceRequest;
 
 public class RequestServiceBottomSheet extends BottomSheetDialogFragment {
 
@@ -50,29 +50,45 @@ public class RequestServiceBottomSheet extends BottomSheetDialogFragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         requestTypeSpinner.setAdapter(adapter);
 
-        submitButton.setOnClickListener(v -> sendServiceRequest());
+        submitButton.setOnClickListener(v -> sendRequestToFirestore());
 
         return view;
     }
-
-    private void sendServiceRequest() {
+    private void sendRequestToFirestore() {
         String type = requestTypeSpinner.getSelectedItem().toString();
         String notes = notesEditText.getText().toString();
 
-        String subject = "Service Request – " + type;
-        String body = "Request Type: " + type + "\n\nNotes:\n" + notes + "\n\nSent from Phytoplankton Air Systems app.";
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-        emailIntent.setData(Uri.parse("mailto:")); // use mail client only
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"algaerithms@gmail.com"});
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        emailIntent.putExtra(Intent.EXTRA_TEXT, body);
+        FirebaseFirestore.getInstance()
+                .collection("users")
+                .document(uid)
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        String email = documentSnapshot.getString("email");
+                        String name = documentSnapshot.getString("name");
+                        Timestamp timestamp = Timestamp.now();
 
-        try {
-            startActivity(Intent.createChooser(emailIntent, "Send request via..."));
-            dismiss(); // close bottom sheet
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(getContext(), "No email app found.", Toast.LENGTH_SHORT).show();
-        }
+                        ServiceRequest request = new ServiceRequest(type, notes, email, name, timestamp);
+
+                        FirebaseFirestore.getInstance()
+                                .collection("serviceRequests")
+                                .add(request)
+                                .addOnSuccessListener(ref -> {
+                                    Toast.makeText(getContext(), "Request submitted successfully!", Toast.LENGTH_SHORT).show();
+                                    dismiss();
+                                })
+                                .addOnFailureListener(e -> {
+                                    Toast.makeText(getContext(), "Failed to submit request. Try again.", Toast.LENGTH_SHORT).show();
+                                });
+                    } else {
+                        Toast.makeText(getContext(), "User data not found.", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(getContext(), "Error retrieving user info.", Toast.LENGTH_SHORT).show();
+                });
     }
-}
+
+    }
