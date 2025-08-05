@@ -87,8 +87,13 @@ public class LeaderboardFragmentTest {
 
     @Test
     public void position_1_shows_silver_medal() {
-        UserStat user = new UserStat("Silver", 15.0);
-        LeaderboardAdapter adapter = new LeaderboardAdapter(context, List.of(user));
+
+        List<UserStat> testUsers = Arrays.asList(
+                new UserStat("User1", 20.0), // gold
+                new UserStat("User2", 15.0)  // silver
+        );
+
+        LeaderboardAdapter adapter = new LeaderboardAdapter(context, testUsers);
 
         View view = LayoutInflater.from(context).inflate(R.layout.leaderboard_item, null, false);
         LeaderboardAdapter.ViewHolder holder = new LeaderboardAdapter.ViewHolder(view);
@@ -101,8 +106,12 @@ public class LeaderboardFragmentTest {
 
     @Test
     public void position_2_shows_bronze_medal() {
-        UserStat user = new UserStat("Bronze", 10.0);
-        LeaderboardAdapter adapter = new LeaderboardAdapter(context, List.of(user));
+        List<UserStat> testUsers = Arrays.asList(
+                new UserStat("User1", 25.0), // gold
+                new UserStat("User2", 20.0), // silver
+                new UserStat("User3", 15.0)  // bronze
+        );
+        LeaderboardAdapter adapter = new LeaderboardAdapter(context, testUsers);
 
         View view = LayoutInflater.from(context).inflate(R.layout.leaderboard_item, null, false);
         LeaderboardAdapter.ViewHolder holder = new LeaderboardAdapter.ViewHolder(view);
