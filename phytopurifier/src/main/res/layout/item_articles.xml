@@ -18,6 +18,7 @@
             android:id="@+id/articleImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_marginTop="7dp"
             android:scaleType="centerCrop"
             android:src="@drawable/algaerithms_padded" />
 

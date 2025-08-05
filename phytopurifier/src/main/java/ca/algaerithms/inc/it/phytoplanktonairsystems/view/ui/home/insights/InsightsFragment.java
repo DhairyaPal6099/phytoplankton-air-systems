@@ -92,14 +92,54 @@ public class InsightsFragment extends Fragment implements ArticleAdapter.OnArtic
 
     public void articleView() {
         List<ArticleItem> articles = new ArrayList<>();
-        for (int i = 1; i <= 5; i++) {
-            String title = getString(getResources().getIdentifier("article_title_" + i, "string", getContext().getPackageName()));
-            String snippet = getString(getResources().getIdentifier("article_snippet_" + i, "string", getContext().getPackageName()));
-            String meta = getString(getResources().getIdentifier("article_meta_" + i, "string", getContext().getPackageName()));
-            int imageId = R.drawable.algaerithms_padded;
-            String url = getString(getResources().getIdentifier("article_url_" + i, "string", getContext().getPackageName()));
-            articles.add(new ArticleItem(title, snippet, meta, imageId, url));
-        }
+
+        articles.add(new ArticleItem(
+                getString(R.string.article_title_1),
+                getString(R.string.article_snippet_1),
+                getString(R.string.article_meta_1),
+                R.drawable.phytoplankton_c,
+                getString(R.string.article_url_1)
+        ));
+
+        articles.add(new ArticleItem(
+                getString(R.string.article_title_2),
+                getString(R.string.article_snippet_2),
+                getString(R.string.article_meta_2),
+                R.drawable.phytoplankton_a,
+                getString(R.string.article_url_2)
+        ));
+
+        articles.add(new ArticleItem(
+                getString(R.string.article_title_3),
+                getString(R.string.article_snippet_3),
+                getString(R.string.article_meta_3),
+                R.drawable.phytoplankton,
+                getString(R.string.article_url_3)
+        ));
+
+        articles.add(new ArticleItem(
+                getString(R.string.article_title_4),
+                getString(R.string.article_snippet_4),
+                getString(R.string.article_meta_4),
+                R.drawable.phytoplankton_e,
+                getString(R.string.article_url_4)
+        ));
+
+        articles.add(new ArticleItem(
+                getString(R.string.article_title_5),
+                getString(R.string.article_snippet_5),
+                getString(R.string.article_meta_5),
+                R.drawable.phytoplankton_c,
+                getString(R.string.article_url_5)
+        ));
+
+        articles.add(new ArticleItem(
+                getString(R.string.article_title_6),
+                getString(R.string.article_snippet_6),
+                getString(R.string.article_meta_6),
+                R.drawable.phytoplankton_d,
+                getString(R.string.article_url_6)
+        ));
 
         ArticleAdapter adapter = new ArticleAdapter(getContext(), articles, this);
         articlesInsights.setAdapter(adapter);

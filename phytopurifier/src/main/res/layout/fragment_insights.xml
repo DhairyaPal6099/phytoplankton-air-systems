@@ -144,7 +144,7 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_marginStart="125dp"
+                android:layout_marginStart="115dp"
                 android:text="@string/slide_for_more"
                 android:textColor="@color/dark_grey"/>
         </LinearLayout>
@@ -153,7 +153,6 @@
             android:id="@+id/basicInsightsRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:overScrollMode="never"
             android:nestedScrollingEnabled="false"
             android:scrollbars="none"

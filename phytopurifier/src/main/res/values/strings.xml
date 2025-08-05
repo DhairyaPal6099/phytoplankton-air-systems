@@ -125,34 +125,40 @@
     </string-array>
 
     <!-- Article 1 -->
-    <string name="article_title_1">New insights into phytoplankton distribution</string>
-    <string name="article_snippet_1">Researchers explore seasonal trends in plankton populations...</string>
-    <string name="article_meta_1">Published July 2025 • 5 min read</string>
-    <string name="article_url_1">https://academic.oup.com/plankt/article/45/3/123/7123456</string>
+    <string name="article_title_1">Production of extracellular reactive oxygen species by phytoplankton:</string>
+    <string name="article_snippet_1">In aquatic environments, phytoplankton represent a major source of reactive oxygen species (ROS) such as superoxide and hydrogen peroxide...</string>
+    <string name="article_meta_1">Published 21 June 2025 • Julia M Diaz , Sydney Plummer</string>
+    <string name="article_url_1">https://academic.oup.com/plankt/article/40/6/655/5107381</string>
 
     <!-- Article 2 -->
-    <string name="article_title_2">How ocean currents affect plankton blooms</string>
-    <string name="article_snippet_2">Ocean dynamics play a crucial role in nutrient transport...</string>
-    <string name="article_meta_2">Published June 2025 • 7 min read</string>
-    <string name="article_url_2">https://academic.oup.com/plankt/article/45/2/89/7123452</string>
+    <string name="article_title_2">Exploration of marine phytoplankton:</string>
+    <string name="article_snippet_2">Marine phytoplankton are believed to account for more than 45% of photosynthetic...</string>
+    <string name="article_meta_2">Published 30 October 2020 • 5 min read</string>
+    <string name="article_url_2">https://academic.oup.com/plankt/article/42/6/595/5943115</string>
 
     <!-- Article 3 -->
-    <string name="article_title_3">Advances in remote sensing of phytoplankton</string>
-    <string name="article_snippet_3">Satellites now provide high-resolution data on marine flora...</string>
-    <string name="article_meta_3">Published May 2025 • 6 min read</string>
-    <string name="article_url_3">https://academic.oup.com/plankt/article/45/1/57/7123451</string>
+    <string name="article_title_3">Size dependence of coastal phytoplankton photosynthesis under vertical mixing conditions</string>
+    <string name="article_snippet_3">We have determined the relationship between carbon-specific photosynthesis and phytoplankton cell size...</string>
+    <string name="article_meta_3">Published 01 May 2005 • 7 min read</string>
+    <string name="article_url_3">https://academic.oup.com/plankt/article-abstract/27/5/473/1600871?redirectedFrom=fulltext</string>
 
     <!-- Article 4 -->
-    <string name="article_title_4">Plankton diversity in warming oceans</string>
-    <string name="article_snippet_4">Climate change is altering marine ecosystems in unexpected ways...</string>
-    <string name="article_meta_4">Published April 2025 • 4 min read</string>
-    <string name="article_url_4">https://academic.oup.com/plankt/article/44/6/301/7123450</string>
+    <string name="article_title_4">Changes in phytoplankton community structure during the zebra mussel</string>
+    <string name="article_snippet_4">We analyzed differences in the cell density and taxonomic composition of phytoplankton assemblages in...</string>
+    <string name="article_meta_4">Published 01 August 1998 • 6 min read</string>
+    <string name="article_url_4">https://academic.oup.com/plankt/article-abstract/20/8/1567/1483553?redirectedFrom=fulltext</string>
 
     <!-- Article 5 -->
-    <string name="article_title_5">Absence of phylogenetic conservatism in thermal traits of phytoplankton</string>
-    <string name="article_snippet_5">Understanding the evolutionary and ecological processes that drive thermal trait evolution in phytoplankton...</string>
-    <string name="article_meta_5">Published 21 June 2025 • 8 min read</string>
-    <string name="article_url_5">https://academic.oup.com/plankt/article/47/4/fbaf026/8171321?searchresult=1</string>
+    <string name="article_title_5">Seasonal variability of phytoplankton populations in the middle Adriatic sub-basin</string>
+    <string name="article_snippet_5">The seasonal variability of phytoplankton assemblages in the middle Adriatic sub-basin...</string>
+    <string name="article_meta_5">Published 01 September 2000 • 4 min read</string>
+    <string name="article_url_5">https://academic.oup.com/plankt/article-abstract/22/9/1735/1478136?redirectedFrom=fulltext</string>
+
+    <!-- Article 6 -->
+    <string name="article_title_6">Absence of phylogenetic conservatism in thermal traits of phytoplankton</string>
+    <string name="article_snippet_6">Understanding the evolutionary and ecological processes that drive thermal trait evolution in phytoplankton...</string>
+    <string name="article_meta_6">Published 21 June 2025 • 8 min read</string>
+    <string name="article_url_6">https://academic.oup.com/plankt/article/47/4/fbaf026/8171321</string>
 
     <string name="contact_support_phonenumber" translatable="false">tel: 4371234567</string>
     <string name="action_support">Support</string>
