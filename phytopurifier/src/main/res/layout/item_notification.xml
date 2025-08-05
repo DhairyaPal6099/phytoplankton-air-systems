@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    android:background="@color/card_view_color"
     card_view:cardCornerRadius="12dp"
     card_view:cardElevation="4dp"
     android:foreground="?android:attr/selectableItemBackground">
@@ -11,6 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/card_view_color"
         android:padding="16dp"
         android:orientation="vertical">
 
@@ -19,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/notification_title"
+            android:textColor="@color/on_card_view_color"
             android:textSize="16sp"
             android:textStyle="bold"
             android:maxLines="1"
@@ -29,6 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/notification_message_content_goes_here"
+            android:textColor="@color/on_card_view_color"
             android:textSize="14sp"
             android:layout_marginTop="4dp"
             android:maxLines="3"
@@ -39,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/jul_06_2025_10_30_am"
+            android:textColor="@color/on_card_view_color"
             android:textSize="12sp"
             android:layout_marginTop="6dp" />
 
