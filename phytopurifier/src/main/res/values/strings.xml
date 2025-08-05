@@ -447,6 +447,9 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="email_icon">Email Icon</string>
     <string name="email_us">Email Us</string>
     <string name="algaerithms_inc">© Algaerithms Inc.</string>
+    <string name="what_is_phytoplankton">What is Phytoplankton?</string>
+    <string name="slide_for_more">Slide for more</string>
+    <string name="articles">Articles</string>
 
 
 </resources>

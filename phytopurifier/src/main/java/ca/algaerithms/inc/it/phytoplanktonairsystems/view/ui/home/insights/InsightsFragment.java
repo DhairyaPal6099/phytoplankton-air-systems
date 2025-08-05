@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -81,6 +82,7 @@ public class InsightsFragment extends Fragment implements ArticleAdapter.OnArtic
 
         // Configure WebView
         floatingWebView.getSettings().setJavaScriptEnabled(true);
+        floatingWebView.setWebChromeClient(new WebChromeClient());
 
         // Close button logic
         closeButton.setOnClickListener(v -> floatingContainer.setVisibility(View.GONE));// stop video

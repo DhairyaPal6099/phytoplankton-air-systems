@@ -391,4 +391,7 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="lifetime_co2_converted">lifetime_co2_converted</string>
     <string name="n_a">N/A</string>
     <string name="feedback_disabled_time">feedback_disabled_time</string>
+    <string name="what_is_phytoplankton">What is Phytoplankton?</string>
+    <string name="slide_for_more">Slide for more</string>
+    <string name="articles">Articles</string>
 </resources>

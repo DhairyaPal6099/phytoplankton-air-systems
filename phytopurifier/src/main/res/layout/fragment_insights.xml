@@ -137,7 +137,7 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="What is Phytoplankton"
+                android:text="@string/what_is_phytoplankton"
                 android:textStyle="bold"
                 android:textSize="16sp"/>
 
@@ -145,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_marginStart="125dp"
-                android:text="Slide for more"
+                android:text="@string/slide_for_more"
                 android:textColor="@color/dark_grey"/>
         </LinearLayout>
 
@@ -178,7 +178,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_marginStart="195dp"
-                android:text="Slide for more"
+                android:text="@string/slide_for_more"
                 android:textColor="@color/dark_grey"/>
         </LinearLayout>
 
@@ -208,7 +208,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_marginStart="215dp"
-                android:text="Slide for more"
+                android:text="@string/slide_for_more"
                 android:textColor="@color/dark_grey"/>
         </LinearLayout>
 
@@ -223,7 +223,7 @@
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="Articles"
+            android:text="@string/articles"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_marginTop="24dp"/>
