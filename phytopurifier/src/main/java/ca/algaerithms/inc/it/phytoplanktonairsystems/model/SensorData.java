@@ -81,6 +81,37 @@ public class SensorData {
         return timestamp;
     }
 
+    public int getAqi() {
+        return aqi;
+    }
+
+    public void setAqi(int aqi) {
+        this.aqi = aqi;
+    }
+
+    public int calculateAqi() {
+        // Normalize turbidity to 0–100 (assuming max turbidity = 100)
+        double turbidityScore = Math.min(100, turbidity);
+
+        // Normalize CO2 converted to 0–100 (assume max = 10g for now)
+        double co2Score = Math.min(100, (co2Converted / 10.0) * 100);
+
+        // Water level score: ideal is above 50%
+        double waterLevelScore = Math.min(100, (waterLevel / 100.0) * 100);
+
+        // Algae health is already in 0–100
+        double algaeScore = Math.min(100, getAlgaeHealth());
+
+        // Weights
+        double aqi = (0.3 * turbidityScore) +
+                (0.3 * co2Score) +
+                (0.2 * waterLevelScore) +
+                (0.2 * algaeScore);
+
+        return (int) Math.round(aqi);
+    }
+
+
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }

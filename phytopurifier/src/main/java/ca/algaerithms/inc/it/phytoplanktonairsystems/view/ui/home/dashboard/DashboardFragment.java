@@ -4,9 +4,14 @@
    Dharmik Shah – N01581796 */
 package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.dashboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +29,7 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.model.NotificationManagerPh
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.NotificationModel;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.SensorData;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.SensorDataManager;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.supportActionBarFragments.NotificationsFragment;
 
 
 public class DashboardFragment extends Fragment {
@@ -57,19 +63,30 @@ public class DashboardFragment extends Fragment {
             }
         });*/
 
-        TextView notifTextView = view.findViewById(R.id.textView9);
+        CardView notifCard = view.findViewById(R.id.notification_card);
+        TextView notifText = view.findViewById(R.id.textView9);
 
-        NotificationManagerPhytopurifier.getInstance(requireContext()).getAllNotifications(notifications -> {
-            if (notifications != null && !notifications.isEmpty()) {
-                // Sort by timestamp descending if needed (optional)
-                notifications.sort((n1, n2) -> n2.getTimestamp().compareTo(n1.getTimestamp()));
+        NotificationManagerPhytopurifier.getInstance(getContext()).getAllNotifications(notifications -> {
+            if (!notifications.isEmpty()) {
+                NotificationModel latestNotif = notifications.get(0);
+                notifText.setText(latestNotif.getMessage());
 
-                NotificationModel latestNotif = notifications.get(0); // latest is now at the top
-                notifTextView.setText(latestNotif.getMessage()); // or getTitle()
+                notifCard.setOnClickListener(v -> {
+                    // Use NavController instead of FragmentTransaction
+                    NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+                    navController.navigate(R.id.action_notifications); // <-- use the actual ID from nav_graph.xml
+                });
+
             } else {
-                notifTextView.setText("No recent notifications.");
+                notifText.setText(R.string.no_notifications_yet);
+                notifCard.setClickable(false);
             }
         });
+
+
+
+
+
 
 
 

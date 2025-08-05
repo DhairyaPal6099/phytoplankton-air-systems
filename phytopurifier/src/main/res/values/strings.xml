@@ -367,6 +367,7 @@ If you have any privacy-related concerns or inquiries, please contact us at:
     <string name="leaderboard_2">Leaderboard</string>
   <string name="achievements" translatable="false">achievements</string>
     <string name="feedback_disabled_time">feedback_disabled_time</string>
+    <string name="no_notifications_yet">No notifications yet.</string>
 
 
 </resources>
