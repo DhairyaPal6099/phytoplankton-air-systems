@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/nav_drawer_background"
+    android:background="@color/green"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.ui.home.dashboard.DashboardFragment">
@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/dashboard"
+                android:fontFamily="@font/quicksand_bold"
                 android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -66,6 +67,7 @@
                     android:layout_marginStart="72dp"
                     android:layout_marginTop="116dp"
                     android:text="@string/oxygen"
+                    android:fontFamily="@font/quicksand_bold"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -76,6 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="66dp"
                     android:layout_marginTop="133dp"
+                    android:fontFamily="@font/quicksand_bold"
                     android:text="@string/produced"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -87,6 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="36dp"
                     android:layout_marginTop="72dp"
+                    android:fontFamily="@font/quicksand_bold"
                     android:text="@string/aqi_number"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +102,7 @@
                     android:layout_width="234dp"
                     android:layout_height="219dp"
                     android:indeterminate="false"
-                    android:indeterminateTint="@color/deep_moss"
+                    android:indeterminateTint="@color/dark_green"
                     android:max="100"
                     android:progress="75"
                     android:visibility="visible"
@@ -111,6 +115,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/notification_card"
             android:layout_width="334dp"
             android:layout_height="75dp"
             android:layout_gravity="center_horizontal"
@@ -118,6 +123,9 @@
             app:cardBackgroundColor="#E8F5E9"
             app:cardCornerRadius="15dp"
             app:cardElevation="6dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -137,15 +145,21 @@
 
                 <TextView
                     android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="84dp"
                     android:layout_marginTop="24dp"
                     android:text="@string/notifcation_sample"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="16sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    app:layout_constraintStart_toEndOf="@id/sensor_symbol"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
