@@ -7,6 +7,8 @@ package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.MotionEvent;
@@ -103,6 +105,13 @@ public class LoginActivity extends AppCompatActivity {
                 .build();
 
         googleSignInButton.setOnClickListener(v -> {
+
+            if (!isConnectedToInternet()) {
+                errorTextView.setText(R.string.no_internet_error); // Add this string in strings.xml
+                errorTextView.setVisibility(View.VISIBLE);
+                return;
+            }
+
             // Sign out first to trigger account chooser
             loginController.getGoogleSignInClient().signOut().addOnCompleteListener(task -> {
                 Intent signInIntent = loginController.getGoogleSignInClient().getSignInIntent();
@@ -166,6 +175,10 @@ public class LoginActivity extends AppCompatActivity {
         dialog.setOnShowListener(dlg -> {
             Button sendButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
             sendButton.setOnClickListener(v -> {
+                if (!isConnectedToInternet()) {
+                    Toast.makeText(this,getString(R.string.no_internet_error), Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 String email = emailInput.getText().toString().trim();
                 loginController.sendPasswordReset(email, sentEmail -> {
                     Snackbar.make(findViewById(android.R.id.content),
@@ -181,6 +194,13 @@ public class LoginActivity extends AppCompatActivity {
 
     private void loginButtonClick() {
         loginSubmitButton.setOnClickListener(view -> {
+
+            if (!isConnectedToInternet()) {
+                errorTextView.setText(R.string.no_internet_error); // Add this string in strings.xml
+                errorTextView.setVisibility(View.VISIBLE);
+                return;
+            }
+
             String email = emailEditText.getText().toString().trim();
             String password = passwordEditText.getText().toString().trim();
 
@@ -243,6 +263,12 @@ public class LoginActivity extends AppCompatActivity {
             passwordEditText.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.visibility_off, 0);
         }
         passwordEditText.setSelection(passwordEditText.getText().length());
+    }
+
+    private boolean isConnectedToInternet() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null && activeNetwork.isConnected();
     }
 
     private void navigateToMain() {
