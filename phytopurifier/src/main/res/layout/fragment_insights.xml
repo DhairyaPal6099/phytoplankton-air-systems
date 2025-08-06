@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green"
+    android:background="@color/insights_background"
     android:fillViewport="true"
     tools:context=".view.ui.home.insights.InsightsFragment">
 
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
 
             android:textStyle="bold"
-            android:text="Today's fun fact about Algae and Phytoplankton" />
+            android:text="@string/fun_facts_about_algae_and_phytoplankton" />
 
     </LinearLayout>
 

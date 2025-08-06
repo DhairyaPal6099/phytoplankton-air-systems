@@ -29,6 +29,7 @@
     <color name="switch_track_color">@color/midnight_moss</color>
     <color name="card_view_color">@color/sea_mist</color>
     <color name="on_card_view_color">@color/marsh_depth</color>
+    <color name="insights_background">@color/green</color>
 
     <!--Old colors-->
     <color name="black">#FF000000</color>

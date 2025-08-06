@@ -35,7 +35,7 @@
                 android:id="@+id/articleTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title of the Article"
+                android:text=""
                 android:textStyle="bold"
                 android:textSize="16sp" />
 
@@ -43,7 +43,7 @@
                 android:id="@+id/articleSnippet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Some overview of what the Article would be containing"
+                android:text=""
                 android:maxLines="3"
                 android:ellipsize="end"
                 android:textSize="14sp" />
@@ -52,7 +52,7 @@
                 android:id="@+id/articleMeta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Keywords: baba, block • Date"
+                android:text=""
                 android:textSize="12sp"
                 android:textColor="@color/article_grey"
                 android:layout_marginTop="4dp" />
