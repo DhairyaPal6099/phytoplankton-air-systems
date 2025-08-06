@@ -50,7 +50,7 @@ public class AchievementsFragment extends Fragment {
         sensorManager.getSensorLiveData().observe(getViewLifecycleOwner(), data -> {
             if (data != null) {
                 achievementManager.evaluateCo2Achievements();
-                checkAlgaeAchievements(data.getAlgaeHealth(), data.getLastUpdated());
+                checkAlgaeAchievements(data.getAlgaeHealth(), new Date(data.getLastUpdated()));
             }
         });
 
