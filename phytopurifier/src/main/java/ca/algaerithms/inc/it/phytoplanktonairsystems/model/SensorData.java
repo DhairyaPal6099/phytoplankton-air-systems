@@ -8,123 +8,69 @@ package ca.algaerithms.inc.it.phytoplanktonairsystems.model;
 import java.util.Date;
 
 public class SensorData {
-    private int light;
-    private int turbidity;
-    private double co2Converted;
-    private boolean proximity;
-    private double waterLevel;  // percentage (0–100)
+    private double co2;
+    private double humidity;
+    private double temperature;
 
-    private Date lastUpdated;
-
-    private double co2_converted;
+    // Added fields
     private double algaeHealth;
-    private String timestamp;
+    private double light;
+    private double co2_converted;
+    private double waterLevel;
+    private double turbidity;
+    private long lastUpdated;
 
-    private int aqi;
-
-    // No-arg constructor required for Firebase
+    // Default constructor (required for Firebase)
     public SensorData() {}
 
-    // Getters
-    public int getTurbidity() {
-        return turbidity;
+    public SensorData(double co2, double humidity, double temperature) {
+        this.co2 = co2;
+        this.humidity = humidity;
+        this.temperature = temperature;
     }
 
-    public int getLight() {
-        return light;
-    }
+    // --- Existing Getters/Setters ---
+    public double getCo2() { return co2; }
+    public void setCo2(double co2) { this.co2 = co2; }
 
-    public double getCo2Converted() {
-        return co2Converted;
-    }
+    public double getHumidity() { return humidity; }
+    public void setHumidity(double humidity) { this.humidity = humidity; }
 
-    public boolean isProximity() {
-        return proximity;
-    }
+    public double getTemperature() { return temperature; }
+    public void setTemperature(double temperature) { this.temperature = temperature; }
 
-    public Date getLastUpdated() {
-        return lastUpdated;
-    }
+    public long getLastUpdated() { return lastUpdated; }
+    public void setLastUpdated(long lastUpdated) { this.lastUpdated = lastUpdated; }
 
-    public void setTurbidity(int turbidity) {
-        this.turbidity = turbidity;
-    }
+    // --- Added Getters/Setters ---
+    public double getAlgaeHealth() { return algaeHealth; }
+    public void setAlgaeHealth(double algaeHealth) { this.algaeHealth = algaeHealth; }
 
-    public void setLight(int light) {
-        this.light = light;
-    }
+    public double getLight() { return light; }
+    public void setLight(double light) { this.light = light; }
 
-    public void setCo2Converted(double co2Converted) {
-        this.co2Converted = co2Converted;
-    }
+    public double getCo2_converted() { return co2_converted; }
+    public void setCo2_converted(double co2_converted) { this.co2_converted = co2_converted; }
 
-    public void setProximity(boolean proximity) {
-        this.proximity = proximity;
-    }
+    public double getWaterLevel() { return waterLevel; }
+    public void setWaterLevel(double waterLevel) { this.waterLevel = waterLevel; }
 
-    public void setLastUpdated(Date lastUpdated) {
-        this.lastUpdated = lastUpdated;
-    }
-    public double getCo2_converted() {
-        return co2_converted;
-    }
+    public double getTurbidity() { return turbidity; }
+    public void setTurbidity(double turbidity) { this.turbidity = turbidity; }
 
-    public void setCo2_converted(double co2_converted) {
-        this.co2_converted = co2_converted;
-    }
-
-    public void setAlgaeHealth(double algaeHealth) {
-        this.algaeHealth = algaeHealth;
-    }
-
-    public String getTimestamp() {
-        return timestamp;
-    }
-
-    public int getAqi() {
-        return aqi;
-    }
-
-    public void setAqi(int aqi) {
-        this.aqi = aqi;
-    }
-
+    // --- AQI Calculator Logic ---
     public int calculateAqi() {
-        // Normalize turbidity to 0–100 (assuming max turbidity = 100)
-        double turbidityScore = Math.min(100, turbidity);
+        double score = 0.0;
+        if (co2 > 1000) score += 50;
+        else if (co2 > 800) score += 40;
+        else score += 20;
 
-        // Normalize CO2 converted to 0–100 (assume max = 10g for now)
-        double co2Score = Math.min(100, (co2Converted / 10.0) * 100);
+        if (humidity < 30 || humidity > 60) score += 30;
+        else score += 10;
 
-        // Water level score: ideal is above 50%
-        double waterLevelScore = Math.min(100, (waterLevel / 100.0) * 100);
+        if (temperature < 18 || temperature > 26) score += 20;
+        else score += 10;
 
-        // Algae health is already in 0–100
-        double algaeScore = Math.min(100, getAlgaeHealth());
-
-        // Weights
-        double aqi = (0.3 * turbidityScore) +
-                (0.3 * co2Score) +
-                (0.2 * waterLevelScore) +
-                (0.2 * algaeScore);
-
-        return (int) Math.round(aqi);
-    }
-
-
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
-    }
-    public double getWaterLevel() {
-        return waterLevel;
-    }
-
-    public void setWaterLevel(double waterLevel) {
-        this.waterLevel = waterLevel;
-    }
-
-    public double getAlgaeHealth() {
-        // Placeholder logic
-        return turbidity > 0 ? Math.min(100, turbidity * 1.0) : 0;
+        return (int) Math.min(score, 100);
     }
 }

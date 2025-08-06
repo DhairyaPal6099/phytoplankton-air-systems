@@ -518,5 +518,11 @@ We may update this Privacy Policy as needed. All changes will be reflected withi
     <string name="close">Close</string>
     <string name="no_internet_error">Failed to connect to the internet.</string>
 
+    <string name="no_notifications_yet">No notifications yet.</string>
+    <string name="notifications_permissions_granted">Notifications permissions granted!</string>
+    <string name="notifications_permissions_denied">Notifications permissions denied!</string>
+    <string name="all_notifications_cleared">All notifications cleared!</string>
+    <string name="failed_to_clear_notifications">Failed to clear notifications</string>
+
 
 </resources>

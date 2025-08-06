@@ -5,6 +5,8 @@
 
 package ca.algaerithms.inc.it.phytoplanktonairsystems.model;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -16,25 +18,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class SensorDataManager {
-    private final DatabaseReference deviceRef;
-    private final MutableLiveData<SensorData> sensorLiveData = new MutableLiveData<>();
     private static SensorDataManager instance;
+    private final DatabaseReference databaseRef;
+    private ValueEventListener liveSensorListener;
+
+    private final MutableLiveData<SensorData> sensorLiveData = new MutableLiveData<>();
+
 
     private SensorDataManager() {
-        deviceRef = FirebaseDatabase.getInstance().getReference("device_001");
-        deviceRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                SensorData data = snapshot.getValue(SensorData.class);
-                sensorLiveData.setValue(data);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                //Failed to fetch sensor model
-                //If this happens often generate a notification
-            }
-        });
+        databaseRef = FirebaseDatabase.getInstance().getReference("device_001");
     }
 
     public static SensorDataManager getInstance() {
@@ -44,24 +36,66 @@ public class SensorDataManager {
         return instance;
     }
 
-    public LiveData<SensorData> getSensorLiveData() {
-        return sensorLiveData;
+    public interface SensorDataCallback {
+        void onDataFetched(SensorData data);
+        void onError(DatabaseError error);
     }
 
     public void getSensorLatestData(SensorDataCallback callback) {
-        deviceRef.get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                DataSnapshot snapshot = task.getResult();
-                SensorData data = snapshot.getValue(SensorData.class);
-                callback.onDataFetched(data);
-            } else {
-                callback.onError(DatabaseError.fromException(task.getException()));
+        databaseRef.limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot child : snapshot.getChildren()) {
+                        SensorData data = child.getValue(SensorData.class);
+                        callback.onDataFetched(data);
+                        return;
+                    }
+                    callback.onDataFetched(null);
+                } else {
+                    callback.onDataFetched(null);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                callback.onError(error);
             }
         });
     }
 
-    public interface SensorDataCallback {
-        void onDataFetched(SensorData data);
-        void onError(DatabaseError error);
+    public void startListeningToSensorData(SensorDataCallback callback) {
+        liveSensorListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    SensorData data = snapshot.getValue(SensorData.class);
+                    if (data != null) {
+                        sensorLiveData.postValue(data);
+                        callback.onDataFetched(data);
+                    }
+                } else {
+                    callback.onDataFetched(null);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                callback.onError(error);
+            }
+        };
+
+        databaseRef.addValueEventListener(liveSensorListener);
+    }
+
+    public void stopListening() {
+        if (liveSensorListener != null) {
+            databaseRef.removeEventListener(liveSensorListener);
+            liveSensorListener = null;
+        }
+    }
+
+    public LiveData<SensorData> getSensorLiveData() {
+        return sensorLiveData;
     }
 }

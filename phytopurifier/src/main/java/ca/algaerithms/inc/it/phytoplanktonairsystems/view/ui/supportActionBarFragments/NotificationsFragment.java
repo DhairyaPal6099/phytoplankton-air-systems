@@ -51,9 +51,9 @@ public class NotificationsFragment extends Fragment {
                 new ActivityResultContracts.RequestPermission(),
                 isGranted -> {
                     if (isGranted) {
-                        Toast.makeText(getContext(), "Notifications permissions granted!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), R.string.notifications_permissions_granted, Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(getContext(), "Notifications permissions denied!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), R.string.notifications_permissions_denied, Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -89,9 +89,9 @@ public class NotificationsFragment extends Fragment {
                     adapter.notifyDataSetChanged();
 
                     NotificationManagerCompat.from(requireContext()).cancelAll();
-                    Toast.makeText(getContext(), "All notifications cleared!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.all_notifications_cleared, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getContext(), "Failed to clear notifications", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.failed_to_clear_notifications, Toast.LENGTH_SHORT).show();
                 }
             });
         });
