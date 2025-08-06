@@ -3,6 +3,7 @@ package ca.algaerithms.inc.it.phytoplanktonairsystems;
 import static org.junit.Assert.assertEquals;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +12,9 @@ import android.widget.TextView;
 import androidx.test.core.app.ApplicationProvider;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+import org.robolectric.annotation.Config;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,10 +23,11 @@ import java.util.List;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.adapter.LeaderboardAdapter;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.leaderboard.UserStat;
 
+@RunWith(RobolectricTestRunner.class)
+@Config(sdk = Build.VERSION_CODES.R)
 public class LeaderboardFragmentTest {
 
     Context context = ApplicationProvider.getApplicationContext();
-
 
     @Test
     public void adapter_initializes_with_given_user_stats() {
@@ -87,7 +92,6 @@ public class LeaderboardFragmentTest {
 
     @Test
     public void position_1_shows_silver_medal() {
-
         List<UserStat> testUsers = Arrays.asList(
                 new UserStat("User1", 20.0), // gold
                 new UserStat("User2", 15.0)  // silver
@@ -153,6 +157,4 @@ public class LeaderboardFragmentTest {
         adapter.updateData(new ArrayList<>());
         assertEquals(0, adapter.getItemCount());
     }
-
-
 }
