@@ -516,6 +516,7 @@ We may update this Privacy Policy as needed. All changes will be reflected withi
     <string name="connect_to_internet_for_real_time_sensor_data">Connect to internet for real time sensor data</string>
     <string name="fun_facts_about_algae_and_phytoplankton">Fun facts about Algae and Phytoplankton</string>
     <string name="close">Close</string>
+    <string name="no_internet_error">Failed to connect to the internet.</string>
 
 
 </resources>

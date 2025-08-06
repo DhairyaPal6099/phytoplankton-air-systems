@@ -370,10 +370,6 @@ public class MainActivity extends AppCompatActivity {
         return networkConnectedLiveData;
     }
 
-    public boolean isNetworkConnected() {
-        return wasConnected;
-    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
