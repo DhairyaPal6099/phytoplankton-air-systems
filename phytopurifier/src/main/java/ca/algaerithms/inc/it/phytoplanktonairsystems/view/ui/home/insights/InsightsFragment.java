@@ -95,7 +95,11 @@ public class InsightsFragment extends Fragment implements ArticleAdapter.OnArtic
             }
         });
 
-        new Handler().postDelayed(() -> checkConnectivityAndShowBanner(requireContext()), 5000);
+        new Handler().postDelayed(() -> {
+            if (isAdded()) {
+                checkConnectivityAndShowBanner(requireContext());
+            }
+        }, 5000);
 
         // Access elements inside the floating layout
         //scrollView = view.findViewById(R.id.scrollLayout);
