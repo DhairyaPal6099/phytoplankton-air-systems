@@ -5,9 +5,6 @@
 
 package ca.algaerithms.inc.it.phytoplanktonairsystems.utils;
 
-import android.text.TextUtils;
-import android.util.Patterns;
-
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
@@ -15,15 +12,15 @@ import com.google.i18n.phonenumbers.Phonenumber;
 public class ValidationUtils {
 
     public static boolean isValidName(String name) {
-        return !TextUtils.isEmpty(name);
+        return name != null && !name.trim().isEmpty();
     }
 
     public static boolean isEmailEmpty(String email) {
-        return TextUtils.isEmpty(email);
+        return email == null || email.trim().isEmpty();
     }
 
     public static boolean isEmailFormatValid(String email) {
-        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        return email != null && email.matches("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$");
     }
 
     public static boolean isValidPhoneNumber(String number) {
