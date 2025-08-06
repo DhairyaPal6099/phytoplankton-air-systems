@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/fabButton"
     android:background="@color/white"
     android:padding="24dp">
 
@@ -59,6 +60,7 @@
             android:id="@+id/request_type_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:outlineSpotShadowColor="@color/black"
             android:layout_marginTop="4dp" />
 
         <!-- Notes Label -->

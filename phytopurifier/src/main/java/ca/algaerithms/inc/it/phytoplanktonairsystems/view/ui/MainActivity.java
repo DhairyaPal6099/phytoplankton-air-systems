@@ -6,9 +6,7 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui;
 
 import android.Manifest;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
@@ -18,7 +16,6 @@ import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,6 +27,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -49,11 +48,11 @@ import java.util.concurrent.TimeUnit;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.MainController;
-import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.SettingsController;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.ShareDashboard;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.CO2Updater;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.DailyNotificationWorker;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.ActivityMainBinding;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.serviceTicket.RequestServiceBottomSheet;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -69,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Snackbar sensorDataSnackbar;
     private boolean isLeaderboardScreen = false;
+
+    private final MutableLiveData<Boolean> networkConnectedLiveData = new MutableLiveData<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -228,15 +230,18 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(() -> {
                     if (isFirstNetworkCheck) {
                         wasConnected = hasInternet;
+                        networkConnectedLiveData.setValue(hasInternet);
                         isFirstNetworkCheck = false;
                         return;
                     }
 
                     if (hasInternet && !wasConnected) {
                         wasConnected = true;
+                        networkConnectedLiveData.setValue(true);
                         showOnlineSnackbar();
                     } else if (!hasInternet && wasConnected) {
                         wasConnected = false;
+                        networkConnectedLiveData.setValue(false);
                         showOfflineSnackbar();
                     }
                 });
@@ -359,6 +364,10 @@ public class MainActivity extends AppCompatActivity {
         if (sensorDataSnackbar != null && sensorDataSnackbar.isShown()) {
             sensorDataSnackbar.dismiss();
         }
+    }
+
+    public LiveData<Boolean> getNetworkConnectedLiveData() {
+        return networkConnectedLiveData;
     }
 
     @Override

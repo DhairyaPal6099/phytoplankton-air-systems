@@ -5,6 +5,9 @@
 
 package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -54,6 +58,11 @@ public class RegistrationEmailFragment extends Fragment {
         controller = new RegistrationController();
 
         registrationEmail_continueButton.setOnClickListener(v -> {
+            if (!isConnectedToInternet()) {
+                registrationEmail_editText.setError(getString(R.string.no_internet_error));
+                registrationEmail_editText.requestFocus();
+                return;
+            }
             email = registrationEmail_editText.getText().toString().trim();
 
             //Method call
@@ -109,6 +118,13 @@ public class RegistrationEmailFragment extends Fragment {
                     .setAction(R.string.ok, snackbarView -> verificationSnackbar.dismiss());
             verificationSnackbar.show();
         }
+    }
+
+    // Internet Check
+    private boolean isConnectedToInternet() {
+        ConnectivityManager cm = (ConnectivityManager) requireContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null && activeNetwork.isConnected();
     }
 
     private void nextFragment() {
