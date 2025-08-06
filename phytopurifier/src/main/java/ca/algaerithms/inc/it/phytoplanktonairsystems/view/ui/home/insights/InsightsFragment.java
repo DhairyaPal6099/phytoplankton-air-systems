@@ -6,6 +6,7 @@ package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.insights;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,7 +14,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
@@ -32,14 +37,14 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 
 public class InsightsFragment extends Fragment implements ArticleAdapter.OnArticleClickListener {
 
-    private RecyclerView articlesRecyclerView;
     private RecyclerView basicInsights, intermediateInsights, advancedInsights, articlesInsights;
     private ImageView closeButton;
     private FrameLayout floatingContainer;
     private WebView floatingWebView;
     private ViewGroup rootView;
     private View dragHandle;
-    private ScrollView scrollView;
+    private static final String PREFS_NAME = "fun_facts_prefs";
+    private static final String KEY_LAST_PAGE = "last_page";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -78,6 +83,7 @@ public class InsightsFragment extends Fragment implements ArticleAdapter.OnArtic
         closeButton = floatingVideoView.findViewById(R.id.closeFloatingWebView);
         dragHandle = floatingVideoView.findViewById(R.id.dragHandle);
 
+        setupFunFactsPager(view);
         articleView();
 
         // Configure WebView
@@ -88,6 +94,57 @@ public class InsightsFragment extends Fragment implements ArticleAdapter.OnArtic
         closeButton.setOnClickListener(v -> floatingContainer.setVisibility(View.GONE));// stop video
 
         dragFucntion();
+    }
+
+    private void setupFunFactsPager(View view) {
+        ViewPager2 funFactsPager = view.findViewById(R.id.funFactsPager);
+
+        String[] funFactsArray = getResources().getStringArray(R.array.fun_facts_array);
+        List<String> funFacts = Arrays.asList(funFactsArray);
+
+        FunFactAdapter adapter = new FunFactAdapter(funFacts);
+        funFactsPager.setAdapter(adapter);
+
+        // Peeking effect: show partial previous & next pages
+        funFactsPager.setOffscreenPageLimit(1);
+        RecyclerView recyclerView = (RecyclerView) funFactsPager.getChildAt(0);
+        recyclerView.setPadding(80, 0, 80, 0);
+        recyclerView.setClipToPadding(false);
+        recyclerView.setClipChildren(false);
+
+        // Scale and fade page transformer for smooth effect
+        funFactsPager.setPageTransformer((page, position) -> {
+            float scale = 1 - Math.abs(position) * 0.15f; // scale down a bit
+            page.setScaleY(scale);
+            float alpha = 0.7f + (1 - Math.abs(position)) * 0.3f; // fade edges
+            page.setAlpha(alpha);
+        });
+
+        // Retrieve last saved page index, default 0
+        SharedPreferences prefs = view.getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        int lastPage = prefs.getInt(KEY_LAST_PAGE, 0);
+        funFactsPager.post(() -> funFactsPager.setCurrentItem(lastPage, false));
+        // Save current page when user scrolls manually
+        funFactsPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                prefs.edit().putInt(KEY_LAST_PAGE, position).apply();
+            }
+        });
+
+        // Auto-scroll every 15 seconds
+        Handler handler = new Handler(Looper.getMainLooper());
+        Runnable autoScroll = new Runnable() {
+            @Override
+            public void run() {
+                int current = funFactsPager.getCurrentItem();
+                int next = (current + 1) % funFacts.size();
+                funFactsPager.setCurrentItem(next, true);
+                handler.postDelayed(this, 15 * 1000);
+            }
+        };
+        handler.postDelayed(autoScroll, 15 * 1000);
     }
 
     public void articleView() {

@@ -77,6 +77,57 @@
     <string name="td">TD</string>
 
     <!-- Insights -->
+
+    <!-- Insights -->
+
+    <string-array name="fun_facts_array">
+        <item>Phytoplankton produce over 50% of Earth\'s oxygen.</item>
+        <item>Some algae glow due to bioluminescence.</item>
+        <item>Phytoplankton are microscopic marine plants.</item>
+        <item>Algae can grow in both fresh and salt water.</item>
+        <item>Phytoplankton are the base of the ocean food chain.</item>
+        <item>Algae are being used to create biofuels.</item>
+        <item>Phytoplankton populations change with the seasons.</item>
+        <item>Some phytoplankton have shells made of silica.</item>
+        <item>Algae absorb carbon dioxide from the atmosphere.</item>
+        <item>Blooms of phytoplankton can be seen from space.</item>
+        <item>Algae can reproduce both sexually and asexually.</item>
+        <item>Phytoplankton prefer nutrient-rich waters.</item>
+        <item>Red tides are caused by certain types of algae.</item>
+        <item>Some phytoplankton produce toxins harmful to fish.</item>
+        <item>Algae are behind many of the vibrant colors in coral reefs.</item>
+        <item>Some phytoplankton can glow blue when waves disturb them at night.</item>
+        <item>Algae are used to make eco-friendly plastics.</item>
+        <item>Phytoplankton form the first step in the marine food web.</item>
+        <item>Certain algae are used in sushi—like nori!</item>
+        <item>Algae can help reduce methane in cow burps when added to feed.</item>
+        <item>Seaweed is a type of large algae, not a plant.</item>
+        <item>Algae-based materials are being used to build biodegradable shoes.</item>
+        <item>Some phytoplankton move by spinning like tiny propellers.</item>
+        <item>Algae can clean up oil spills by breaking down hydrocarbons.</item>
+        <item>Algae have existed for over 1 billion years.</item>
+        <item>Phytoplankton help regulate Earth\'s climate by sequestering carbon.</item>
+        <item>Some algae can survive extreme environments like hot springs and ice.</item>
+        <item>Phytoplankton perform photosynthesis just like land plants.</item>
+        <item>Algae are used in products like toothpaste, ice cream, and cosmetics.</item>
+        <item>Some algae can grow up to half a meter per day.</item>
+        <item>Phytoplankton can double their population in just a day under ideal conditions.</item>
+        <item>Blue-green algae are actually cyanobacteria, not true algae.</item>
+        <item>Algae are being researched for use in space travel oxygen systems.</item>
+        <item>Phytoplankton help form clouds by releasing tiny particles into the air.</item>
+        <item>Some algae produce oils that are similar to crude oil.</item>
+        <item>Algae play a vital role in wastewater treatment systems.</item>
+        <item>Phytoplankton are sensitive to changes in ocean temperature and acidity.</item>
+        <item>Some algae have flagella that help them swim through water.</item>
+        <item>Spirulina is a type of edible blue-green algae rich in protein.</item>
+        <item>Phytoplankton blooms can affect the color of oceans.</item>
+        <item>Algae are among the fastest-growing organisms on Earth.</item>
+        <item>Phytoplankton are used as indicators of water quality in marine science.</item>
+        <item>Some types of algae can remove heavy metals from water.</item>
+        <item>Algae are a promising source of sustainable omega-3 fatty acids.</item>
+        <item>Phytoplankton support nearly all marine life directly or indirectly.</item>
+    </string-array>
+
     <!-- Basics -->
     <string-array name="basic_titles">
         <item>The Insanely Important World of Phytoplankton</item>
@@ -123,37 +174,37 @@
 
     <!-- Article 1 -->
     <string name="article_title_1">Production of extracellular reactive oxygen species by phytoplankton:</string>
-    <string name="article_snippet_1">In aquatic environments, phytoplankton represent a major source of reactive oxygen species (ROS) such as superoxide and hydrogen peroxide...</string>
+    <string name="article_snippet_1">In aquatic environments, phytoplankton represent a major source...</string>
     <string name="article_meta_1">Published 21 June 2025 • Julia M Diaz , Sydney Plummer</string>
     <string name="article_url_1">https://academic.oup.com/plankt/article/40/6/655/5107381</string>
 
     <!-- Article 2 -->
     <string name="article_title_2">Exploration of marine phytoplankton:</string>
-    <string name="article_snippet_2">Marine phytoplankton are believed to account for more than 45% of photosynthetic...</string>
+    <string name="article_snippet_2">Marine phytoplankton are believed to account for more than 45%...</string>
     <string name="article_meta_2">Published 30 October 2020 • 5 min read</string>
     <string name="article_url_2">https://academic.oup.com/plankt/article/42/6/595/5943115</string>
 
     <!-- Article 3 -->
-    <string name="article_title_3">Size dependence of coastal phytoplankton photosynthesis under vertical mixing conditions</string>
-    <string name="article_snippet_3">We have determined the relationship between carbon-specific photosynthesis and phytoplankton cell size...</string>
+    <string name="article_title_3">Size dependence of coastal phytoplankton photosynthesis...</string>
+    <string name="article_snippet_3">We have determined the relationship between carbon-specific...</string>
     <string name="article_meta_3">Published 01 May 2005 • 7 min read</string>
     <string name="article_url_3">https://academic.oup.com/plankt/article-abstract/27/5/473/1600871?redirectedFrom=fulltext</string>
 
     <!-- Article 4 -->
-    <string name="article_title_4">Changes in phytoplankton community structure during the zebra mussel</string>
-    <string name="article_snippet_4">We analyzed differences in the cell density and taxonomic composition of phytoplankton assemblages in...</string>
+    <string name="article_title_4">Changes in phytoplankton community structure...</string>
+    <string name="article_snippet_4">We analyzed differences in the cell density and taxonomic...</string>
     <string name="article_meta_4">Published 01 August 1998 • 6 min read</string>
     <string name="article_url_4">https://academic.oup.com/plankt/article-abstract/20/8/1567/1483553?redirectedFrom=fulltext</string>
 
     <!-- Article 5 -->
-    <string name="article_title_5">Seasonal variability of phytoplankton populations in the middle Adriatic sub-basin</string>
-    <string name="article_snippet_5">The seasonal variability of phytoplankton assemblages in the middle Adriatic sub-basin...</string>
+    <string name="article_title_5">Seasonal variability of phytoplankton populations...</string>
+    <string name="article_snippet_5">The seasonal variability of phytoplankton assemblages in the...</string>
     <string name="article_meta_5">Published 01 September 2000 • 4 min read</string>
     <string name="article_url_5">https://academic.oup.com/plankt/article-abstract/22/9/1735/1478136?redirectedFrom=fulltext</string>
 
     <!-- Article 6 -->
-    <string name="article_title_6">Absence of phylogenetic conservatism in thermal traits of phytoplankton</string>
-    <string name="article_snippet_6">Understanding the evolutionary and ecological processes that drive thermal trait evolution in phytoplankton...</string>
+    <string name="article_title_6">Absence of phylogenetic conservatism in thermal...</string>
+    <string name="article_snippet_6">Understanding the evolutionary and ecological processes that drive...</string>
     <string name="article_meta_6">Published 21 June 2025 • 8 min read</string>
     <string name="article_url_6">https://academic.oup.com/plankt/article/47/4/fbaf026/8171321</string>
 

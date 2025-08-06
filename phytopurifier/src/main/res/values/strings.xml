@@ -80,6 +80,55 @@
     <string name="td">TD</string>
 
     <!-- Insights -->
+
+    <string-array name="fun_facts_array">
+        <item>Phytoplankton produce over 50% of Earth\'s oxygen.</item>
+        <item>Some algae glow due to bioluminescence.</item>
+        <item>Phytoplankton are microscopic marine plants.</item>
+        <item>Algae can grow in both fresh and salt water.</item>
+        <item>Phytoplankton are the base of the ocean food chain.</item>
+        <item>Algae are being used to create biofuels.</item>
+        <item>Phytoplankton populations change with the seasons.</item>
+        <item>Some phytoplankton have shells made of silica.</item>
+        <item>Algae absorb carbon dioxide from the atmosphere.</item>
+        <item>Blooms of phytoplankton can be seen from space.</item>
+        <item>Algae can reproduce both sexually and asexually.</item>
+        <item>Phytoplankton prefer nutrient-rich waters.</item>
+        <item>Red tides are caused by certain types of algae.</item>
+        <item>Some phytoplankton produce toxins harmful to fish.</item>
+        <item>Algae are behind many of the vibrant colors in coral reefs.</item>
+        <item>Some phytoplankton can glow blue when waves disturb them at night.</item>
+        <item>Algae are used to make eco-friendly plastics.</item>
+        <item>Phytoplankton form the first step in the marine food web.</item>
+        <item>Certain algae are used in sushi—like nori!</item>
+        <item>Algae can help reduce methane in cow burps when added to feed.</item>
+        <item>Seaweed is a type of large algae, not a plant.</item>
+        <item>Algae-based materials are being used to build biodegradable shoes.</item>
+        <item>Some phytoplankton move by spinning like tiny propellers.</item>
+        <item>Algae can clean up oil spills by breaking down hydrocarbons.</item>
+        <item>Algae have existed for over 1 billion years.</item>
+        <item>Phytoplankton help regulate Earth\'s climate by sequestering carbon.</item>
+        <item>Some algae can survive extreme environments like hot springs and ice.</item>
+        <item>Phytoplankton perform photosynthesis just like land plants.</item>
+        <item>Algae are used in products like toothpaste, ice cream, and cosmetics.</item>
+        <item>Some algae can grow up to half a meter per day.</item>
+        <item>Phytoplankton can double their population in just a day under ideal conditions.</item>
+        <item>Blue-green algae are actually cyanobacteria, not true algae.</item>
+        <item>Algae are being researched for use in space travel oxygen systems.</item>
+        <item>Phytoplankton help form clouds by releasing tiny particles into the air.</item>
+        <item>Some algae produce oils that are similar to crude oil.</item>
+        <item>Algae play a vital role in wastewater treatment systems.</item>
+        <item>Phytoplankton are sensitive to changes in ocean temperature and acidity.</item>
+        <item>Some algae have flagella that help them swim through water.</item>
+        <item>Spirulina is a type of edible blue-green algae rich in protein.</item>
+        <item>Phytoplankton blooms can affect the color of oceans.</item>
+        <item>Algae are among the fastest-growing organisms on Earth.</item>
+        <item>Phytoplankton are used as indicators of water quality in marine science.</item>
+        <item>Some types of algae can remove heavy metals from water.</item>
+        <item>Algae are a promising source of sustainable omega-3 fatty acids.</item>
+        <item>Phytoplankton support nearly all marine life directly or indirectly.</item>
+    </string-array>
+
     <!-- Basics -->
     <string-array name="basic_titles">
         <item>The Insanely Important World of Phytoplankton</item>
