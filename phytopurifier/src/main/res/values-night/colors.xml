@@ -26,6 +26,7 @@
     <color name="switch_track_color">@color/birch_cream</color>
     <color name="card_view_color">@color/river_rock</color>
     <color name="on_card_view_color">@color/birch_cream</color>
+    <color name="insights_background">@color/midnight_moss</color>
 
     <!--Old colors-->
     <color name="black">#FF000000</color>

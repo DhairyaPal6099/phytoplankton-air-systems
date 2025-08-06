@@ -5,7 +5,8 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/nav_drawer_background"
+    android:background="@color/insights_background"
+    android:fillViewport="true"
     tools:context=".view.ui.home.insights.InsightsFragment">
 
     <LinearLayout
@@ -13,6 +14,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- Offline Mode Banner -->
+        <TextView
+            android:id="@+id/offlineBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/faded_red"
+            android:textColor="@android:color/white"
+            android:text="You're offline"
+            android:gravity="center"
+            android:visibility="gone"
+            android:padding="8dp"
+            android:textStyle="bold"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -35,59 +54,148 @@
 
         </LinearLayout>
 
-
-        <!-- Sample Card -->
-        <androidx.cardview.widget.CardView
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/funFactsPager"
             android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:overScrollMode="never" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="3">
+
+        <TextView
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardBackgroundColor="@color/lagoon_blue"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            android:layout_width="wrap_content"
 
-            <LinearLayout
-                android:padding="16dp"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            android:textStyle="bold"
+            android:text="@string/fun_facts_about_algae_and_phytoplankton" />
 
-                <ImageView
-                    android:layout_width="105dp"
-                    android:layout_height="98dp"
-                    android:layout_gravity="left"
-                    android:src="@drawable/algaerithms" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/did_you_know"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:layout_marginTop="12dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:text="@string/test_info"
-                    android:layout_marginTop="4dp" />
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <!-- Add more cards or sections -->
-
-        <Spinner
-            android:id="@+id/video_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <WebView
-            android:id="@+id/video_webview"
-            android:layout_width="match_parent"
-            android:layout_height="234dp"
-            android:layout_weight="1"
-            tools:ignore="WebViewLayout" />
     </LinearLayout>
 
+        <!-- Section: Videos -->
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Videos"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:layout_marginTop="24dp"/>
+
+        <!-- Subsection: What is Phytoplankton -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="fill_horizontal"
+            android:layout_marginTop="8dp">
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/what_is_phytoplankton"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="115dp"
+                android:text="@string/slide_for_more"
+                android:textColor="@color/dark_grey"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/basicInsightsRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:nestedScrollingEnabled="false"
+            android:scrollbars="none"
+            android:orientation="horizontal"/>
+
+        <!-- Subsection: Intermediate -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="fill_horizontal"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Intermediate"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="195dp"
+                android:text="@string/slide_for_more"
+                android:textColor="@color/dark_grey"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/intermediateInsightsRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:orientation="horizontal"/>
+
+        <!-- Subsection: Advanced -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="fill_horizontal"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Advanced"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="215dp"
+                android:text="@string/slide_for_more"
+                android:textColor="@color/dark_grey"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/advancedInsightsRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:orientation="horizontal"/>
+
+        <!-- Articles -->
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/articles"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:layout_marginTop="24dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/articlesRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:nestedScrollingEnabled="false"/>
+
+    </LinearLayout>
+    </LinearLayout>
 </ScrollView>
