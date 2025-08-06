@@ -45,14 +45,22 @@ public class SensorDataManager {
         databaseRef.limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    for (DataSnapshot child : snapshot.getChildren()) {
-                        SensorData data = child.getValue(SensorData.class);
-                        callback.onDataFetched(data);
-                        return;
+                if (snapshot.exists() && snapshot.hasChild("timestamp") && snapshot.hasChild("co2_converted")) {
+                    try {
+                        SensorData data = snapshot.getValue(SensorData.class);
+                        if (data != null) {
+                            sensorLiveData.postValue(data);
+                            callback.onDataFetched(data);
+                        } else {
+                            Log.e("SensorDataManager", "Parsed SensorData is null");
+                            callback.onDataFetched(null);
+                        }
+                    } catch (Exception e) {
+                        Log.e("SensorDataManager", "Deserialization error: " + e.getMessage(), e);
+                        callback.onDataFetched(null);
                     }
-                    callback.onDataFetched(null);
                 } else {
+                    Log.e("SensorDataManager", "Incomplete or invalid sensor snapshot: " + snapshot.getValue());
                     callback.onDataFetched(null);
                 }
             }

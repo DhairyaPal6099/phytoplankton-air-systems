@@ -18,7 +18,9 @@ public class SensorData {
     private double co2_converted;
     private double waterLevel;
     private double turbidity;
-    private long lastUpdated;
+    private long timestamp;
+
+    private boolean proximity;
 
     // Default constructor (required for Firebase)
     public SensorData() {}
@@ -39,14 +41,16 @@ public class SensorData {
     public double getTemperature() { return temperature; }
     public void setTemperature(double temperature) { this.temperature = temperature; }
 
-    public long getLastUpdated() { return lastUpdated; }
-    public void setLastUpdated(long lastUpdated) { this.lastUpdated = lastUpdated; }
+    public long gettimestamp() { return timestamp; }
+    public void settimestamp(long timestamp) { this.timestamp = timestamp; }
 
     // --- Added Getters/Setters ---
     public double getAlgaeHealth() { return algaeHealth; }
     public void setAlgaeHealth(double algaeHealth) { this.algaeHealth = algaeHealth; }
 
     public double getLight() { return light; }
+    public boolean isProximity() { return proximity; }
+    public void setProximity(boolean proximity) { this.proximity = proximity; }
     public void setLight(double light) { this.light = light; }
 
     public double getCo2_converted() { return co2_converted; }

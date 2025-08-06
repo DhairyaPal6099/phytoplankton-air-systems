@@ -50,19 +50,19 @@ public class AchievementsFragment extends Fragment {
         sensorManager.getSensorLiveData().observe(getViewLifecycleOwner(), data -> {
             if (data != null) {
                 achievementManager.evaluateCo2Achievements();
-                checkAlgaeAchievements(data.getAlgaeHealth(), new Date(data.getLastUpdated()));
+                checkAlgaeAchievements(data.getAlgaeHealth(), new Date(data.gettimestamp()));
             }
         });
 
         return view;
     }
 
-    private void checkAlgaeAchievements(double health, Date lastUpdated) {
-        if (health < 85.0 || lastUpdated == null) return;
+    private void checkAlgaeAchievements(double health, Date timestamp) {
+        if (health < 85.0 || timestamp == null) return;
 
         Calendar now = Calendar.getInstance();
         Calendar last = Calendar.getInstance();
-        last.setTime(lastUpdated);
+        last.setTime(timestamp);
 
         long months = (now.get(Calendar.YEAR) - last.get(Calendar.YEAR)) * 12L
                 + (now.get(Calendar.MONTH) - last.get(Calendar.MONTH));
