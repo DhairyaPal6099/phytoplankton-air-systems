@@ -11,6 +11,24 @@
 
     <LinearLayout
         android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Offline Mode Banner -->
+        <TextView
+            android:id="@+id/offlineBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/faded_red"
+            android:textColor="@android:color/white"
+            android:text="You're offline"
+            android:gravity="center"
+            android:visibility="gone"
+            android:padding="8dp"
+            android:textStyle="bold"/>
+
+    <LinearLayout
+        android:orientation="vertical"
         android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -178,5 +196,6 @@
             android:layout_marginTop="8dp"
             android:nestedScrollingEnabled="false"/>
 
+    </LinearLayout>
     </LinearLayout>
 </ScrollView>

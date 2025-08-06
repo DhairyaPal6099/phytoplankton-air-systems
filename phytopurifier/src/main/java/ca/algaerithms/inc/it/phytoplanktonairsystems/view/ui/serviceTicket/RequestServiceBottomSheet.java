@@ -3,7 +3,7 @@
    Sanskriti Mansotra – N01523183
    Dharmik Shah – N01581796 */
 
-package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui;
+package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.serviceTicket;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -19,12 +20,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.ServiceRequest;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.utils.NetworkUtils;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.MainActivity;
 
 public class RequestServiceBottomSheet extends BottomSheetDialogFragment {
 
@@ -61,9 +65,35 @@ public class RequestServiceBottomSheet extends BottomSheetDialogFragment {
         fetchUserInfo();
 
         // Handle submit
-        submitButton.setOnClickListener(v -> sendRequestToFirestore());
+        submitButton.setOnClickListener(v -> {
+            // Network check
+            if (!NetworkUtils.isConnected(requireContext())) {
+            offlineSnackbar(requireView());
+            return; // stop here if no internet
+            }
+            sendRequestToFirestore();
+        });
 
         return view;
+    }
+
+    public void offlineSnackbar(View view) {
+        View fabLayout = view.findViewById(R.id.fabButton);
+        fabLayout.setVisibility(View.GONE);
+
+        Snackbar snackbar = Snackbar.make(
+                        view,
+                        R.string.no_internet_connection,
+                        Snackbar.LENGTH_INDEFINITE
+                )
+                .setBackgroundTint(requireContext().getColor(R.color.faded_red))
+                .setTextColor(requireContext().getColor(R.color.white))
+                .setActionTextColor(requireContext().getColor(R.color.light_blue))
+                .setAction(R.string.dismiss, v -> {
+                    fabLayout.setVisibility(View.VISIBLE);
+                });
+
+        snackbar.show();
     }
 
     private void fetchUserInfo() {

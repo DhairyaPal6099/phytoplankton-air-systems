@@ -7,6 +7,10 @@ package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.insights;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
+import android.net.NetworkRequest;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -27,12 +31,14 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.MainActivity;
 
 
 public class InsightsFragment extends Fragment implements ArticleAdapter.OnArticleClickListener {
@@ -43,6 +49,7 @@ public class InsightsFragment extends Fragment implements ArticleAdapter.OnArtic
     private WebView floatingWebView;
     private ViewGroup rootView;
     private View dragHandle;
+    private TextView offlineBanner;
     private static final String PREFS_NAME = "fun_facts_prefs";
     private static final String KEY_LAST_PAGE = "last_page";
 
@@ -76,6 +83,20 @@ public class InsightsFragment extends Fragment implements ArticleAdapter.OnArtic
         rootView = (ViewGroup) requireActivity().findViewById(android.R.id.content);
         rootView.addView(floatingVideoView);
 
+        offlineBanner = view.findViewById(R.id.offlineBanner);
+        MainActivity mainActivity = (MainActivity) requireActivity();
+
+        // Observe the connectivity LiveData for changes
+        mainActivity.getNetworkConnectedLiveData().observe(getViewLifecycleOwner(), isConnected -> {
+            if (Boolean.FALSE.equals(isConnected)) {
+                showOfflineBanner();
+            } else {
+                hideOfflineBanner();
+            }
+        });
+
+        new Handler().postDelayed(() -> checkConnectivityAndShowBanner(requireContext()), 5000);
+
         // Access elements inside the floating layout
         //scrollView = view.findViewById(R.id.scrollLayout);
         floatingContainer = floatingVideoView.findViewById(R.id.floatingVideoContainer);
@@ -95,6 +116,51 @@ public class InsightsFragment extends Fragment implements ArticleAdapter.OnArtic
 
         dragFucntion();
     }
+
+    private void checkConnectivityAndShowBanner(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null && activeNetwork.isConnected();
+
+        if (!isConnected && offlineBanner.getVisibility() != View.VISIBLE) {
+            offlineBanner.setTranslationY(-offlineBanner.getHeight());
+            offlineBanner.setVisibility(View.VISIBLE);
+            offlineBanner.animate()
+                    .translationY(0)
+                    .setDuration(300)
+                    .start();
+        } else if (isConnected && offlineBanner.getVisibility() == View.VISIBLE) {
+            offlineBanner.animate()
+                    .translationY(-offlineBanner.getHeight())
+                    .setDuration(300)
+                    .withEndAction(() -> offlineBanner.setVisibility(View.GONE))
+                    .start();
+        }
+    }
+
+    private void showOfflineBanner() {
+        if (offlineBanner.getVisibility() != View.VISIBLE) {
+            offlineBanner.setTranslationY(-offlineBanner.getHeight());
+            offlineBanner.setVisibility(View.VISIBLE);
+            offlineBanner.animate()
+                    .translationY(0)
+                    .alpha(1f)
+                    .setDuration(300)
+                    .start();
+        }
+    }
+
+    private void hideOfflineBanner() {
+        if (offlineBanner.getVisibility() == View.VISIBLE) {
+            offlineBanner.animate()
+                    .translationY(-offlineBanner.getHeight())
+                    .alpha(0f)
+                    .setDuration(300)
+                    .withEndAction(() -> offlineBanner.setVisibility(View.GONE))
+                    .start();
+        }
+    }
+
 
     private void setupFunFactsPager(View view) {
         ViewPager2 funFactsPager = view.findViewById(R.id.funFactsPager);
