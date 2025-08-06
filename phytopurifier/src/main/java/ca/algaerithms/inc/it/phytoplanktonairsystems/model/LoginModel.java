@@ -129,6 +129,7 @@ public class LoginModel {
         String uid = user.getUid();
         List<Map<String, Object>> achievements = new ArrayList<>();
         List<Map<String, Object>> notifications = new ArrayList<>();
+        long feedbackDisabledTime = -1;
         int lifetime_co2_converted = 0;
 
         Map<String, Object> userMap = new HashMap<>();
@@ -139,6 +140,8 @@ public class LoginModel {
         userMap.put("achievements", achievements);
         userMap.put("notifications", notifications);
         userMap.put("lifetime_co2_converted", lifetime_co2_converted);
+        userMap.put("feedback_disabled_time", feedbackDisabledTime);
+
 
         db.collection("users")
                 .document(uid)
