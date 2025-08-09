@@ -77,4 +77,5 @@
     <color name="light_shade_green">#90EE90</color>
     <color name="green_1">#1EB81E</color>
     <color name="article_grey">#888888</color>
+    <color name="dashboard_card">#E8F5E9</color>
 </resources>
