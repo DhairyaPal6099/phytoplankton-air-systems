@@ -26,6 +26,9 @@ public class DashboardController {
             if (data != null) {
                 int aqi = AqiCalculator.calculateAqi(data);
                 view.showAqi(aqi);
+                view.showLight(data.getLight());
+                view.showTurbidity(data.getTurbidity());
+                view.showProximity(data.isProximity());
             } else {
                 view.showError("No sensor data available");
             }

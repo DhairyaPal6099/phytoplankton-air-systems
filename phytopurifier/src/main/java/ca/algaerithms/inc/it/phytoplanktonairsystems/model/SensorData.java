@@ -49,9 +49,10 @@ public class SensorData {
     public void setAlgaeHealth(double algaeHealth) { this.algaeHealth = algaeHealth; }
 
     public double getLight() { return light; }
+    public void setLight(double light) { this.light = light; }
+
     public boolean isProximity() { return proximity; }
     public void setProximity(boolean proximity) { this.proximity = proximity; }
-    public void setLight(double light) { this.light = light; }
 
     public double getCo2_converted() { return co2_converted; }
     public void setCo2_converted(double co2_converted) { this.co2_converted = co2_converted; }

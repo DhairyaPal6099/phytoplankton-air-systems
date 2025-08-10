@@ -30,6 +30,8 @@
     <color name="card_view_color">@color/sea_mist</color>
     <color name="on_card_view_color">@color/marsh_depth</color>
     <color name="insights_background">@color/green</color>
+    <color name="dashboard_background">#C2D8B9</color>
+    <color name="dashboard_card">#E8F5E9</color>
 
     <!--Old colors-->
     <color name="black">#FF000000</color>

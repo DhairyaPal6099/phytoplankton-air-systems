@@ -39,8 +39,9 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.supportActionBarFra
 
 public class DashboardFragment extends Fragment implements DashboardView{
 
-    private TextView aqiTextView;
+    private TextView aqiTextView, notifHeading, notifText, lightTextView, proximityTextView, turbidityTextView, waterTextView;
     private ProgressBar progressBar;
+    CardView notifCard;
     private DashboardController controller;
 
     @Override
@@ -51,11 +52,15 @@ public class DashboardFragment extends Fragment implements DashboardView{
 
         aqiTextView = view.findViewById(R.id.text_aqi_value);
         progressBar = view.findViewById(R.id.aqi_progress_bar);
+        notifHeading = view.findViewById(R.id.notification_title);
+        notifText = view.findViewById(R.id.notification_content);
+        notifCard = view.findViewById(R.id.notification_card);
+        lightTextView = view.findViewById(R.id.text_light_value);
+        proximityTextView = view.findViewById(R.id.text_proximity_value);
+        turbidityTextView = view.findViewById(R.id.text_turbidity_value);
+        waterTextView = view.findViewById(R.id.text_waterLevel_value);
 
         // Set up notifications card
-        CardView notifCard = view.findViewById(R.id.notification_card);
-        TextView notifHeading = view.findViewById(R.id.textView8);
-        TextView notifText = view.findViewById(R.id.textView9);
         NotificationManagerPhytopurifier.getInstance(getContext())
                 .getAllNotifications(notifications -> {
                     if (!notifications.isEmpty()) {
@@ -86,10 +91,23 @@ public class DashboardFragment extends Fragment implements DashboardView{
         @Override
         public void onDataFetched(ca.algaerithms.inc.it.phytoplanktonairsystems.model.SensorData data) {
             if (data != null) {
+                // AQI
                 int aqi = data.calculateAqi();
                 showAqi(aqi);
+
+                // Light
+                showLight(data.getLight());
+
+                // Turbidity
+                showTurbidity(data.getTurbidity());
+
+                // Proximity
+                showProximity(data.isProximity());
+
+                // Add Water Level here
+
             } else {
-                showError("No sensor data available");
+                showError(getString(R.string.no_sensor_data_available));
             }
         }
 
@@ -104,6 +122,21 @@ public class DashboardFragment extends Fragment implements DashboardView{
         Log.d("DashboardFragment", "Updating AQI UI: " + aqi);
         aqiTextView.setText(String.valueOf(aqi));
         progressBar.setProgress(aqi);
+    }
+
+    @Override
+    public void showLight(double light) {
+        lightTextView.setText(String.format("%.1f lx", light));
+    }
+
+    @Override
+    public void showTurbidity(double turbidity) {
+        turbidityTextView.setText(String.format("%.2f NTU", turbidity));
+    }
+
+    @Override
+    public void showProximity(boolean proximity) {
+        proximityTextView.setText(proximity ? "Motion Detected" : "No Motion");
     }
 
     @Override

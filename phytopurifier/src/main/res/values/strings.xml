@@ -463,7 +463,7 @@ We may update this Privacy Policy as needed. All changes will be reflected withi
     <string name="yyyy_mm_dd_2">YYYY-MM-DD</string>
     <string name="update_2">Update</string>
     <string name="skip">Skip</string>
-    <string name="aqi">100 kg O₂</string>
+    <string name="aqi">AQI</string>
     <string name="share">Share</string>
     <string name="CarbonDioxideConverted">CO₂ Converted: -- g</string>
     <string name="achievement">Achievement</string>
@@ -523,6 +523,11 @@ We may update this Privacy Policy as needed. All changes will be reflected withi
     <string name="notifications_permissions_denied">Notifications permissions denied!</string>
     <string name="all_notifications_cleared">All notifications cleared!</string>
     <string name="failed_to_clear_notifications">Failed to clear notifications</string>
+    <string name="calculated">Calculated</string>
+    <string name="no_sensor_data_available">No sensor data available</string>
+    <string name="proximity">Proximity</string>
+    <string name="light">Light</string>
+    <string name="turbidity">Turbidity</string>
 
 
 </resources>

@@ -403,7 +403,7 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="yyyy_mm_dd_2">YYYY-MM-DD</string>
     <string name="update_2">Mise à jour</string>
     <string name="skip">Sauter</string>
-    <string name="aqi">100 kg O₂</string>
+    <string name="aqi">AQI</string>
     <string name="share">Partager</string>
     <string name="CarbonDioxideConverted">CO₂ Convertie: -- g</string>
     <string name="achievement">Réalisation</string>
@@ -481,4 +481,9 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="notifications_permissions_denied">Notifications permissions denied!</string>
     <string name="all_notifications_cleared">All notifications cleared!</string>
     <string name="failed_to_clear_notifications">Failed to clear notifications</string>
+    <string name="calculated">Calculated</string>
+    <string name="no_sensor_data_available">No sensor data available</string>
+    <string name="proximity">Proximity</string>
+    <string name="light">Light</string>
+    <string name="turbidity">Turbidity</string>
 </resources>
