@@ -21,6 +21,10 @@
             android:icon="@drawable/feedback"
             android:title="@string/feedback" />
         <item
+            android:id="@+id/nav_legal"
+            android:icon="@drawable/legal"
+            android:title="@string/legal" />
+        <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/settings"
             android:title="@string/settings" />

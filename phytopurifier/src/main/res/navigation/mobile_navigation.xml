@@ -38,6 +38,13 @@
     </fragment>
 
     <fragment
+        android:id="@+id/nav_legal"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.legal.LegalFragment"
+        android:label="Legal"
+        tools:layout="@layout/fragment_legal">
+    </fragment>
+
+    <fragment
         android:id="@+id/termsOfServiceFragment"
         android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.settings.TermsOfServiceFragment"
         android:label="Terms of Service"

@@ -77,30 +77,6 @@
             android:textColor="@color/on_nav_drawer_background"
             android:text="@string/Dark_mode" />
 
-        <!-- Notifications Placeholder (non-functional currently) -->
-
-        <!-- Legal Section -->
-        <TextView
-            style="@style/viewParent.headerText.settingsMiniTitle"
-            android:textColor="@color/on_nav_drawer_background_subheading"
-            android:text="@string/legal" />
-
-        <TextView
-            android:id="@+id/privacyPolicyText"
-            style="@style/viewParent.headerText.settingsTextIcon"
-            android:drawableLeft="@drawable/ic_privacypolicy"
-            android:textColor="@color/on_nav_drawer_background"
-            android:text="@string/Privacy_Policy" />
-
-        <TextView
-            android:id="@+id/termsOfServiceText"
-            style="@style/viewParent.headerText.settingsTextIcon"
-            android:layout_width="331dp"
-            android:layout_height="51dp"
-            android:drawableLeft="@drawable/ic_terms"
-            android:textColor="@color/on_nav_drawer_background"
-            android:text="@string/Terms_of_service" />
-
         <!-- Accessibility Section -->
         <TextView
             style="@style/viewParent.headerText.settingsMiniTitle"

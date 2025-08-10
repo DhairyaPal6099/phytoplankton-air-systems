@@ -1,4 +1,4 @@
-package ca.algaerithms.inc.it.phytoplanktonairsystems;
+package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.adapter.LeaderboardAdapter;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.leaderboard.UserStat;
 

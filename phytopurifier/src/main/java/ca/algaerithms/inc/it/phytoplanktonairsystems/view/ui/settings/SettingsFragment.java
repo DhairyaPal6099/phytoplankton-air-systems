@@ -43,8 +43,6 @@ public class SettingsFragment extends Fragment implements SettingsController.Vie
         binding.darkModeSwitch.setOnCheckedChangeListener((b, checked) -> controller.toggleDarkMode(checked));
         binding.reduceMotion.setOnCheckedChangeListener((b, checked) -> controller.toggleReduceMotion(checked));
 
-        binding.privacyPolicyText.setOnClickListener(v -> controller.handleNavigation(R.id.privacyPolicyFragment));
-        binding.termsOfServiceText.setOnClickListener(v -> controller.handleNavigation(R.id.termsOfServiceFragment));
         binding.logoutText.setOnClickListener(v -> controller.handleNavigation(R.id.deleteAccountFragment));
 
         return view;

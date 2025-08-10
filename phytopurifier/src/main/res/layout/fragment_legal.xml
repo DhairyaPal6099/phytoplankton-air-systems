@@ -1,0 +1,30 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_settings_scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nav_drawer_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/privacyPolicyText"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:drawableLeft="@drawable/ic_privacypolicy"
+            android:textColor="@color/on_nav_drawer_background"
+            android:text="@string/Privacy_Policy" />
+
+        <TextView
+            android:id="@+id/termsOfServiceText"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:layout_width="331dp"
+            android:layout_height="51dp"
+            android:drawableLeft="@drawable/ic_terms"
+            android:textColor="@color/on_nav_drawer_background"
+            android:text="@string/Terms_of_service" />
+
+    </LinearLayout>
+</ScrollView>
