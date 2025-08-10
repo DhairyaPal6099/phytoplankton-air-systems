@@ -3,10 +3,9 @@
    Sanskriti Mansotra – N01523183
    Dharmik Shah – N01581796 */
 
-package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.settings;
+package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.legal;
 
 import android.os.Bundle;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

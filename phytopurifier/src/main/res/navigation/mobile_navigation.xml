@@ -46,13 +46,13 @@
 
     <fragment
         android:id="@+id/termsOfServiceFragment"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.settings.TermsOfServiceFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.legal.TermsOfServiceFragment"
         android:label="Terms of Service"
         tools:layout="@layout/fragment_terms_of_service" />
 
     <fragment
         android:id="@+id/privacyPolicyFragment"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.settings.PrivacyPolicyFragment"
+        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.legal.PrivacyPolicyFragment"
         android:label="Privacy Policy"
         tools:layout="@layout/fragment_privacy_policy" />
 

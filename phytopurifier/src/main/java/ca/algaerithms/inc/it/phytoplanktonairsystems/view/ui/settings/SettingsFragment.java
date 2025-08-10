@@ -37,11 +37,9 @@ public class SettingsFragment extends Fragment implements SettingsController.Vie
         binding.lockScreenModeSwitch.setChecked(controller.getLockPortrait());
         binding.darkModeSwitch.setChecked(controller.getDarkMode());
         applyDarkMode(controller.getDarkMode());
-        binding.reduceMotion.setChecked(controller.getReduceMotion());
 
         binding.lockScreenModeSwitch.setOnCheckedChangeListener((b, checked) -> controller.toggleLockPortrait(checked));
         binding.darkModeSwitch.setOnCheckedChangeListener((b, checked) -> controller.toggleDarkMode(checked));
-        binding.reduceMotion.setOnCheckedChangeListener((b, checked) -> controller.toggleReduceMotion(checked));
 
         binding.logoutText.setOnClickListener(v -> controller.handleNavigation(R.id.deleteAccountFragment));
 

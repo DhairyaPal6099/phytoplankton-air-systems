@@ -77,22 +77,12 @@
             android:textColor="@color/on_nav_drawer_background"
             android:text="@string/Dark_mode" />
 
-        <!-- Accessibility Section -->
+        <!-- Delete / Logout Section -->
         <TextView
             style="@style/viewParent.headerText.settingsMiniTitle"
             android:textColor="@color/on_nav_drawer_background_subheading"
-            android:text="@string/accessibility" />
+            android:text="@string/Delete_account" />
 
-        <Switch
-            android:id="@+id/reduceMotion"
-            style="@style/settingsText"
-            android:drawableLeft="@drawable/ic_motion"
-            android:textColor="@color/on_nav_drawer_background"
-            android:thumbTint="@color/switch_thumb_color"
-            android:trackTint="@color/switch_track_color"
-            android:text="@string/reduce_motion" />
-
-        <!-- Delete / Logout Section -->
         <TextView
             android:id="@+id/logoutText"
             style="@style/viewParent.headerText.settingsTextIcon"
