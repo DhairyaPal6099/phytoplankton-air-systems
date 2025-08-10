@@ -171,25 +171,30 @@
                     app:cardCornerRadius="12dp"
                     app:cardElevation="4dp">
 
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/text_light_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:gravity="center"
                         android:text=""
-                        android:layout_marginStart="60dp"
+                        android:gravity="center"
                         android:textStyle="bold"
-                        android:textSize="55dp" />
+                        android:textSize="40dp" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/text_light"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="75dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="@string/light"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="105dp"
                         android:textSize="18dp" />
                 </androidx.cardview.widget.CardView>
 
@@ -202,25 +207,31 @@
                     app:cardCornerRadius="12dp"
                     app:cardElevation="4dp">
 
-                    <TextView
-                        android:id="@+id/text_proximity_value"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:gravity="center"
-                        android:text=""
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:textStyle="bold"
-                        android:textSize="25sp" />
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text_proximity_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No Motion"
+                            android:gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/text_proximity"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:layout_marginTop="75dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="105dp"
+                        android:layout_gravity="center_horizontal"
                         android:text="@string/proximity"
                         android:textSize="18dp" />
 
@@ -244,26 +255,32 @@
                     app:cardCornerRadius="12dp"
                     app:cardElevation="4dp">
 
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:clipChildren="false">
+
+                        <TextView
+                            android:id="@+id/text_turbidity_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="40dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
                     <TextView
                         android:id="@+id/text_turbidity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:gravity="center"
-                        android:text=""
-                        android:layout_marginStart="60dp"
-                        android:textStyle="bold"
-                        android:textSize="55dp" />
-
-                    <TextView
-                        android:id="@+id/text_turbidity_value"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginTop="75dp"
                         android:text="@string/turbidity"
-                        android:textSize="18dp" />
+                        android:layout_marginTop="105dp"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="18dp"/>
+
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
