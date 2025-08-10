@@ -72,13 +72,6 @@ public class AccountInfoFragment extends Fragment {
 
         controller.loadUserInfo();
 
-//        binding.birthdayInput.setOnClickListener(v -> {
-//            Calendar calendar = Calendar.getInstance();
-//            controller.handleBirthdayPicker(calendar, (view1, year, month, day) -> {
-//                String formattedDate = String.format(getString(R.string.birthdate_format), year, month + 1, day);
-//                binding.birthdayInput.setText(formattedDate);
-//            });
-//        });
 
         binding.updateButton.setOnClickListener(v -> {
             // Network check

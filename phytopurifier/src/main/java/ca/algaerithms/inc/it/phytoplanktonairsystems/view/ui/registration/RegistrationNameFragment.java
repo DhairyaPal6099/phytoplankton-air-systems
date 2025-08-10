@@ -61,7 +61,7 @@ public class RegistrationNameFragment extends Fragment {
             String fullName = firstName + " " + lastName;
 
             // Passing email and full name to next fragment
-            RegistrationController.goToBirthdate(requireActivity(), email, fullName);
+            RegistrationController.goToPhone(requireActivity(), email, fullName);
         });
 
         return view;

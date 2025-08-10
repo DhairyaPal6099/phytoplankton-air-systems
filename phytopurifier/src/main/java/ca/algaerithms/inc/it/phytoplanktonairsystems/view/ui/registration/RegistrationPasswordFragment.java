@@ -45,7 +45,7 @@ public class RegistrationPasswordFragment extends Fragment {
     private EditText passwordEditText, confirmPasswordEditText;
     private Button submitButton;
 
-    private String email, name, birthdate, phone;
+    private String email, name, phone;
     private int lifetime_co2_converted = 0;
 
     private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -66,7 +66,6 @@ public class RegistrationPasswordFragment extends Fragment {
         if (getArguments() != null) {
             email = getArguments().getString("email");
             name = getArguments().getString("name");
-            birthdate = getArguments().getString("birthdate");
             phone = getArguments().getString("phone");
         }
 
@@ -99,7 +98,7 @@ public class RegistrationPasswordFragment extends Fragment {
 
 private void saveAuthenticatedUserData(String password) {
     // Delegate to controller for password update and user data save
-    registrationController.updatePasswordAndSaveUser(email, name, birthdate, phone, lifetime_co2_converted, password,
+    registrationController.updatePasswordAndSaveUser(email, name, phone, lifetime_co2_converted, password,
             new UserRegistrationManager.PasswordUpdateCallback() {
                 @Override
                 public void onSuccess() {

@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.UserRegistrationManager;
-import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationBirthdateFragment;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationNameFragment;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationPasswordFragment;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationPhoneFragment;
@@ -50,12 +49,11 @@ public class RegistrationController {
 
     public void updatePasswordAndSaveUser(String email,
                                           String name,
-                                          String birthdate,
                                           String phone,
                                           int lifetimeCO2,
                                           String password,
                                           UserRegistrationManager.PasswordUpdateCallback callback) {
-        userManager.updatePasswordAndSaveUserData(email, name, birthdate, phone, lifetimeCO2, password,
+        userManager.updatePasswordAndSaveUserData(email, name, phone, lifetimeCO2, password,
                 new UserRegistrationManager.PasswordUpdateCallback() {
                     @Override
                     public void onSuccess() {
@@ -77,26 +75,17 @@ public class RegistrationController {
         navigate(fragment, new RegistrationNameFragment(), bundle);
     }
 
-    public static void goToBirthdate(FragmentActivity fragment, String email, String fullName) {
-        Bundle bundle = new Bundle();
-        bundle.putString("email", email);
-        bundle.putString("name", fullName);
-        navigate(fragment, new RegistrationBirthdateFragment(), bundle);
-    }
-
-    public static void goToPhone(FragmentActivity fragment, String email, String name, String birthdate) {
+    public static void goToPhone(FragmentActivity fragment, String email, String name) {
         Bundle bundle = new Bundle();
         bundle.putString("email", email);
         bundle.putString("name", name);
-        bundle.putString("birthdate", birthdate);
         navigate(fragment, new RegistrationPhoneFragment(), bundle);
     }
 
-    public static void goToPassword(FragmentActivity fragment, String email, String name, String birthdate, String phone) {
+    public static void goToPassword(FragmentActivity fragment, String email, String name, String phone) {
         Bundle bundle = new Bundle();
         bundle.putString("email", email);
         bundle.putString("name", name);
-        bundle.putString("birthdate", birthdate);
         bundle.putString("phone", phone);
         navigate(fragment, new RegistrationPasswordFragment(), bundle);
     }

@@ -136,7 +136,6 @@ public class LoginModel {
         userMap.put("name", name);
         userMap.put("email", email);
         userMap.put("phone", phone != null ? phone : "N/A");
-        userMap.put("birthdate", "N/A");
         userMap.put("achievements", achievements);
         userMap.put("notifications", notifications);
         userMap.put("lifetime_co2_converted", lifetime_co2_converted);

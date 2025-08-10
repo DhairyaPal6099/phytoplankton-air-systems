@@ -35,7 +35,6 @@ public class UserSettingsManager {
                         user.setName(doc.getString("name"));
                         user.setEmail(doc.getString("email"));
                         user.setPhone(doc.getString("phone"));
-                        user.setBirthdate(doc.getString("birthdate"));
                         callback.onUserData(user);
                     } else {
                         callback.onError("User not found.");
