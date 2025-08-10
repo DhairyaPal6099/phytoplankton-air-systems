@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_about, R.id.nav_accountInfo, R.id.nav_feedback, R.id.nav_settings)
+                R.id.nav_home, R.id.nav_about, R.id.nav_accountInfo, R.id.nav_feedback, R.id.nav_legal, R.id.nav_settings)
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -300,10 +300,12 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 101) {
-            String msg = (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                    ? getString(R.string.notification_permission_granted)
-                    : getString(R.string.notification_permission_denied);
-            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+            if (grantResults.length > 0) {
+                String msg = (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                        ? getString(R.string.notification_permission_granted)
+                        : getString(R.string.notification_permission_denied);
+                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
