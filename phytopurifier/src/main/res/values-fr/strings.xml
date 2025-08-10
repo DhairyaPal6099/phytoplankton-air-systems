@@ -36,7 +36,6 @@
     <string name="account_info_username">Nom utilisateur</string>
     <string name="account_info_email">Courriel</string>
     <string name="account_info_phone">Numéro de téléphone</string>
-    <string name="account_info_birthday">Date de naissance</string>
     <string name="account_info_title">Informations du compte</string>
 
     <string name="reduce_motion">Reduce Motion</string>
@@ -56,7 +55,6 @@
     <string name="invalid_email">Format d &amp; e-mail invalide.</string>
     <string name="phone_required">Le numéro de téléphone est requis.</string>
     <string name="phone_invalid">Le numéro de téléphone doit comporter au moins 9 chiffres.</string>
-    <string name="birthday_required">La date de naissance est requise.</string>
     <string name="details_saved">Détails enregistrés avec succès.</string>
     <string name="fields_cleared">Champs effacés.</string>
     <string name="leaderboard">Classement</string>
@@ -231,7 +229,6 @@
     <string name="username">nom d’utilisateur</string>
     <string name="email_lowercase">e-mail</string>
     <string name="phone_lowercase">téléphone</string>
-    <string name="birthday_lowercase">anniversaire</string>
     <string name="sign_in_with_google">Se connecter avec Google</string>
     <string name="permission_granted">Autorisation accordée</string>
     <string name="permission_denied_open_settings_to_allow">Autorisation refusée. Ouvrez les paramètres pour autoriser.</string>
@@ -397,7 +394,6 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="enter_your_email_2">Entrez votre email</string>
     <string name="phone_number_2">Numéro de téléphone</string>
     <string name="enter_phone_number">Entrez le numéro de téléphone</string>
-    <string name="birthday">Anniversaire</string>
     <string name="yyyy_mm_dd_2">YYYY-MM-DD</string>
     <string name="update_2">Mise à jour</string>
     <string name="skip">Sauter</string>

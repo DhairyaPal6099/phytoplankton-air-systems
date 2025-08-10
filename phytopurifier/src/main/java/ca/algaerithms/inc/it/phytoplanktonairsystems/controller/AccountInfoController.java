@@ -1,7 +1,6 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems.controller;
 
 import android.app.Activity;
-import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,7 +12,6 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -149,17 +147,6 @@ public class AccountInfoController {
         });
     }
 
-    public void handleBirthdayPicker(Calendar calendar, DatePickerDialog.OnDateSetListener listener) {
-        DatePickerDialog picker = new DatePickerDialog(
-                context,
-                listener,
-                calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH)
-        );
-        picker.show();
-    }
-
     public void requestGalleryPermission() {
         if (ContextCompat.checkSelfPermission(context, android.Manifest.permission.READ_MEDIA_IMAGES)
                 == android.content.pm.PackageManager.PERMISSION_GRANTED) {
@@ -191,7 +178,6 @@ public class AccountInfoController {
         binding.usernameInput.setError(null);
         binding.emailInput.setError(null);
         binding.phoneInput.setError(null);
-//        binding.birthdayInput.setError(null);
     }
 
     private void showToast(int messageResId, String errorDetail) {

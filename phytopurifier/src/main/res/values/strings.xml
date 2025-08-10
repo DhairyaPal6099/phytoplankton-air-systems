@@ -38,7 +38,6 @@
     <string name="account_info_username">Username</string>
     <string name="account_info_email">Email</string>
     <string name="account_info_phone">Phone Number</string>
-    <string name="account_info_birthday">Birthday</string>
     <string name="account_info_title">Account Info</string>
 
 
@@ -58,7 +57,6 @@
     <string name="invalid_email">Invalid email format</string>
     <string name="phone_required">Phone number is required</string>
     <string name="phone_invalid">Phone must be at least 9 digits</string>
-    <string name="birthday_required">Birthday is required</string>
     <string name="details_saved">Details saved successfully</string>
     <string name="fields_cleared">Fields cleared</string>
     <string name="leaderboard">Leaderboard</string>
@@ -453,7 +451,6 @@ We may update this Privacy Policy as needed. All changes will be reflected withi
     <string name="enter_your_email_2">Enter your email</string>
     <string name="phone_number_2">Phone Number</string>
     <string name="enter_phone_number">Enter phone number</string>
-    <string name="birthday">Birthday</string>
     <string name="yyyy_mm_dd_2">YYYY-MM-DD</string>
     <string name="update_2">Update</string>
     <string name="skip">Skip</string>
