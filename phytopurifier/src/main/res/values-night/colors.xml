@@ -27,6 +27,8 @@
     <color name="card_view_color">@color/river_rock</color>
     <color name="on_card_view_color">@color/birch_cream</color>
     <color name="insights_background">@color/midnight_moss</color>
+    <color name="dashboard_background">@color/midnight_moss</color>
+    <color name="dashboard_card">@color/marsh_depth</color>
 
     <!--Old colors-->
     <color name="black">#FF000000</color>
