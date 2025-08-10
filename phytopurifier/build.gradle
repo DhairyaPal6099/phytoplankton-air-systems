@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'ca.algaerithms.inc.it.phytoplanktonairsystems'
-    compileSdk 35
+    compileSdkVersion 35
 
     defaultConfig {
         applicationId "ca.algaerithms.inc.it.phytoplanktonairsystems"
