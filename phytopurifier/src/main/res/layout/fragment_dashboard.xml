@@ -184,7 +184,7 @@
                         android:text=""
                         android:gravity="center"
                         android:textStyle="bold"
-                        android:textSize="40dp" />
+                        android:textSize="25sp" />
 
                     </LinearLayout>
 
@@ -195,7 +195,7 @@
                         android:text="@string/light"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="105dp"
-                        android:textSize="18dp" />
+                        android:textSize="16sp" />
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
@@ -221,7 +221,7 @@
                             android:gravity="center"
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
-                            android:textSize="25dp"
+                            android:textSize="25sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -233,7 +233,7 @@
                         android:layout_marginTop="105dp"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/proximity"
-                        android:textSize="18dp" />
+                        android:textSize="16sp" />
 
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
@@ -267,7 +267,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=""
-                            android:textSize="40dp"
+                            android:textSize="25sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -279,7 +279,7 @@
                         android:text="@string/turbidity"
                         android:layout_marginTop="105dp"
                         android:layout_gravity="center_horizontal"
-                        android:textSize="18dp"/>
+                        android:textSize="16sp"/>
 
                 </androidx.cardview.widget.CardView>
 
