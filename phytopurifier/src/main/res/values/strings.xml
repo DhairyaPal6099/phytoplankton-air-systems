@@ -524,6 +524,7 @@ We may update this Privacy Policy as needed. All changes will be reflected withi
     <string name="all_notifications_cleared">All notifications cleared!</string>
     <string name="failed_to_clear_notifications">Failed to clear notifications</string>
     <string name="calculated">Calculated</string>
+    <string name="no_sensor_data_available">No sensor data available</string>
 
 
 </resources>

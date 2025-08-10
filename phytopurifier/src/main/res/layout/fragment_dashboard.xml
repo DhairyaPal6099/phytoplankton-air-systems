@@ -42,20 +42,6 @@
                     android:src="@drawable/dashboard" />
             </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Welcome Back!"
-                android:textSize="20dp"
-                android:layout_marginStart="5dp" />
-        </LinearLayout>
-
             <!-- AQI Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/aqi_card"
@@ -186,6 +172,7 @@
                     app:cardElevation="4dp">
 
                     <TextView
+                        android:id="@+id/text_light_value"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -204,6 +191,7 @@
                     app:cardElevation="4dp">
 
                     <TextView
+                        android:id="@+id/text_proximity_value"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -231,6 +219,7 @@
                     app:cardElevation="4dp">
 
                     <TextView
+                        android:id="@+id/text_turbidity_value"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -249,10 +238,12 @@
                     app:cardElevation="4dp">
 
                     <TextView
+                        android:id="@+id/text_waterLevel_value"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="Coming soon!!"
+                        android:text="Water Level
+                        (Coming soon)"
                         android:textStyle="bold"
                         android:textSize="16sp" />
                 </androidx.cardview.widget.CardView>
