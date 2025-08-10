@@ -253,8 +253,6 @@
     <string name="last_name">Last Name</string>
     <string name="first_name">First Name</string>
     <string name="display_name">Display Name:</string>
-    <string name="birthdate">Birthdate:</string>
-    <string name="select_birthdate">Select birthdate</string>
     <string name="phone_number_is_required">Phone number is required</string>
     <string name="invalid_phone_number">Invalid phone number</string>
     <string name="registration_successful">Registration successful!</string>

@@ -5,8 +5,6 @@
 
 package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.about;
 
-
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -43,32 +41,32 @@ public class AboutFragment extends Fragment {
                         "Scrum Master & Developer",
                         "Not quite an engineer yet—just a crime doc junkie with a reluctant thing for code. Scrum Master by role, surviving by default. Weirdly good at writing bios.",
                         R.drawable.ic_sanskriti,
-                        "https://www.linkedin.com/in/sanskriti-mansotra-70a045268/",
-                        "https://github.com/SanskritiMansotra3183"
+                        null,
+                        null
                 ),
                 new TeamMember(
                         "Dharmik",
                         "Main Developer & Database Manager",
                         "The introvert who somehow knows everyone. Constantly reminds us he’s the ‘coding guy’ — which he is… and somehow still weirds us out.",
                         R.drawable.ic_dharmik,
-                        "https://www.linkedin.com/in/dharmik-shah-427261268/",
-                        "https://github.com/DharmikShah1796"
+                        null,
+                        null
                 ),
                 new TeamMember(
                         "Dhairya",
                         "Team Lead & Developer",
                         "Writes clean code, plays cleaner chords but still panics first after saying ‘don’t panic, guys.’",
                         R.drawable.ic_dhairya,
-                        "https://www.linkedin.com/in/dhairyapal/",
-                        "https://github.com/DhairyaPal6099"
+                        null,
+                        null
                 ),
                 new TeamMember(
                         "Julian",
                         "Developer & Agile Support",
                         "Moves fast, codes faster. Spams rat stickers like a reflex and roams campus in Crocs like it's a uniform.",
                         R.drawable.ic_julian,
-                        "https://www.linkedin.com/in/julian-aldrich-imperial-a629b0297/",
-                        "https://github.com/JulianImperial8310"
+                        null,
+                        null
                 )
         );
 
@@ -110,20 +108,13 @@ public class AboutFragment extends Fragment {
 
             memberCard.setCardBackgroundColor(backgroundColor);
 
-            linkedinIcon.setOnClickListener(v -> openUrl(member.linkedInUrl));
-            githubIcon.setOnClickListener(v -> openUrl(member.githubUrl));
+            // Hide LinkedIn and GitHub icons
+            linkedinIcon.setVisibility(View.GONE);
+            githubIcon.setVisibility(View.GONE);
 
             teamScroll.addView(card);
         }
 
         return view;
-    }
-
-    private void openUrl(String url) {
-        if (url != null && !url.isEmpty()) {
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(android.net.Uri.parse(url));
-            startActivity(intent);
-        }
     }
 }

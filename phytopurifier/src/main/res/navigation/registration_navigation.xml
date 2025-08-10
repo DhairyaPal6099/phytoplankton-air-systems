@@ -24,12 +24,6 @@
         tools:layout="@layout/fragment_leaderboard" />
 
     <fragment
-        android:id="@+id/nav_registration_birthdate"
-        android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationBirthdateFragment"
-        android:label="Dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
-    <fragment
         android:id="@+id/nav_registration_password"
         android:name="ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.registration.RegistrationPasswordFragment"
         android:label="Insights"

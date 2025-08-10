@@ -96,7 +96,6 @@ public class UserRegistrationManager {
     // Updates password and saves user profile data to Firestore
     public void updatePasswordAndSaveUserData(@NonNull String email,
                                               @NonNull String name,
-                                              @NonNull String birthdate,
                                               @NonNull String phone,
                                               int lifetime_co2_converted,
                                               @NonNull String password,
@@ -116,7 +115,6 @@ public class UserRegistrationManager {
                     Map<String, Object> userData = new HashMap<>();
                     userData.put("email", email);
                     userData.put("name", name);
-                    userData.put("birthdate", birthdate);
                     userData.put("phone", phone);
                     userData.put("uid", uid);
                     userData.put("achievements", achievements);

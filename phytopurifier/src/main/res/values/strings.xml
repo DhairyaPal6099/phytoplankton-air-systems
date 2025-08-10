@@ -229,8 +229,6 @@
     <string name="username">username</string>
     <string name="email_lowercase">email</string>
     <string name="phone_lowercase">phone</string>
-    <string name="birthday_lowercase">birthday</string>
-    <string name="birthdate_format" translatable="false">%04d-%02d-%02d</string>
     <string name="settings_lowercase" translatable="false">settings</string>
     <string name="sign_in_with_google">Sign in with Google</string>
     <string name="permission_granted">Permission granted</string>
@@ -286,7 +284,7 @@ The app is provided “as is”. We do not guarantee:\n• Uninterrupted perform
     <string name="privacy_policy_content">
 PhytoplanktonAirSystems values your privacy. This policy describes the types of data we collect, how it\'s used, and how it\'s stored.\n\n
 1. Information We Collect\n
-• Profile data: name, birthdate, email, phone number\n
+• Profile data: name, email, phone number\n
 • App preferences: dark mode, screen lock, accessibility filters\n
 • Sensor data: CO₂ levels, light exposure, algae status, water level\n
 • Diagnostic data: crash logs and usage (if enabled)\n\n
@@ -306,9 +304,6 @@ You can manage your profile and preferences within the app. You may delete all s
 We may update this Privacy Policy as needed. All changes will be reflected within the app for your review.\n\n
 
 </string>
-
-    <!-- Registration - Birthdate -->
-    <string name="birthdate">Birthdate</string>
     <string name="continue_button">Continue</string>
 
     <!-- Registration - Email -->
@@ -405,7 +400,6 @@ We may update this Privacy Policy as needed. All changes will be reflected withi
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="reduce_motion">Reduce Motion</string>
     <string name="reduce_motion_key">reduce_motion</string>
-    <string name="select_birthdate">Select your birthdate</string>
     <string name="verification_email_sent">Verification email sent!</string>
 
     <string name="email_verified">Email verified</string>

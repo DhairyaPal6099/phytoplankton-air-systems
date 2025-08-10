@@ -31,7 +31,7 @@ public class RegistrationPhoneFragment extends Fragment {
     private EditText phoneEditText;
     private Button continueButton;
 
-    private String email, name, birthdate;
+    private String email, name;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,7 +48,6 @@ public class RegistrationPhoneFragment extends Fragment {
         if (getArguments() != null) {
             email = getArguments().getString("email");
             name = getArguments().getString("name");
-            birthdate = getArguments().getString("birthdate");
         }
 
         continueButton.setOnClickListener(v -> {
@@ -68,7 +67,7 @@ public class RegistrationPhoneFragment extends Fragment {
             }
 
             // Proceed to next fragment (PasswordFragment)
-            RegistrationController.goToPassword(requireActivity(), email, name, birthdate, fullPhone);
+            RegistrationController.goToPassword(requireActivity(), email, name, fullPhone);
         });
 
         return view;

@@ -52,7 +52,6 @@ public class AccountInfoController {
                 binding.usernameInput.setText((String) data.get("name"));
                 binding.emailInput.setText((String) data.get("email"));
                 binding.phoneInput.setText((String) data.get("phone"));
-                binding.birthdayInput.setText((String) data.get("birthdate"));
                 originalEmail = (String) data.get("email");
 
                 if (authEmail != null && !authEmail.equals(originalEmail)) {
@@ -84,7 +83,6 @@ public class AccountInfoController {
         String name = binding.usernameInput.getText().toString().trim();
         String email = binding.emailInput.getText().toString().trim();
         String phone = binding.phoneInput.getText().toString().trim();
-        String birthday = binding.birthdayInput.getText().toString().trim();
 
         boolean hasError = false;
         clearErrors();
@@ -110,17 +108,11 @@ public class AccountInfoController {
             hasError = true;
         }
 
-        if (birthday.isEmpty()) {
-            binding.birthdayInput.setError(context.getString(R.string.birthday_required));
-            hasError = true;
-        }
-
         if (hasError) return;
 
         Map<String, Object> updates = new HashMap<>();
         updates.put("name", name);
         updates.put("phone", phone);
-        updates.put("birthdate", birthday);
 
         if (!email.equals(originalEmail)) {
             model.requestEmailUpdate(email, new UserProfileManager.OnEmailVerificationListener() {
@@ -199,7 +191,7 @@ public class AccountInfoController {
         binding.usernameInput.setError(null);
         binding.emailInput.setError(null);
         binding.phoneInput.setError(null);
-        binding.birthdayInput.setError(null);
+//        binding.birthdayInput.setError(null);
     }
 
     private void showToast(int messageResId, String errorDetail) {
