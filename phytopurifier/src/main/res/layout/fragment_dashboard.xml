@@ -173,12 +173,24 @@
 
                     <TextView
                         android:id="@+id/text_light_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="35dp"
+                        android:gravity="center"
+                        android:text=""
+                        android:layout_marginStart="60dp"
+                        android:textStyle="bold"
+                        android:textSize="55dp" />
+
+                    <TextView
+                        android:id="@+id/text_light"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="Light"
-                        android:textStyle="bold"
-                        android:textSize="16sp" />
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="75dp"
+                        android:text="@string/light"
+                        android:textSize="18dp" />
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
@@ -192,12 +204,26 @@
 
                     <TextView
                         android:id="@+id/text_proximity_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="35dp"
+                        android:gravity="center"
+                        android:text=""
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:textStyle="bold"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/text_proximity"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="Proximity"
-                        android:textStyle="bold"
-                        android:textSize="16sp" />
+                        android:layout_marginTop="75dp"
+                        android:text="@string/proximity"
+                        android:textSize="18dp" />
+
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
@@ -219,13 +245,25 @@
                     app:cardElevation="4dp">
 
                     <TextView
+                        android:id="@+id/text_turbidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="35dp"
+                        android:gravity="center"
+                        android:text=""
+                        android:layout_marginStart="60dp"
+                        android:textStyle="bold"
+                        android:textSize="55dp" />
+
+                    <TextView
                         android:id="@+id/text_turbidity_value"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="Turbidity"
-                        android:textStyle="bold"
-                        android:textSize="16sp" />
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="75dp"
+                        android:text="@string/turbidity"
+                        android:textSize="18dp" />
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
