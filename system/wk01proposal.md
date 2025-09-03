@@ -59,19 +59,19 @@ Student B:
   - Additional device specific connections in addition to or instead of Qwiic cable: 
   - Current hardware operational status:
 
-Student C:
+Sanskriti Mansotra:
 - [ ] Complete parts kit
 - [ ] Multimeter
 - Development platform: Broadcom single board computer
 - Sensor/effector 3:
-  - Device name:
-  - Product page (e.g. Sparkfun, Adafruit, etc.):
-  - Purchase page (e.g. DigiKey):
-  - I2C address:
-  - DEV_ID:
-  - Additional device specific components: 
-  - Additional device specific connections in addition to or instead of Qwiic cable: 
-  - Current hardware operational status:
+  - Device name: VEML7700
+  - Product page (e.g. Sparkfun, Adafruit, etc.): https://cdn-learn.adafruit.com/downloads/pdf/adafruit-veml7700.pdf
+  - Purchase page (e.g. DigiKey): https://www.digikey.ca/en/products/detail/adafruit-industries-llc/4162/9997696?gclsrc=aw.ds&gad_source=1&gad_campaignid=20282404290&gbraid=0AAAAADrbLlgb33Lb2MxvjYhNOyZSEkYXy&gclid=Cj0KCQjwzt_FBhCEARIsAJGFWVnNxIzPZ2PS6lpKk6FcE1x_dCFN113ok93nwYnkMsO39PVfBe7RxNUaAoXxEALw_wcB
+  - I2C address:0X10
+  - DEV_ID:0XC4
+  - Additional device specific components: Null
+  - Additional device specific connections in addition to or instead of Qwiic cable: Null
+  - Current hardware operational status: Sensor is successfully reading data
 
 Student D:
 - [ ] Complete parts kit
