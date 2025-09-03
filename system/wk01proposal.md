@@ -1,13 +1,13 @@
 # Brief CENG Capstone Project Charter
 -  [x] Select Project area:
 1. [ ] :bike: Facilities: e.g. Bicycle Rental/Parking Lot/Vision System
-2. [ ] :factory: Building Automation: e.g. Greenhouse/SolarPanel/Home
+2. [X] :factory: Building Automation: e.g. Greenhouse/SolarPanel/Home
 3. [ ] :movie_camera: Consumer: e.g. Entertainment Protocol DMX/Baby Monitoring Project
 4. [ ] :mortar_board: Education: e.g. Robust Hackable Educational Project
 5. [ ] :robot: Robotics: e.g. Control/Navigation/Dashboard
 6. [ ] :ski: Health and Wellness: e.g. Wearable
 ####  Project Title: 
-Replace this with your title
+Phtyoplankton Air Systems
 
 ####  Executive Summary/Description of the Project (75 to 100 words): 
 Write here
@@ -25,10 +25,10 @@ Write here
 </details>
 
 ####  List of Names of Students Involved in Project (first and last names and separate members by a comma):
-First Last, One Two
+Dhairya Pal , Dharmik Shah , Sanskriti Mansotra , Julian Imperial
 
 ####  Planned contact email for the [Expo submission form](https://appliedtechnology.humber.ca/shows/past-shows/advanced-manufacturing-projects/advanced-manufacturing-student-submission-form.html)
-example_at_example_dot_com
+algaerithms@gmail.com
 
 ####  For each individual student state whether they have a complete parts kit, a multimeter, what development platform they have, what sensors/effectors they have along with system Requirements (List what sensors/effectors are to do), functionalty of prototype/describe any unsoldered connections.
 Student A:
