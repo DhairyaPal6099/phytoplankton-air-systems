@@ -73,19 +73,19 @@ Sanskriti Mansotra:
   - Additional device specific connections in addition to or instead of Qwiic cable: Null
   - Current hardware operational status: Sensor is successfully reading data
 
-Student D:
-- [ ] Complete parts kit
-- [ ] Multimeter
-- Development platform: Broadcom single board computer
+Julian Imperial:
+- [X] Complete parts kit
+- [x] Multimeter
+- Development platform: Raspberry Pi 4 Model B board
 - Sensor/effector 4:
-  - Device name:
-  - Product page (e.g. Sparkfun, Adafruit, etc.):
-  - Purchase page (e.g. DigiKey):
-  - I2C address:
-  - DEV_ID:
-  - Additional device specific components: 
-  - Additional device specific connections in addition to or instead of Qwiic cable: 
-  - Current hardware operational status:
+  - Device name: Turbidity Analog Sensor SEN0189 
+  - Product page (e.g. Sparkfun, Adafruit, etc.): www.digikey.ca/en/products/detail/dfrobot/SEN0189/6588606gclsrc=aw.ds&gad_source=1&gad_campaignid=20282404290&gbraid=0AAAAADrbLlhtQts8HJgnXl2jxkrNm2T3a&gclid=Cj0KCQjwzt_FBhCEARIsAJGFWVm_BUKU786abOgYVQXVEWSL6feuxPm5rUfMZHT0aFPRHzPob3ny-WwaAoBBEALw_wcB
+  - Purchase page (e.g. DigiKey): https://www.amazon.ca/dp/B00KLBTXME?ref=ppx_yo2ov_dt_b_fed_asin_title (For ADS1015 Converter)
+  - I2C address: 0x48
+  - DEV_ID: Turbidity sensor SKU: SEN0189 DFRobot
+  - Additional device specific components: ADS1015 (0x48), SEN0189 Water Probe 
+  - Additional device specific connections in addition to or instead of Qwiic cable: 3 Female to Male Connectors 
+  - Current hardware operational status: Working
 
 ####  GitHub repository link(s):
 [PhytoplanktonAirSystems](https://github.com/Algaerithms-Inc/PhytoplanktonAirSystems.git)
