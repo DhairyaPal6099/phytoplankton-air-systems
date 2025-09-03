@@ -1,13 +1,13 @@
 # Brief CENG Capstone Project Charter
 -  [x] Select Project area:
 1. [ ] :bike: Facilities: e.g. Bicycle Rental/Parking Lot/Vision System
-2. [ ] :factory: Building Automation: e.g. Greenhouse/SolarPanel/Home
+2. [X] :factory: Building Automation: e.g. Greenhouse/SolarPanel/Home
 3. [ ] :movie_camera: Consumer: e.g. Entertainment Protocol DMX/Baby Monitoring Project
 4. [ ] :mortar_board: Education: e.g. Robust Hackable Educational Project
 5. [ ] :robot: Robotics: e.g. Control/Navigation/Dashboard
 6. [ ] :ski: Health and Wellness: e.g. Wearable
 ####  Project Title: 
-Replace this with your title
+Phtyoplankton Air Systems
 
 ####  Executive Summary/Description of the Project (75 to 100 words): 
 Write here
@@ -25,10 +25,10 @@ Write here
 </details>
 
 ####  List of Names of Students Involved in Project (first and last names and separate members by a comma):
-First Last, One Two
+Dhairya Pal , Dharmik Shah , Sanskriti Mansotra , Julian Imperial
 
 ####  Planned contact email for the [Expo submission form](https://appliedtechnology.humber.ca/shows/past-shows/advanced-manufacturing-projects/advanced-manufacturing-student-submission-form.html)
-example_at_example_dot_com
+algaerithms@gmail.com
 
 ####  For each individual student state whether they have a complete parts kit, a multimeter, what development platform they have, what sensors/effectors they have along with system Requirements (List what sensors/effectors are to do), functionalty of prototype/describe any unsoldered connections.
 Dhairya Pal:
@@ -59,19 +59,19 @@ Student B:
   - Additional device specific connections in addition to or instead of Qwiic cable: 
   - Current hardware operational status:
 
-Student C:
-- [ ] Complete parts kit
-- [ ] Multimeter
+Sanskriti Mansotra:
+- [X] Complete parts kit
+- [X] Multimeter
 - Development platform: Broadcom single board computer
 - Sensor/effector 3:
-  - Device name:
-  - Product page (e.g. Sparkfun, Adafruit, etc.):
-  - Purchase page (e.g. DigiKey):
-  - I2C address:
-  - DEV_ID:
-  - Additional device specific components: 
-  - Additional device specific connections in addition to or instead of Qwiic cable: 
-  - Current hardware operational status:
+  - Device name: VEML7700
+  - Product page (e.g. Sparkfun, Adafruit, etc.): https://cdn-learn.adafruit.com/downloads/pdf/adafruit-veml7700.pdf
+  - Purchase page (e.g. DigiKey): https://www.digikey.ca/en/products/detail/adafruit-industries-llc/4162/9997696?gclsrc=aw.ds&gad_source=1&gad_campaignid=20282404290&gbraid=0AAAAADrbLlgb33Lb2MxvjYhNOyZSEkYXy&gclid=Cj0KCQjwzt_FBhCEARIsAJGFWVnNxIzPZ2PS6lpKk6FcE1x_dCFN113ok93nwYnkMsO39PVfBe7RxNUaAoXxEALw_wcB
+  - I2C address:0X10
+  - DEV_ID:0XC4
+  - Additional device specific components: Null
+  - Additional device specific connections in addition to or instead of Qwiic cable: Null
+  - Current hardware operational status: Sensor is successfully reading data
 
 Student D:
 - [ ] Complete parts kit
