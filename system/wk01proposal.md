@@ -45,19 +45,19 @@ Student A:
   - Additional device specific connections in addition to or instead of Qwiic cable: 
   - Current hardware operational status:
 
-Student B:
+Dharmik shah:
 - [ ] Complete parts kit
 - [ ] Multimeter
 - Development platform: Broadcom single board computer
 - Sensor/effector 2:
-  - Device name:
-  - Product page (e.g. Sparkfun, Adafruit, etc.):
-  - Purchase page (e.g. DigiKey):
-  - I2C address:
-  - DEV_ID:
-  - Additional device specific components: 
-  - Additional device specific connections in addition to or instead of Qwiic cable: 
-  - Current hardware operational status:
+  - Device name: VCNL4040
+  - Product page (e.g. Sparkfun, Adafruit, etc.): [Adafruit](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-vcnl4040-proximity-sensor.pdf)
+  - Purchase page (e.g. DigiKey): [DigiKey](https://www.digikey.ca/en/products/detail/adafruit-industries-llc/4161/10385108)
+  - I2C address: 0x60
+  - DEV_ID: 0x0C
+  - Additional device specific components: N/A 
+  - Additional device specific connections in addition to or instead of Qwiic cable: N/A 
+  - Current hardware operational status: Working
 
 Student C:
 - [ ] Complete parts kit
@@ -88,7 +88,7 @@ Student D:
   - Current hardware operational status:
 
 ####  GitHub repository link(s):
-[Example link - ezpark](https://github.com/AkashSingh8137/ezpark)
+[PhytoplanktonAirSystems](https://github.com/Algaerithms-Inc/PhytoplanktonAirSystems.git)
 
 ####  Google Play App download link:
 [Example link - EZPARK](https://play.google.com/store/apps/details?id=ca.ezlock.it.ezpark&pli=1)
