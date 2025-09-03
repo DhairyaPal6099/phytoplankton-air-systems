@@ -2,7 +2,7 @@
 -  [x] Select Project area:
 1. [ ] :bike: Facilities: e.g. Bicycle Rental/Parking Lot/Vision System
 2. [X] :factory: Building Automation: e.g. Greenhouse/SolarPanel/Home
-3. [ ] :movie_camera: Consumer: e.g. Entertainment Protocol DMX/Baby Monitoring Project
+3. [X] :movie_camera: Consumer: e.g. Entertainment Protocol DMX/Baby Monitoring Project
 4. [ ] :mortar_board: Education: e.g. Robust Hackable Educational Project
 5. [ ] :robot: Robotics: e.g. Control/Navigation/Dashboard
 6. [ ] :ski: Health and Wellness: e.g. Wearable
