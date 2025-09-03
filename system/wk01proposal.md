@@ -31,19 +31,19 @@ First Last, One Two
 example_at_example_dot_com
 
 ####  For each individual student state whether they have a complete parts kit, a multimeter, what development platform they have, what sensors/effectors they have along with system Requirements (List what sensors/effectors are to do), functionalty of prototype/describe any unsoldered connections.
-Student A:
-- [ ] Complete parts kit
-- [ ] Multimeter
+Dhairya Pal:
+- [X] Complete parts kit
+- [X] Multimeter
 - Development platform: Broadcom single board computer
 - Sensor/effector 1:
-  - Device name:
-  - Product page (e.g. Sparkfun, Adafruit, etc.):
-  - Purchase page (e.g. DigiKey):
-  - I2C address:
-  - DEV_ID:
-  - Additional device specific components: 
-  - Additional device specific connections in addition to or instead of Qwiic cable: 
-  - Current hardware operational status:
+  - Device name: ENS160
+  - Product page (e.g. Sparkfun, Adafruit, etc.): https://www.sparkfun.com/sparkfun-indoor-air-quality-sensor-ens160-qwiic.html
+  - Purchase page (e.g. DigiKey): https://www.amazon.ca/dp/B0C5W1BZ9D?ref=ppx_yo2ov_dt_b_fed_asin_title
+  - I2C address: 0x53
+  - DEV_ID: N/A
+  - Additional device specific components: N/A
+  - Additional device specific connections in addition to or instead of Qwiic cable: N/A
+  - Current hardware operational status: Working
 
 Student B:
 - [ ] Complete parts kit
