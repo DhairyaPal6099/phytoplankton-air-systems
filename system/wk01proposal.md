@@ -10,7 +10,9 @@
 Phtyoplankton Air Systems
 
 ####  Executive Summary/Description of the Project (75 to 100 words): 
-Write here
+A smart and eco-friendly air purification system that uses 
+phytoplankton to naturally convert CO₂ into oxygen. The system connects with an Android app 
+for real-time monitoring, automated alerts, and sustainability-focused feedback.
 
 ####  Has this project been approved by all parties for posting (Y/N)?
 -  [x] Yes
@@ -34,7 +36,7 @@ algaerithms@gmail.com
 Dhairya Pal:
 - [X] Complete parts kit
 - [X] Multimeter
-- Development platform: Broadcom single board computer
+- Development platform: Raspberry Pi 4 Model B board
 - Sensor/effector 1:
   - Device name: ENS160
   - Product page (e.g. Sparkfun, Adafruit, etc.): https://www.sparkfun.com/sparkfun-indoor-air-quality-sensor-ens160-qwiic.html
@@ -48,7 +50,7 @@ Dhairya Pal:
 Dharmik shah:
 - [ ] Complete parts kit
 - [ ] Multimeter
-- Development platform: Broadcom single board computer
+- Development platform: Raspberry Pi 4 Model B board
 - Sensor/effector 2:
   - Device name: VCNL4040
   - Product page (e.g. Sparkfun, Adafruit, etc.): [Adafruit](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-vcnl4040-proximity-sensor.pdf)
@@ -62,7 +64,7 @@ Dharmik shah:
 Sanskriti Mansotra:
 - [X] Complete parts kit
 - [X] Multimeter
-- Development platform: Broadcom single board computer
+- Development platform: Raspberry Pi 4 Model B board
 - Sensor/effector 3:
   - Device name: VEML7700
   - Product page (e.g. Sparkfun, Adafruit, etc.): https://cdn-learn.adafruit.com/downloads/pdf/adafruit-veml7700.pdf
@@ -91,7 +93,7 @@ Julian Imperial:
 [PhytoplanktonAirSystems](https://github.com/Algaerithms-Inc/PhytoplanktonAirSystems.git)
 
 ####  Google Play App download link:
-[Example link - EZPARK](https://play.google.com/store/apps/details?id=ca.ezlock.it.ezpark&pli=1)
+
 
 #### Hours per student:
 $14\*3=42$ in class hours, $14\*3=42+$ outside of class.
