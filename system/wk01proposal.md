@@ -60,8 +60,8 @@ Student B:
   - Current hardware operational status:
 
 Sanskriti Mansotra:
-- [ ] Complete parts kit
-- [ ] Multimeter
+- [X] Complete parts kit
+- [X] Multimeter
 - Development platform: Broadcom single board computer
 - Sensor/effector 3:
   - Device name: VEML7700
