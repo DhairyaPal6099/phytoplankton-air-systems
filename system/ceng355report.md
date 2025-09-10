@@ -1,4 +1,4 @@
-# CENG 355 Project Name
+# Phytoplankton Air Systems
 Title Page (1st odd page not numbered, X.0 sections begin on odd pages, otherwise double sided and numbered)  
 ## Declaration of Joint Authorship   
 Insert here.[^1]
@@ -6,7 +6,7 @@ Insert here.[^1]
 ## Proposal/Project Specifications   
 [Link to proposal](wk01proposal.md).   
 ## Executive Summary   
-Insert from proposal.     
+A smart and eco-friendly air purification system that uses phytoplankton to naturally convert CO₂ into oxygen. The system connects with an Android app for real-time monitoring, automated alerts, and sustainability-focused feedback.    
 
 ## Table of Contents
 
