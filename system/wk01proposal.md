@@ -110,7 +110,7 @@ Creation of a Prototype that is not to be left powered unattended. Keeping safet
 ####  Design approach:
 ```mermaid
 flowchart LR;RaspberryPi<-->Firebase;Firebase<-->Android;
-RaspberryPi<-.->Bluetooth;Bluetooth<-.->Android;Arduino<-->RaspberryPi;Arduino--->Stepper; LoadCellHX711--->RaspberryPi; RaspberryPi--->240x320LCD;RaspberryPi--->Relay;Relay--->Solenoid;
+RaspberryPi<-->Android; Light+CO2+Turbidity+ProximitySensors--->RaspberryPi; RaspberryPi--->8x8SenseHatDisplay;
 ```
 ####  Mandate: 
 Self funded (unless a sponsor has contractually agreed to contribute).
