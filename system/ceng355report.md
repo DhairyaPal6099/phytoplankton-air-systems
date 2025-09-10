@@ -1,7 +1,36 @@
 # Phytoplankton Air Systems
 Title Page (1st odd page not numbered, X.0 sections begin on odd pages, otherwise double sided and numbered)  
 ## Declaration of Joint Authorship   
-Insert here.[^1]
+[^1]
+
+I, Dhairya Pal, confirm that this breakdown of authorship represents my
+contribution to the work submitted for assessment and my contribution is my own work and
+is expressed in my own words. Any uses made within the Technology Report of the works of
+any other author, separate to the work group, in any form (ideas, equations, figures, texts,
+tables, programs), are properly acknowledged at the point of use. A list of the references
+used is included.
+
+I, Dharmik Shah, confirm that this breakdown of authorship represents my
+contribution to the work submitted for assessment and my contribution is my own work and
+is expressed in my own words. Any uses made within the Technology Report of the works of
+any other author, separate to the work group, in any form (ideas, equations, figures, texts,
+tables, programs), are properly acknowledged at the point of use. A list of the references
+used is included.
+
+I, Julian Aldrich Imperial, confirm that this breakdown of authorship represents my
+contribution to the work submitted for assessment and my contribution is my own work and
+is expressed in my own words. Any uses made within the Technology Report of the works of
+any other author, separate to the work group, in any form (ideas, equations, figures, texts,
+tables, programs), are properly acknowledged at the point of use. A list of the references
+used is included.
+
+I, Sanskriti Mansotra, confirm that this breakdown of authorship represents my
+contribution to the work submitted for assessment and my contribution is my own work and
+is expressed in my own words. Any uses made within the Technology Report of the works of
+any other author, separate to the work group, in any form (ideas, equations, figures, texts,
+tables, programs), are properly acknowledged at the point of use. A list of the references
+used is included.
+
 [^1]: Technology Report Guidelines. OACETT, Revised September 2022. Available at: https://www.oacett.org/getmedia/5ad707d7-f472-4b24-a7fe-f34e270b0c41/2022_TR_Guidelines_-_Updated_Version_-_Sept_2022.pdf
 ## Proposal/Project Specifications   
 [Link to proposal](wk01proposal.md).   
