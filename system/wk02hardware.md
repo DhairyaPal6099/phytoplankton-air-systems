@@ -1,6 +1,6 @@
 # Hardware Status Update (Student A)
 ## Recent and current progress
-Student A writes here
+Dhairya Pal
 ## Problems and hyperlinks/urls to potential solutions
 Student A writes here
 ## Financial
@@ -11,33 +11,33 @@ Student A writes here
 
 # Hardware Status Update (Student B)
 ## Recent and current progress
-Student A writes here
+Sanskriti Mansotra
 ## Problems and hyperlinks/urls to potential solutions
-Student A writes here
+Student B writes here
 ## Financial
 ### Expenditures since previous report
-Student A writes here
+Student B writes here
 ### Planned future expenses
-Student A writes here
+Student B writes here
 
 # Hardware Status Update (Student C)
 ## Recent and current progress
-Student A writes here
+Dharmik Shah
 ## Problems and hyperlinks/urls to potential solutions
-Student A writes here
+Student C writes here
 ## Financial
 ### Expenditures since previous report
-Student A writes here
+Student C writes here
 ### Planned future expenses
-Student A writes here
+Student C writes here
 
 # Hardware Status Update (Student D)
 ## Recent and current progress
-Student A writes here
+Julian Imperial 
 ## Problems and hyperlinks/urls to potential solutions
-Student A writes here
+Student D writes here
 ## Financial
 ### Expenditures since previous report
-Student A writes here
+Student D writes here
 ### Planned future expenses
-Student A writes here
+Student D writes here
