@@ -90,8 +90,10 @@ A smart and eco-friendly air purification system that uses phytoplankton to natu
 ### 1.1 Background   
 ### 1.2 Project Requirements and Specifications   
 ### 1.3 Project Schedule   
-Insert Gantt Chart.     
-###### Figure 1: Gantt Chart     
+    
+###### Figure 1: Gantt Chart  
+![Gantt Chart](https://github.com/user-attachments/assets/c138356e-6b16-4434-bcb2-14d2db0d9012)
+![Gantt Chart 1](https://github.com/user-attachments/assets/340ee00f-1d20-47cf-b968-cf50232dc089)
 
 ## 2.0 Hardware Development Platform Report/Build Instructions   
 ### 2.1 Dhairya Pal
