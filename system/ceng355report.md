@@ -22,10 +22,10 @@ A smart and eco-friendly air purification system that uses phytoplankton to natu
 [1.3 Project Schedule](#13-project-schedule)   
 
 [2.0 Hardware Development Platform Report/Build Instructions](#20-hardware-development-platform-reportbuild-instructions)  
-[2.1 Student One/A](#21-student-onea)  
-[2.2 Student Two/B](#22-student-twob)  
-[2.3 Student Three/C](#23-student-threec)  
-[2.4 Student Four/D](#24-student-fourd)  
+[2.1 Dhairya Pal](#21-dhairya-pal)  
+[2.2 Sanskriti Mansotra](#22-sanskriti-mansotra)  
+[2.3 Dharmik Shah](#23-dharmik-shah)  
+[2.4 Julian Aldrich Imperial](#24-julian-aldrich-imperial)  
 
 [3.0 Mobile Application Report](#30-mobile-application-report)  
 [3.1 Deliverable 1](#31-deliverable-1)  
@@ -65,14 +65,14 @@ Insert Gantt Chart.
 ###### Figure 1: Gantt Chart     
 
 ## 2.0 Hardware Development Platform Report/Build Instructions   
-### 2.1 Student One/A
-[Hardware report](hardware/1a.md)   
-### 2.2 Student Two/B   
-[Hardware report](hardware/2b.md)   
-### 2.3 Student Three/C   
-[Hardware report](hardware/3c.md)   
-### 2.4 Student Four/D   
-[Hardware report](hardware/4d.md)   
+### 2.1 Dhairya Pal
+[Hardware report](../hardware/Dhairya%20Pal%20-%20Hardware%20Report%20-%20Build%20Instruction.pdf)   
+### 2.2 Sanskriti Mansotra  
+[Hardware report](../hardware/Hardware%20Report%20-%20Build%20Instruction%20Template.docx)   
+### 2.3 Dharmik Shah  
+[Hardware report](../hardware/Dharmik%20Shah%20-%20Hardware%20Report%20-%20Build%20Instruction.pdf)   
+### 2.4 Julian Aldrich Imperial  
+[Hardware report](../hardware/Julian_Imperial%20Hardware%20Report%20-%20SEN0189.pdf)   
   
 ## 3.0 Mobile Application Report   
 ### 3.1 Deliverable 1
