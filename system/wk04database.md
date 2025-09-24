@@ -1,10 +1,11 @@
 # Database Status Update
 ## Recent and current progress
-Student C writes here
+Recent Progress: Firebase - Authentication (For Login data of users), Real-time Database (For Sensor Data), Firestore are currently being used.
+Current Progress: Same to recent progress, just have to add other Real-time Data from the other Sensors. 
 ## Problems and hyperlinks/urls to potential solutions
-Student C writes here
+There are no problems with our Firebase DB. 
 ## Financial
 ### Expenditures since previous report
-Student C writes here
+None since previous report 
 ### Planned future expenses
-Student C writes here
+None at the moment. 
