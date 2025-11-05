@@ -14,6 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import java.util.*;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.AchievementManager;
@@ -50,7 +53,14 @@ public class AchievementsFragment extends Fragment {
         sensorManager.getSensorLiveData().observe(getViewLifecycleOwner(), data -> {
             if (data != null) {
                 achievementManager.evaluateCo2Achievements();
-                checkAlgaeAchievements(data.getAlgaeHealth(), new Date(data.gettimestamp()));
+                // checkAlgaeAchievements(data.getAlgaeHealth(), new Date(data.gettimestamp()));
+                try {
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                    Date timestamp = sdf.parse(data.gettimestamp());
+                    checkAlgaeAchievements(data.getAlgaeHealth(), timestamp);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

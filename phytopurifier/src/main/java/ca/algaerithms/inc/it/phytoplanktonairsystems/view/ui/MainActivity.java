@@ -52,6 +52,7 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.ShareDashboard;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.CO2Updater;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.DailyNotificationWorker;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.ActivityMainBinding;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.model.NotificationManagerPhytopurifier;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.serviceTicket.RequestServiceBottomSheet;
 
 public class MainActivity extends AppCompatActivity {
@@ -78,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
         controller = new MainController(this);
+
+        /***********************************/
+        NotificationManagerPhytopurifier.getInstance(this).sendNotification("Test Notification", "This is a manual test", "TEST");
+        /***********************************/
 
         // Orientation lock based on user preference
         if (getSharedPreferences(getString(R.string.settings_lowercase), MODE_PRIVATE)

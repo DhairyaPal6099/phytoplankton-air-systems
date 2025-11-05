@@ -18,7 +18,7 @@ public class SensorData {
     private double co2_converted;
     private double waterLevel;
     private double turbidity;
-    private long timestamp;
+    private String timestamp;
 
     private boolean proximity;
 
@@ -41,8 +41,8 @@ public class SensorData {
     public double getTemperature() { return temperature; }
     public void setTemperature(double temperature) { this.temperature = temperature; }
 
-    public long gettimestamp() { return timestamp; }
-    public void settimestamp(long timestamp) { this.timestamp = timestamp; }
+    public String gettimestamp() { return timestamp; }
+    public void settimestamp(String timestamp) { this.timestamp = timestamp; }
 
     // --- Added Getters/Setters ---
     public double getAlgaeHealth() { return algaeHealth; }
