@@ -32,7 +32,7 @@ Be careful of spelling, punctuation and grammar. You are trying to impress your 
 /1 Mobile and Integration   
 - Unit testing -> consider testing each component separately.
 - Production testing -> consider what you would test if a thousand came off an assembly line before sending them to customers.
-- Sustainability -> consider where products are coming from, how they'll be used, end of product life and what materials they project contains along with indigenous values.
+- Sustainability -> consider where products are coming from, how they'll be used, end of product life and what materials the project contains along with indigenous values.
 
 ## Next Class - Enclosure grading
 /1 Safety/Hardware present?   
