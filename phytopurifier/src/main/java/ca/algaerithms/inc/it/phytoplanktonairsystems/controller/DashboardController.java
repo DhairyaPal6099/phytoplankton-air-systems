@@ -4,7 +4,6 @@ import androidx.lifecycle.LifecycleOwner;
 
 import com.google.firebase.database.DatabaseError;
 
-import ca.algaerithms.inc.it.phytoplanktonairsystems.model.AqiCalculator;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.SensorData;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.SensorDataManager;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.dashboard.DashboardView;
@@ -24,7 +23,7 @@ public class DashboardController {
 
         sensorDataManager.getSensorLiveData().observe(lifecycleOwner, data -> {
             if (data != null) {
-                int aqi = AqiCalculator.calculateAqi(data);
+                int aqi = SensorData.calculateAqi(data.getCo2_converted(), data.getTemperature(), data.getHumidity());
                 view.showAqi(aqi);
                 view.showLight(data.getLight());
                 view.showTurbidity(data.getTurbidity());

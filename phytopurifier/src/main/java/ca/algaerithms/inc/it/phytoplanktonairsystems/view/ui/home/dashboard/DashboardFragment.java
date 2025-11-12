@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.DashboardController;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.model.SensorData;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.utils.NetworkUtils;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.MainActivity;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.NotificationManagerPhytopurifier;
@@ -81,7 +82,7 @@ public class DashboardFragment extends Fragment implements DashboardView{
         public void onDataFetched(ca.algaerithms.inc.it.phytoplanktonairsystems.model.SensorData data) {
             if (data != null) {
                 // AQI
-                int aqi = data.calculateAqi();
+                int aqi = SensorData.calculateAqi(data.getCo2_converted(), data.getTemperature(), data.getHumidity());
                 showAqi(aqi);
 
                 // Light

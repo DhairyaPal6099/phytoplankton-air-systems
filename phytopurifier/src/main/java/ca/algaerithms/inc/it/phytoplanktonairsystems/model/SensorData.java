@@ -59,18 +59,19 @@ public class SensorData {
     public void setTurbidity(double turbidity) { this.turbidity = turbidity; }
 
     // --- AQI Calculator Logic ---
-    public int calculateAqi() {
-        double score = 0.0;
-        if (co2 > 1000) score += 50;
-        else if (co2 > 800) score += 40;
-        else score += 20;
+    public static int calculateAqi(double co2, double temperature, double humidity) {
+        int aqi = 0;
 
-        if (humidity < 30 || humidity > 60) score += 30;
-        else score += 10;
+        if (co2 <= 600) aqi += 0;
+        else if (co2 <= 1000) aqi += 50;
+        else aqi += 100;
 
-        if (temperature < 18 || temperature > 26) score += 20;
-        else score += 10;
+        if (temperature >= 18 && temperature <= 25) aqi += 0;
+        else aqi += 25;
 
-        return (int) Math.min(score, 100);
+        if (humidity >= 30 && humidity <= 60) aqi += 0;
+        else aqi += 25;
+
+        return Math.min(aqi, 500);
     }
 }
