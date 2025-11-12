@@ -128,7 +128,11 @@ The system uses Firebase Realtime Database to store and manage sensor readings. 
 The system operates on a secure Wi-Fi network and connects to Firebase through the official Firebase SDK, which manages secure communication automatically using encrypted HTTPS requests. User authentication is handled through the FIrebase Authentication service, ensuring that only registered and verified users can access the database. Database rules restrict read and write operations to authorized users and devices. Network stability is tested to confirm consistent data transmission without interruptions or interference. Exception handling is also in place in case of poor network stability, so no data gets corrupted. Since the sensor data trasmission is within every 1-2 seconds, the most simple network instability fix that is implemented is forgetting about the half-read or lost data and continue with the new fetch. Other exception handling is also in place, for example cases where there is no change in the data (due to network instability or other reasons). This setup ensures secure and reliable data flow throughout the system.
 
 ### 4.4 Unit Testing   
+Each sensor is tested individually to verify proper operation before full system integration. Carbon dioxide, proximity, turbidity, and light sensors are read repeatedly to confirm that the values are consistent and within expected ranges. The data update function is checked by pushing test values to Firebase and confirming that the database reflects the correct readings. The Android application is also tested to ensure it correctly displays the sensor data when updates occue. Unit testing helps identify and resolve issues early, ensuring reliable performance when the system runs continuously.
+
 ### 4.5 Production Testing   
+
+
 ### 4.6 Sustainability Considerations
 ### 4.7 Challenges/Problems   
 ### 4.8 Solutions   
