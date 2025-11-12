@@ -16,7 +16,7 @@ in approximately 75 to 100 words?
 
 *The Executive Summary succinctly explains the project’s concept (phytoplankton-powered purification, IoT monitoring, and Android integration) within the required range.*
 
-- [X] 3. Does the Abstract or Executive Summary summarize the Conclusion(s), and if
+- [ ] 3. Does the Abstract or Executive Summary summarize the Conclusion(s), and if
 applicable, the Recommendation(s)?
 
 *The executive summary summarizes what the system does but does not clearly restate the conclusions or recommendations. It focuses more on describing the system.*
@@ -49,12 +49,12 @@ All major sections are numbered and clearly labeled (Introduction, Circuit Board
 
 *The situation with the Body of our report is: Results are shown through screenshots of the app displaying sensor data like CO₂, turbidity, and light intensity. Qualitative testing results are discussed.*
 
-- [X] 10. Are illustrations, tables, diagrams and charts clearly drawn, labelled and
+- [ ] 10. Are illustrations, tables, diagrams and charts clearly drawn, labelled and
 Numbered?
 
 *Figures (PCB schematic, Firebase screenshot, app screens) are present and labeled, but not formally numbered (e.g., “Figure 1”). Some captions are missing*
 
-- [X] 11. Is each Conclusion, and if applicable, each Recommendation, stated in a
+- [ ] 11. Is each Conclusion, and if applicable, each Recommendation, stated in a
 separate paragraph and in a positive way?
 
 *The situation with our Conclusion is : There is a brief testing summary but not a separate, well-defined conclusions section. No formal recommendations are stated.*
