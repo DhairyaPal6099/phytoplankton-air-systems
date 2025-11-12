@@ -4,14 +4,11 @@
    Dharmik Shah – N01581796 */
 package ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.dashboard;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -21,25 +18,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.ToggleButton;
-
-import com.google.firebase.database.DatabaseError;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.R;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.controller.DashboardController;
-import ca.algaerithms.inc.it.phytoplanktonairsystems.databinding.FragmentDashboardBinding;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.utils.NetworkUtils;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.MainActivity;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.NotificationManagerPhytopurifier;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.NotificationModel;
-import ca.algaerithms.inc.it.phytoplanktonairsystems.model.SensorData;
-import ca.algaerithms.inc.it.phytoplanktonairsystems.model.SensorDataManager;
-import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.supportActionBarFragments.NotificationsFragment;
-
 
 public class DashboardFragment extends Fragment implements DashboardView{
 
-    private TextView aqiTextView, notifHeading, notifText, lightTextView, proximityTextView, turbidityTextView, waterTextView;
+    private TextView aqiTextView, notifHeading, notifText, lightTextView, proximityTextView, turbidityTextView;
     private ProgressBar progressBar;
     CardView notifCard;
     private DashboardController controller;
@@ -58,7 +47,6 @@ public class DashboardFragment extends Fragment implements DashboardView{
         lightTextView = view.findViewById(R.id.text_light_value);
         proximityTextView = view.findViewById(R.id.text_proximity_value);
         turbidityTextView = view.findViewById(R.id.text_turbidity_value);
-        waterTextView = view.findViewById(R.id.text_waterLevel_value);
 
         // Set up notifications card
         NotificationManagerPhytopurifier.getInstance(getContext())
@@ -79,7 +67,7 @@ public class DashboardFragment extends Fragment implements DashboardView{
                 });
 
         // Live update AQI via controller
-        controller = new DashboardController(this, (LifecycleOwner) getViewLifecycleOwner());
+        controller = new DashboardController(this, getViewLifecycleOwner());
         controller.startListeningToSensorData();
         return view;
     }
