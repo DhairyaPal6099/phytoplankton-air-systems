@@ -519,6 +519,7 @@ We may update this Privacy Policy as needed. All changes will be reflected withi
     <string name="proximity">Proximity</string>
     <string name="light">Light</string>
     <string name="turbidity">Turbidity</string>
+    <string name="carbon_dioxide">Carbon Dioxide</string>
 
 
 </resources>
