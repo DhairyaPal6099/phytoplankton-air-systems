@@ -8,22 +8,27 @@ representative of the formatting standards of the industry. Here is a simple foo
 
 - [X] 1. Does the Title, in ten words or less, inform readers of the precise subject matter
 contained in the TR?
+
 *The title “Phytoplankton Air Systems” clearly conveys the project’s subject matter—an IoT-based air purification system that merges biological and digital innovation—in fewer than ten words.*
 
 - [X] 2. Does the Abstract or Executive Summary provide a brief overview of the report
 in approximately 75 to 100 words?
+
 *The Executive Summary succinctly explains the project’s concept (phytoplankton-powered purification, IoT monitoring, and Android integration) within the required range.*
 
 - [X] 3. Does the Abstract or Executive Summary summarize the Conclusion(s), and if
 applicable, the Recommendation(s)?
+
 *The executive summary summarizes what the system does but does not clearly restate the conclusions or recommendations. It focuses more on describing the system.*
 
 - [X] 4. Does the Introduction state the reason the work was undertaken? What is the
 industry, organization or context? What is the problem?
+
 *The introduction clearly states the purpose (building an IoT-based, biologically inspired air purification system) and provides context around air quality, sustainability, and innovation.*
 
 - [X] 5. Does the Introduction cover the scope of the report? What is included and /or
 admitted, and what procedures are used?
+
 *The introduction defines what the project includes: sensor integration, Raspberry Pi setup, wireless data collection, and Android app visualization. It does not mention what is excluded, but the scope of work is clear.*
 
 - [X] 6. Do the headings and subheadings in the Body adequately and accurately
