@@ -119,6 +119,8 @@ A smart and eco-friendly air purification system that uses phytoplankton to natu
 
 ## 4.0 Integration   
 ### 4.1 Enterprise Wireless Connectivity   
+The system uses Wi-Fi through a Raspberry Pi to send real-time sensor data to the cloud. The connection is set up using the Firebase Software Development Kit (SDK) provided by Firebase, which allows the device to write data directly to a Realtime Database through a Python script. A service key file is used for authentication so that only authorized devices can connect and update the database. Once connected, the Raspberry Pi continuously uploads data from all sensors at regular intervals. Each update includes readings for carbon dioxide, proximity, turbidity, and light intensity, along with a timestamp. THe use of Wi-Fi and cloud connectivity ensures that data is transmitted securely and can be accessed from anywhere through the linked application.
+
 ### 4.2 Database Configuration   
 ### 4.3 Network and Security Considerations   
 ### 4.4 Unit Testing   
