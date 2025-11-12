@@ -140,7 +140,7 @@ The main sustainability impact of the system comes from the phytoplankton, which
 Maintaining a stable Wi=Fi connection can be challenging in areaas with weak signal strength. Sensor readings may fluctuate slightly due to environmental vairations, which can affect accuracy. Designing and assembling the custom PCB requires careful attention to ensure proper connections and prevent interference between sensors. Coordinating consistent data formatting between the Raspberry Pi, Firebase database, and the connected applicatoin is critical to prevent errors in data display or storage. Finally, integrating multiple sensors with different interfaces on a single system requires careful handling to ensure reliable operation.
 
 ### 4.8 Solutions   
-
+Network stability is improved by testing the Wi-Fi connection and placing the Raspberry Pi in areas with reliable signal strength. Sensor calibration is verified through repeated readings and comparision with expected ranges to ensure accuracy. The custom PCB is carefully designed and assembled to provide proper connections and minimize interference. Data consistency is maintained by standardizing the format of all readings before uploading to Firebase, ensuring the connected application displays information correctly. Coordinating the integration of multiple sensors and the Raspberry Pi through careful testing and documentation ensures reliable and continuous operation of the system.
 
 ## 5.0 Results and Discussion   
 
