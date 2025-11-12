@@ -131,7 +131,7 @@ The system operates on a secure Wi-Fi network and connects to Firebase through t
 Each sensor is tested individually to verify proper operation before full system integration. Carbon dioxide, proximity, turbidity, and light sensors are read repeatedly to confirm that the values are consistent and within expected ranges. The data update function is checked by pushing test values to Firebase and confirming that the database reflects the correct readings. The Android application is also tested to ensure it correctly displays the sensor data when updates occue. Unit testing helps identify and resolve issues early, ensuring reliable performance when the system runs continuously.
 
 ### 4.5 Production Testing   
-
+The full system is tested under continuous operation to verify stability and reliability. The Raspberry Pi collects data from all sensors and updates the Firebase database at regular intervals. Tests monitor the consistency of readings, database updates, and the synchronization with the connected application. The system is observed for network interruptions, sensor performance, and overall data accuracy during extended operation. Production testing confirms that the system functions reliably in a real-world environment and maintains consistent data flow.
 
 ### 4.6 Sustainability Considerations
 ### 4.7 Challenges/Problems   
