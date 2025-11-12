@@ -16,7 +16,6 @@ public class SensorData {
     private double algaeHealth;
     private double light;
     private double co2_converted;
-    private double waterLevel;
     private double turbidity;
     private String timestamp;
 
@@ -56,10 +55,6 @@ public class SensorData {
 
     public double getCo2_converted() { return co2_converted; }
     public void setCo2_converted(double co2_converted) { this.co2_converted = co2_converted; }
-
-    public double getWaterLevel() { return waterLevel; }
-    public void setWaterLevel(double waterLevel) { this.waterLevel = waterLevel; }
-
     public double getTurbidity() { return turbidity; }
     public void setTurbidity(double turbidity) { this.turbidity = turbidity; }
 
