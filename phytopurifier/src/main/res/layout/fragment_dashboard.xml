@@ -293,7 +293,7 @@
                     app:cardElevation="4dp">
 
                     <TextView
-                        android:id="@+id/text_waterLevel_value"
+                        android:id="@+id/text_carbondioxide_value"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"

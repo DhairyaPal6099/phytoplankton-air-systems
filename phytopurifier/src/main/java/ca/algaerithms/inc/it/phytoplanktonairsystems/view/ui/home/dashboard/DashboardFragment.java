@@ -28,7 +28,7 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.model.NotificationModel;
 
 public class DashboardFragment extends Fragment implements DashboardView{
 
-    private TextView aqiTextView, notifHeading, notifText, lightTextView, proximityTextView, turbidityTextView;
+    private TextView aqiTextView, notifHeading, notifText, lightTextView, proximityTextView, turbidityTextView, carbonDiOxideTextView;
     private ProgressBar progressBar;
     CardView notifCard;
     private DashboardController controller;
@@ -47,6 +47,7 @@ public class DashboardFragment extends Fragment implements DashboardView{
         lightTextView = view.findViewById(R.id.text_light_value);
         proximityTextView = view.findViewById(R.id.text_proximity_value);
         turbidityTextView = view.findViewById(R.id.text_turbidity_value);
+        carbonDiOxideTextView = view.findViewById(R.id.text_carbondioxide_value);
 
         // Set up notifications card
         NotificationManagerPhytopurifier.getInstance(getContext())
@@ -92,7 +93,8 @@ public class DashboardFragment extends Fragment implements DashboardView{
                 // Proximity
                 showProximity(data.isProximity());
 
-                // Add Water Level here
+                // Carbon Dioxide
+                showCarbonDiOxide(data.getCo2());
 
             } else {
                 showError(getString(R.string.no_sensor_data_available));
@@ -125,6 +127,11 @@ public class DashboardFragment extends Fragment implements DashboardView{
     @Override
     public void showProximity(boolean proximity) {
         proximityTextView.setText(proximity ? "Motion Detected" : "No Motion");
+    }
+
+    @Override
+    public void showCarbonDiOxide(double co2) {
+        carbonDiOxideTextView.setText(String.format("%.1f lx", co2));
     }
 
     @Override

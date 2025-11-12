@@ -6,5 +6,7 @@ public interface DashboardView {
     void showTurbidity(double turbidity);
     void showProximity(boolean proximity);
 
+    void showCarbonDiOxide(double co2);
+
     void showError(String message);
 }
