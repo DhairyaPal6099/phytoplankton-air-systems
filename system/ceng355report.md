@@ -134,6 +134,8 @@ Each sensor is tested individually to verify proper operation before full system
 The full system is tested under continuous operation to verify stability and reliability. The Raspberry Pi collects data from all sensors and updates the Firebase database at regular intervals. Tests monitor the consistency of readings, database updates, and the synchronization with the connected application. The system is observed for network interruptions, sensor performance, and overall data accuracy during extended operation. Production testing confirms that the system functions reliably in a real-world environment and maintains consistent data flow.
 
 ### 4.6 Sustainability Considerations
+The main sustainability impact of the system comes from the phytoplankton, which convert carbon dioxide into oxygen, contributing to improved air quality. The enclosure is laser-cut from acrylic, providing a durable housing for the system; while not biodegradable, it is strong and long-lasting. The enclosures for production, if manufactured at a large scale could use biodegradable material. The custom PCB simplifies the connection of all sensors to the Raspberry Pi, reductin wiring complexity and material use compared to a setup with separate modules and breadboards. The system is designed for continuous operation, supporting long-term monitoring and carbon dioxide conversion without excessive maintenance.
+
 ### 4.7 Challenges/Problems   
 ### 4.8 Solutions   
 
