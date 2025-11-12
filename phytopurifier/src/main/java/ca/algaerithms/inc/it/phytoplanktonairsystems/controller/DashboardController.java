@@ -29,6 +29,7 @@ public class DashboardController {
                 view.showLight(data.getLight());
                 view.showTurbidity(data.getTurbidity());
                 view.showProximity(data.isProximity());
+                view.showCarbonDiOxide(data.getCo2_converted());
             } else {
                 view.showError("No sensor data available");
             }

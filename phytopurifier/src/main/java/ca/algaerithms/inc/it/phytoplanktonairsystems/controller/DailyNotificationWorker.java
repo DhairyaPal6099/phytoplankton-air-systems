@@ -59,12 +59,6 @@ public class DailyNotificationWorker extends ListenableWorker {
                                     "ALERT");
                         }
 
-                        if (data.getWaterLevel() < 30) {
-                            notifier.sendNotification("Water Refill Needed 💧",
-                                    "Water level is below 30%. Please refill the tank.",
-                                    "WATER");
-                        }
-
                         notifier.sendNotification("Daily Algae Status 🌿",
                                 (data.getAlgaeHealth() >= 85.0 && data.getTurbidity() <= 150.0)
                                         ? "Your algae is thriving today! Keep it up. 🌱"

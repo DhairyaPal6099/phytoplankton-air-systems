@@ -94,7 +94,7 @@ public class DashboardFragment extends Fragment implements DashboardView{
                 showProximity(data.isProximity());
 
                 // Carbon Dioxide
-                showCarbonDiOxide(data.getCo2());
+                showCarbonDiOxide(data.getCo2_converted());
 
             } else {
                 showError(getString(R.string.no_sensor_data_available));
@@ -131,7 +131,7 @@ public class DashboardFragment extends Fragment implements DashboardView{
 
     @Override
     public void showCarbonDiOxide(double co2) {
-        carbonDiOxideTextView.setText(String.format("%.1f lx", co2));
+        carbonDiOxideTextView.setText(String.format("%.2f kg", co2));
     }
 
     @Override
