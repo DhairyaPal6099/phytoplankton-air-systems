@@ -10,7 +10,7 @@
 - First opportunity to present.   
 
 ## wk11troubleshooting.md due the night before your class
-For the hardware portion of your project recall [hardware/troubleshooting.md](hardware/troubleshooting.md) and [hardware/pcb/inspection.md](hardware/pcb/inspection.md)   
+For the hardware portion of your project recall [/hardware/troubleshooting.md](/hardware/troubleshooting.md) and [/hardware/pcb/inspection.md](/hardware/pcb/inspection.md)   
 Please update your project proposals should [https://github.com/PrototypeZone/ceng317/blob/main/hardware/troubleshooting.c](https://github.com/PrototypeZone/ceng317/blob/main/hardware/troubleshooting.c) provide updated values.   
 Create wk11troubleshooting.md with a Problems heading and a Solutions heading.   
 /1 Present in person in a safe manner for the duration of the class: glasses, no food/drink, etc.   
