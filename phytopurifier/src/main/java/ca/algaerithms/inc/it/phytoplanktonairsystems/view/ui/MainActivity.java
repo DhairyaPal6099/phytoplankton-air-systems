@@ -80,10 +80,6 @@ public class MainActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         controller = new MainController(this);
 
-        /***********************************/
-        NotificationManagerPhytopurifier.getInstance(this).sendNotification("Test Notification", "This is a manual test", "TEST");
-        /***********************************/
-
         // Orientation lock based on user preference
         if (getSharedPreferences(getString(R.string.settings_lowercase), MODE_PRIVATE)
                 .getBoolean(getString(R.string.lockportrait), false)) {

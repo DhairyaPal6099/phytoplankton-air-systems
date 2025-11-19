@@ -34,7 +34,7 @@ public class DailyNotificationWorker extends ListenableWorker {
         return CallbackToFutureAdapter.getFuture(completer -> {
             boolean onlyWeeklyStat = getInputData().getBoolean("weekly_only", false);
 
-            SensorDataManager.getInstance().getSensorLatestData(new SensorDataManager.SensorDataCallback() {
+            SensorDataManager.getInstance(getApplicationContext()).getSensorLatestData(new SensorDataManager.SensorDataCallback() {
                 @Override
                 public void onDataFetched(SensorData data) {
                     if (data != null) {

@@ -5,10 +5,7 @@
 
 package ca.algaerithms.inc.it.phytoplanktonairsystems.model;
 
-import java.util.Date;
-
 public class SensorData {
-    private double co2;
     private double humidity;
     private double temperature;
 
@@ -25,14 +22,10 @@ public class SensorData {
     public SensorData() {}
 
     public SensorData(double co2, double humidity, double temperature) {
-        this.co2 = co2;
+        this.co2_converted = co2;
         this.humidity = humidity;
         this.temperature = temperature;
     }
-
-    // --- Existing Getters/Setters ---
-    public double getCo2() { return co2; }
-    public void setCo2(double co2) { this.co2 = co2; }
 
     public double getHumidity() { return humidity; }
     public void setHumidity(double humidity) { this.humidity = humidity; }

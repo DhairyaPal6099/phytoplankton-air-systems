@@ -5,6 +5,7 @@
 
 package ca.algaerithms.inc.it.phytoplanktonairsystems.model;
 
+import android.content.Context;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class SensorDataManager {
+    private Context context;
     private static SensorDataManager instance;
     private final DatabaseReference databaseRef;
     private ValueEventListener liveSensorListener;
@@ -25,13 +27,14 @@ public class SensorDataManager {
     private final MutableLiveData<SensorData> sensorLiveData = new MutableLiveData<>();
 
 
-    private SensorDataManager() {
+    private SensorDataManager(Context context) {
+        this.context = context.getApplicationContext();
         databaseRef = FirebaseDatabase.getInstance().getReference("device_001");
     }
 
-    public static SensorDataManager getInstance() {
+    public static SensorDataManager getInstance(Context ctx) {
         if (instance == null) {
-            instance = new SensorDataManager();
+            instance = new SensorDataManager(ctx);
         }
         return instance;
     }
@@ -81,6 +84,8 @@ public class SensorDataManager {
                     if (data != null) {
                         sensorLiveData.postValue(data);
                         callback.onDataFetched(data);
+
+                        checkThresholdAndNotify(data);
                     }
                 } else {
                     callback.onDataFetched(null);
@@ -105,5 +110,30 @@ public class SensorDataManager {
 
     public LiveData<SensorData> getSensorLiveData() {
         return sensorLiveData;
+    }
+
+    private void checkThresholdAndNotify(SensorData data) {
+        double light = data.getLight();
+        double turbidity = data.getTurbidity();
+
+        if (light < 1500) {
+            NotificationManagerPhytopurifier
+                    .getInstance(context)
+                    .sendNotification(
+                            "Low light warning",
+                            "Light is not enough to promote Oxygen synthesis: " + light + " lux",
+                            "LIGHT_LOW"
+                    );
+        }
+
+        if (turbidity < 1.00) {
+            NotificationManagerPhytopurifier
+                    .getInstance(context)
+                    .sendNotification(
+                            "High turbidity warning",
+                            "Algae solution is not clear. It may be dying.",
+                            "TURBIDITY_HIGH"
+                    );
+        }
     }
 }

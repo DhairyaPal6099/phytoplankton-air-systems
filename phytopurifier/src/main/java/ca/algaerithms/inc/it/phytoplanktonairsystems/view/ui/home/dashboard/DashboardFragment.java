@@ -69,7 +69,7 @@ public class DashboardFragment extends Fragment implements DashboardView{
                 });
 
         // Live update AQI via controller
-        controller = new DashboardController(this, getViewLifecycleOwner());
+        controller = new DashboardController(this, getContext(), getViewLifecycleOwner());
         controller.startListeningToSensorData();
         return view;
     }

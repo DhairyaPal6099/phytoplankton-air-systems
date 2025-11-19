@@ -1,25 +1,28 @@
 package ca.algaerithms.inc.it.phytoplanktonairsystems.controller;
 
+import android.content.Context;
+
 import androidx.lifecycle.LifecycleOwner;
 
 import com.google.firebase.database.DatabaseError;
 
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.SensorData;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.model.SensorDataManager;
+import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.MainActivity;
 import ca.algaerithms.inc.it.phytoplanktonairsystems.view.ui.home.dashboard.DashboardView;
 
 public class DashboardController {
     private final DashboardView view;
     private final SensorDataManager sensorDataManager;
 
-    public DashboardController(DashboardView view) {
+    public DashboardController(DashboardView view, Context context) {
         this.view = view;
-        this.sensorDataManager = SensorDataManager.getInstance();
+        this.sensorDataManager = SensorDataManager.getInstance(context);
     }
 
-    public DashboardController(DashboardView view, LifecycleOwner lifecycleOwner) {
+    public DashboardController(DashboardView view, Context context, LifecycleOwner lifecycleOwner) {
         this.view = view;
-        this.sensorDataManager = SensorDataManager.getInstance();
+        this.sensorDataManager = SensorDataManager.getInstance(context);
 
         sensorDataManager.getSensorLiveData().observe(lifecycleOwner, data -> {
             if (data != null) {

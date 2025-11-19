@@ -27,7 +27,7 @@ import ca.algaerithms.inc.it.phytoplanktonairsystems.view.adapter.AchievementAda
 
 public class AchievementsFragment extends Fragment {
 
-    private final SensorDataManager sensorManager = SensorDataManager.getInstance();
+    private final SensorDataManager sensorManager = SensorDataManager.getInstance(getContext());
     private final AchievementManager achievementManager = AchievementManager.getInstance();
     private AchievementAdapter adapter;
     private List<AchievementModel> achievementList = new ArrayList<>();
