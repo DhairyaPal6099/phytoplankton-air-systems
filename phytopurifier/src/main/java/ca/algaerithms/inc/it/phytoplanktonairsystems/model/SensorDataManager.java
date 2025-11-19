@@ -130,7 +130,7 @@ public class SensorDataManager {
             NotificationManagerPhytopurifier
                     .getInstance(context)
                     .sendNotification(
-                            "High turbidity warning",
+                            "Low turbidity warning",
                             "Algae solution is not clear. It may be dying.",
                             "TURBIDITY_HIGH"
                     );
