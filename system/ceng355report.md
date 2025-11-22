@@ -3,33 +3,13 @@ Title Page (1st odd page not numbered, X.0 sections begin on odd pages, otherwis
 ## Declaration of Joint Authorship   
 [^1]
 
-I, Dhairya Pal, confirm that this breakdown of authorship represents my
-contribution to the work submitted for assessment and my contribution is my own work and
-is expressed in my own words. Any uses made within the Technology Report of the works of
-any other author, separate to the work group, in any form (ideas, equations, figures, texts,
-tables, programs), are properly acknowledged at the point of use. A list of the references
-used is included.
+I, Dhairya Pal, confirm that the portion of this Technology Report attributed to me represents my own work and is expressed in my own words. I contributed to both the mobile application and the hardware development, including sensor integration, PCB assembly, wiring, and the physical enclosure. I also contributed with testing, debugging, and the integration of the software with the hardware to ensure the system operated reliably. Any material taken from other authors - including ideas, equations, figures, text, tables, or code - has been properly acknowledged and referenced.
 
-I, Dharmik Shah, confirm that this breakdown of authorship represents my
-contribution to the work submitted for assessment and my contribution is my own work and
-is expressed in my own words. Any uses made within the Technology Report of the works of
-any other author, separate to the work group, in any form (ideas, equations, figures, texts,
-tables, programs), are properly acknowledged at the point of use. A list of the references
-used is included.
+I, Dharmik Shah, confirm that the portion of this Technology Report attributed to me represents my own work and is expressed in my own words. I majorly contributed to the mobile application and cloud integration using Firebase, including real-time data syncing, database structure design, and communication between the hardware and the application. In addition, I assisted with hardware setup and troubleshooting to support seamless integration of the system. Any material taken from other authors has been properly acknowledged and referenced.
 
-I, Julian Aldrich Imperial, confirm that this breakdown of authorship represents my
-contribution to the work submitted for assessment and my contribution is my own work and
-is expressed in my own words. Any uses made within the Technology Report of the works of
-any other author, separate to the work group, in any form (ideas, equations, figures, texts,
-tables, programs), are properly acknowledged at the point of use. A list of the references
-used is included.
+I, Julian Aldrich Imperial, confirm that the portion of this Technology Report attributed to me represents my own work and is expressed in my own words. I contributed to the mobile application and assisted with hardware assembly, sensor testing, and system verification. I also helped document the hardware procedures and supported the integration of the sensors with the Raspberry Pi during testing. Any material taken from other authors has been properly acknowledged and referenced.
 
-I, Sanskriti Mansotra, confirm that this breakdown of authorship represents my
-contribution to the work submitted for assessment and my contribution is my own work and
-is expressed in my own words. Any uses made within the Technology Report of the works of
-any other author, separate to the work group, in any form (ideas, equations, figures, texts,
-tables, programs), are properly acknowledged at the point of use. A list of the references
-used is included.
+I, Sanskriti Mansotra, confirm that the portion of this Technology Report attributed to me represents my own work and is expressed in my own words. I contributed to the mobile application and background research and the preparation of written documentation, supporting the writing and review process to ensure clarity and completeness in the final report. Any material taken from other authors has been properly acknowledged and referenced.
 
 [^1]: Technology Report Guidelines. OACETT, Revised September 2022. Available at: https://www.oacett.org/getmedia/5ad707d7-f472-4b24-a7fe-f34e270b0c41/2022_TR_Guidelines_-_Updated_Version_-_Sept_2022.pdf
 ## Proposal/Project Specifications   
@@ -86,10 +66,37 @@ A smart and eco-friendly air purification system that uses phytoplankton to natu
 ## List of Figures   
 [Figure 1: Gantt Chart](#figure-1-gantt-chart)  
 
-## 1.0 Introduction   
-### 1.1 Background   
+## 1.0 Introduction  
+### 1.1 Background 
+Air quality has become a significant concern in urban and industrial environments due to rising levels of carbon dioxide (CO₂) and other pollutants. High CO₂ concentrations can affect human health, cognitive performance, and overall well-being. Traditional air purification methods often rely on chemical filters or energy-intensive processes, which can be costly and environmentally unsustainable.
+
+Phytoplankton, a type of microalgae, naturally convert CO₂ into oxygen through photosynthesis. This project leverages this biological process to develop a smart, eco-friendly air purification system. By integrating sensors, a Raspberry Pi, and a mobile application, the system monitors air quality in real-time, automates alerts, and provides sustainability-focused feedback to users. This approach combines biotechnology, electronics, and software to create an innovative solution for cleaner air.
+
 ### 1.2 Project Requirements and Specifications   
+The Phytoplankton Air System is designed to:
+- Monitor CO₂ levels, light intensity, turbidity, and proximity using multiple sensors.
+- Process and upload sensor data in real-time to a cloud database using a Raspberry Pi and Firebase.
+- Display data and system metrics through a connected Android mobile application.
+- Provide automated alerts and notifications when environmental thresholds are reached.
+- Track the total CO₂ converted by the phytoplankton and support user achievements to encourage sustainability.
+- Operate continuously with minimal maintenance, using a durable enclosure and energy-efficient components.
+
+This combination of hardware and software ensures that the system is both functional and user-friendly, while emphasizing sustainability and environmental impact.
+
 ### 1.3 Project Schedule   
+The project was executed over a 12-week period from May to July 2025, following an Agile Scrum timeline to ensure iterative development. As illustrated in Figure 1: Gantt Chart, the schedule was organized into four strategic phases:
+
+#### Initiation and System Design:
+The project began with the establishment of the software architecture and hardware requirements, specifically sensor selection and PCB schematic design. Concurrently, the team utilized Scrum tools to define user stories and set up the development environment.
+
+#### Frontend Architecture (Sprint 1):
+The initial development phase focused on the application's visual structure. The team prioritized the creation of the user interface layouts and navigation systems to establish the "look and feel" before integrating complex logic.
+
+#### Core Feature Integration (Sprint 3):
+Focus then shifted to backend functionality. This phase involved connecting the UI to the database, implementing user authentication, and enabling real-time data feedback loops within the application.
+
+#### Refinement and Quality Assurance:
+The final phase was dedicated to optimizing the software architecture (MVC implementation) and conducting comprehensive automated testing to ensure system stability prior to final deployment.
     
 ###### Figure 1: Gantt Chart  
 ![Gantt Chart](https://github.com/user-attachments/assets/c138356e-6b16-4434-bcb2-14d2db0d9012)
@@ -143,8 +150,24 @@ Maintaining a stable Wi=Fi connection can be challenging in areaas with weak sig
 Network stability is improved by testing the Wi-Fi connection and placing the Raspberry Pi in areas with reliable signal strength. Sensor calibration is verified through repeated readings and comparision with expected ranges to ensure accuracy. The custom PCB is carefully designed and assembled to provide proper connections and minimize interference. Data consistency is maintained by standardizing the format of all readings before uploading to Firebase, ensuring the connected application displays information correctly. Coordinating the integration of multiple sensors and the Raspberry Pi through careful testing and documentation ensures reliable and continuous operation of the system.
 
 ## 5.0 Results and Discussion   
+### 5.1 Hardware Results
+The hardware performed reliably during testing. All sensors, including CO₂, light, turbidity, and proximity, provided consistent and accurate readings. The Raspberry Pi successfully collected data from all sensors, and the custom PCB and wiring ensured stable connections. Calibration and sensor placement supported optimal performance throughout the testing process.
+
+### 5.2 Mobile Application and Cloud Integration Results
+The Android application displayed live sensor data effectively, with Firebase enabling real-time updates. User alerts and notifications were triggered accurately when environmental thresholds were reached, and achievement tracking successfully reflected CO₂ conversion progress. The app provided an intuitive and responsive interface for monitoring the system.
+
+### 5.3 System Integration Results
+Integration between hardware and software was seamless. The system operated continuously during testing, with sensor data accurately transmitted, stored in the cloud, and displayed on the application. The combined operation of the Raspberry Pi, sensors, and mobile app confirmed that the system met the intended functional objectives.
+
+### 5.4 Discussion
+Overall, the Phytoplankton Air System successfully achieved its project goals. The system effectively monitored environmental parameters in real-time, provided meaningful user feedback, and accurately measured CO₂ levels. The testing confirmed the reliability and efficiency of the system’s hardware, software, and cloud integration. Future development can build on this strong foundation to further enhance user experience and system capabilities.
 
 ## 6.0 Conclusions   
+The Phytoplankton Air System successfully demonstrated an innovative, eco-friendly approach to air purification. By combining phytoplankton-based CO₂ conversion with real-time sensor monitoring, cloud integration, and a responsive mobile application, the system provided reliable measurements and meaningful feedback to users.
+
+The project confirmed the feasibility of integrating hardware and software components into a cohesive system that operates efficiently and supports sustainability goals. Testing verified that the sensors, Raspberry Pi, and mobile application worked together seamlessly, and that the system could accurately track CO₂ levels and environmental parameters.
+
+Overall, the project met its objectives by delivering a functional, user-friendly, and environmentally focused air purification system. This work provides a strong foundation for future enhancements, including extended operation, advanced analytics, and expanded user engagement features.
 
 ## 7.0 Appendix
 ### 7.1 Firmware Code   
