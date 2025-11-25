@@ -144,7 +144,7 @@ The full system is tested under continuous operation to verify stability and rel
 The main sustainability impact of the system comes from the phytoplankton, which convert carbon dioxide into oxygen, contributing to improved air quality. The enclosure is laser-cut from acrylic, providing a durable housing for the system; while not biodegradable, it is strong and long-lasting. The enclosures for production, if manufactured at a large scale could use biodegradable material. The custom PCB simplifies the connection of all sensors to the Raspberry Pi, reductin wiring complexity and material use compared to a setup with separate modules and breadboards. The system is designed for continuous operation, supporting long-term monitoring and carbon dioxide conversion without excessive maintenance.
 
 ### 4.7 Challenges/Problems   
-Maintaining a stable Wi=Fi connection can be challenging in areaas with weak signal strength. Sensor readings may fluctuate slightly due to environmental vairations, which can affect accuracy. Designing and assembling the custom PCB requires careful attention to ensure proper connections and prevent interference between sensors. Coordinating consistent data formatting between the Raspberry Pi, Firebase database, and the connected applicatoin is critical to prevent errors in data display or storage. Finally, integrating multiple sensors with different interfaces on a single system requires careful handling to ensure reliable operation.
+Maintaining a stable Wi-Fi connection can be challenging in areas with weak signal strength. Sensor readings may fluctuate slightly due to environmental vairations, which can affect accuracy. Designing and assembling the custom PCB requires careful attention to ensure proper connections and prevent interference between sensors. Coordinating consistent data formatting between the Raspberry Pi, Firebase database, and the connected application is critical to prevent errors in data display or storage. Finally, integrating multiple sensors with different interfaces on a single system requires careful handling to ensure reliable operation.
 
 ### 4.8 Solutions   
 Network stability is improved by testing the Wi-Fi connection and placing the Raspberry Pi in areas with reliable signal strength. Sensor calibration is verified through repeated readings and comparision with expected ranges to ensure accuracy. The custom PCB is carefully designed and assembled to provide proper connections and minimize interference. Data consistency is maintained by standardizing the format of all readings before uploading to Firebase, ensuring the connected application displays information correctly. Coordinating the integration of multiple sensors and the Raspberry Pi through careful testing and documentation ensures reliable and continuous operation of the system.
@@ -171,8 +171,8 @@ Overall, the project met its objectives by delivering a functional, user-friendl
 
 ## 7.0 Appendix
 ### 7.1 Firmware Code   
-[Link to firmware](hardware/firmware).
+[Link to firmware](hardware/FinalScript.py).
 ### 7.2 Mobile Application Code   
-[Link to GitHub repository for app]()
+[Link to GitHub repository for app](https://github.com/Algaerithms-Inc/PhytoplanktonAirSystems.git)
 
 ## 8.0 References   
