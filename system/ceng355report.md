@@ -171,7 +171,7 @@ Overall, the project met its objectives by delivering a functional, user-friendl
 
 ## 7.0 Appendix
 ### 7.1 Firmware Code   
-[Link to firmware](hardware/FinalScript.py).
+[Link to firmware](../hardware/FinalScript.py).
 ### 7.2 Mobile Application Code   
 [Link to GitHub repository for app](https://github.com/Algaerithms-Inc/PhytoplanktonAirSystems.git)
 
