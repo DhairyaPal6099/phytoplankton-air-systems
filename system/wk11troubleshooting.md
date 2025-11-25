@@ -1,3 +1,4 @@
+## Troubleshooting
 ### Problems
 - We have not fully completed our project presentation slides, so we are not ready to present yet.
 - The “immediate notification” feature in the app is not working properly. Periodic Notifications are working fine, but when the sensor values reach a certain threshold, it is not sending an immediate or an urgent notification in the application.
