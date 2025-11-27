@@ -23,6 +23,8 @@ public class SensorDataManager {
     private static SensorDataManager instance;
     private final DatabaseReference databaseRef;
     private ValueEventListener liveSensorListener;
+    private boolean lightNotified = false;
+    private boolean turbidityNotified = false;
 
     private final MutableLiveData<SensorData> sensorLiveData = new MutableLiveData<>();
 
@@ -117,23 +119,33 @@ public class SensorDataManager {
         double turbidity = data.getTurbidity();
 
         if (light < 1500) {
-            NotificationManagerPhytopurifier
-                    .getInstance(context)
-                    .sendNotification(
-                            "Low light warning",
-                            "Light is not enough to promote Oxygen synthesis: " + light + " lux",
-                            "LIGHT_LOW"
-                    );
+            if (!lightNotified) {
+                NotificationManagerPhytopurifier
+                        .getInstance(context)
+                        .sendNotification(
+                                "Low light warning",
+                                "Light is not enough to promote Oxygen synthesis: " + light + " lux",
+                                "LIGHT_LOW"
+                        );
+                lightNotified = true;
+            }
+        } else {
+            lightNotified = false;
         }
 
         if (turbidity < 1.00) {
-            NotificationManagerPhytopurifier
-                    .getInstance(context)
-                    .sendNotification(
-                            "Low turbidity warning",
-                            "Algae solution is not clear. It may be dying.",
-                            "TURBIDITY_HIGH"
-                    );
+            if (!turbidityNotified) {
+                NotificationManagerPhytopurifier
+                        .getInstance(context)
+                        .sendNotification(
+                                "Low turbidity warning",
+                                "Algae solution is not clear. It may be dying.",
+                                "TURBIDITY_HIGH"
+                        );
+                turbidityNotified = true;
+            }
+        } else {
+            turbidityNotified = false;
         }
     }
 }
